@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { HoverBorderGradient } from "./noiseEffectButton";
 
 const CARDS = [
   {
@@ -111,13 +112,19 @@ export default function SolutionsSection() {
 
         {/* ── Bottom CTA ── */}
         <div className="flex justify-center">
-          <Link
-            href="/enquiry"
-            className="group relative overflow-hidden inline-block px-7 py-3.5 font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] text-white bg-[#21C6CF] border border-[#21C6CF] transition-shadow duration-300 hover:shadow-[0_6px_28px_rgba(33,198,207,0.45)]"
-          >
-            <span className="absolute inset-0 bg-[#0a8a91] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-[380ms] ease-[cubic-bezier(0.76,0,0.24,1)]" />
-            <span className="relative z-10 whitespace-nowrap">Enquire for Solutions →</span>
-          </Link>
+          <HoverBorderGradient
+            containerClassName="rounded-full"
+            as="button"
+            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+            >
+            <Link
+              href="/enquiry"
+              className="group relative overflow-hidden inline-block px-7 py-3.5 font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] text-white bg-black rounded-2xl transition-shadow duration-300 "
+            >
+
+              <span className="relative z-10 whitespace-nowrap">Enquire for Solutions →</span>
+            </Link>
+          </HoverBorderGradient>
         </div>
 
       </div>

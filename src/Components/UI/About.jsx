@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { NoiseBackground } from "./noiseEffectButton";
 
 const CARDS = [
   {
@@ -130,10 +131,10 @@ export default function AboutSection() {
       />
 
       {/* Top glow */}
-      <div className="absolute -top-[120px] left-1/2 -translate-x-1/2 w-[300px] sm:w-[500px] lg:w-[700px] h-[300px] sm:h-[350px] lg:h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.07)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute -top-30 left-1/2 -translate-x-1/2 w-[300px] sm:w-[500px] lg:w-[700px] h-[300px] sm:h-[350px] lg:h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.07)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Inner */}
-      <div className="relative z-[2] max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="relative z-2 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10 lg:mb-6">

@@ -1,4 +1,6 @@
 "use client";
+import Link from "next/link";
+import { HoverBorderGradient } from "./noiseEffectButton";
 
 const CTASection = () => {
     return (
@@ -45,30 +47,40 @@ const CTASection = () => {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-
-                    {/* Primary — For Biz */}
-                    <a
-                        href="#contact"
-                        className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#21C6CF] text-[#050505] font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] uppercase transition-shadow duration-300 hover:shadow-[0_0_24px_rgba(33,198,207,0.35)]"
+                    <HoverBorderGradient
+                        containerClassName="rounded-full"
+                        as="button"
+                        className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
                     >
-                        <span className="absolute inset-0 bg-[#0a2f33] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-[380ms] ease-[cubic-bezier(0.76,0,0.24,1)]" />
-                        <span className="relative z-[1]">For Business</span>
-                        <svg className="relative z-[1] transition-transform duration-300 group-hover:translate-x-0.5" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </a>
+                        <Link
+                            href="#contact"
+                            className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-black text-white font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] uppercase transition-shadow duration-300 hover:text-[#21C6CF]"
+                        >
+                            <span className="relative z-[1]">For Business</span>
+                            <svg className="relative z-[1] transition-transform duration-300 group-hover:translate-x-0.5" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </Link>
+                    </HoverBorderGradient>
+
 
                     {/* Secondary — For Learners */}
-                    <a
-                        href="#courses"
-                        className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent border border-[rgba(33,198,207,0.3)] text-[#21C6CF] font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] uppercase transition-all duration-300 hover:border-[#21C6CF] hover:shadow-[0_0_20px_rgba(33,198,207,0.12)]"
+                    <HoverBorderGradient
+                        containerClassName="rounded-full"
+                        as="button"
+                        className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
                     >
-                        <span className="absolute inset-0 bg-[rgba(33,198,207,0.08)] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-[380ms] ease-[cubic-bezier(0.76,0,0.24,1)]" />
-                        <span className="relative z-[1] group-hover:text-[#21C6CF]">For Learners</span>
-                        <svg className="relative z-[1] transition-transform duration-300 group-hover:translate-x-0.5" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </a>
+                        <Link
+                            href="#courses"
+                            className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-white font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] uppercase transition-all duration-300 hover:text-[#21C6CF]"
+                        >
+                            <span className="relative z-[1]">For Learners</span>
+                            <svg className="relative z-[1] transition-transform duration-300 group-hover:translate-x-0.5" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </Link>
+                    </HoverBorderGradient>
+
                 </div>
 
             </div>
