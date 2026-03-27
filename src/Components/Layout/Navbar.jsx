@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "Services", href: "Services" },
   { label: "Courses", href: "Courses" },
   { label: "Blog", href: "Blogs" },
+  { label: "Contact Us", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -69,11 +70,10 @@ export default function Navbar() {
 
         {/* ── Main bar ── */}
         <div
-          className={`relative transition-all duration-400 ease-in-out ${
-            scrolled
+          className={`relative transition-all duration-400 ease-in-out ${scrolled
               ? "bg-[rgba(4,10,28,0.88)] backdrop-blur-xl border-b border-[rgba(0,210,255,0.12)] shadow-[0_4px_40px_rgba(0,0,0,0.4)]"
               : "bg-transparent backdrop-blur-none border-b border-transparent"
-          }`}
+            }`}
         >
           {/* Scan line */}
           <div className="scan-line absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d2ff] to-transparent" />
@@ -82,11 +82,12 @@ export default function Navbar() {
             <div className="flex items-center justify-between h-16 lg:h-[70px]">
 
               {/* ── Logo ── */}
-              <Link href="/" className="flex items-center gap-2.5 group shrink-0">  
-                {/* Wordmark */}
-                <span className="font-['Syne',sans-serif] font-extrabold text-white text-[1.2rem] sm:text-[1.25rem] leading-none tracking-[-0.02em]">
-                  Data<span className="logo-highlight">genix</span>Ai
-                </span>
+              <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+                <img
+                  src="/Images/logo.png"
+                  alt="Datagenix AI Logo"
+                  className="h-8 sm:h-9 w-auto object-contain"
+                />
               </Link>
 
               {/* ── Desktop links ── */}
@@ -139,11 +140,10 @@ export default function Navbar() {
 
         {/* ── Mobile menu ── */}
         <div
-          className={`lg:hidden absolute w-full bg-[rgba(4,10,28,0.97)] backdrop-blur-[30px] border-b border-[rgba(0,210,255,0.06)] transition-all duration-300 ease-in-out ${
-            menuOpen
+          className={`lg:hidden absolute w-full bg-[rgba(4,10,28,0.97)] backdrop-blur-[30px] border-b border-[rgba(0,210,255,0.06)] transition-all duration-300 ease-in-out ${menuOpen
               ? "opacity-100 translate-y-0 pointer-events-auto"
               : "opacity-0 -translate-y-2 pointer-events-none"
-          }`}
+            }`}
         >
           <div className="max-w-7xl mx-auto px-5 sm:px-6 py-1">
 

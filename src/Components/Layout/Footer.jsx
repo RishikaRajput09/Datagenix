@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
@@ -92,12 +93,13 @@ export default function Footer() {
 
             {/* Logo */}
             <div className="flex items-center gap-2.5">
-              <span
-                className="text-white font-bold text-[1.15rem] tracking-[-0.01em]"
-                style={{ fontFamily: "'Syne',sans-serif" }}
-              >
-                DatagenixAi
-              </span>
+              <Image
+                src="/Images/logo.png"
+                alt="Datagenix AI Logo"
+                width={130}
+                height={40}
+                className="h-9 w-auto object-contain"
+              />
             </div>
 
             {/* Brand line */}
