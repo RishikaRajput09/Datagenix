@@ -211,19 +211,48 @@ function TheGap() {
               ),
             },
           ].map((card, i) => (
-            <div key={i} className="group relative rounded-xl border border-[rgba(33,198,207,0.08)] bg-[#0a0a0a] p-7 sm:p-8 overflow-hidden hover:border-[rgba(33,198,207,0.25)] transition-all duration-300">
-              {/* Top shimmer on hover */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(33,198,207,0.4)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div
+              key={i}
+              style={{
+                position: "relative",
+                borderRadius: "18px",
+                padding: "28px 28px 40px",
+                background: "rgba(10, 16, 35, 0.72)",
+                overflow: "hidden",
+                boxShadow: `
+                0 6px 24px -8px rgba(60,130,255,0.4),
+                0 10px 40px -12px rgba(40,100,255,0.2),
+                inset 0 0 0 1px rgba(80,140,255,0.18),
+                inset 0 1px 0 rgba(160,200,255,0.2),
+                inset 1px 0 0 rgba(120,170,255,0.1),
+                inset -1px 0 0 rgba(120,170,255,0.1)
+              `,
+              }}
+            >
+              {/* Subtle top shimmer */}
+              <div style={{ position: "absolute", top: 0, left: "20%", right: "20%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(100,160,255,0.4), transparent)" }} />
 
-              <div className="flex items-start gap-4 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-[rgba(33,198,207,0.08)] border border-[rgba(33,198,207,0.15)] flex items-center justify-center text-[#21C6CF] shrink-0">
-                  {card.icon}
+              {/* BOTTOM BLUE FLOOD — tight, bright, white-blue tint */}
+              <div style={{
+                position: "absolute",
+                bottom: 0, left: 0, right: 0,
+                height: "50px",
+                background: "linear-gradient(to top, rgba(180,210,255,0.55) 0%, rgba(80,140,255,0.38) 30%, rgba(40,90,220,0.15) 60%, transparent 100%)",
+                pointerEvents: "none"
+              }} />
+
+              {/* Content stays above glow */}
+              <div style={{ position: "relative", zIndex: 1 }}>
+                <div className="flex items-start gap-4 mb-5">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center text-[#21C6CF] shrink-0" style={{ background: "rgba(33,130,255,0.1)", border: "1px solid rgba(33,130,255,0.2)" }}>
+                    {card.icon}
+                  </div>
+                  <span className="text-[0.65rem] tracking-[0.2em] uppercase font-semibold mt-2.5" style={{ color: "rgba(120,170,255,0.4)", fontFamily: "'DM Sans',sans-serif" }}>{card.num}</span>
                 </div>
-                <span className="text-[rgba(33,198,207,0.4)] text-[0.65rem] tracking-[0.2em] uppercase font-semibold mt-2.5" style={{ fontFamily: "'DM Sans',sans-serif" }}>{card.num}</span>
+                <h3 className="text-white font-bold text-[1.05rem] sm:text-[1.15rem] leading-[1.4] mb-3" style={{ fontFamily: "'Syne',sans-serif" }}>{card.title}</h3>
+                <div className="w-7 h-0.5 rounded-full mb-3" style={{ background: "#21C6CF" }} />
+                <p className="text-[rgba(255,255,255,0.35)] text-[0.82rem] leading-[1.75]" style={{ fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}>{card.body}</p>
               </div>
-
-              <h3 className="text-white font-bold text-[1.05rem] sm:text-[1.15rem] leading-[1.4] mb-3" style={{ fontFamily: "'Syne',sans-serif" }}>{card.title}</h3>
-              <p className="text-[rgba(255,255,255,0.38)] text-[0.82rem] leading-[1.7]" style={{ fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}>{card.body}</p>
             </div>
           ))}
         </div>
