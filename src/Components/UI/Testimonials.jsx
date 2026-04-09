@@ -86,24 +86,24 @@ export default function TestimonialsSection() {
   return (
     <section
       ref={ref}
-      className="bg-[#050505] relative overflow-hidden py-12"
+      className="bg-transparent relative overflow-hidden py-12"
     >
       {/* Grid texture */}
-      <div
+      {/* <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
             "linear-gradient(rgba(33,198,207,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(33,198,207,0.03) 1px,transparent 1px)",
           backgroundSize: "60px 60px",
         }}
-      />
+      /> */}
       {/* Glow */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-75 pointer-events-none"
         style={{ background: "radial-gradient(ellipse,rgba(33,198,207,0.05) 0%,transparent 70%)" }}
       />
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="relative z-10 max-w-300 mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* Eyebrow */}
         <div
@@ -119,7 +119,7 @@ export default function TestimonialsSection() {
             className="inline-flex items-center gap-2 text-[#21C6CF] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase"
             style={{ fontFamily: "'DM Sans',sans-serif" }}
           >
-            <span className="w-[5px] h-[5px] rounded-full bg-[#21C6CF] inline-block shrink-0" style={{ boxShadow: "0 0 8px #21C6CF" }} />
+            <span className="w-1.25 h-1.25 rounded-full bg-[#21C6CF] inline-block shrink-0" style={{ boxShadow: "0 0 8px #21C6CF" }} />
             Client Testimonials
           </div>
         </div>
@@ -180,7 +180,7 @@ export default function TestimonialsSection() {
           >
             {/* Side card left — hidden on mobile */}
             <div
-              className="hidden lg:flex flex-col flex-1 max-w-[300px] rounded-xl border border-[rgba(33,198,207,0.06)] bg-[#0a0a0a] p-5 cursor-pointer"
+              className="hidden lg:flex flex-col flex-1 max-w-75 rounded-xl border border-[rgba(33,198,207,0.06)] bg-[#0a0a0a] p-5 cursor-pointer"
               style={{
                 opacity: 0.4,
                 transform: "scale(0.95)",
@@ -193,7 +193,7 @@ export default function TestimonialsSection() {
 
             {/* Active card */}
             <div
-              className="flex flex-col flex-shrink-0 w-full max-w-[520px] rounded-xl bg-[#0d0d0d] p-6 sm:p-8 cursor-grab active:cursor-grabbing"
+              className="flex flex-col shrink-0 w-full max-w-130 rounded-xl bg-[#0d0d0d] p-6 sm:p-8 cursor-grab active:cursor-grabbing"
               style={{
                 border: "1px solid rgba(33,198,207,0.22)",
                 boxShadow: "0 0 40px rgba(33,198,207,0.07), 0 8px 40px rgba(0,0,0,0.4)",
@@ -266,7 +266,7 @@ export default function TestimonialsSection() {
 
             {/* Side card right — hidden on mobile */}
             <div
-              className="hidden lg:flex flex-col flex-1 max-w-[300px] rounded-xl border border-[rgba(33,198,207,0.06)] bg-[#0a0a0a] p-5 cursor-pointer"
+              className="hidden lg:flex flex-col flex-1 max-w-75 rounded-xl border border-[rgba(33,198,207,0.06)] bg-[#0a0a0a] p-5 cursor-pointer"
               style={{
                 opacity: 0.4,
                 transform: "scale(0.95)",

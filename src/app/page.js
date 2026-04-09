@@ -12,6 +12,7 @@ import AwardsSection from "@/Components/UI/Awards";
 import CTASection from "@/Components/UI/CTAsection";
 import TestimonialsSection from "@/Components/UI/Testimonials";
 import ContactSection from "@/Components/UI/Contact";
+import { HexBackground } from "@/Components/UI/HexBackground";
 
 export default function RootLayout({children}) {
 
@@ -31,6 +32,7 @@ export default function RootLayout({children}) {
 
   return (
     <main className="bg-[#050505] text-white">
+      <HexBackground />
       <HeroSection />
       <AboutSection/>
       <WhyChooseUs/>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { HoverBorderGradient } from "./noiseEffectButton";
+import { useEffect, useRef } from "react";
 
 const CARDS = [
   {
@@ -25,109 +26,167 @@ const CARDS = [
 ];
 
 export default function SolutionsSection() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const animatables = section.querySelectorAll("[data-animate]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    animatables.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-[#050505] relative overflow-hidden py-4">
+    <>
+      <style>{`
+        [data-animate] {
+          opacity: 0;
+          transition-property: opacity, transform, filter;
+          transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+          will-change: opacity, transform;
+        }
+        [data-animate="fade-up"] {
+          transform: translateY(36px);
+          transition-duration: 0.85s;
+        }
+        [data-animate="card"] {
+          transform: translateY(48px) scale(0.97);
+          filter: blur(4px);
+          transition-duration: 0.9s;
+        }
+        [data-animate].in-view {
+          opacity: 1;
+          transform: none;
+          filter: none;
+        }
+        [data-delay="1"] { transition-delay: 0.1s; }
+        [data-delay="2"] { transition-delay: 0.2s; }
+        [data-delay="3"] { transition-delay: 0.35s; }
+        [data-delay="4"] { transition-delay: 0.5s; }
+        [data-delay="5"] { transition-delay: 0.65s; }
+        [data-delay="6"] { transition-delay: 0.8s; }
+        [data-delay="7"] { transition-delay: 0.95s; }
 
-      {/* Grid bg */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(33,198,207,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(33,198,207,0.03) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+        .card-img {
+          transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .group:hover .card-img {
+          transform: scale(1.06);
+        }
+      `}</style>
 
-      {/* Ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.05)_0%,transparent_70%)] pointer-events-none" />
+      <section ref={sectionRef} className="bg-transparent relative overflow-hidden py-4">
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
+        {/* Ambient glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-75 bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.05)_0%,transparent_70%)]" />
 
-        {/* ── Header ── */}
-        <div className="mb-10 sm:mb-12">
+        <div className="relative z-2 max-w-300 mx-auto px-4 sm:px-6 lg:px-10">
 
-          {/* Eyebrow */}
-          <div className="text-center">
+          {/* ── Header ── */}
+          <div className="mb-10 sm:mb-12">
+            <div className="text-center">
 
-            <div className="inline-flex items-center gap-2 font-['DM_Sans'] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#21C6CF] mb-3 mx-auto w-fit">
-              <span className="w-[5px] h-[5px] rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF]" />
-              What We Do
+              <div
+                data-animate="fade-up"
+                data-delay="1"
+                className="inline-flex items-center gap-2 font-['DM_Sans'] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#21C6CF] mb-3 mx-auto w-fit"
+              >
+                <span className="w-1.25 h-1.25 rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF]" />
+                What We Do
+              </div>
+
+              <h2
+                data-animate="fade-up"
+                data-delay="2"
+                className="font-['Syne'] text-[1.8rem] sm:text-[2.4rem] lg:text-[3rem] font-bold text-white leading-[1.1] tracking-[-0.02em] max-w-2xl mx-auto mb-4"
+              >
+                We Bridge the Gap Between{" "}
+                <span className="text-[#21C6CF]">AI Innovation</span> and Real-World Impact
+              </h2>
+
             </div>
-
-            <h2 className="font-['Syne'] text-[1.8rem] sm:text-[2.4rem] lg:text-[3rem] font-bold text-white leading-[1.1] tracking-[-0.02em] max-w-2xl mx-auto mb-4">
-              We Bridge the Gap Between{" "}
-              <span className="text-[#21C6CF]">AI Innovation</span> and Real-World Impact
-            </h2>
-
           </div>
-        </div>
 
-        {/* ── Cards ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-8 sm:mb-10">
-          {CARDS.map((card, i) => (
-            <div
-              key={i}
-              className="group flex flex-col bg-[#0d0d0d] border border-[rgba(33,198,207,0.08)] rounded-2xl overflow-hidden hover:border-[rgba(33,198,207,0.22)] transition-all duration-300 hover:-translate-y-1"
-            >
-              {/* Image area */}
-              <div className="relative h-[240px] sm:h-[280px] lg:h-[300px] overflow-hidden bg-[#0a1a1c]">
-                <img
-                  src={card.image}
-                  alt={card.heading}
-                  className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
-                />
-                {/* Gradient fade into card body */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/20 to-transparent" />
+          {/* ── Cards ── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-8 sm:mb-10">
+            {CARDS.map((card, i) => (
+              <div
+                key={i}
+                data-animate="card"
+                data-delay={String(i + 3)}
+                className="group flex flex-col bg-[#0d0d0d] border border-[rgba(33,198,207,0.08)] rounded-2xl overflow-hidden hover:border-[rgba(33,198,207,0.22)] transition-[border-color,box-shadow,translate] duration-300 hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(33,198,207,0.07)]"
+              >
+                {/* Image area */}
+                <div className="relative h-60 sm:h-70 lg:h-75 overflow-hidden bg-[#0a1a1c]">
+                  <img
+                    src={card.image}
+                    alt={card.heading}
+                    className="card-img w-full h-full object-cover opacity-90"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#0d0d0d] via-[#0d0d0d]/20 to-transparent" />
+                  <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[rgba(33,198,207,0.5)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
 
-                {/* Top shimmer on hover */}
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(33,198,207,0.5)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Card body */}
+                <div className="flex flex-col flex-1 p-6 sm:p-7 lg:p-8">
+                  <div className="w-8 h-px bg-[rgba(33,198,207,0.3)] mb-4" />
+
+                  <h3 className="font-['Syne',sans-serif] text-[1rem] sm:text-[1.05rem] font-bold text-white leading-snug mb-3">
+                    {card.heading}
+                  </h3>
+
+                  <p className="font-['DM_Sans',sans-serif] text-[0.82rem] leading-[1.7] text-[rgba(255,255,255,0.4)] flex-1 mb-6">
+                    {card.body}
+                  </p>
+
+                  <Link
+                    href={card.href}
+                    className="inline-flex items-center gap-2 font-['DM_Sans',sans-serif] text-[0.8rem] font-semibold text-[rgba(33,198,207,0.7)] hover:text-[#21C6CF] transition-colors duration-200 group/link"
+                  >
+                    Read More
+                    <span className="inline-block transition-transform duration-200 group-hover/link:translate-x-1">→</span>
+                  </Link>
+                </div>
               </div>
+            ))}
+          </div>
 
-              {/* Card body */}
-              <div className="flex flex-col flex-1 p-6 sm:p-7 lg:p-8">
-
-                {/* Divider */}
-                <div className="w-8 h-px bg-[rgba(33,198,207,0.3)] mb-4" />
-
-                <h3 className="font-['Syne',sans-serif] text-[1rem] sm:text-[1.05rem] font-bold text-white leading-snug mb-3">
-                  {card.heading}
-                </h3>
-
-                <p className="font-['DM_Sans',sans-serif] text-[0.82rem] leading-[1.7] text-[rgba(255,255,255,0.4)] flex-1 mb-6">
-                  {card.body}
-                </p>
-
-                {/* Read More link */}
-                <Link
-                  href={card.href}
-                  className="inline-flex items-center gap-2 font-['DM_Sans',sans-serif] text-[0.8rem] font-semibold text-[rgba(33,198,207,0.7)] hover:text-[#21C6CF] transition-colors duration-200 group/link"
-                >
-                  Read More
-                  <span className="inline-block transition-transform duration-200 group-hover/link:translate-x-1">→</span>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* ── Bottom CTA ── */}
-        <div className="flex justify-center">
-          <HoverBorderGradient
-            containerClassName="rounded-full"
-            as="button"
-            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+          {/* ── Bottom CTA ── */}
+          <div
+            data-animate="fade-up"
+            data-delay="7"
+            className="flex justify-center"
+          >
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="button"
+              className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
             >
-            <Link
-              href="/enquiry"
-              className="group relative overflow-hidden inline-block px-7 py-3.5 font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] text-white bg-black rounded-2xl transition-shadow duration-300 "
-            >
+              <Link
+                href="/enquiry"
+                className="group relative overflow-hidden inline-block px-7 py-3.5 font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] text-white bg-black rounded-2xl transition-shadow duration-300"
+              >
+                <span className="relative z-2 whitespace-nowrap">Enquire for Solutions →</span>
+              </Link>
+            </HoverBorderGradient>
+          </div>
 
-              <span className="relative z-10 whitespace-nowrap">Enquire for Solutions →</span>
-            </Link>
-          </HoverBorderGradient>
         </div>
-
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

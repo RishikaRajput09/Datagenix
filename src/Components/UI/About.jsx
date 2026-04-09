@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { NoiseBackground } from "./noiseEffectButton";
+import { useState, useEffect, useRef } from "react";
 
 const CARDS = [
   {
@@ -43,26 +42,30 @@ function Card({ card }) {
   const [hovered, setHovered] = useState(false);
 
   return (
+
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={`
-        bg-[#0a0a0a] rounded-2xl p-6 sm:p-7 lg:p-9 lg:pb-7 flex flex-col relative overflow-hidden cursor-default
-        transition-all duration-300 ease-in-out
-        ${hovered
+    bg-[#0a0a0a] rounded-2xl p-6 sm:p-7 lg:p-9 lg:pb-7 flex flex-col relative overflow-hidden cursor-default
+    transition-all duration-900 ease-out
+
+
+    ${hovered
           ? "border border-[rgba(33,198,207,0.28)] -translate-y-1.5"
           : "border border-[rgba(33,198,207,0.1)] translate-y-0"
         }
-      `}
+        
+  `}
     >
       {/* Top shimmer line */}
       <div
-        className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(33,198,207,0.5)] to-transparent transition-opacity duration-300 ${hovered ? "opacity-100" : "opacity-0"}`}
+        className={`absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[rgba(33,198,207,0.5)] to-transparent transition-opacity duration-300 ${hovered ? "opacity-100" : "opacity-0"}`}
       />
 
       {/* Corner glow */}
       <div
-        className={`absolute -top-[60px] -left-[60px] w-[180px] h-[180px] rounded-full bg-[radial-gradient(circle,rgba(33,198,207,0.07)_0%,transparent_70%)] pointer-events-none transition-opacity duration-300 ${hovered ? "opacity-100" : "opacity-0"}`}
+        className={`absolute -top-15 -left-15 w-45 h-45 rounded-full bg-[radial-gradient(circle,rgba(33,198,207,0.07)_0%,transparent_70%)] pointer-events-none transition-opacity duration-300 ${hovered ? "opacity-100" : "opacity-0"}`}
       />
 
       {/* Symbol */}
@@ -100,14 +103,14 @@ function Card({ card }) {
             key={j}
             className="flex items-start gap-2 sm:gap-2.5 font-['DM_Sans',sans-serif] text-[0.75rem] sm:text-[0.8rem] leading-[1.6] text-[rgba(255,255,255,0.38)]"
           >
-            <span className="w-1 h-1 rounded-full bg-[#21C6CF] shrink-0 mt-[6px] sm:mt-[7px] shadow-[0_0_5px_rgba(33,198,207,0.6)] inline-block" />
+            <span className="w-1 h-1 rounded-full bg-[#21C6CF] shrink-0 mt-1.5 sm:mt-1.75 shadow-[0_0_5px_rgba(33,198,207,0.6)] inline-block" />
             {pt}
           </li>
         ))}
       </ul>
 
       {/* Footer */}
-      <div className="border-t border-[rgba(255,255,255,0.05)] pt-4 sm:pt-[18px] font-['DM_Sans',sans-serif] text-[0.72rem] sm:text-[0.78rem] italic text-[rgba(33,198,207,0.6)] leading-[1.5]">
+      <div className="border-t border-[rgba(255,255,255,0.05)] pt-4 sm:pt-4.5 font-['DM_Sans',sans-serif] text-[0.72rem] sm:text-[0.78rem] italic text-[rgba(33,198,207,0.6)] leading-normal">
         {card.footer}
       </div>
     </div>
@@ -115,39 +118,53 @@ function Card({ card }) {
 }
 
 export default function AboutSection() {
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <section
+      ref={sectionRef}
       id="about"
-      className="bg-[#050505] relative overflow-hidden py-10 sm:py-14 lg:py-[30px]"
+      className="bg-transparent relative overflow-hidden py-10 sm:py-14 lg:py-7.5"
     >
-      {/* Grid background */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(33,198,207,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(33,198,207,0.04) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+
 
       {/* Top glow */}
-      <div className="absolute -top-30 left-1/2 -translate-x-1/2 w-[300px] sm:w-[500px] lg:w-[700px] h-[300px] sm:h-[350px] lg:h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.07)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute -top-30 left-1/2 -translate-x-1/2 w-75 sm:w-125 lg:w-175 h-75 sm:h-87.5 lg:h-100 bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.07)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Inner */}
-      <div className="relative z-2 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="relative z-2 max-w-300 mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-10 lg:mb-6">
+        <div
+          className="text-center mb-8 sm:mb-10 lg:mb-6
+    transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        >
 
           {/* Eyebrow */}
           <div className="text-center">
 
             <div className="inline-flex items-center gap-2 font-['DM_Sans',sans-serif] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#21C6CF] mb-4 sm:mb-5 mx-auto w-fit">
-              <span className="w-[5px] h-[5px] rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF] inline-block shrink-0" />
+              <span className="w-1.25 h-1.25 rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF] inline-block shrink-0" />
               About DatagenixAi
             </div>
 
-            <h2 className="font-['Syne',sans-serif] text-[1.7rem] sm:text-[2.2rem] lg:text-[clamp(2rem,3.2vw,3.2rem)] font-bold text-white leading-[1.2] tracking-[-0.02em] max-w-[90%] sm:max-w-[600px] lg:max-w-[720px] mx-auto">
+            <h2 className="font-['Syne',sans-serif] text-[1.7rem] sm:text-[2.2rem] lg:text-[clamp(2rem,3.2vw,3.2rem)] font-bold text-white leading-[1.2] tracking-[-0.02em] max-w-[90%] sm:max-w-150 lg:max-w-180 mx-auto">
               Building the Future with{" "}
               <span className="text-[#21C6CF]">Intelligent Data</span> & AI
             </h2>
@@ -158,7 +175,16 @@ export default function AboutSection() {
         {/* Cards — 1 col mobile, 2 col tablet, 3 col desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {CARDS.map((card, i) => (
-            <Card key={i} card={card} />
+            <div
+              key={i}
+              className={`
+      transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+      ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+    `}
+              style={{ transitionDelay: `${i * 150}ms` }}
+            >
+              <Card card={card} />
+            </div>
           ))}
         </div>
 

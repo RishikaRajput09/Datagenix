@@ -106,34 +106,34 @@ export default function AwardsSection() {
     return (
         <section
             id="awards"
-            className="bg-[#050505] relative overflow-hidden py-8"
+            className="bg-transparent relative overflow-hidden py-8"
         >
             {/* Grid background */}
-            <div
+            {/* <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                     backgroundImage:
                         "linear-gradient(rgba(33,198,207,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(33,198,207,0.04) 1px, transparent 1px)",
                     backgroundSize: "60px 60px",
                 }}
-            />
+            /> */}
             {/* Ambient glow — left side */}
-            <div className="absolute top-1/2 -translate-y-1/2 -left-[100px] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(33,198,207,0.06)_0%,transparent_70%)] pointer-events-none" />
+            <div className="absolute top-1/2 -translate-y-1/2 -left-25 w-100 h-100 bg-[radial-gradient(circle,rgba(33,198,207,0.06)_0%,transparent_70%)] pointer-events-none" />
 
             {/* ── Header ── */}
-            <div className="relative z-[2] text-center mb-8 px-4">
+            <div className="relative z-2 text-center mb-8 px-4">
                 <div className="inline-flex items-center gap-2 font-['DM_Sans',sans-serif] text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[#21C6CF] mb-4">
-                    <span className="w-[5px] h-[5px] rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF] inline-block shrink-0" />
+                    <span className="w-1.25 h-1.25 rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF] inline-block shrink-0" />
                     Awards and Recognition
                 </div>
 
-                <h2 className="font-['Syne',sans-serif] text-[clamp(1.9rem,3.2vw,3rem)] font-bold text-white leading-[1.2] tracking-[-0.02em] max-w-[640px] mx-auto m-0">
+                <h2 className="font-['Syne',sans-serif] text-[clamp(1.9rem,3.2vw,3rem)] font-bold text-white leading-[1.2] tracking-[-0.02em] max-w-160 mx-auto m-0">
                     Awards and <span className="text-[#21C6CF]">Media Coverage</span>
                 </h2>
             </div>
 
             {/* ── Two-column split ── */}
-            <div className="relative z-[2] flex flex-col lg:flex-row gap-0">
+            <div className="relative z-2 flex flex-col lg:flex-row gap-0">
 
                 {/* ── LEFT: Content panel ── */}
                 <div className="flex flex-col justify-between w-full lg:w-[48%] px-6 sm:px-10 lg:px-16 pt-6 pb-10 lg:pb-12">
@@ -168,7 +168,7 @@ export default function AwardsSection() {
                         </div>
 
                         {/* Heading */}
-                        <h2 className="font-['Syne',sans-serif] text-[1.45rem] sm:text-[1.7rem] lg:text-[1.9rem] font-bold text-white leading-[1.25] tracking-[-0.02em] mb-5">
+                        <h2 className="font-['Syne',sans-serif] text-[1.45rem] sm:text-[1.7rem] lg:text-[1.9rem] font-bold text-white leading-tight tracking-[-0.02em] mb-5">
                             {award.heading}
                         </h2>
 
@@ -181,7 +181,7 @@ export default function AwardsSection() {
 
                         {/* Body */}
                         <p
-                            className="font-['DM_Sans',sans-serif] text-[0.875rem] sm:text-[0.95rem] leading-7 sm:leading-8 text-[rgba(255,255,255,0.45)] mb-7 max-w-[500px]"
+                            className="font-['DM_Sans',sans-serif] text-[0.875rem] sm:text-[0.95rem] leading-7 sm:leading-8 text-[rgba(255,255,255,0.45)] mb-7 max-w-125"
                             style={{ fontStyle: "italic" }}
                         >
                             {award.body}
@@ -189,7 +189,7 @@ export default function AwardsSection() {
 
                         {/* Footer attribution */}
                         <div className="border-t border-[rgba(255,255,255,0.05)] pt-5">
-                            <p className="font-['DM_Sans',sans-serif] text-[0.78rem] sm:text-[0.82rem] italic text-[rgba(33,198,207,0.6)] leading-[1.5]">
+                            <p className="font-['DM_Sans',sans-serif] text-[0.78rem] sm:text-[0.82rem] italic text-[rgba(33,198,207,0.6)] leading-normal">
                                 {award.footer}
                             </p>
                         </div>
@@ -223,8 +223,8 @@ export default function AwardsSection() {
                                     key={i}
                                     onClick={() => goTo(i, i > current ? "next" : "prev")}
                                     className={`rounded-full transition-all duration-300 ${i === current
-                                        ? "w-5 h-[4px] bg-[#21C6CF] shadow-[0_0_8px_rgba(33,198,207,0.7)]"
-                                        : "w-[4px] h-[4px] bg-[rgba(33,198,207,0.2)] hover:bg-[rgba(33,198,207,0.45)]"
+                                        ? "w-5 h-1 bg-[#21C6CF] shadow-[0_0_8px_rgba(33,198,207,0.7)]"
+                                        : "w-1 h-1 bg-[rgba(33,198,207,0.2)] hover:bg-[rgba(33,198,207,0.45)]"
                                         }`}
                                     aria-label={`Go to slide ${i + 1}`}
                                 />
@@ -238,7 +238,7 @@ export default function AwardsSection() {
                 </div>
 
                 {/* ── RIGHT: Image panel ── */}
-                <div className="relative w-full lg:w-[52%] h-64 sm:h-80 lg:h-auto min-h-[420px] overflow-hidden">
+                <div className="relative w-full lg:w-[52%] h-64 sm:h-80 lg:h-auto min-h-105 overflow-hidden">
                     <div
                         className="absolute inset-0"
                         style={{
@@ -268,9 +268,9 @@ export default function AwardsSection() {
                         )}
                     </div>
 
-                    <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none hidden lg:block" />
+                    <div className="absolute inset-y-0 left-0 w-16 bg-linear-to-r from-[#050505] to-transparent pointer-events-none hidden lg:block" />
 
-                    <div className="absolute bottom-0 left-0 right-0 px-6 py-4 bg-gradient-to-t from-[rgba(5,5,5,0.85)] to-transparent">
+                    <div className="absolute bottom-0 left-0 right-0 px-6 py-4 bg-linear-to-t from-[rgba(5,5,5,0.85)] to-transparent">
                         <span className="font-['DM_Sans',sans-serif] text-[0.58rem] font-medium tracking-[0.18em] uppercase text-[rgba(33,198,207,0.55)]">
                             {award.imageLabel}
                         </span>

@@ -1,5 +1,7 @@
 "use client";
 
+import { HexBackground } from "./HexBackground";
+
 export default function HeroSection() {
   return (
     <section
@@ -11,34 +13,27 @@ export default function HeroSection() {
       }}
     >
       {/* Layered overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/20 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-br from-black/20 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
 
       {/* Ambient glow accents */}
-      <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-20 blur-[120px] pointer-events-none bg-[radial-gradient(circle,#6633FF_0%,transparent_70%)]" />
-      <div className="absolute right-0 bottom-0 w-[400px] h-[400px] rounded-full opacity-10 blur-[100px] pointer-events-none bg-[radial-gradient(circle,#21C6CF_0%,transparent_70%)]" />
+      <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-150 h-150 rounded-full opacity-20 blur-[120px] pointer-events-none bg-[radial-gradient(circle,#6633FF_0%,transparent_70%)]" />
+      <div className="absolute right-0 bottom-0 w-100 h-100 rounded-full opacity-10 blur-[100px] pointer-events-none bg-[radial-gradient(circle,#21C6CF_0%,transparent_70%)]" />
 
       {/* Grid texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+      {/* <HexBackground /> */}
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full flex items-center">
         <div
-          className="w-full max-w-[540px] sm:max-w-[600px] lg:max-w-xl"
+          className="w-full max-w-135 sm:max-w-150 lg:max-w-xl"
           style={{ animation: "heroFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) both" }}
         >
 
           {/* Eyebrow badge */}
           <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm font-['DM_Sans',sans-serif] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-white/60">
             <span
-              className="w-[5px] h-[5px] rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF] inline-block shrink-0"
+              className="w-1.25 h-1.25 rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF] inline-block shrink-0"
               style={{ animation: "pulse 2s infinite" }}
             />
             AI-Powered Solutions
@@ -79,14 +74,14 @@ export default function HeroSection() {
           <div className="mt-7 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
 
             {/* Primary CTA */}
-            <button className="group relative overflow-hidden inline-block px-5 sm:px-[30px] py-3 sm:py-[13px] font-['DM_Sans',sans-serif] text-[0.75rem] sm:text-[0.82rem] font-semibold tracking-[0.06em] text-white bg-[#6633FF] border border-[#6633FF] cursor-pointer transition-shadow duration-300 hover:shadow-[0_6px_28px_rgba(102,51,255,0.55)]">
-              <span className="absolute inset-0 bg-[#1a0066] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-[380ms] ease-[cubic-bezier(0.76,0,0.24,1)]" />
+            <button className="group relative overflow-hidden inline-block px-5 sm:px-7.5 py-3 sm:py-3.25 font-['DM_Sans',sans-serif] text-[0.75rem] sm:text-[0.82rem] font-semibold tracking-[0.06em] text-white bg-[#6633FF] border border-[#6633FF] cursor-pointer transition-shadow duration-300 hover:shadow-[0_6px_28px_rgba(102,51,255,0.55)]">
+              <span className="absolute inset-0 bg-[#1a0066] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-380 ease-[cubic-bezier(0.76,0,0.24,1)]" />
               <span className="relative z-10 whitespace-nowrap">Book Free AI Consultation</span>
             </button>
 
             {/* Ghost CTA */}
-            <button className="group relative overflow-hidden inline-block px-5 sm:px-[30px] py-3 sm:py-[13px] font-['DM_Sans',sans-serif] text-[0.75rem] sm:text-[0.82rem] font-semibold tracking-[0.06em] text-[rgba(255,255,255,0.75)] bg-transparent border border-[rgba(255,255,255,0.28)] cursor-pointer transition-all duration-300 hover:text-[#21C6CF] hover:border-[rgba(33,198,207,0.6)] hover:shadow-[0_0_20px_rgba(33,198,207,0.18)]">
-              <span className="absolute inset-0 bg-[rgba(33,198,207,0.08)] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-[380ms] ease-[cubic-bezier(0.76,0,0.24,1)]" />
+            <button className="group relative overflow-hidden inline-block px-5 sm:px-7.5 py-3 sm:py-3.25 font-['DM_Sans',sans-serif] text-[0.75rem] sm:text-[0.82rem] font-semibold tracking-[0.06em] text-[rgba(255,255,255,0.75)] bg-transparent border border-[rgba(255,255,255,0.28)] cursor-pointer transition-all duration-300 hover:text-[#21C6CF] hover:border-[rgba(33,198,207,0.6)] hover:shadow-[0_0_20px_rgba(33,198,207,0.18)]">
+              <span className="absolute inset-0 bg-[rgba(33,198,207,0.08)] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-380 ease-[cubic-bezier(0.76,0,0.24,1)]" />
               <span className="relative z-10 whitespace-nowrap">Start Learning AI</span>
             </button>
 

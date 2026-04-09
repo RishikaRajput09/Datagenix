@@ -108,15 +108,15 @@ export default function ContactSection() {
   return (
     <section 
     id = "contact"
-    style={{ background: "#050505", position: "relative", overflow: "hidden", padding: "80px 0" }}
+    style={{ background: "none", position: "relative", overflow: "hidden", padding: "80px 0" }}
     >
 
       {/* Grid texture */}
-      <div style={{
+      {/* <div style={{
         position: "absolute", inset: 0, pointerEvents: "none",
         backgroundImage: "linear-gradient(rgba(33,198,207,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(33,198,207,0.03) 1px,transparent 1px)",
         backgroundSize: "60px 60px",
-      }} />
+      }} /> */}
 
       {/* Top glow */}
       <div style={{
