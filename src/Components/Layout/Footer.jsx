@@ -62,7 +62,7 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#030303] relative overflow-hidden">
+    <footer className="bg-[#050505] relative overflow-hidden">
 
       {/* Grid texture */}
       <div

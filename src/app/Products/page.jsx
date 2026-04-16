@@ -1,5 +1,6 @@
 "use client";
 
+import { HexBackground } from "@/Components/UI/HexBackground";
 import { useState, useRef, useEffect, useCallback } from "react";
 
 const PRODUCTS = [
@@ -648,15 +649,9 @@ export default function ProductsPage() {
         }
       `}</style>
 
-      <main style={{ background: "#050505", minHeight: "100vh", position: "relative", overflowX: "hidden" }}>
+      <main className="bg-linear-to-r from-[#140c30] via-[#153D4C] to-[#16A085]" style={{minHeight: "100vh", position: "relative", overflowX: "hidden" }}>
 
-        {/* ── Global teal grid — exact match to WhyChooseUs ── */}
-        <div style={{
-          position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0,
-          backgroundImage: "linear-gradient(rgba(33,198,207,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(33,198,207,0.03) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }} />
-
+        <HexBackground />
         {/* ── Page header ── */}
         <header style={{ position: "relative", zIndex: 1, maxWidth: "1200px", margin: "0 auto", padding: "clamp(60px,10vw,100px) clamp(20px,4vw,60px) clamp(4px,1.5vw,8px)" }}>
 

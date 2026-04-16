@@ -116,7 +116,7 @@ export default function ESGSection() {
         .esg-stat-item:hover { border-color: rgba(13,155,163,0.35) !important; background: rgba(255,255,255,0.95) !important; box-shadow: 0 4px 20px rgba(13,155,163,0.08) !important; }
       `}</style>
 
-      <section ref={sectionRef} className="bg-[#f5f2ee] relative overflow-hidden py-8">
+      <section ref={sectionRef} id="esg-section" className="bg-[#f5f2ee] relative w-[97%] rounded-2xl mx-auto overflow-hidden py-8">
 
         {/* Hex background */}
         <HexBackgroundLight />

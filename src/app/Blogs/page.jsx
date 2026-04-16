@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { HexBackground } from "@/Components/UI/HexBackground";
 
 function useReveal(delay = 0) {
   const ref = useRef(null);
@@ -23,12 +24,6 @@ function useReveal(delay = 0) {
     },
   };
 }
-
-const GRID_BG = {
-  backgroundImage:
-    "linear-gradient(rgba(33,198,207,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(33,198,207,0.03) 1px,transparent 1px)",
-  backgroundSize: "60px 60px",
-};
 
 const CATEGORIES = ["All", "AI & Tech", "IoT", "Smart Cities", "Education", "Industry"];
 
@@ -177,7 +172,6 @@ function FeaturedCard({ blog }) {
           {/* Image placeholder */}
           <div className="lg:w-[48%] min-h-[240px] sm:min-h-[280px] bg-[#0d0d0d] relative overflow-hidden flex items-center justify-center border-b lg:border-b-0 lg:border-r border-[rgba(33,198,207,0.08)]">
             <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center,rgba(33,198,207,0.06) 0%,transparent 70%)" }} />
-            <div className="absolute inset-0 pointer-events-none" style={GRID_BG} />
             <div className="relative z-10 flex flex-col items-center gap-3">
               <div className="w-16 h-16 rounded-2xl bg-[rgba(33,198,207,0.08)] border border-[rgba(33,198,207,0.15)] flex items-center justify-center">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#21C6CF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7 opacity-60">
@@ -230,7 +224,6 @@ function BlogCard({ blog, delay = 0 }) {
 
         {/* Image placeholder */}
         <div className="h-[160px] bg-[#0d0d0d] relative overflow-hidden flex items-center justify-center flex-shrink-0">
-          <div className="absolute inset-0 pointer-events-none" style={GRID_BG} />
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center,rgba(33,198,207,0.04) 0%,transparent 70%)" }} />
           <div className="relative z-10 w-12 h-12 rounded-xl bg-[rgba(33,198,207,0.07)] border border-[rgba(33,198,207,0.12)] flex items-center justify-center">
             <svg viewBox="0 0 24 24" fill="none" stroke="#21C6CF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 opacity-50">
@@ -278,8 +271,7 @@ function Hero() {
   });
 
   return (
-    <section className="bg-[#050505] relative overflow-hidden pt-26 pb-12">
-      <div className="absolute inset-0 pointer-events-none" style={GRID_BG} />
+    <section className="bg-none relative overflow-hidden pt-26 pb-12">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none" style={{ background: "radial-gradient(ellipse,rgba(33,198,207,0.06) 0%,transparent 70%)" }} />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(33,198,207,0.3)] to-transparent" />
 
@@ -334,11 +326,11 @@ export default function BlogPage() {
   const filterR = useReveal(0);
 
   return (
-    <main className="bg-[#050505] min-h-screen">
+    <main className="bg-linear-to-r from-[#140c30] via-[#153D4C] to-[#16A085] min-h-screen">
+      <HexBackground />
       <Hero />
 
-      <div className="relative bg-[#050505]">
-        <div className="absolute inset-0 pointer-events-none" style={GRID_BG} />
+      <div className="relative bg-none">
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
 
@@ -395,7 +387,7 @@ export default function BlogPage() {
 
           {/* ── Load More ── */}
           {!showAll && filtered.length > 5 && (
-            <div ref={loadMoreRef} className="flex flex-col items-center gap-4 mt-14">
+            <div ref={loadMoreRef} className="flex flex-col items-center gap-4 mt-14 pb-12">
               {/* Progress indicator */}
               <div className="flex items-center gap-3 mb-1">
                 <div className="h-px w-20 bg-gradient-to-r from-transparent to-[rgba(33,198,207,0.3)]" />
@@ -460,38 +452,6 @@ export default function BlogPage() {
         </div>
       </div>
 
-      {/* ── Newsletter strip ── */}
-      <div className="bg-[#050505] relative border-t border-[rgba(33,198,207,0.08)]">
-        <div className="absolute inset-0 pointer-events-none" style={GRID_BG} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] pointer-events-none" style={{ background: "radial-gradient(ellipse,rgba(33,198,207,0.04) 0%,transparent 70%)" }} />
-
-        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10 py-14 sm:py-16">
-          <div className="max-w-[600px] mx-auto text-center">
-            <div className="inline-flex items-center gap-2 text-[#21C6CF] text-[0.62rem] tracking-[0.18em] uppercase mb-4" style={{ fontFamily: "'DM Sans',sans-serif" }}>
-              <span className="w-[5px] h-[5px] rounded-full bg-[#21C6CF] inline-block" style={{ boxShadow: "0 0 8px #21C6CF" }} />
-              Stay Updated
-            </div>
-            <h3 className="text-white font-bold text-[1.5rem] sm:text-[1.9rem] tracking-[-0.02em] leading-[1.2] mb-3" style={{ fontFamily: "'Syne',sans-serif" }}>
-              Get AI Insights Delivered to Your Inbox
-            </h3>
-            <p className="text-[rgba(255,255,255,0.35)] text-[0.85rem] leading-[1.75] mb-7" style={{ fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}>
-              No spam. Just practical AI insights, industry case studies, and innovation updates from our team.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-2.5 max-w-[440px] mx-auto">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-1 px-4 py-3 rounded-xl bg-[#0a0a0a] border border-[rgba(33,198,207,0.15)] text-white text-[0.83rem] placeholder-[rgba(255,255,255,0.2)] outline-none focus:border-[rgba(33,198,207,0.4)] transition-colors duration-200"
-                style={{ fontFamily: "'DM Sans',sans-serif" }}
-              />
-              <button className="group relative overflow-hidden px-6 py-3 bg-[#21C6CF] text-[#050505] text-[0.8rem] font-semibold tracking-wide rounded-xl hover:shadow-[0_0_20px_rgba(33,198,207,0.3)] transition-shadow duration-300 shrink-0" style={{ fontFamily: "'DM Sans',sans-serif" }}>
-                <span className="absolute inset-0 bg-[#0a2f33] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-[380ms] rounded-xl" />
-                <span className="relative z-[1]">Subscribe</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </main>
   );
 }  

@@ -100,7 +100,7 @@ export default function ImpactSection() {
         [data-delay="6"] { transition-delay: 0.65s; }
       `}</style>
 
-      <section ref={sectionRef} className="bg-transparent relative overflow-hidden py-4 lg:py-7.5">
+      <section ref={sectionRef} id="impact-section" className="bg-transparent relative overflow-hidden py-4 lg:py-7.5">
 
         {/* Ambient glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.05)_0%,transparent_70%)] pointer-events-none" />

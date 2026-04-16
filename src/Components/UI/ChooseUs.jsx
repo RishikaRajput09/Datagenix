@@ -3,27 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { HexBackgroundLight } from "./HexBackgroundLight";
 
-const FEATURES = [
-  {
-    symbol: "◈",
-    heading: "Businesses & Industries",
-    points: [
-      "Limited integration between hardware, IoT, software, and AI",
-      "Lack of practical AI implementation expertise",
-      "Fragmented technology solutions",
-      "Inefficient operations and manual workflows",
-    ],
-  },
-  {
-    symbol: "⬡",
-    heading: "Professionals",
-    points: [
-      "Learning AI theoretically without real applications",
-      "Lack of mentorship and industry exposure",
-    ],
-  },
-];
-
 const STATS = [
   {
     value: "500+",
@@ -43,8 +22,10 @@ function useReveal(threshold = 0.08) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold }
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold },
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
@@ -58,7 +39,10 @@ function useCountUp(target, visible, duration = 1400) {
   useEffect(() => {
     if (!visible) return;
     const isNum = /^[\d.]+/.test(target);
-    if (!isNum) { setDisplay(target); return; }
+    if (!isNum) {
+      setDisplay(target);
+      return;
+    }
     const num = parseFloat(target);
     const suffix = target.replace(/[\d.]/g, "");
     const start = performance.now();
@@ -77,7 +61,9 @@ function StatCard({ stat, visible, delay }) {
   const count = useCountUp(stat.value, visible);
   return (
     <div
-      className="p-4 sm:p-5 rounded-xl border border-[rgba(13,155,163,0.5)] bg-white/70 backdrop-blur-sm hover:border-[rgba(13,155,163,1)] hover:bg-white/90 transition-all duration-300 shadow-sm"
+      className="p-4 sm:p-5 rounded-xl bg-white shadow-[-25px_30px_80px_rgba(0,0,0,0.18),-8px_12px_30px_rgba(0,0,0,0.12)]
+hover:shadow-[0_20px_48px_rgba(0,0,0,0.13),0_6px_16px_rgba(0,0,0,0.07)] 
+hover:-translate-y-1.5 transition-all duration-350"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(28px)",
@@ -103,7 +89,8 @@ export default function WhyChooseUs() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#f5f2ee] relative overflow-hidden py-2 sm:py-2 lg:py-7.5"
+      id="why-choose-us"
+      className="bg-[#EAEAEA] w-[97%] rounded-2xl mx-auto mt-15 relative overflow-hidden py-2 sm:py-2 lg:py-7.5"
     >
       <HexBackgroundLight />
 
@@ -111,14 +98,14 @@ export default function WhyChooseUs() {
       <div
         className="absolute inset-x-0 top-0 h-24 pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, rgba(245,242,238,0.6), transparent)",
+          background:
+            "linear-gradient(to bottom, rgba(245,242,238,0.6), transparent)",
           opacity: visible ? 1 : 0,
           transition: "opacity 1s ease 200ms",
         }}
       />
 
       <div className="relative z-10 max-w-300 mx-auto px-4 sm:px-6 lg:px-10">
-
         {/* ── Header ── */}
         <div className="mb-2 sm:mb-12">
           <div
@@ -150,14 +137,16 @@ export default function WhyChooseUs() {
 
         {/* ── Main layout ── */}
         <div className="flex flex-col lg:flex-row gap-4 sm:gap-5">
-
           {/* Left: image — slides in from left */}
           <div
-            className="relative lg:w-[45%] rounded-2xl overflow-hidden min-h-75 sm:min-h-95 lg:min-h-0 border border-[rgba(13,155,163,0.5)]"
+            className="relative bg-white lg:w-[45%] rounded-xl overflow-hidden min-h-75 sm:min-h-95 lg:min-h-0 shadow-[-25px_30px_80px_rgba(0,0,0,0.18),-8px_12px_30px_rgba(0,0,0,0.12)]
+hover:shadow-[0_24px_56px_rgba(0,0,0,0.16),0_8px_20px_rgba(0,0,0,0.1)] 
+hover:-translate-y-1.5"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateX(0)" : "translateX(-40px)",
-              transition: "opacity 0.8s ease 150ms, transform 0.8s cubic-bezier(0.22,1,0.36,1) 150ms",
+              transition:
+                "opacity 0.8s ease 150ms, transform 0.8s cubic-bezier(0.22,1,0.36,1) 150ms",
             }}
           >
             <img
@@ -169,16 +158,21 @@ export default function WhyChooseUs() {
 
             {/* Floating chart card — rises up after image settles */}
             <div
-              className="absolute bottom-4 left-4 w-50 sm:w-55 bg-white/90 backdrop-blur-md border border-[rgba(13,155,163,0.2)] rounded-xl p-3.5 shadow-sm"
+              className="absolute bottom-4 left-4 w-50 sm:w-55 bg-white backdrop-blur-md border border-[rgba(13,155,163,0.2)] rounded-xl p-3.5 shadow-sm"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(20px)",
-                transition: "opacity 0.6s ease 650ms, transform 0.6s cubic-bezier(0.22,1,0.36,1) 650ms",
+                transition:
+                  "opacity 0.6s ease 650ms, transform 0.6s cubic-bezier(0.22,1,0.36,1) 650ms",
               }}
             >
               <div className="flex items-center justify-between mb-2.5">
-                <span className="font-['Syne',sans-serif] text-[0.78rem] font-bold text-[#111]">AI Adoption</span>
-                <span className="font-['DM_Sans',sans-serif] text-[0.58rem] tracking-widest uppercase text-[#0d9ba3]">Live</span>
+                <span className="font-['Syne',sans-serif] text-[0.78rem] font-bold text-[#111]">
+                  AI Adoption
+                </span>
+                <span className="font-['DM_Sans',sans-serif] text-[0.58rem] tracking-widest uppercase text-[#0d9ba3]">
+                  Live
+                </span>
               </div>
               {/* Bars grow up one by one */}
               <div className="flex items-end gap-1 h-9">
@@ -196,7 +190,12 @@ export default function WhyChooseUs() {
               </div>
               <div className="flex justify-between mt-1.5">
                 {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
-                  <span key={i} className="font-['DM_Sans',sans-serif] text-[0.52rem] text-[rgba(0,0,0,0.3)]">{d}</span>
+                  <span
+                    key={i}
+                    className="font-['DM_Sans',sans-serif] text-[0.52rem] text-[rgba(0,0,0,0.3)]"
+                  >
+                    {d}
+                  </span>
                 ))}
               </div>
             </div>
@@ -204,50 +203,65 @@ export default function WhyChooseUs() {
 
           {/* Right: features + stats — slide in from right, staggered */}
           <div className="lg:flex-1 flex flex-col gap-3">
-
-            {FEATURES.map((f, i) => (
-              <div
-                key={i}
-                className="flex gap-4 p-4 sm:p-5 rounded-2xl border border-[rgba(13,155,163,0.5)] bg-white/70 backdrop-blur-sm hover:border-[rgba(13,155,163,1)] hover:bg-white/90 transition-colors duration-300 shadow-sm"
-                style={{
-                  opacity: visible ? 1 : 0,
-                  transform: visible ? "translateX(0)" : "translateX(40px)",
-                  transition: `opacity 0.7s ease ${180 + i * 130}ms, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${180 + i * 130}ms`,
-                }}
-              >
-                <div className="shrink-0 w-9 h-9 rounded-lg bg-[rgba(13,155,163,0.08)] border border-[rgba(13,155,163,0.5)] flex items-center justify-center text-[#0d9ba3] text-base">
-                  {f.symbol}
+            <div
+              className="p-5 sm:p-6 rounded-2xl bg-white 
+shadow-[-25px_30px_80px_rgba(0,0,0,0.18),-8px_12px_30px_rgba(0,0,0,0.12)]"
+            >
+              {/* Businesses */}
+              <div className="flex gap-4 mb-5">
+                <div className="w-9 h-9 rounded-lg bg-[rgba(13,155,163,0.08)] border border-[rgba(13,155,163,0.5)] flex items-center justify-center text-[#0d9ba3]">
+                  ◈
                 </div>
-                <div className="min-w-0">
-                  <h3 className="font-['Syne',sans-serif] text-[0.95rem] font-bold text-[#111111] mb-2 leading-snug">
-                    {f.heading}
+                <div>
+                  <h3 className="font-['Syne'] font-bold text-[1rem] text-[#111] mb-2">
+                    Businesses & Industries
                   </h3>
-                  <ul className="flex flex-col gap-1.5">
-                    {f.points.map((pt, j) => (
-                      <li
-                        key={j}
-                        className="flex items-start gap-2 font-['DM_Sans',sans-serif] text-[0.8rem] leading-[1.55] text-[rgba(0,0,0,0.5)]"
-                        style={{
-                          opacity: visible ? 1 : 0,
-                          transition: `opacity 0.5s ease ${380 + i * 130 + j * 65}ms`,
-                        }}
-                      >
-                        <span className="w-1 h-1 rounded-full bg-[#0d9ba3] shrink-0 mt-1.5 shadow-[0_0_4px_rgba(13,155,163,0.4)]" />
-                        {pt}
-                      </li>
-                    ))}
+
+                  <ul className="flex flex-col gap-1.5 text-[0.85rem] text-[rgba(0,0,0,0.6)]">
+                    <li>
+                      • Limited integration between hardware, IoT, software, and
+                      AI
+                    </li>
+                    <li>• Lack of practical AI implementation expertise</li>
+                    <li>• Fragmented technology solutions</li>
+                    <li>• Inefficient operations and manual workflows</li>
                   </ul>
                 </div>
               </div>
-            ))}
 
+              {/* Divider */}
+              <div className="h-[1px] bg-[rgba(0,0,0,0.08)] my-4" />
+
+              {/* Professionals */}
+              <div className="flex gap-4">
+                <div className="w-9 h-9 rounded-lg bg-[rgba(13,155,163,0.08)] border border-[rgba(13,155,163,0.5)] flex items-center justify-center text-[#0d9ba3]">
+                  ⬡
+                </div>
+                <div>
+                  <h3 className="font-['Syne'] font-bold text-[1rem] text-[#111] mb-2">
+                    Professionals
+                  </h3>
+
+                  <ul className="flex flex-col gap-1.5 text-[0.85rem] text-[rgba(0,0,0,0.6)]">
+                    <li>
+                      • Learning AI theoretically without real applications
+                    </li>
+                    <li>• Lack of mentorship and industry exposure</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             {/* Stats with count-up */}
             <div className="grid grid-cols-2 gap-3">
               {STATS.map((s, i) => (
-                <StatCard key={i} stat={s} visible={visible} delay={460 + i * 110} />
+                <StatCard
+                  key={i}
+                  stat={s}
+                  visible={visible}
+                  delay={460 + i * 110}
+                />
               ))}
             </div>
-
           </div>
         </div>
       </div>

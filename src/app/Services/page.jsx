@@ -82,38 +82,6 @@ const services = [
   },
 ];
 
-const secondaryCards = [
-  {
-    icon: "◈",
-    title: "Model Fine-Tuning",
-    desc: "Custom LLMs trained on your domain data for precision and compliance.",
-  },
-  {
-    icon: "⬡",
-    title: "Vector Search",
-    desc: "Semantic retrieval systems powered by embeddings and RAG architectures.",
-  },
-  {
-    icon: "◉",
-    title: "AI Security Audit",
-    desc: "Red-teaming, adversarial testing, and risk profiling for AI deployments.",
-  },
-  {
-    icon: "⬢",
-    title: "Conversational AI",
-    desc: "Enterprise-grade chatbots and voice interfaces built for scale.",
-  },
-  {
-    icon: "◐",
-    title: "Computer Vision",
-    desc: "Object detection, defect analysis, and video analytics at the edge.",
-  },
-  {
-    icon: "⊕",
-    title: "AI Governance",
-    desc: "Bias auditing, explainability frameworks, and regulatory alignment.",
-  },
-];
 
 // ─── Visual Illustrations ─────────────────────────────────────────────────────
 
@@ -693,8 +661,8 @@ function Reveal({ children, delay = 0, className = "" }) {
 export default function ServicesPage() {
   return (
     <main
-      style={{ background: "#050505", color: "#fff", fontFamily: "'Syne', 'Space Mono', monospace" }}
-      className="min-h-screen overflow-x-hidden"
+      style={{color: "#fff", fontFamily: "'Syne', 'Space Mono', monospace" }}
+      className="bg-linear-to-r from-[#140c30] via-[#153D4C] to-[#16A085] min-h-screen overflow-x-hidden"
     >
       {/* Google Fonts */}
       <style>{`
@@ -702,13 +670,6 @@ export default function ServicesPage() {
 
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
-        .grid-bg {
-          background-image:
-            linear-gradient(rgba(33,198,207,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(33,198,207,0.03) 1px, transparent 1px);
-          background-size: 48px 48px;
-        }
 
         .teal { color: #21C6CF; }
 
@@ -788,17 +749,12 @@ export default function ServicesPage() {
       `}</style>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="grid-bg relative min-h-screen flex items-center">
-        {/* Corner decorations */}
-        <div style={{ position: 'absolute', top: 40, left: 40, width: 60, height: 60, borderTop: '1px solid rgba(33,198,207,0.3)', borderLeft: '1px solid rgba(33,198,207,0.3)' }} />
-        <div style={{ position: 'absolute', top: 40, right: 40, width: 60, height: 60, borderTop: '1px solid rgba(33,198,207,0.3)', borderRight: '1px solid rgba(33,198,207,0.3)' }} />
-        <div style={{ position: 'absolute', bottom: 40, left: 40, width: 60, height: 60, borderBottom: '1px solid rgba(33,198,207,0.3)', borderLeft: '1px solid rgba(33,198,207,0.3)' }} />
-        <div style={{ position: 'absolute', bottom: 40, right: 40, width: 60, height: 60, borderBottom: '1px solid rgba(33,198,207,0.3)', borderRight: '1px solid rgba(33,198,207,0.3)' }} />
+      <section className="relative min-h-screen flex items-center">
 
         {/* Radial glow */}
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(33,198,207,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-        <div className="max-w-[1200px] px-6 sm:px-10 lg:px-16 relative z-[1] text-left">
+        <div className="max-w-300 px-6 sm:px-10 lg:px-16 relative z-1 text-left">
           <Reveal>
             <p className="section-label mb-6">What We Do</p>
           </Reveal>
@@ -813,7 +769,7 @@ export default function ServicesPage() {
               for the{" "}
               <span className="relative inline-block">
                 <span className="text-[#21C6CF]">real world.</span>
-                <span className="absolute bottom-[-4px] left-0 right-0 h-[1px] bg-gradient-to-r from-[#21C6CF] to-transparent" />
+                <span className="absolute -bottom-1 left-0 right-0 h-px bg-linear-to-r from-[#21C6CF] to-transparent" />
               </span>
             </h1>
           </Reveal>
@@ -842,56 +798,7 @@ export default function ServicesPage() {
         })}
       </section>
 
-      {/* ── SECONDARY CARDS ──────────────────────────────────────────────── */}
-      <section className="grid-bg" style={{ padding: '120px 0' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 40px' }}>
-          <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: '72px' }}>
-              <p className="section-label mb-4">Extended Capabilities</p>
-              <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 'clamp(28px,4vw,48px)', fontWeight: 700, lineHeight: 1.1 }}>
-                More ways we <span className="teal">empower your AI</span>
-              </h2>
-            </div>
-          </Reveal>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: '20px' }}>
-            {secondaryCards.map((card, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <div className="service-card" style={{ padding: '36px', borderRadius: '2px' }}>
-                  <div style={{ fontSize: '28px', color: '#21C6CF', marginBottom: '20px', lineHeight: 1 }}>{card.icon}</div>
-                  <h3 style={{ fontFamily: "'Syne',sans-serif", fontSize: '18px', fontWeight: 700, marginBottom: '12px', color: '#fff' }}>{card.title}</h3>
-                  <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontFamily: "'Space Mono',monospace" }}>{card.desc}</p>
-                  <div className="divider-line" style={{ marginTop: '24px' }} />
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section id="cta" style={{ padding: '140px 40px', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '800px', height: '400px', background: 'radial-gradient(ellipse, rgba(33,198,207,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '600px', height: '1px', background: 'linear-gradient(90deg,transparent,rgba(33,198,207,0.25),transparent)' }} />
-        <div style={{ maxWidth: '720px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-          <Reveal>
-            <p className="section-label mb-6">Start Today</p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 'clamp(32px,5.5vw,68px)', fontWeight: 800, lineHeight: 1.05, marginBottom: '28px', letterSpacing: '-0.5px' }}>
-              Ready to build<br />
-              <span className="teal">something extraordinary?</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={200}>
-            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.45)', lineHeight: 1.8, marginBottom: '48px', fontFamily: "'Space Mono',monospace" }}>
-              Let's architect a future where your business operates at AI scale. Every engagement starts with a focused discovery session — no commitments, just clarity.
-            </p>
-          </Reveal>
-          <Reveal delay={300}>
-            <a href="#" className="glow-btn" style={{ fontSize: '14px', padding: '18px 52px' }}>Schedule Discovery Call</a>
-          </Reveal>
-        </div>
-      </section>
     </main>
   );
 }

@@ -29,9 +29,9 @@ export default function RootLayout({children}) {
       }
     }
   }, []);
-
+  
   return (
-    <main className="bg-[#050505] text-white">
+    <main className="bg-linear-to-r from-[#140c30] via-[#153D4C] to-[#16A085] text-white">
       <HexBackground />
       <HeroSection />
       <AboutSection/>

@@ -14,9 +14,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: white;
     --foreground: #ededed;
   }
+}
+
+@font-face {
+  font-family: "GoogleSans";
+  src: url("/fonts/Google_Sans/GoogleSans-VariableFont_....ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
 }
 
 body {

@@ -7,7 +7,7 @@ const CARDS = [
     symbol: "◈",
     tag: "Who We Are",
     heading: "Engineering AI & IoT Innovation",
-    body: "We design intelligent products that combine embedded systems, IoT, data analytics, and AI to solve real-world industrial problems.",
+    body: "We design intelligent products that combine embedded systems, IoT, data analytics, and AI to solve practical industrial problems and leave an imprint.",
     impacts: [
       "Edge AI, predictive maintenance and smarter industrial systems.",
       "Efficient monitoring & automation products for various industries.",
@@ -23,7 +23,7 @@ const CARDS = [
       "AI agents, workflow automation, AI-powered ERP & CRM systems.",
       "Data analytics, business intelligence and data-driven decision making.",
     ],
-    footer: "Helping businesses grow smarter, faster to stay ahead of competition.",
+    footer: "Helping businesses grow smarter and faster.",
   },
   {
     symbol: "◎",
@@ -32,7 +32,7 @@ const CARDS = [
     body: "We believe AI should not only transform businesses but also contribute to sustainable innovation, responsible technology, and future-ready talent development.",
     impacts: [
       "Data Science, AI training, mentorship and career guidance.",
-      "Supporting innovation aligned with National and UN Sustainable Development Goals (SDGs).",
+      "Supporting innovation aligned with National and UN Sustainable Development Goals.",
     ],
     footer: "Creating future-ready AI leaders.",
   },
@@ -47,13 +47,13 @@ function Card({ card }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={`
-    bg-[#0a0a0a] rounded-2xl p-6 sm:p-7 lg:p-9 lg:pb-7 flex flex-col relative overflow-hidden cursor-default
+    bg-[#050505] text-white rounded-3xl p-6  sm:p-7 lg:p-9 lg:pb-7 flex flex-col relative overflow-hidden cursor-default
     transition-all duration-900 ease-out
 
 
     ${hovered
-          ? "border border-[rgba(33,198,207,0.28)] -translate-y-1.5"
-          : "border border-[rgba(33,198,207,0.1)] translate-y-0"
+          ? "border border-[rgba(33,198,207,1)] -translate-y-1.5 shadow-[0_0_15px_rgba(33,198,207,0.5),0_0_40px_rgba(33,198,207,0.3)]"
+          : "border border-[rgba(33,198,207,0.9)] translate-y-0"
         }
         
   `}
@@ -69,17 +69,17 @@ function Card({ card }) {
       />
 
       {/* Symbol */}
-      <div className="text-xl sm:text-2xl text-[#21C6CF] mb-4 sm:mb-5 leading-none drop-shadow-[0_0_8px_rgba(33,198,207,0.55)]">
+      <div className="text-xl sm:text-2xl text-[rgba(0,242,255,0.95)] mb-4 sm:mb-5 leading-none drop-shadow-[0_0_8px_rgba(33,198,207,0.55)]">
         {card.symbol}
       </div>
 
       {/* Tag */}
-      <div className="font-['DM_Sans',sans-serif] text-[0.58rem] sm:text-[0.63rem] font-medium tracking-[0.16em] uppercase text-[rgba(33,198,207,0.65)] mb-2">
+      <div className="font-['DM_Sans',sans-serif] text-[0.58rem] sm:text-[0.63rem] font-medium tracking-[0.16em] uppercase text-[rgba(0,242,255,0.95)] mb-2">
         {card.tag}
       </div>
 
       {/* Heading */}
-      <h3 className="font-['Syne',sans-serif] text-[0.95rem] sm:text-[1.05rem] lg:text-[1.12rem] font-bold text-white leading-[1.3] tracking-[-0.01em] m-0 mb-3 sm:mb-4">
+      <h3 className="font-['Syne',sans-serif] text-[0.95rem] sm:text-[1.05rem] lg:text-[1.12rem] font-bold leading-[1.3] tracking-[-0.01em] m-0 mb-3 sm:mb-4">
         {card.heading}
       </h3>
 
@@ -87,12 +87,12 @@ function Card({ card }) {
       <div className="w-8 h-px bg-[rgba(33,198,207,0.3)] mb-3 sm:mb-4" />
 
       {/* Body */}
-      <p className="font-['DM_Sans',sans-serif] text-[0.8rem] sm:text-sm leading-6 sm:leading-7 text-[rgba(255,255,255,0.45)] m-0 mb-5 sm:mb-6">
+      <p className="font-['DM_Sans',sans-serif] text-[0.8rem] sm:text-sm leading-6 sm:leading-7 text-[rgba(199,226,228,0.95)] m-0 mb-5 sm:mb-6">
         {card.body}
       </p>
 
       {/* Impact label */}
-      <div className="font-['DM_Sans',sans-serif] text-[0.58rem] sm:text-[0.6rem] font-medium tracking-[0.16em] uppercase text-[rgba(33,198,207,0.5)] mb-2">
+      <div className="font-['DM_Sans',sans-serif] text-[0.58rem] sm:text-[0.6rem] font-medium tracking-[0.16em] uppercase text-[rgba(33,198,207,0.9)] mb-2">
         Impact
       </div>
 
@@ -101,7 +101,7 @@ function Card({ card }) {
         {card.impacts.map((pt, j) => (
           <li
             key={j}
-            className="flex items-start gap-2 sm:gap-2.5 font-['DM_Sans',sans-serif] text-[0.75rem] sm:text-[0.8rem] leading-[1.6] text-[rgba(255,255,255,0.38)]"
+            className="flex items-start gap-2 sm:gap-2.5 font-['DM_Sans',sans-serif] text-[0.75rem] sm:text-[0.8rem] leading-[1.6] text-[rgba(251,249,249,0.9)]"
           >
             <span className="w-1 h-1 rounded-full bg-[#21C6CF] shrink-0 mt-1.5 sm:mt-1.75 shadow-[0_0_5px_rgba(33,198,207,0.6)] inline-block" />
             {pt}
@@ -140,12 +140,12 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="bg-transparent relative overflow-hidden py-10 sm:py-14 lg:py-7.5"
+      className="bg-none relative top-1 overflow-hidden py-10 sm:py-14 lg:py-7.5 lg:pb-16"
     >
 
 
       {/* Top glow */}
-      <div className="absolute -top-30 left-1/2 -translate-x-1/2 w-75 sm:w-125 lg:w-175 h-75 sm:h-87.5 lg:h-100 bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.07)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-30 left-1/2 -translate-x-1/2 w-75 sm:w-125 lg:w-175 h-75 sm:h-87.5 lg:h-100 bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.07)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Inner */}
       <div className="relative z-2 max-w-300 mx-auto px-4 sm:px-6 lg:px-10">
@@ -160,13 +160,13 @@ export default function AboutSection() {
           <div className="text-center">
 
             <div className="inline-flex items-center gap-2 font-['DM_Sans',sans-serif] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#21C6CF] mb-4 sm:mb-5 mx-auto w-fit">
-              <span className="w-1.25 h-1.25 rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF] inline-block shrink-0" />
+              <span className="w-1.25 h-1.25 rounded-full bg-[#28E7C5] shadow-[0_0_8px_#21C6CF] inline-block shrink-0" />
               About DatagenixAi
             </div>
 
             <h2 className="font-['Syne',sans-serif] text-[1.7rem] sm:text-[2.2rem] lg:text-[clamp(2rem,3.2vw,3.2rem)] font-bold text-white leading-[1.2] tracking-[-0.02em] max-w-[90%] sm:max-w-150 lg:max-w-180 mx-auto">
               Building the Future with{" "}
-              <span className="text-[#21C6CF]">Intelligent Data</span> & AI
+              <span className="text-[#28E7C5]">Intelligent Data</span> & AI
             </h2>
 
           </div>

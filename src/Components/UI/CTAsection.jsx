@@ -7,7 +7,7 @@ const CTASection = () => {
     return (
         <section
             id="cta"
-            className="bg-[#f5f2ee] relative overflow-hidden py-4"
+            className="bg-[#f5f2ee] w-[97%] rounded-2xl mx-auto relative overflow-hidden py-4"
         >
             {/* Hex background */}
             <HexBackgroundLight />

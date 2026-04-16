@@ -89,7 +89,7 @@ export default function SolutionsSection() {
         }
       `}</style>
 
-      <section ref={sectionRef} className="bg-transparent relative overflow-hidden py-4">
+      <section ref={sectionRef} id="solutions-section" className="bg-transparent relative overflow-hidden py-4">
 
         {/* Ambient glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-75 bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.05)_0%,transparent_70%)]" />
@@ -128,10 +128,10 @@ export default function SolutionsSection() {
                 key={i}
                 data-animate="card"
                 data-delay={String(i + 3)}
-                className="group flex flex-col bg-[#0d0d0d] border border-[rgba(33,198,207,0.08)] rounded-2xl overflow-hidden hover:border-[rgba(33,198,207,0.22)] transition-[border-color,box-shadow,translate] duration-300 hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(33,198,207,0.07)]"
+                className="group flex flex-col bg-[#050505] border border-[rgba(33,198,207,0.8)] rounded-2xl overflow-hidden hover:border-[rgba(33,198,207,0.9)] transition-[border-color,box-shadow,translate] duration-300 hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(33,198,207,0.2)]"
               >
                 {/* Image area */}
-                <div className="relative h-60 sm:h-70 lg:h-75 overflow-hidden bg-[#0a1a1c]">
+                <div className="relative h-60 sm:h-70 lg:h-75 overflow-hidden bg-[#050505]">
                   <img
                     src={card.image}
                     alt={card.heading}
@@ -149,13 +149,13 @@ export default function SolutionsSection() {
                     {card.heading}
                   </h3>
 
-                  <p className="font-['DM_Sans',sans-serif] text-[0.82rem] leading-[1.7] text-[rgba(255,255,255,0.4)] flex-1 mb-6">
+                  <p className="font-['DM_Sans',sans-serif] text-[0.82rem] leading-[1.7] text-[rgba(255,255,255,0.9)] flex-1 mb-6">
                     {card.body}
                   </p>
 
                   <Link
                     href={card.href}
-                    className="inline-flex items-center gap-2 font-['DM_Sans',sans-serif] text-[0.8rem] font-semibold text-[rgba(33,198,207,0.7)] hover:text-[#21C6CF] transition-colors duration-200 group/link"
+                    className="inline-flex items-center gap-2 font-['DM_Sans',sans-serif] text-[0.8rem] font-semibold text-[rgba(33,198,207,0.8)] hover:text-[#21C6CF] transition-colors duration-200 group/link"
                   >
                     Read More
                     <span className="inline-block transition-transform duration-200 group-hover/link:translate-x-1">→</span>
@@ -177,7 +177,7 @@ export default function SolutionsSection() {
               className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
             >
               <Link
-                href="/enquiry"
+                href="/Services"
                 className="group relative overflow-hidden inline-block px-7 py-3.5 font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] text-white bg-black rounded-2xl transition-shadow duration-300"
               >
                 <span className="relative z-2 whitespace-nowrap">Enquire for Solutions →</span>

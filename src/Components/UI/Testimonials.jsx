@@ -86,6 +86,7 @@ export default function TestimonialsSection() {
   return (
     <section
       ref={ref}
+      id="testimonials-section"
       className="bg-transparent relative overflow-hidden py-12"
     >
       {/* Grid texture */}

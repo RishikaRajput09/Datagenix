@@ -97,7 +97,7 @@ export function HexBackground() {
       for (const h of hexes) {
         const suppression = edgeWeight(h.cx, h.cy, W, H);
         const ambient = Math.sin(time * h.speed + h.phase) * 0.5 + 0.5;
-        const mouseE = Math.max(0, 1 - dist(h.cx, h.cy, mouse.x, mouse.y) / 150);
+        const mouseE = Math.max(0, 1 - dist(h.cx, h.cy, mouse.x, mouse.y) / 80);
 
         let rippleE = 0;
         for (const rp of ripples) {
