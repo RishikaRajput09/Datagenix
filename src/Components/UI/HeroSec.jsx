@@ -188,12 +188,39 @@ export default function HeroCarousel() {
       </svg>
 
       {/* Layout */}
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-[clamp(1.5rem,4vw,3rem)] flex items-center gap-[clamp(2.5rem,5vw,5rem)] lg:flex-row flex-col py-16 lg:py-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-[clamp(1.5rem,4vw,3rem)] flex items-center gap-[clamp(2.5rem,5vw,5rem)] lg:flex-row flex-col py-16 lg:py-20">
         {/* ── LEFT: Content ── */}
         <div className="lg:w-[58%] w-full flex flex-col justify-center relative">
+          {/* Eyebrow */}
+          <div className="hero-anim-fadeup delay-1 mb-4">
+            <div
+              className="
+      inline-flex items-center gap-2
+      px-3 py-1.5
+      rounded-full
+      border border-[rgba(125,211,252,0.35)]
+      bg-[rgba(125,211,252,0.08)]
+      backdrop-blur-md
+      shadow-[0_0_14px_rgba(125,211,252,0.15)]
+    "
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#7DD3FC] shadow-[0_0_8px_#7DD3FC]" />
+
+              <span
+                className="text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase"
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  color: "#7DD3FC",
+                }}
+              >
+                {s.badge}
+              </span>
+            </div>
+          </div>
+
           {/* Heading */}
           <h1
-            className="hero-anim-fadeup delay-1 m-0 leading-[1.05] tracking-[-0.01em]"
+            className="hero-anim-fadeup delay-1 m-0 leading-[1.05] tracking-[-0.01em] text-white"
             style={{
               fontFamily: "'GoogleSans', sans-serif",
               fontWeight: 700,
@@ -202,34 +229,14 @@ export default function HeroCarousel() {
             }}
           >
             {s.headingLines.map((line, i) => (
-              <span key={i} className="block">
-                {i === s.accentLine ? (
-                  <span
-                    style={{
-                      background:
-                        "linear-gradient(110deg,#ffffff 0%,#bae6fd 40%,#7DD3FC 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
-                    {line}
-                  </span>
-                ) : i === 0 ? (
-                  <span className="text-white">{line}</span>
-                ) : (
-                  <span
-                    style={{ color: "rgba(255,255,255,0.8)" }}
-                  >
-                    {line}
-                  </span>
-                )}
+              <span key={i} className="block text-white">
+                {line}
               </span>
             ))}
           </h1>
 
           {/* Divider */}
-          <div className="hero-anim-fadeup delay-2 flex items-center gap-[10px] my-[22px]">
+          <div className="hero-anim-fadeup delay-2 flex items-center gap-2.5 my-5.5">
             <div
               className="w-7 h-px opacity-45"
               style={{ background: ACCENT }}
@@ -242,12 +249,12 @@ export default function HeroCarousel() {
 
           {/* Sub */}
           <p
-            className="hero-anim-fadeup delay-3 mb-[34px] mt-0 max-w-[480px] leading-[1.8]"
+            className="hero-anim-fadeup delay-3 mb-8.5 mt-0 max-w-120 leading-[1.8]"
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 300,
-              fontSize: "clamp(0.875rem,1.1vw,1rem)",
-              color: "rgba(255,255,255,0.4)",
+              fontWeight: 400,
+              fontSize: "clamp(1rem,1.25vw,1.15rem)", 
+              color: "#ffffff", 
             }}
           >
             {s.sub}
@@ -256,7 +263,7 @@ export default function HeroCarousel() {
           {/* CTAs */}
           <div className="hero-anim-fadeup delay-4 flex flex-wrap gap-3">
             <button
-              className="btn-primary transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[3px] px-7 py-[13px] text-[0.8rem] font-semibold tracking-[0.06em]"
+              className="btn-primary transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[3px] px-7 py-3.25 text-[0.8rem] font-semibold tracking-[0.06em]"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 color: "#05070e",
@@ -268,7 +275,7 @@ export default function HeroCarousel() {
             </button>
 
             <button
-              className="btn-ghost transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[3px] px-[26px] py-[13px] text-[0.8rem] font-medium tracking-[0.06em] inline-flex items-center gap-1.5"
+              className="btn-ghost transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[3px] px-6.5 py-3.25 text-[0.8rem] font-medium tracking-[0.06em] inline-flex items-center gap-1.5"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 color: "rgba(255,255,255,0.5)",
@@ -298,7 +305,7 @@ export default function HeroCarousel() {
                 (bg, i) => (
                   <div
                     key={i}
-                    className="w-[26px] h-[26px] rounded-full border-2 flex items-center justify-center text-[0.58rem] font-bold"
+                    className="w-6.5 h-6.5 rounded-full border-2 flex items-center justify-center text-[0.58rem] font-bold"
                     style={{
                       fontFamily: "'Syne', sans-serif",
                       background: bg,
@@ -314,7 +321,7 @@ export default function HeroCarousel() {
               )}
             </div>
             <div
-              className="w-px h-[18px]"
+              className="w-px h-4.5"
               style={{ background: "rgba(255,255,255,0.07)" }}
             />
             <p
@@ -338,7 +345,7 @@ export default function HeroCarousel() {
               <button
                 key={i}
                 onClick={() => goToSlide(i)}
-                className="h-[3px] rounded-[3px] border-none p-0 cursor-pointer transition-all duration-[0.4s] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                className="h-0.75 rounded-[3px] border-none p-0 cursor-pointer transition-all duration-[0.4s] ease-[cubic-bezier(0.22,1,0.36,1)]"
                 style={{
                   width: i === currentSlide ? 32 : 10,
                   background:
@@ -351,7 +358,7 @@ export default function HeroCarousel() {
               />
             ))}
             <span
-              className="text-[0.65rem] tracking-[0.1em] ml-1"
+              className="text-[0.95rem] tracking-widest ml-1"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 color: "rgba(255,255,255,0.18)",
@@ -368,11 +375,11 @@ export default function HeroCarousel() {
                 <button
                   key={i}
                   onClick={fn}
-                  className="arr-btn transition-all duration-[0.18s] ease-in-out w-[34px] h-[34px] flex items-center justify-center rounded-full cursor-pointer"
+                  className="arr-btn transition-all duration-[0.18s] ease-in-out w-10.5 h-10.5 flex items-center justify-center rounded-full cursor-pointer hover:bg-[rgba(255,255,255,1)]"
                   style={{
                     background: "rgba(255,255,255,0.03)",
-                    border: "1px solid rgba(255,255,255,0.09)",
-                    color: "rgba(255,255,255,0.35)",
+                    border: "1px solid rgba(255,255,255,0.9)",
+                    color: "rgba(255,255,255,1)",
                   }}
                 >
                   <svg
@@ -382,7 +389,7 @@ export default function HeroCarousel() {
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="w-[14px] h-[14px]"
+                    className="w-3.5 h-3.5"
                   >
                     <path d={path} />
                   </svg>
@@ -393,7 +400,7 @@ export default function HeroCarousel() {
         </div>
 
         {/* ── RIGHT: Video ── */}
-        <div className="lg:w-[42%] w-full max-w-[360px] lg:max-w-none mx-auto flex flex-col items-center gap-3 relative">
+        <div className="lg:w-[42%] w-full max-w-90 lg:max-w-none mx-auto flex flex-col items-center gap-3 relative">
           <div
             key={`v${currentSlide}`}
             className="hero-anim-vdin relative w-full"
@@ -409,7 +416,7 @@ export default function HeroCarousel() {
 
             {/* Video card */}
             <div
-              className="relative z-[1] rounded-2xl overflow-hidden"
+              className="relative z-1 rounded-2xl overflow-hidden"
               style={{
                 background: "rgba(255,255,255,0.018)",
                 border: "1px solid rgba(125,211,252,0.1)",
@@ -440,7 +447,7 @@ export default function HeroCarousel() {
 
               {/* Vignette */}
               <div
-                className="absolute inset-0 z-[2] pointer-events-none"
+                className="absolute inset-0 z-2 pointer-events-none"
                 style={{
                   background:
                     "linear-gradient(to top,rgba(5,7,14,0.6) 0%,transparent 35%,transparent 70%,rgba(5,7,14,0.22) 100%)",
@@ -449,7 +456,7 @@ export default function HeroCarousel() {
 
               {/* Live chip */}
               <div
-                className="absolute top-[13px] left-[13px] z-[5] flex items-center gap-[6px] px-[11px] py-[5px] rounded-full"
+                className="absolute top-3.25 left-3.25 z-5 flex items-center gap-1.5 px-2.75 py-1.25 rounded-full"
                 style={{
                   background: "rgba(5,7,14,0.78)",
                   backdropFilter: "blur(12px)",
@@ -457,7 +464,7 @@ export default function HeroCarousel() {
                 }}
               >
                 <span
-                  className="hero-blink w-[6px] h-[6px] rounded-full flex-shrink-0"
+                  className="hero-blink w-1.5 h-1.5 rounded-full shrink-0"
                   style={{ background: ACCENT }}
                 />
                 <span
@@ -504,14 +511,14 @@ export default function HeroCarousel() {
               ].map(({ className, style }, i) => (
                 <div
                   key={i}
-                  className={`absolute w-4 h-4 z-[4] pointer-events-none ${className}`}
+                  className={`absolute w-4 h-4 z-4 pointer-events-none ${className}`}
                   style={style}
                 />
               ))}
 
               {/* Counter */}
               <div
-                className="absolute bottom-[13px] right-[13px] z-[5] px-[10px] py-1 rounded-full text-[0.6rem] tracking-[0.12em]"
+                className="absolute bottom-3.25 right-3.25 z-5 px-2.5 py-1 rounded-full text-[0.6rem] tracking-[0.12em]"
                 style={{
                   background: "rgba(5,7,14,0.72)",
                   backdropFilter: "blur(8px)",
@@ -536,13 +543,13 @@ export default function HeroCarousel() {
           </div>
 
           {/* Progress bar */}
-          <div className="w-full flex items-center gap-[10px]">
+          <div className="w-full flex items-center gap-2.5">
             <div
-              className="flex-1 h-[2px] rounded-[2px] overflow-hidden"
+              className="flex-1 h-0.5 rounded-xs overflow-hidden"
               style={{ background: "rgba(255,255,255,0.06)" }}
             >
               <div
-                className="h-full rounded-[2px] transition-[width] duration-[0.08s] linear"
+                className="h-full rounded-xs transition-[width] duration-[0.08s] linear"
                 style={{
                   background: ACCENT,
                   width: `${videoProgress}%`,
@@ -567,7 +574,7 @@ export default function HeroCarousel() {
               <button
                 key={i}
                 onClick={() => goToSlide(i)}
-                className="thumb-btn flex-1 aspect-video rounded-md overflow-hidden cursor-pointer p-0 relative transition-all duration-[0.2s] ease-in-out"
+                className="thumb-btn flex-1 aspect-video rounded-md overflow-hidden cursor-pointer p-0 relative transition-all duration-200 ease-in-out"
                 style={{
                   border:
                     i === currentSlide

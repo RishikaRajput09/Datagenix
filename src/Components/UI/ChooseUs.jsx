@@ -116,9 +116,26 @@ export default function WhyChooseUs() {
               transition: "opacity 0.6s ease 0ms, transform 0.6s ease 0ms",
             }}
           >
-            <div className="inline-flex items-center gap-2 font-['DM_Sans',sans-serif] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#0d9ba3] mb-3">
-              <span className="w-1.25 h-1.25 rounded-full bg-[#0d9ba3] shadow-[0_0_8px_rgba(13,155,163,0.5)] inline-block shrink-0" />
-              Why Choose Us
+            <div className="flex justify-center mb-3">
+              <div
+                className="
+      inline-flex items-center gap-2
+      px-3 py-1.5
+      rounded-full
+      border border-[rgba(13,155,163,0.35)]
+      bg-[rgba(13,155,163,0.08)]
+      backdrop-blur-md
+      shadow-[0_0_12px_rgba(13,155,163,0.15)]
+      transition-all duration-300
+      hover:shadow-[0_0_20px_rgba(13,155,163,0.35)]
+    "
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0d9ba3] shadow-[0_0_8px_rgba(13,155,163,0.6)]" />
+
+                <span className="font-['DM_Sans',sans-serif] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#0d9ba3]">
+                  Why Choose Us
+                </span>
+              </div>
             </div>
           </div>
 

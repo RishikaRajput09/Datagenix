@@ -6,7 +6,15 @@ import Image from "next/image";
 const FEATURES = [
   {
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5.5 h-5.5">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-5.5 h-5.5"
+      >
         <path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4z" />
         <circle cx="9" cy="10" r="1" fill="currentColor" stroke="none" />
         <circle cx="15" cy="10" r="1" fill="currentColor" stroke="none" />
@@ -20,13 +28,25 @@ const FEATURES = [
   },
   {
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5.5 h-5.5">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-5.5 h-5.5"
+      >
         <rect x="4" y="4" width="16" height="16" rx="2" />
         <rect x="9" y="9" width="6" height="6" rx="1" />
-        <line x1="9" y1="1" x2="9" y2="4" /><line x1="15" y1="1" x2="15" y2="4" />
-        <line x1="9" y1="20" x2="9" y2="23" /><line x1="15" y1="20" x2="15" y2="23" />
-        <line x1="20" y1="9" x2="23" y2="9" /><line x1="20" y1="15" x2="23" y2="15" />
-        <line x1="1" y1="9" x2="4" y2="9" /><line x1="1" y1="15" x2="4" y2="15" />
+        <line x1="9" y1="1" x2="9" y2="4" />
+        <line x1="15" y1="1" x2="15" y2="4" />
+        <line x1="9" y1="20" x2="9" y2="23" />
+        <line x1="15" y1="20" x2="15" y2="23" />
+        <line x1="20" y1="9" x2="23" y2="9" />
+        <line x1="20" y1="15" x2="23" y2="15" />
+        <line x1="1" y1="9" x2="4" y2="9" />
+        <line x1="1" y1="15" x2="4" y2="15" />
       </svg>
     ),
     number: "02",
@@ -35,8 +55,18 @@ const FEATURES = [
   },
   {
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5.5 h-5.5">
-        <circle cx="12" cy="5" r="2" /><circle cx="5" cy="19" r="2" /><circle cx="19" cy="19" r="2" />
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-5.5 h-5.5"
+      >
+        <circle cx="12" cy="5" r="2" />
+        <circle cx="5" cy="19" r="2" />
+        <circle cx="19" cy="19" r="2" />
         <line x1="12" y1="7" x2="12" y2="13" />
         <line x1="12" y1="13" x2="5" y2="17" />
         <line x1="12" y1="13" x2="19" y2="17" />
@@ -48,7 +78,15 @@ const FEATURES = [
   },
   {
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5.5 h-5.5">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-5.5 h-5.5"
+      >
         <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
         <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
         <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
@@ -61,7 +99,15 @@ const FEATURES = [
   },
   {
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5.5 h-5.5">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-5.5 h-5.5"
+      >
         <circle cx="12" cy="12" r="10" />
         <circle cx="12" cy="12" r="6" />
         <circle cx="12" cy="12" r="2" />
@@ -77,7 +123,15 @@ const FEATURES = [
   },
   {
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5.5 h-5.5">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-5.5 h-5.5"
+      >
         <circle cx="12" cy="12" r="10" />
         <line x1="2" y1="12" x2="22" y2="12" />
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
@@ -94,8 +148,10 @@ function useReveal(threshold = 0.08) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold }
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold },
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
@@ -150,7 +206,9 @@ function FeatureCard({ feature, side, visible, delay }) {
       </div>
 
       {/* Text */}
-      <div className={`flex-1 ${side === "right" ? "text-right" : "text-left"}`}>
+      <div
+        className={`flex-1 ${side === "right" ? "text-right" : "text-left"}`}
+      >
         <div className="font-['DM_Sans',sans-serif] text-[0.58rem] font-semibold tracking-[0.15em] uppercase text-[rgba(33,198,207,0.55)] mb-1">
           {feature.number}
         </div>
@@ -182,7 +240,6 @@ export default function WhatSetsUsApart() {
       <div className="absolute -bottom-15 left-1/2 -translate-x-1/2 w-125 h-125 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.12)_0%,transparent_65%)]" />
 
       <div className="relative z-2 max-w-300 mx-auto px-6">
-
         {/* ── Header ── */}
         <div className="text-center mb-14">
           <div
@@ -192,9 +249,27 @@ export default function WhatSetsUsApart() {
               transition: "opacity 0.55s ease 0ms, transform 0.55s ease 0ms",
             }}
           >
-            <div className="inline-flex items-center gap-2 font-['DM_Sans',sans-serif] text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[#21C6CF] mb-4">
-              <span className="w-1.25 h-1.25 rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF] inline-block shrink-0" />
-              What Sets Us Apart
+            <div className="flex justify-center mb-4">
+              <div
+                className="
+      inline-flex items-center gap-2
+      px-3.5 py-1.5
+      rounded-full
+      border border-[rgba(33,198,207,0.4)]
+      bg-[rgba(33,198,207,0.09)]
+      backdrop-blur-md
+      shadow-[0_0_14px_rgba(33,198,207,0.18)]
+      transition-all duration-300
+      hover:shadow-[0_0_22px_rgba(33,198,207,0.4)]
+      hover:scale-[1.03]
+    "
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shadow-[0_0_10px_#21C6CF]" />
+
+                <span className="font-['DM_Sans',sans-serif] text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[#21C6CF]">
+                  What Sets Us Apart
+                </span>
+              </div>
             </div>
           </div>
 
@@ -212,11 +287,16 @@ export default function WhatSetsUsApart() {
 
         {/* ── 3-column layout ── */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 items-center">
-
           {/* Left cards — stagger from left */}
           <div className="flex flex-col gap-4">
             {left.map((f, i) => (
-              <FeatureCard key={i} feature={f} side="left" visible={visible} delay={160 + i * 110} />
+              <FeatureCard
+                key={i}
+                feature={f}
+                side="left"
+                visible={visible}
+                delay={160 + i * 110}
+              />
             ))}
           </div>
 
@@ -225,8 +305,11 @@ export default function WhatSetsUsApart() {
             className="hidden lg:flex flex-col items-center justify-center relative"
             style={{
               opacity: visible ? 1 : 0,
-              transform: visible ? "translateY(0) scale(1)" : "translateY(30px) scale(0.92)",
-              transition: "opacity 0.8s ease 200ms, transform 0.8s cubic-bezier(0.22,1,0.36,1) 200ms",
+              transform: visible
+                ? "translateY(0) scale(1)"
+                : "translateY(30px) scale(0.92)",
+              transition:
+                "opacity 0.8s ease 200ms, transform 0.8s cubic-bezier(0.22,1,0.36,1) 200ms",
             }}
           >
             {/* Outer glow ring — fades in after phone */}
@@ -256,7 +339,13 @@ export default function WhatSetsUsApart() {
           {/* Right cards — stagger from right */}
           <div className="flex flex-col gap-4">
             {right.map((f, i) => (
-              <FeatureCard key={i} feature={f} side="right" visible={visible} delay={160 + i * 110} />
+              <FeatureCard
+                key={i}
+                feature={f}
+                side="right"
+                visible={visible}
+                delay={160 + i * 110}
+              />
             ))}
           </div>
         </div>
@@ -283,7 +372,6 @@ export default function WhatSetsUsApart() {
             <div className="flex-1 max-w-40 h-px bg-linear-to-l from-transparent to-[rgba(33,198,207,0.3)]" />
           </div>
         </div>
-
       </div>
     </section>
   );

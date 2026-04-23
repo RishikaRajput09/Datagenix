@@ -4,7 +4,13 @@ import { useEffect, useRef, useState } from "react";
 
 export default function ContactSection() {
   const [visible, setVisible] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
   const [focused, setFocused] = useState(null);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -106,18 +112,15 @@ export default function ContactSection() {
   });
 
   return (
-    <section 
-    id = "contact"
-    style={{ background: "none", position: "relative", overflow: "hidden", padding: "80px 0" }}
+    <section
+      id="contact"
+      style={{
+        background: "none",
+        position: "relative",
+        overflow: "hidden",
+        padding: "clamp(48px, 8vw, 80px) 0",
+      }}
     >
-
-      {/* Grid texture */}
-      {/* <div style={{
-        position: "absolute", inset: 0, pointerEvents: "none",
-        backgroundImage: "linear-gradient(rgba(33,198,207,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(33,198,207,0.03) 1px,transparent 1px)",
-        backgroundSize: "60px 60px",
-      }} /> */}
-
       {/* Top glow */}
       <div style={{
         position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)",
@@ -125,46 +128,83 @@ export default function ContactSection() {
         background: "radial-gradient(ellipse,rgba(33,198,207,0.05) 0%,transparent 70%)",
       }} />
 
-      <div ref={ref} style={{ position: "relative", zIndex: 10, maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
-
-        {/* — Eyebrow — */}
+      <div
+        ref={ref}
+        style={{
+          position: "relative",
+          zIndex: 10,
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "0 clamp(16px, 4vw, 24px)",
+        }}
+      >
+        {/* Eyebrow */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px", ...fadeIn(0) }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "#21C6CF", fontSize: "0.67rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Sans',sans-serif" }}>
-            <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#21C6CF", boxShadow: "0 0 8px #21C6CF", flexShrink: 0 }} />
-            Get In Touch
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: "8px",
+            padding: "6px 14px", borderRadius: "999px",
+            border: "1px solid rgba(33,198,207,0.35)",
+            background: "rgba(33,198,207,0.08)",
+            backdropFilter: "blur(10px)",
+            boxShadow: "0 0 12px rgba(33,198,207,0.15)",
+            transition: "all 0.3s ease", cursor: "pointer",
+          }}>
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#21C6CF", boxShadow: "0 0 10px #21C6CF", flexShrink: 0 }} />
+            <span style={{ color: "#21C6CF", fontSize: "0.67rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Sans',sans-serif" }}>
+              Get In Touch
+            </span>
           </div>
         </div>
 
-        {/* — Heading — */}
+        {/* Heading */}
         <div style={{ textAlign: "center", marginBottom: "10px", ...fadeIn(80) }}>
-          <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(1.9rem,4vw,3rem)", fontWeight: 700, color: "white", lineHeight: 1.1, letterSpacing: "-0.02em", margin: 0 }}>
+          <h2 style={{
+            fontFamily: "'Syne',sans-serif",
+            fontSize: "clamp(1.6rem, 4vw, 3rem)",
+            fontWeight: 700, color: "white",
+            lineHeight: 1.1, letterSpacing: "-0.02em", margin: 0,
+          }}>
             Let&apos;s Build Something{" "}
             <span style={{ color: "#21C6CF" }}>Together</span>
           </h2>
         </div>
 
-        {/* — Sub — */}
-        <div style={{ textAlign: "center", marginBottom: "52px", ...fadeIn(140) }}>
-          <p style={{ fontFamily: "'DM Sans',sans-serif", fontWeight: 300, color: "rgba(255,255,255,0.38)", fontSize: "0.92rem", lineHeight: 1.75, maxWidth: "480px", margin: "0 auto" }}>
+        {/* Sub */}
+        <div style={{ textAlign: "center", marginBottom: "clamp(32px, 5vw, 52px)", ...fadeIn(140) }}>
+          <p style={{
+            fontFamily: "'DM Sans',sans-serif", fontWeight: 300,
+            color: "rgba(255,255,255,0.38)", fontSize: "clamp(0.82rem, 2vw, 0.92rem)",
+            lineHeight: 1.75, maxWidth: "480px", margin: "0 auto",
+          }}>
             Have a project in mind? Reach out and our team will get back to you within 24 hours.
           </p>
         </div>
 
-        {/* ════ TWO COLUMNS ════ */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", alignItems: "stretch", ...fadeIn(220) }}>
-
-          {/* ══ LEFT: Form ══ */}
+        {/* ── Two columns (stacks on mobile) ── */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))",
+            gap: "20px",
+            alignItems: "stretch",
+            ...fadeIn(220),
+          }}
+        >
+          {/* ── LEFT: Form ── */}
           <div style={{
             background: "#0d0d0d",
             border: "1px solid rgba(33,198,207,0.14)",
             borderRadius: "16px",
-            padding: "28px",
+            padding: "clamp(18px, 3vw, 28px)",
             boxShadow: "0 0 40px rgba(33,198,207,0.05), 0 8px 40px rgba(0,0,0,0.4)",
-            display: "flex",
-            flexDirection: "column",
+            display: "flex", flexDirection: "column",
           }}>
-            <h3 style={{ fontFamily: "'Syne',sans-serif", color: "white", fontWeight: 700, fontSize: "1.05rem", margin: "0 0 4px 0" }}>Send a Message</h3>
-            <p style={{ fontFamily: "'DM Sans',sans-serif", fontWeight: 300, color: "rgba(255,255,255,0.3)", fontSize: "0.77rem", margin: "0 0 22px 0" }}>Fill in the details and we'll respond shortly.</p>
+            <h3 style={{ fontFamily: "'Syne',sans-serif", color: "white", fontWeight: 700, fontSize: "1.05rem", margin: "0 0 4px 0" }}>
+              Send a Message
+            </h3>
+            <p style={{ fontFamily: "'DM Sans',sans-serif", fontWeight: 300, color: "rgba(255,255,255,0.3)", fontSize: "0.77rem", margin: "0 0 22px 0" }}>
+              Fill in the details and we'll respond shortly.
+            </p>
 
             {sent ? (
               <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "14px" }}>
@@ -177,16 +217,18 @@ export default function ContactSection() {
                   <p style={{ fontFamily: "'Syne',sans-serif", color: "white", fontWeight: 700, fontSize: "0.98rem", margin: "0 0 4px" }}>Message Sent!</p>
                   <p style={{ fontFamily: "'DM Sans',sans-serif", color: "rgba(255,255,255,0.38)", fontSize: "0.78rem", margin: 0 }}>We'll be in touch within 24 hours.</p>
                 </div>
-                <button onClick={() => { setSent(false); setForm({ name: "", email: "", phone: "", subject: "", message: "" }); }}
-                  style={{ fontFamily: "'DM Sans',sans-serif", color: "#21C6CF", fontSize: "0.75rem", background: "none", border: "none", cursor: "pointer" }}>
+                <button
+                  onClick={() => { setSent(false); setForm({ name: "", email: "", phone: "", subject: "", message: "" }); }}
+                  style={{ fontFamily: "'DM Sans',sans-serif", color: "#21C6CF", fontSize: "0.75rem", background: "none", border: "none", cursor: "pointer" }}
+                >
                   Send another message
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "13px", flex: 1 }}>
 
-                {/* Name + Email */}
-                <div style={{ display: "grid", flexDirection: "column", gap: "13px" }}>
+                {/* Name + Email — side by side on ≥480px, stacked below */}
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 180px), 1fr))", gap: "13px" }}>
                   <div>
                     <label style={labelStyle}>Full Name</label>
                     <input required type="text" placeholder="Rajesh Kesare" value={form.name}
@@ -194,6 +236,7 @@ export default function ContactSection() {
                       onFocus={() => setFocused("name")} onBlur={() => setFocused(null)}
                       style={inputStyle("name")} />
                   </div>
+                  <br/>
                   <div>
                     <label style={labelStyle}>Email</label>
                     <input required type="email" placeholder="you@company.com" value={form.email}
@@ -203,15 +246,14 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                {/* Phone + Subject */}
-                  <div>
-                    <label style={labelStyle}>Phone</label>
-                    <input type="tel" placeholder="+91 98765 43210" value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      onFocus={() => setFocused("phone")} onBlur={() => setFocused(null)}
-                      style={inputStyle("phone")} />
-                  </div>
-                  
+                {/* Phone */}
+                <div>
+                  <label style={labelStyle}>Phone</label>
+                  <input type="tel" placeholder="+91 98765 43210" value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    onFocus={() => setFocused("phone")} onBlur={() => setFocused(null)}
+                    style={inputStyle("phone")} />
+                </div>
 
                 {/* Message */}
                 <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
@@ -223,15 +265,20 @@ export default function ContactSection() {
                 </div>
 
                 {/* Submit */}
-                <button type="submit" disabled={sending} style={{
-                  fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: "0.87rem", letterSpacing: "0.04em",
-                  padding: "13px", borderRadius: "12px", border: "none", cursor: sending ? "not-allowed" : "pointer",
-                  background: sending ? "rgba(33,198,207,0.1)" : "linear-gradient(135deg,#21C6CF,#0ea5b5)",
-                  color: sending ? "#21C6CF" : "#050505",
-                  boxShadow: sending ? "none" : "0 0 22px rgba(33,198,207,0.22)",
-                  transition: "all 0.3s ease",
-                  display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
-                }}>
+                <button
+                  type="submit"
+                  disabled={sending}
+                  style={{
+                    fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: "0.87rem",
+                    letterSpacing: "0.04em", padding: "13px", borderRadius: "12px", border: "none",
+                    cursor: sending ? "not-allowed" : "pointer",
+                    background: sending ? "rgba(33,198,207,0.1)" : "linear-gradient(135deg,#21C6CF,#0ea5b5)",
+                    color: sending ? "#21C6CF" : "#050505",
+                    boxShadow: sending ? "none" : "0 0 22px rgba(33,198,207,0.22)",
+                    transition: "all 0.3s ease",
+                    display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
+                  }}
+                >
                   {sending ? (
                     <>
                       <svg style={{ width: 15, height: 15, animation: "spin 1s linear infinite" }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -253,12 +300,12 @@ export default function ContactSection() {
             )}
           </div>
 
-          {/* ══ RIGHT COLUMN ══ */}
+          {/* ── RIGHT COLUMN ── */}
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
 
-            {/* MAP — 40% */}
+            {/* MAP */}
             <div style={{
-              flex: "2 0 0",                     /* flex-grow:2 → takes 40% of the split */
+              flex: "2 0 0",
               position: "relative",
               borderRadius: "16px",
               overflow: "hidden",
@@ -268,14 +315,15 @@ export default function ContactSection() {
               <iframe
                 title="DatagenixAI Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242118.01660727427!2d73.72287313994139!3d18.524564099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1711000000000!5m2!1sen!2sin"
-                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none", filter: "invert(92%) hue-rotate(180deg) brightness(0.82) saturate(0.55)" }}
+                style={{
+                  position: "absolute", inset: 0, width: "100%", height: "100%", border: "none",
+                  filter: "invert(92%) hue-rotate(180deg) brightness(0.82) saturate(0.55)",
+                }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
-              {/* Subtle dark tint */}
               <div style={{ position: "absolute", inset: 0, background: "rgba(5,5,5,0.15)", pointerEvents: "none" }} />
-              {/* Badge */}
               <div style={{
                 position: "absolute", top: "10px", left: "10px",
                 display: "flex", alignItems: "center", gap: "6px",
@@ -283,24 +331,22 @@ export default function ContactSection() {
                 background: "rgba(13,13,13,0.88)", border: "1px solid rgba(33,198,207,0.22)",
               }}>
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#21C6CF", boxShadow: "0 0 6px #21C6CF", flexShrink: 0 }} />
-                <span style={{ fontFamily: "'DM Sans',sans-serif", color: "#21C6CF", fontSize: "0.6rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>Pune, India</span>
+                <span style={{ fontFamily: "'DM Sans',sans-serif", color: "#21C6CF", fontSize: "0.6rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+                  Pune, India
+                </span>
               </div>
             </div>
 
-            {/* INFO — 60% */}
+            {/* INFO */}
             <div style={{
-              flex: "3 0 0",                     /* flex-grow:3 → takes 60% of the split */
+              flex: "3 0 0",
               background: "#0d0d0d",
               border: "1px solid rgba(33,198,207,0.14)",
               borderRadius: "16px",
-              padding: "24px",
+              padding: "clamp(16px, 3vw, 24px)",
               boxShadow: "0 0 40px rgba(33,198,207,0.04), 0 8px 40px rgba(0,0,0,0.4)",
-              display: "flex",
-              flexDirection: "column",
-              gap: "18px",
+              display: "flex", flexDirection: "column", gap: "18px",
             }}>
-
-              {/* Info rows */}
               {INFO_ITEMS.map((item, i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: "14px" }}>
                   <div style={{
@@ -311,18 +357,23 @@ export default function ContactSection() {
                     {item.icon}
                   </div>
                   <div>
-                    <p style={{ fontFamily: "'DM Sans',sans-serif", color: "rgba(255,255,255,0.3)", fontSize: "0.63rem", letterSpacing: "0.12em", textTransform: "uppercase", margin: "0 0 2px" }}>{item.label}</p>
-                    <p style={{ fontFamily: "'DM Sans',sans-serif", fontWeight: 300, color: "rgba(255,255,255,0.75)", fontSize: "0.83rem", margin: 0 }}>{item.value}</p>
+                    <p style={{ fontFamily: "'DM Sans',sans-serif", color: "rgba(255,255,255,0.3)", fontSize: "0.63rem", letterSpacing: "0.12em", textTransform: "uppercase", margin: "0 0 2px" }}>
+                      {item.label}
+                    </p>
+                    <p style={{ fontFamily: "'DM Sans',sans-serif", fontWeight: 300, color: "rgba(255,255,255,0.75)", fontSize: "0.83rem", margin: 0 }}>
+                      {item.value}
+                    </p>
                   </div>
                 </div>
               ))}
 
-              {/* Divider */}
               <div style={{ height: "1px", background: "rgba(33,198,207,0.08)" }} />
 
-              {/* Social */}
-              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <span style={{ fontFamily: "'DM Sans',sans-serif", color: "rgba(255,255,255,0.28)", fontSize: "0.65rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>Follow us</span>
+              {/* Socials */}
+              <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
+                <span style={{ fontFamily: "'DM Sans',sans-serif", color: "rgba(255,255,255,0.28)", fontSize: "0.65rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+                  Follow us
+                </span>
                 {SOCIALS.map((s) => (
                   <button key={s.label} aria-label={s.label} style={{
                     width: 30, height: 30, borderRadius: "8px", cursor: "pointer",
@@ -336,10 +387,8 @@ export default function ContactSection() {
                   </button>
                 ))}
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
 

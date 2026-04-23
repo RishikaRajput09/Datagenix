@@ -107,7 +107,7 @@ ${scrolled ? "translate-y-2" : "translate-y-0"}
 
     ${scrolled
                 ? "scale-[0.85] translate-y-1 show-glint"
-                : "scale-100 translate-y-0"
+                : "scale-97 translate-y-4"
               }
 
     h-24 px-10 rounded-[22px] max-w-full mx-auto
