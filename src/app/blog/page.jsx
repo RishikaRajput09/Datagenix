@@ -3,7 +3,7 @@
 
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getBlogBySlug, getAllSlugs, BLOGS} from "@/lib/blogs";
+import { getBlogBySlug, getAllSlugs, BLOGS} from "@/lib/blog";
 
 // ── Static generation ─────────────────────────────────────────────────────────
 export async function generateStaticParams() {
