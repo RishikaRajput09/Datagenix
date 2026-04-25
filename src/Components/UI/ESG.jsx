@@ -248,7 +248,7 @@ export default function ESGSection() {
               className="font-['Syne',sans-serif] text-[1.8rem] sm:text-[2.4rem] lg:text-[3rem] font-bold text-[#111111] leading-[1.1] tracking-[-0.02em] text-center mb-4 max-w-2xl mx-auto"
             >
               Innovation with{" "}
-              <span className="text-[#0d9ba3]">Responsibility</span>
+              <span className="text-[#28E7C5]">Responsibility</span>
             </h2>
 
             <p
@@ -274,7 +274,7 @@ export default function ESGSection() {
                   data-delay={String(i + 4)}
                   className="esg-card-item flex gap-4 p-4 sm:p-5 rounded-xl border border-[rgba(13,155,163,0.13)] bg-white/92 backdrop-blur-sm flex-1"
                 >
-                  <div className="shrink-0 w-9 h-9 rounded-lg bg-[rgba(13,155,163,0.08)] border border-[rgba(13,155,163,0.18)] flex items-center justify-center text-[#0d9ba3]">
+                  <div className="shrink-0 w-9 h-9 rounded-lg bg-[rgba(13,155,163,0.08)] border border-[rgba(13,155,163,0.18)] flex items-center justify-center text-[#28E7C5]">
                     {card.icon}
                   </div>
                   <div className="min-w-0">
@@ -300,7 +300,7 @@ export default function ESGSection() {
                     data-delay={String(i + 7)}
                     className="esg-stat-item p-4 sm:p-5 rounded-xl border border-[rgba(13,155,163,0.13)] bg-white/92 backdrop-blur-sm"
                   >
-                    <div className="font-['Syne',sans-serif] text-[2rem] sm:text-[2.4rem] font-extrabold text-[#0d9ba3] leading-none mb-1.5">
+                    <div className="font-['Syne',sans-serif] text-[2rem] sm:text-[2.4rem] font-extrabold text-[#28E7C5] leading-none mb-1.5">
                       {s.value}
                     </div>
                     <div className="font-['Syne',sans-serif] text-[0.82rem] font-bold text-[#111111] mb-1 leading-snug">
@@ -330,14 +330,14 @@ export default function ESGSection() {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <span className="w-1.25 h-1.25 rounded-full bg-[#0d9ba3] shadow-[0_0_8px_rgba(13,155,163,0.4)] inline-block shrink-0" />
-                    <span className="font-['DM_Sans',sans-serif] text-[#0d9ba3] text-[0.62rem] tracking-[0.18em] uppercase font-medium">
+                    <span className="font-['DM_Sans',sans-serif] text-[#28E7C5] text-[0.62rem] tracking-[0.18em] uppercase font-medium">
                       Our Commitment
                     </span>
                   </div>
 
                   <p className="font-['Syne',sans-serif] text-[1.05rem] sm:text-[1.15rem] font-bold text-[#111111] leading-[1.55] mb-3">
                     Technology must not only create value;{" "}
-                    <span className="text-[#0d9ba3]">
+                    <span className="text-[#28E7C5]">
                       it must create a Better Future.
                     </span>
                   </p>

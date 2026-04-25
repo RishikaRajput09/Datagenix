@@ -35,7 +35,7 @@ const SLIDES = [
   },
 ];
 
-const ACCENT = "#7DD3FC"; // sky-300
+const ACCENT = "#28E7C5"; // sky-300
 
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -111,9 +111,9 @@ export default function HeroCarousel() {
       id="hero-section"
       className="relative w-full flex items-center overflow-hidden bg-none pt-15"
     >
-      {/* Keyframe styles */}
+      {/* Keyframe styles */} 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Sans:opsz,wght@9..40,300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
         @keyframes fadeUp {
           from { opacity:0; transform:translateY(26px); }
@@ -204,13 +204,13 @@ export default function HeroCarousel() {
       shadow-[0_0_14px_rgba(125,211,252,0.15)]
     "
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7DD3FC] shadow-[0_0_8px_#7DD3FC]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#28E7C5] shadow-[0_0_8px_#7DD3FC]" />
 
               <span
                 className="text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase"
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  color: "#7DD3FC",
+                  fontFamily: "'Google Sans', sans-serif",
+                  color: "#28E7C5",
                 }}
               >
                 {s.badge}
@@ -238,7 +238,7 @@ export default function HeroCarousel() {
           {/* Divider */}
           <div className="hero-anim-fadeup delay-2 flex items-center gap-2.5 my-5.5">
             <div
-              className="w-7 h-px opacity-45"
+              className="w-full h-px opacity-45"
               style={{ background: ACCENT }}
             />
             <div
@@ -249,9 +249,9 @@ export default function HeroCarousel() {
 
           {/* Sub */}
           <p
-            className="hero-anim-fadeup delay-3 mb-8.5 mt-0 max-w-120 leading-[1.8]"
+            className="hero-anim-fadeup delay-3 mb-8.5 mt-0 max-w-140 leading-[1.8]"
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Google Sans', sans-serif",
               fontWeight: 400,
               fontSize: "clamp(1rem,1.25vw,1.15rem)", 
               color: "#ffffff", 
@@ -263,9 +263,9 @@ export default function HeroCarousel() {
           {/* CTAs */}
           <div className="hero-anim-fadeup delay-4 flex flex-wrap gap-3">
             <button
-              className="btn-primary transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[3px] px-7 py-3.25 text-[0.8rem] font-semibold tracking-[0.06em]"
+              className="bg-[#28E7C5] transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[3px] px-7 py-3.25 text-[0.8rem] font-semibold tracking-[0.06em]"
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Google Sans', sans-serif",
                 color: "#05070e",
                 background: ACCENT,
                 border: `1px solid ${ACCENT}`,
@@ -277,7 +277,7 @@ export default function HeroCarousel() {
             <button
               className="btn-ghost transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[3px] px-6.5 py-3.25 text-[0.8rem] font-medium tracking-[0.06em] inline-flex items-center gap-1.5"
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Google Sans', sans-serif",
                 color: "rgba(255,255,255,0.5)",
                 background: "transparent",
                 border: "1px solid rgba(255,255,255,0.13)",
@@ -307,7 +307,7 @@ export default function HeroCarousel() {
                     key={i}
                     className="w-6.5 h-6.5 rounded-full border-2 flex items-center justify-center text-[0.58rem] font-bold"
                     style={{
-                      fontFamily: "'Syne', sans-serif",
+                      fontFamily: "'Google Sans', sans-serif",
                       background: bg,
                       borderColor: "#05070e",
                       marginLeft: i > 0 ? -8 : 0,
@@ -327,7 +327,7 @@ export default function HeroCarousel() {
             <p
               className="text-[0.7rem] leading-[1.55] m-0"
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Google Sans', sans-serif",
                 color: "rgba(255,255,255,0.28)",
               }}
             >
@@ -360,7 +360,7 @@ export default function HeroCarousel() {
             <span
               className="text-[0.95rem] tracking-widest ml-1"
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Google Sans', sans-serif",
                 color: "rgba(255,255,255,0.18)",
               }}
             >
@@ -450,7 +450,7 @@ export default function HeroCarousel() {
                 className="absolute inset-0 z-2 pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(to top,rgba(5,7,14,0.6) 0%,transparent 35%,transparent 70%,rgba(5,7,14,0.22) 100%)",
+                    "linear-gradient(to top,rgba(40,231,197,0.6) 0%,transparent 35%,transparent 70%,rgba(5,7,14,0.22) 100%)",
                 }}
               />
 
@@ -458,7 +458,7 @@ export default function HeroCarousel() {
               <div
                 className="absolute top-3.25 left-3.25 z-5 flex items-center gap-1.5 px-2.75 py-1.25 rounded-full"
                 style={{
-                  background: "rgba(5,7,14,0.78)",
+                  background: "rgba(40,231,197,0.1)",
                   backdropFilter: "blur(12px)",
                   border: "1px solid rgba(125,211,252,0.2)",
                 }}
@@ -470,7 +470,7 @@ export default function HeroCarousel() {
                 <span
                   className="text-[0.6rem] font-medium tracking-[0.14em] uppercase"
                   style={{
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "'Google Sans', sans-serif",
                     color: ACCENT,
                   }}
                 >
@@ -523,7 +523,7 @@ export default function HeroCarousel() {
                   background: "rgba(5,7,14,0.72)",
                   backdropFilter: "blur(8px)",
                   border: "1px solid rgba(255,255,255,0.06)",
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Google Sans', sans-serif",
                   color: "rgba(255,255,255,0.3)",
                 }}
               >
@@ -560,7 +560,7 @@ export default function HeroCarousel() {
             <span
               className="text-[0.6rem] tracking-[0.08em]"
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Google Sans', sans-serif",
                 color: "rgba(125,211,252,0.38)",
               }}
             >

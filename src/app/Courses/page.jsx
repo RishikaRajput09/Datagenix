@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import EnrollmentForm from "./Enrollment";
 
 // ── COURSE DATA ──────────────────────────────────────────────────────────────
 const COURSES = [
@@ -12,19 +13,78 @@ const COURSES = [
     description:
       "AI is reshaping every career. This course strips away the jargon and gives you practical mastery of ChatGPT and modern AI tools — so you can boost productivity, explore new income streams, and future-proof your career. No technical background required.",
     features: [
-      { icon: "◈", label: "What is AI (Simple & Clear)", desc: "Demystify AI, LLMs, and GenAI in plain language" },
-      { icon: "⬡", label: "ChatGPT & AI Tools", desc: "Hands-on with the tools that are changing every industry" },
-      { icon: "◉", label: "AI for Studies, Job & Business", desc: "Real use-cases across education, careers, and entrepreneurship" },
-      { icon: "◆", label: "Productivity Hacks", desc: "Automate repetitive tasks and multiply your output" },
-      { icon: "▣", label: "Career Opportunities in AI", desc: "Discover roles and income paths emerging right now" },
+      {
+        icon: "◈",
+        label: "What is AI (Simple & Clear)",
+        desc: "Demystify AI, LLMs, and GenAI in plain language",
+      },
+      {
+        icon: "⬡",
+        label: "ChatGPT & AI Tools",
+        desc: "Hands-on with the tools that are changing every industry",
+      },
+      {
+        icon: "◉",
+        label: "AI for Studies, Job & Business",
+        desc: "Real use-cases across education, careers, and entrepreneurship",
+      },
+      {
+        icon: "◆",
+        label: "Productivity Hacks",
+        desc: "Automate repetitive tasks and multiply your output",
+      },
+      {
+        icon: "▣",
+        label: "Career Opportunities in AI",
+        desc: "Discover roles and income paths emerging right now",
+      },
     ],
-    whoCanJoin: ["Students (9th–12th, UG, PG)", "Teachers & Professors", "Business Owners", "Working Professionals", "Anyone curious about AI"],
-    outcomes: ["Confidently use AI tools in daily work", "Automate repetitive tasks", "Identify AI career opportunities", "Apply AI to your specific domain"],
+    whoCanJoin: [
+      "Students (9th–12th, UG, PG)",
+      "Teachers & Professors",
+      "Business Owners",
+      "Working Professionals",
+      "Anyone curious about AI",
+    ],
+    outcomes: [
+      "Confidently use AI tools in daily work",
+      "Automate repetitive tasks",
+      "Identify AI career opportunities",
+      "Apply AI to your specific domain",
+    ],
     curriculum: [
-      { module: "Module 1", title: "AI Foundations", topics: ["What is AI, ML, GenAI", "History & evolution", "Key players & tools"] },
-      { module: "Module 2", title: "ChatGPT Mastery", topics: ["Prompting techniques", "Use-cases by profession", "Custom GPTs"] },
-      { module: "Module 3", title: "AI for Productivity", topics: ["Automating daily tasks", "AI writing & research", "Time optimization"] },
-      { module: "Module 4", title: "Career & Business", topics: ["AI job roles", "Freelancing with AI", "Business use-cases"] },
+      {
+        module: "Module 1",
+        title: "AI Foundations",
+        topics: [
+          "What is AI, ML, GenAI",
+          "History & evolution",
+          "Key players & tools",
+        ],
+      },
+      {
+        module: "Module 2",
+        title: "ChatGPT Mastery",
+        topics: [
+          "Prompting techniques",
+          "Use-cases by profession",
+          "Custom GPTs",
+        ],
+      },
+      {
+        module: "Module 3",
+        title: "AI for Productivity",
+        topics: [
+          "Automating daily tasks",
+          "AI writing & research",
+          "Time optimization",
+        ],
+      },
+      {
+        module: "Module 4",
+        title: "Career & Business",
+        topics: ["AI job roles", "Freelancing with AI", "Business use-cases"],
+      },
     ],
     cta: "Explore Course",
     tag: "Beginner Friendly",
@@ -46,19 +106,86 @@ const COURSES = [
     description:
       "Master Excel, SQL, Python, and Power BI with real industry datasets. Build a capstone project, get placement support, and become job-ready with the skills companies are actively hiring for right now.",
     features: [
-      { icon: "◈", label: "Excel for Data Analytics", desc: "From basics to advanced pivot tables and dashboards" },
-      { icon: "⬡", label: "SQL for Data Analysis", desc: "Query databases like a professional analyst" },
-      { icon: "◉", label: "Python & Libraries", desc: "Pandas, NumPy, Matplotlib for data wrangling" },
-      { icon: "◆", label: "Power BI Dashboards", desc: "Visual storytelling with enterprise BI tools" },
-      { icon: "▣", label: "Capstone Industry Project", desc: "Real-world project to showcase to employers" },
+      {
+        icon: "◈",
+        label: "Excel for Data Analytics",
+        desc: "From basics to advanced pivot tables and dashboards",
+      },
+      {
+        icon: "⬡",
+        label: "SQL for Data Analysis",
+        desc: "Query databases like a professional analyst",
+      },
+      {
+        icon: "◉",
+        label: "Python & Libraries",
+        desc: "Pandas, NumPy, Matplotlib for data wrangling",
+      },
+      {
+        icon: "◆",
+        label: "Power BI Dashboards",
+        desc: "Visual storytelling with enterprise BI tools",
+      },
+      {
+        icon: "▣",
+        label: "Capstone Industry Project",
+        desc: "Real-world project to showcase to employers",
+      },
     ],
-    whoCanJoin: ["Students & Graduates (any stream)", "Teachers & Faculty", "Working Professionals & Career Switchers", "Entrepreneurs & Business Owners", "Anyone curious about the Data domain"],
-    outcomes: ["Analyze and visualize real datasets", "Build professional dashboards", "Present data-driven insights to stakeholders", "Land a data analyst role with placement support"],
+    whoCanJoin: [
+      "Students & Graduates (any stream)",
+      "Teachers & Faculty",
+      "Working Professionals & Career Switchers",
+      "Entrepreneurs & Business Owners",
+      "Anyone curious about the Data domain",
+    ],
+    outcomes: [
+      "Analyze and visualize real datasets",
+      "Build professional dashboards",
+      "Present data-driven insights to stakeholders",
+      "Land a data analyst role with placement support",
+    ],
     curriculum: [
-      { module: "Module 1", title: "Excel Mastery", topics: ["Data cleaning", "Pivot tables", "Advanced formulas", "Charts & dashboards"] },
-      { module: "Module 2", title: "SQL Deep Dive", topics: ["Queries & joins", "Aggregations", "Subqueries", "Database design basics"] },
-      { module: "Module 3", title: "Python for Data", topics: ["Pandas & NumPy", "Data visualization", "EDA techniques", "Automation scripts"] },
-      { module: "Module 4", title: "Power BI & Capstone", topics: ["DAX formulas", "Interactive dashboards", "Industry project", "Presentation skills"] },
+      {
+        module: "Module 1",
+        title: "Excel Mastery",
+        topics: [
+          "Data cleaning",
+          "Pivot tables",
+          "Advanced formulas",
+          "Charts & dashboards",
+        ],
+      },
+      {
+        module: "Module 2",
+        title: "SQL Deep Dive",
+        topics: [
+          "Queries & joins",
+          "Aggregations",
+          "Subqueries",
+          "Database design basics",
+        ],
+      },
+      {
+        module: "Module 3",
+        title: "Python for Data",
+        topics: [
+          "Pandas & NumPy",
+          "Data visualization",
+          "EDA techniques",
+          "Automation scripts",
+        ],
+      },
+      {
+        module: "Module 4",
+        title: "Power BI & Capstone",
+        topics: [
+          "DAX formulas",
+          "Interactive dashboards",
+          "Industry project",
+          "Presentation skills",
+        ],
+      },
     ],
     cta: "Enroll Now",
     tag: "3 Months · 100% Placement Support*",
@@ -80,19 +207,79 @@ const COURSES = [
     description:
       "Go beyond analysis. Learn to engineer ML pipelines, build predictive models, and deploy AI solutions used in production. Mentored by industry practitioners — with real data, real projects.",
     features: [
-      { icon: "◈", label: "ML Algorithms", desc: "Regression, classification, clustering — from scratch" },
-      { icon: "⬡", label: "Deep Learning Basics", desc: "Neural networks, CNNs, and NLP fundamentals" },
-      { icon: "◉", label: "Model Deployment", desc: "Flask APIs, cloud deployment, and MLOps basics" },
-      { icon: "◆", label: "Feature Engineering", desc: "The real craft behind high-performing models" },
-      { icon: "▣", label: "Industry Projects", desc: "Build portfolio-ready ML solutions end-to-end" },
+      {
+        icon: "◈",
+        label: "ML Algorithms",
+        desc: "Regression, classification, clustering — from scratch",
+      },
+      {
+        icon: "⬡",
+        label: "Deep Learning Basics",
+        desc: "Neural networks, CNNs, and NLP fundamentals",
+      },
+      {
+        icon: "◉",
+        label: "Model Deployment",
+        desc: "Flask APIs, cloud deployment, and MLOps basics",
+      },
+      {
+        icon: "◆",
+        label: "Feature Engineering",
+        desc: "The real craft behind high-performing models",
+      },
+      {
+        icon: "▣",
+        label: "Industry Projects",
+        desc: "Build portfolio-ready ML solutions end-to-end",
+      },
     ],
-    whoCanJoin: ["Python programmers wanting to level up", "Data Analysts moving into ML", "CS/IT graduates", "Researchers & academics", "Professionals in analytics roles"],
-    outcomes: ["Build and evaluate ML models", "Work with real-world datasets", "Deploy models to production", "Create a strong ML portfolio"],
+    whoCanJoin: [
+      "Python programmers wanting to level up",
+      "Data Analysts moving into ML",
+      "CS/IT graduates",
+      "Researchers & academics",
+      "Professionals in analytics roles",
+    ],
+    outcomes: [
+      "Build and evaluate ML models",
+      "Work with real-world datasets",
+      "Deploy models to production",
+      "Create a strong ML portfolio",
+    ],
     curriculum: [
-      { module: "Module 1", title: "Python & Statistics", topics: ["Python for ML", "Probability & stats", "Data preprocessing"] },
-      { module: "Module 2", title: "Supervised Learning", topics: ["Regression & classification", "Decision trees", "Ensemble methods"] },
-      { module: "Module 3", title: "Unsupervised & NLP", topics: ["Clustering", "Dimensionality reduction", "Text processing basics"] },
-      { module: "Module 4", title: "Deep Learning & Deploy", topics: ["Neural networks", "CNNs & RNNs", "Model deployment", "Capstone project"] },
+      {
+        module: "Module 1",
+        title: "Python & Statistics",
+        topics: ["Python for ML", "Probability & stats", "Data preprocessing"],
+      },
+      {
+        module: "Module 2",
+        title: "Supervised Learning",
+        topics: [
+          "Regression & classification",
+          "Decision trees",
+          "Ensemble methods",
+        ],
+      },
+      {
+        module: "Module 3",
+        title: "Unsupervised & NLP",
+        topics: [
+          "Clustering",
+          "Dimensionality reduction",
+          "Text processing basics",
+        ],
+      },
+      {
+        module: "Module 4",
+        title: "Deep Learning & Deploy",
+        topics: [
+          "Neural networks",
+          "CNNs & RNNs",
+          "Model deployment",
+          "Capstone project",
+        ],
+      },
     ],
     cta: "Explore Course",
     tag: "Intermediate–Advanced",
@@ -114,19 +301,82 @@ const COURSES = [
     description:
       "Learn to design interactive dashboards and BI reports that executives actually use. From data modeling to DAX to publishing — master the full Power BI workflow with business-focused projects.",
     features: [
-      { icon: "◈", label: "Data Modeling", desc: "Star schema, relationships, and clean data architecture" },
-      { icon: "⬡", label: "DAX Formulas", desc: "Calculated columns, measures, and time intelligence" },
-      { icon: "◉", label: "Interactive Reports", desc: "Drill-throughs, bookmarks, and dynamic visuals" },
-      { icon: "◆", label: "Power Query (ETL)", desc: "Data transformation with M language" },
-      { icon: "▣", label: "Publishing & Sharing", desc: "Power BI Service, workspaces, and scheduled refresh" },
+      {
+        icon: "◈",
+        label: "Data Modeling",
+        desc: "Star schema, relationships, and clean data architecture",
+      },
+      {
+        icon: "⬡",
+        label: "DAX Formulas",
+        desc: "Calculated columns, measures, and time intelligence",
+      },
+      {
+        icon: "◉",
+        label: "Interactive Reports",
+        desc: "Drill-throughs, bookmarks, and dynamic visuals",
+      },
+      {
+        icon: "◆",
+        label: "Power Query (ETL)",
+        desc: "Data transformation with M language",
+      },
+      {
+        icon: "▣",
+        label: "Publishing & Sharing",
+        desc: "Power BI Service, workspaces, and scheduled refresh",
+      },
     ],
-    whoCanJoin: ["Business analysts", "Finance & operations professionals", "HR and management teams", "Anyone who works with Excel reports", "Entrepreneurs & founders"],
-    outcomes: ["Build executive-ready dashboards", "Master DAX and data modeling", "Publish and share BI reports", "Replace static Excel reports with live visuals"],
+    whoCanJoin: [
+      "Business analysts",
+      "Finance & operations professionals",
+      "HR and management teams",
+      "Anyone who works with Excel reports",
+      "Entrepreneurs & founders",
+    ],
+    outcomes: [
+      "Build executive-ready dashboards",
+      "Master DAX and data modeling",
+      "Publish and share BI reports",
+      "Replace static Excel reports with live visuals",
+    ],
     curriculum: [
-      { module: "Module 1", title: "Power BI Foundations", topics: ["Interface & workflow", "Connecting data sources", "Basic visuals"] },
-      { module: "Module 2", title: "Data Modeling", topics: ["Relationships", "Star schema design", "Data cleaning with Power Query"] },
-      { module: "Module 3", title: "DAX & Analytics", topics: ["Measures vs columns", "Time intelligence", "Advanced calculations"] },
-      { module: "Module 4", title: "Reports & Projects", topics: ["Report design principles", "Publishing to service", "Industry dashboard project"] },
+      {
+        module: "Module 1",
+        title: "Power BI Foundations",
+        topics: [
+          "Interface & workflow",
+          "Connecting data sources",
+          "Basic visuals",
+        ],
+      },
+      {
+        module: "Module 2",
+        title: "Data Modeling",
+        topics: [
+          "Relationships",
+          "Star schema design",
+          "Data cleaning with Power Query",
+        ],
+      },
+      {
+        module: "Module 3",
+        title: "DAX & Analytics",
+        topics: [
+          "Measures vs columns",
+          "Time intelligence",
+          "Advanced calculations",
+        ],
+      },
+      {
+        module: "Module 4",
+        title: "Reports & Projects",
+        topics: [
+          "Report design principles",
+          "Publishing to service",
+          "Industry dashboard project",
+        ],
+      },
     ],
     cta: "Explore Course",
     tag: "Business-Focused",
@@ -148,19 +398,84 @@ const COURSES = [
     description:
       "Python powers AI, data science, automation, and web backends. This course builds you from zero to job-ready with real projects, clean code practices, and hands-on problem-solving.",
     features: [
-      { icon: "◈", label: "Core Python", desc: "Data types, loops, functions, OOP, and file handling" },
-      { icon: "⬡", label: "Libraries & APIs", desc: "NumPy, Pandas, Requests, and automation tools" },
-      { icon: "◉", label: "Real Projects", desc: "Automation scripts, web scrapers, data tools" },
-      { icon: "◆", label: "Problem Solving", desc: "Coding challenges and algorithmic thinking" },
-      { icon: "▣", label: "Bridge to Data/AI", desc: "Pathway into data science and ML with Python" },
+      {
+        icon: "◈",
+        label: "Core Python",
+        desc: "Data types, loops, functions, OOP, and file handling",
+      },
+      {
+        icon: "⬡",
+        label: "Libraries & APIs",
+        desc: "NumPy, Pandas, Requests, and automation tools",
+      },
+      {
+        icon: "◉",
+        label: "Real Projects",
+        desc: "Automation scripts, web scrapers, data tools",
+      },
+      {
+        icon: "◆",
+        label: "Problem Solving",
+        desc: "Coding challenges and algorithmic thinking",
+      },
+      {
+        icon: "▣",
+        label: "Bridge to Data/AI",
+        desc: "Pathway into data science and ML with Python",
+      },
     ],
-    whoCanJoin: ["Complete beginners — no coding experience needed", "Students in any technical stream", "Working professionals wanting to automate tasks", "Aspiring data scientists", "Developers from other languages"],
-    outcomes: ["Write clean, production-quality Python", "Build automation and data tools", "Understand libraries for data & AI", "Solve real-world programming challenges"],
+    whoCanJoin: [
+      "Complete beginners — no coding experience needed",
+      "Students in any technical stream",
+      "Working professionals wanting to automate tasks",
+      "Aspiring data scientists",
+      "Developers from other languages",
+    ],
+    outcomes: [
+      "Write clean, production-quality Python",
+      "Build automation and data tools",
+      "Understand libraries for data & AI",
+      "Solve real-world programming challenges",
+    ],
     curriculum: [
-      { module: "Module 1", title: "Python Basics", topics: ["Syntax & data types", "Conditionals & loops", "Functions & scope"] },
-      { module: "Module 2", title: "Intermediate Python", topics: ["OOP concepts", "File handling", "Error handling", "Modules & packages"] },
-      { module: "Module 3", title: "Libraries & Automation", topics: ["NumPy & Pandas", "Web scraping", "API integration", "Automation scripts"] },
-      { module: "Module 4", title: "Projects & Pathways", topics: ["Mini-projects", "Code review practices", "Bridge to data science"] },
+      {
+        module: "Module 1",
+        title: "Python Basics",
+        topics: [
+          "Syntax & data types",
+          "Conditionals & loops",
+          "Functions & scope",
+        ],
+      },
+      {
+        module: "Module 2",
+        title: "Intermediate Python",
+        topics: [
+          "OOP concepts",
+          "File handling",
+          "Error handling",
+          "Modules & packages",
+        ],
+      },
+      {
+        module: "Module 3",
+        title: "Libraries & Automation",
+        topics: [
+          "NumPy & Pandas",
+          "Web scraping",
+          "API integration",
+          "Automation scripts",
+        ],
+      },
+      {
+        module: "Module 4",
+        title: "Projects & Pathways",
+        topics: [
+          "Mini-projects",
+          "Code review practices",
+          "Bridge to data science",
+        ],
+      },
     ],
     cta: "Start Learning",
     tag: "Beginner–Intermediate",
@@ -182,19 +497,70 @@ const COURSES = [
     description:
       "SQL is the universal language of data. Learn to write queries that extract insights, aggregate trends, and answer critical business questions — used by analysts, developers, and PMs worldwide.",
     features: [
-      { icon: "◈", label: "Core SQL Queries", desc: "SELECT, WHERE, GROUP BY, ORDER BY mastery" },
-      { icon: "⬡", label: "Joins & Relationships", desc: "INNER, LEFT, RIGHT joins across multiple tables" },
-      { icon: "◉", label: "Aggregations & Windows", desc: "SUM, COUNT, RANK, and window functions" },
-      { icon: "◆", label: "Subqueries & CTEs", desc: "Advanced query patterns for complex analysis" },
-      { icon: "▣", label: "Real Business Cases", desc: "Sales, HR, and e-commerce analysis projects" },
+      {
+        icon: "◈",
+        label: "Core SQL Queries",
+        desc: "SELECT, WHERE, GROUP BY, ORDER BY mastery",
+      },
+      {
+        icon: "⬡",
+        label: "Joins & Relationships",
+        desc: "INNER, LEFT, RIGHT joins across multiple tables",
+      },
+      {
+        icon: "◉",
+        label: "Aggregations & Windows",
+        desc: "SUM, COUNT, RANK, and window functions",
+      },
+      {
+        icon: "◆",
+        label: "Subqueries & CTEs",
+        desc: "Advanced query patterns for complex analysis",
+      },
+      {
+        icon: "▣",
+        label: "Real Business Cases",
+        desc: "Sales, HR, and e-commerce analysis projects",
+      },
     ],
-    whoCanJoin: ["Aspiring data analysts", "Business professionals who need data access", "Developers learning backend data", "Finance & operations teams", "Students preparing for analytics roles"],
-    outcomes: ["Write professional SQL queries", "Analyze real business datasets", "Combine SQL with Excel/Python for full analysis", "Interview-ready for data analyst roles"],
+    whoCanJoin: [
+      "Aspiring data analysts",
+      "Business professionals who need data access",
+      "Developers learning backend data",
+      "Finance & operations teams",
+      "Students preparing for analytics roles",
+    ],
+    outcomes: [
+      "Write professional SQL queries",
+      "Analyze real business datasets",
+      "Combine SQL with Excel/Python for full analysis",
+      "Interview-ready for data analyst roles",
+    ],
     curriculum: [
-      { module: "Module 1", title: "SQL Fundamentals", topics: ["Database concepts", "Basic queries", "Filtering & sorting"] },
-      { module: "Module 2", title: "Joins & Aggregations", topics: ["Types of joins", "GROUP BY", "HAVING clause"] },
-      { module: "Module 3", title: "Advanced SQL", topics: ["Subqueries", "CTEs", "Window functions"] },
-      { module: "Module 4", title: "Projects & Integration", topics: ["Business case projects", "SQL + Python integration", "Interview prep"] },
+      {
+        module: "Module 1",
+        title: "SQL Fundamentals",
+        topics: ["Database concepts", "Basic queries", "Filtering & sorting"],
+      },
+      {
+        module: "Module 2",
+        title: "Joins & Aggregations",
+        topics: ["Types of joins", "GROUP BY", "HAVING clause"],
+      },
+      {
+        module: "Module 3",
+        title: "Advanced SQL",
+        topics: ["Subqueries", "CTEs", "Window functions"],
+      },
+      {
+        module: "Module 4",
+        title: "Projects & Integration",
+        topics: [
+          "Business case projects",
+          "SQL + Python integration",
+          "Interview prep",
+        ],
+      },
     ],
     cta: "Explore Course",
     tag: "High Demand Skill",
@@ -216,19 +582,78 @@ const COURSES = [
     description:
       "Prompt engineering is the fastest-growing meta-skill of the AI era. Learn to design prompts that get precise, high-quality outputs from ChatGPT, Claude, Gemini, and other LLMs — for any use case.",
     features: [
-      { icon: "◈", label: "Prompt Anatomy", desc: "Role, context, instruction, format — the full framework" },
-      { icon: "⬡", label: "Advanced Techniques", desc: "Chain-of-thought, few-shot, and system prompts" },
-      { icon: "◉", label: "Use-Case Libraries", desc: "Prompt templates for marketing, coding, research, HR" },
-      { icon: "◆", label: "AI Tool Integration", desc: "ChatGPT, Claude, Gemini, Midjourney, and more" },
-      { icon: "▣", label: "Prompt-to-Product", desc: "Build AI-powered workflows and mini-automations" },
+      {
+        icon: "◈",
+        label: "Prompt Anatomy",
+        desc: "Role, context, instruction, format — the full framework",
+      },
+      {
+        icon: "⬡",
+        label: "Advanced Techniques",
+        desc: "Chain-of-thought, few-shot, and system prompts",
+      },
+      {
+        icon: "◉",
+        label: "Use-Case Libraries",
+        desc: "Prompt templates for marketing, coding, research, HR",
+      },
+      {
+        icon: "◆",
+        label: "AI Tool Integration",
+        desc: "ChatGPT, Claude, Gemini, Midjourney, and more",
+      },
+      {
+        icon: "▣",
+        label: "Prompt-to-Product",
+        desc: "Build AI-powered workflows and mini-automations",
+      },
     ],
-    whoCanJoin: ["Marketers, writers, and content creators", "Business professionals using AI tools", "Developers building AI-powered apps", "Students wanting an edge in the AI era", "Entrepreneurs automating operations"],
-    outcomes: ["Write prompts that get consistent results", "Build reusable prompt libraries", "Automate workflows with LLMs", "Save hours weekly using AI intelligently"],
+    whoCanJoin: [
+      "Marketers, writers, and content creators",
+      "Business professionals using AI tools",
+      "Developers building AI-powered apps",
+      "Students wanting an edge in the AI era",
+      "Entrepreneurs automating operations",
+    ],
+    outcomes: [
+      "Write prompts that get consistent results",
+      "Build reusable prompt libraries",
+      "Automate workflows with LLMs",
+      "Save hours weekly using AI intelligently",
+    ],
     curriculum: [
-      { module: "Module 1", title: "Foundations", topics: ["How LLMs work (simplified)", "Anatomy of a prompt", "Common pitfalls"] },
-      { module: "Module 2", title: "Core Techniques", topics: ["Zero-shot vs few-shot", "Chain-of-thought", "Role prompting"] },
-      { module: "Module 3", title: "Domain Applications", topics: ["Content creation", "Code generation", "Research & analysis prompts"] },
-      { module: "Module 4", title: "Advanced & Automation", topics: ["System prompts", "API-based prompting", "Workflow automation project"] },
+      {
+        module: "Module 1",
+        title: "Foundations",
+        topics: [
+          "How LLMs work (simplified)",
+          "Anatomy of a prompt",
+          "Common pitfalls",
+        ],
+      },
+      {
+        module: "Module 2",
+        title: "Core Techniques",
+        topics: ["Zero-shot vs few-shot", "Chain-of-thought", "Role prompting"],
+      },
+      {
+        module: "Module 3",
+        title: "Domain Applications",
+        topics: [
+          "Content creation",
+          "Code generation",
+          "Research & analysis prompts",
+        ],
+      },
+      {
+        module: "Module 4",
+        title: "Advanced & Automation",
+        topics: [
+          "System prompts",
+          "API-based prompting",
+          "Workflow automation project",
+        ],
+      },
     ],
     cta: "Learn Prompt Engineering",
     tag: "In-Demand Skill 2025",
@@ -250,19 +675,78 @@ const COURSES = [
     description:
       "Statistics is the backbone of data science and AI. This course makes probability, distributions, and hypothesis testing genuinely intuitive — with visual explanations and real datasets, not just formulas.",
     features: [
-      { icon: "◈", label: "Probability Foundations", desc: "Events, distributions, Bayes theorem — made clear" },
-      { icon: "⬡", label: "Descriptive Statistics", desc: "Mean, variance, correlation, and data summarization" },
-      { icon: "◉", label: "Inferential Statistics", desc: "Hypothesis testing, confidence intervals, p-values" },
-      { icon: "◆", label: "Distributions for ML", desc: "Normal, binomial, Poisson — and when to use each" },
-      { icon: "▣", label: "Python Implementation", desc: "Apply stats concepts with NumPy, SciPy, and Pandas" },
+      {
+        icon: "◈",
+        label: "Probability Foundations",
+        desc: "Events, distributions, Bayes theorem — made clear",
+      },
+      {
+        icon: "⬡",
+        label: "Descriptive Statistics",
+        desc: "Mean, variance, correlation, and data summarization",
+      },
+      {
+        icon: "◉",
+        label: "Inferential Statistics",
+        desc: "Hypothesis testing, confidence intervals, p-values",
+      },
+      {
+        icon: "◆",
+        label: "Distributions for ML",
+        desc: "Normal, binomial, Poisson — and when to use each",
+      },
+      {
+        icon: "▣",
+        label: "Python Implementation",
+        desc: "Apply stats concepts with NumPy, SciPy, and Pandas",
+      },
     ],
-    whoCanJoin: ["Aspiring data scientists needing math foundations", "ML learners who skipped statistics", "Students in engineering or commerce", "Working professionals moving into AI roles", "Data analysts wanting deeper analytical skills"],
-    outcomes: ["Understand the math behind ML algorithms", "Interpret statistical outputs correctly", "Apply hypothesis testing to real data", "Build a strong foundation for data science"],
+    whoCanJoin: [
+      "Aspiring data scientists needing math foundations",
+      "ML learners who skipped statistics",
+      "Students in engineering or commerce",
+      "Working professionals moving into AI roles",
+      "Data analysts wanting deeper analytical skills",
+    ],
+    outcomes: [
+      "Understand the math behind ML algorithms",
+      "Interpret statistical outputs correctly",
+      "Apply hypothesis testing to real data",
+      "Build a strong foundation for data science",
+    ],
     curriculum: [
-      { module: "Module 1", title: "Probability Basics", topics: ["Sample spaces", "Conditional probability", "Bayes theorem"] },
-      { module: "Module 2", title: "Statistics Foundations", topics: ["Descriptive stats", "Data distributions", "Correlation & causation"] },
-      { module: "Module 3", title: "Inferential Statistics", topics: ["Sampling", "Hypothesis testing", "t-tests, chi-square, ANOVA"] },
-      { module: "Module 4", title: "Stats for AI/ML", topics: ["Probability in ML", "Python implementation", "Real-world case studies"] },
+      {
+        module: "Module 1",
+        title: "Probability Basics",
+        topics: ["Sample spaces", "Conditional probability", "Bayes theorem"],
+      },
+      {
+        module: "Module 2",
+        title: "Statistics Foundations",
+        topics: [
+          "Descriptive stats",
+          "Data distributions",
+          "Correlation & causation",
+        ],
+      },
+      {
+        module: "Module 3",
+        title: "Inferential Statistics",
+        topics: [
+          "Sampling",
+          "Hypothesis testing",
+          "t-tests, chi-square, ANOVA",
+        ],
+      },
+      {
+        module: "Module 4",
+        title: "Stats for AI/ML",
+        topics: [
+          "Probability in ML",
+          "Python implementation",
+          "Real-world case studies",
+        ],
+      },
     ],
     cta: "Build Your Foundation",
     tag: "Essential for Data Science",
@@ -286,8 +770,10 @@ function useInView(threshold = 0.08) {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setInView(true); },
-      { threshold }
+      ([e]) => {
+        if (e.isIntersecting) setInView(true);
+      },
+      { threshold },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -297,7 +783,9 @@ function useInView(threshold = 0.08) {
 
 function useInterval(cb, delay, active) {
   const saved = useRef(cb);
-  useEffect(() => { saved.current = cb; }, [cb]);
+  useEffect(() => {
+    saved.current = cb;
+  }, [cb]);
   useEffect(() => {
     if (!active) return;
     const id = setInterval(() => saved.current(), delay);
@@ -314,94 +802,232 @@ function ImageGallery({ images, imageLeft }) {
   const [hovered, setHovered] = useState(false);
   const [thumbHov, setThumbHov] = useState(null);
 
-  const goTo = useCallback((idx) => {
-    if (idx === active || transitioning) return;
-    setDir(idx > active ? 1 : -1);
-    setPrev(active);
-    setActive(idx);
-    setTransitioning(true);
-    setTimeout(() => { setPrev(null); setTransitioning(false); }, 600);
-  }, [active, transitioning]);
+  const goTo = useCallback(
+    (idx) => {
+      if (idx === active || transitioning) return;
+      setDir(idx > active ? 1 : -1);
+      setPrev(active);
+      setActive(idx);
+      setTransitioning(true);
+      setTimeout(() => {
+        setPrev(null);
+        setTransitioning(false);
+      }, 600);
+    },
+    [active, transitioning],
+  );
 
-  const next = useCallback(() => goTo((active + 1) % images.length), [goTo, active, images.length]);
-  const goBack = useCallback(() => goTo((active - 1 + images.length) % images.length), [goTo, active, images.length]);
+  const next = useCallback(
+    () => goTo((active + 1) % images.length),
+    [goTo, active, images.length],
+  );
+  const goBack = useCallback(
+    () => goTo((active - 1 + images.length) % images.length),
+    [goTo, active, images.length],
+  );
 
   useInterval(next, 3800, !hovered);
 
   return (
-    <div style={{ position: "relative", width: "100%" }}
+    <div
+      style={{ position: "relative", width: "100%" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div style={{
-        position: "relative", width: "100%", height: "480px",
-        borderRadius: "20px", overflow: "hidden",
-        border: "1px solid rgba(33,198,207,0.12)", background: "#0a0a0a",
-        boxShadow: hovered
-          ? "0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(33,198,207,0.15)"
-          : "0 12px 48px rgba(0,0,0,0.5)",
-        transition: "box-shadow 0.5s ease",
-      }}>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "480px",
+          borderRadius: "20px",
+          overflow: "hidden",
+          border: "1px solid rgba(33,198,207,0.12)",
+          background: "#0a0a0a",
+          boxShadow: hovered
+            ? "0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(33,198,207,0.15)"
+            : "0 12px 48px rgba(0,0,0,0.5)",
+          transition: "box-shadow 0.5s ease",
+        }}
+      >
         {prev !== null && (
-          <img src={images[prev]} alt="" style={{
-            position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover",
-            opacity: transitioning ? 0 : 1,
-            transform: transitioning ? `translateX(${dir * -8}%)` : "translateX(0)",
-            transition: "opacity 0.55s ease, transform 0.55s ease",
-          }} />
+          <img
+            src={images[prev]}
+            alt=""
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              opacity: transitioning ? 0 : 1,
+              transform: transitioning
+                ? `translateX(${dir * -8}%)`
+                : "translateX(0)",
+              transition: "opacity 0.55s ease, transform 0.55s ease",
+            }}
+          />
         )}
-        <img key={active} src={images[active]} alt="" style={{
-          position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover",
-          animation: transitioning ? `slideIn${dir > 0 ? "R" : "L"} 0.55s ease forwards` : "none",
-        }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,5,5,0.85) 0%, rgba(5,5,5,0.2) 45%, transparent 70%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(5,5,5,0.3) 0%, transparent 50%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: 0, right: 0, width: "180px", height: "180px", borderRadius: "50%", background: "radial-gradient(circle, rgba(33,198,207,0.18) 0%, transparent 70%)", opacity: hovered ? 1 : 0.4, transition: "opacity 0.5s ease", pointerEvents: "none" }} />
-        <div style={{
-          position: "absolute", top: "16px", left: "16px",
-          display: "flex", alignItems: "center", gap: "6px",
-          background: "rgba(5,5,5,0.7)", backdropFilter: "blur(10px)",
-          border: "1px solid rgba(33,198,207,0.18)", borderRadius: "999px",
-          padding: "5px 12px",
-          fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem",
-          letterSpacing: "0.12em", textTransform: "uppercase", color: "#21C6CF",
-        }}>
-          <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#21C6CF", boxShadow: "0 0 6px #21C6CF", animation: "pulse 2s ease-in-out infinite" }} />
+        <img
+          key={active}
+          src={images[active]}
+          alt=""
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            animation: transitioning
+              ? `slideIn${dir > 0 ? "R" : "L"} 0.55s ease forwards`
+              : "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to top, rgba(5,5,5,0.85) 0%, rgba(5,5,5,0.2) 45%, transparent 70%)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to right, rgba(5,5,5,0.3) 0%, transparent 50%)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            width: "180px",
+            height: "180px",
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(33,198,207,0.18) 0%, transparent 70%)",
+            opacity: hovered ? 1 : 0.4,
+            transition: "opacity 0.5s ease",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "16px",
+            left: "16px",
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+            background: "rgba(5,5,5,0.7)",
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(33,198,207,0.18)",
+            borderRadius: "999px",
+            padding: "5px 12px",
+            fontFamily: "Inter, sans-serif",
+            fontSize: "0.65rem",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: "#21C6CF",
+          }}
+        >
+          <span
+            style={{
+              width: "5px",
+              height: "5px",
+              borderRadius: "50%",
+              background: "#21C6CF",
+              boxShadow: "0 0 6px #21C6CF",
+              animation: "pulse 2s ease-in-out infinite",
+            }}
+          />
           {active + 1} / {images.length}
         </div>
         <ArrowBtn side="left" onClick={goBack} visible={hovered} />
         <ArrowBtn side="right" onClick={next} visible={hovered} />
-        <div style={{ position: "absolute", bottom: "14px", left: "50%", transform: "translateX(-50%)", display: "flex", gap: "6px", alignItems: "center" }}>
+        <div
+          style={{
+            position: "absolute",
+            bottom: "14px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            gap: "6px",
+            alignItems: "center",
+          }}
+        >
           {images.map((_, i) => (
-            <button key={i} onClick={() => goTo(i)} style={{
-              width: i === active ? "20px" : "6px", height: "6px", borderRadius: "999px",
-              border: "none", cursor: "pointer", padding: 0,
-              background: i === active ? "#21C6CF" : "rgba(255,255,255,0.3)",
-              boxShadow: i === active ? "0 0 8px rgba(33,198,207,0.8)" : "none",
-              transition: "all 0.35s ease",
-            }} />
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              style={{
+                width: i === active ? "20px" : "6px",
+                height: "6px",
+                borderRadius: "999px",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+                background: i === active ? "#21C6CF" : "rgba(255,255,255,0.3)",
+                boxShadow:
+                  i === active ? "0 0 8px rgba(33,198,207,0.8)" : "none",
+                transition: "all 0.35s ease",
+              }}
+            />
           ))}
         </div>
       </div>
       <div style={{ display: "flex", gap: "8px", marginTop: "10px" }}>
         {images.map((src, i) => (
-          <button key={i} onClick={() => goTo(i)}
-            onMouseEnter={() => setThumbHov(i)} onMouseLeave={() => setThumbHov(null)}
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            onMouseEnter={() => setThumbHov(i)}
+            onMouseLeave={() => setThumbHov(null)}
             style={{
-              flex: 1, aspectRatio: "16/9", borderRadius: "8px", overflow: "hidden", padding: 0, cursor: "pointer",
-              border: i === active ? "1.5px solid #21C6CF" : thumbHov === i ? "1.5px solid rgba(33,198,207,0.4)" : "1.5px solid rgba(33,198,207,0.08)",
-              boxShadow: i === active ? "0 0 12px rgba(33,198,207,0.35)" : "none",
+              flex: 1,
+              aspectRatio: "16/9",
+              borderRadius: "8px",
+              overflow: "hidden",
+              padding: 0,
+              cursor: "pointer",
+              border:
+                i === active
+                  ? "1.5px solid #21C6CF"
+                  : thumbHov === i
+                    ? "1.5px solid rgba(33,198,207,0.4)"
+                    : "1.5px solid rgba(33,198,207,0.08)",
+              boxShadow:
+                i === active ? "0 0 12px rgba(33,198,207,0.35)" : "none",
               transition: "border-color 0.25s, box-shadow 0.25s",
-              position: "relative", background: "#0a0a0a",
+              position: "relative",
+              background: "#0a0a0a",
             }}
           >
-            <img src={src} alt="" style={{
-              width: "100%", height: "100%", objectFit: "cover",
-              opacity: i === active ? 1 : thumbHov === i ? 0.75 : 0.45,
-              transform: thumbHov === i ? "scale(1.05)" : "scale(1)",
-              transition: "opacity 0.25s, transform 0.3s",
-            }} />
-            {i === active && <div style={{ position: "absolute", inset: 0, background: "rgba(33,198,207,0.08)" }} />}
+            <img
+              src={src}
+              alt=""
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                opacity: i === active ? 1 : thumbHov === i ? 0.75 : 0.45,
+                transform: thumbHov === i ? "scale(1.05)" : "scale(1)",
+                transition: "opacity 0.25s, transform 0.3s",
+              }}
+            />
+            {i === active && (
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "rgba(33,198,207,0.08)",
+                }}
+              />
+            )}
           </button>
         ))}
       </div>
@@ -412,18 +1038,30 @@ function ImageGallery({ images, imageLeft }) {
 function ArrowBtn({ side, onClick, visible }) {
   const [hov, setHov] = useState(false);
   return (
-    <button onClick={onClick} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+    <button
+      onClick={onClick}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
       style={{
-        position: "absolute", top: "50%", [side]: "14px",
+        position: "absolute",
+        top: "50%",
+        [side]: "14px",
         transform: `translateY(-50%) translateX(${visible ? "0" : side === "left" ? "-8px" : "8px"})`,
         opacity: visible ? 1 : 0,
-        width: "38px", height: "38px", borderRadius: "50%",
+        width: "38px",
+        height: "38px",
+        borderRadius: "50%",
         background: hov ? "rgba(33,198,207,0.25)" : "rgba(5,5,5,0.65)",
         backdropFilter: "blur(10px)",
         border: `1px solid ${hov ? "rgba(33,198,207,0.5)" : "rgba(33,198,207,0.2)"}`,
-        color: "#21C6CF", fontSize: "1rem", cursor: "pointer",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        transition: "all 0.3s ease", zIndex: 5,
+        color: "#21C6CF",
+        fontSize: "1rem",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        transition: "all 0.3s ease",
+        zIndex: 5,
       }}
     >
       {side === "left" ? "‹" : "›"}
@@ -435,25 +1073,63 @@ function ArrowBtn({ side, onClick, visible }) {
 function FeatureRow({ icon, label, desc }) {
   const [hov, setHov] = useState(false);
   return (
-    <li onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+    <li
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
       style={{
-        display: "flex", gap: "12px", alignItems: "flex-start",
-        padding: "10px 14px", borderRadius: "10px",
+        display: "flex",
+        gap: "12px",
+        alignItems: "flex-start",
+        padding: "10px 14px",
+        borderRadius: "10px",
         background: hov ? "rgba(33,198,207,0.04)" : "transparent",
         border: `1px solid ${hov ? "rgba(33,198,207,0.14)" : "transparent"}`,
-        cursor: "default", transition: "all 0.25s ease", listStyle: "none",
+        cursor: "default",
+        transition: "all 0.25s ease",
+        listStyle: "none",
       }}
     >
-      <div style={{
-        flexShrink: 0, width: "30px", height: "30px", borderRadius: "7px",
-        background: "rgba(33,198,207,0.08)",
-        border: `1px solid ${hov ? "rgba(33,198,207,0.3)" : "rgba(33,198,207,0.12)"}`,
-        display: "flex", alignItems: "center", justifyContent: "center",
-        color: "#21C6CF", fontSize: "0.8rem", transition: "border-color 0.25s",
-      }}>{icon}</div>
+      <div
+        style={{
+          flexShrink: 0,
+          width: "30px",
+          height: "30px",
+          borderRadius: "7px",
+          background: "rgba(33,198,207,0.08)",
+          border: `1px solid ${hov ? "rgba(33,198,207,0.3)" : "rgba(33,198,207,0.12)"}`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "#21C6CF",
+          fontSize: "0.8rem",
+          transition: "border-color 0.25s",
+        }}
+      >
+        {icon}
+      </div>
       <div>
-        <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.82rem", fontWeight: 700, color: hov ? "#fff" : "rgba(255,255,255,0.85)", marginBottom: "2px", transition: "color 0.2s" }}>{label}</div>
-        <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", lineHeight: 1.5, color: "rgba(255,255,255,0.38)" }}>{desc}</div>
+        <div
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: "0.82rem",
+            fontWeight: 700,
+            color: hov ? "#fff" : "rgba(255,255,255,0.85)",
+            marginBottom: "2px",
+            transition: "color 0.2s",
+          }}
+        >
+          {label}
+        </div>
+        <div
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: "0.75rem",
+            lineHeight: 1.5,
+            color: "rgba(255,255,255,0.38)",
+          }}
+        >
+          {desc}
+        </div>
       </div>
     </li>
   );
@@ -462,8 +1138,29 @@ function FeatureRow({ icon, label, desc }) {
 // ── EYEBROW ──────────────────────────────────────────────────────────────────
 function Eyebrow({ label }) {
   return (
-    <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontFamily: "'DM Sans',sans-serif", fontSize: "0.62rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: "#21C6CF" }}>
-      <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#21C6CF", boxShadow: "0 0 8px #21C6CF", flexShrink: 0 }} />
+    <div
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "8px",
+        fontFamily: "Inter, sans-serif",
+        fontSize: "0.62rem",
+        fontWeight: 500,
+        letterSpacing: "0.18em",
+        textTransform: "uppercase",
+        color: "#21C6CF",
+      }}
+    >
+      <span
+        style={{
+          width: "5px",
+          height: "5px",
+          borderRadius: "50%",
+          background: "#21C6CF",
+          boxShadow: "0 0 8px #21C6CF",
+          flexShrink: 0,
+        }}
+      />
       {label}
     </div>
   );
@@ -473,22 +1170,50 @@ function Eyebrow({ label }) {
 function CTAButton({ label, secondary }) {
   const [hov, setHov] = useState(false);
   return (
-    <button onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+    <button
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
       style={{
-        display: "inline-flex", alignItems: "center", gap: "10px",
-        fontFamily: "'Syne',sans-serif", fontSize: "0.78rem", fontWeight: 700,
-        letterSpacing: "0.06em", textTransform: "uppercase",
-        color: secondary ? (hov ? "#21C6CF" : "rgba(255,255,255,0.6)") : "#050505",
-        background: secondary ? "transparent" : (hov ? "#fff" : "#21C6CF"),
-        padding: "11px 22px", borderRadius: "8px", cursor: "pointer",
-        border: secondary ? `1px solid ${hov ? "rgba(33,198,207,0.5)" : "rgba(33,198,207,0.2)"}` : "none",
-        boxShadow: secondary ? "none" : (hov ? "0 0 36px rgba(33,198,207,0.55)" : "0 0 20px rgba(33,198,207,0.28)"),
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "10px",
+        fontFamily: "Inter, sans-serif",
+        fontSize: "0.78rem",
+        fontWeight: 700,
+        letterSpacing: "0.06em",
+        textTransform: "uppercase",
+        color: secondary
+          ? hov
+            ? "#21C6CF"
+            : "rgba(255,255,255,0.6)"
+          : "#050505",
+        background: secondary ? "transparent" : hov ? "#fff" : "#28E7C5",
+        padding: "11px 22px",
+        borderRadius: "8px",
+        cursor: "pointer",
+        border: secondary
+          ? `1px solid ${hov ? "rgba(33,198,207,0.5)" : "rgba(33,198,207,0.2)"}`
+          : "none",
+        boxShadow: secondary
+          ? "none"
+          : hov
+            ? "0 0 36px rgba(33,198,207,0.55)"
+            : "0 0 20px rgba(33,198,207,0.28)",
         transition: "all 0.3s ease",
       }}
     >
       {label}
       {!secondary && (
-        <span style={{ fontSize: "1rem", display: "inline-block", transform: hov ? "translateX(3px)" : "translateX(0)", transition: "transform 0.25s ease" }}>→</span>
+        <span
+          style={{
+            fontSize: "1rem",
+            display: "inline-block",
+            transform: hov ? "translateX(3px)" : "translateX(0)",
+            transition: "transform 0.25s ease",
+          }}
+        >
+          →
+        </span>
       )}
     </button>
   );
@@ -497,58 +1222,136 @@ function CTAButton({ label, secondary }) {
 // ── EXPANDABLE SECTION (Level 2) ─────────────────────────────────────────────
 function ExpandableContent({ course, visible }) {
   return (
-    <div style={{
-      overflow: "hidden", maxHeight: visible ? "600px" : "0",
-      opacity: visible ? 1 : 0,
-      transition: "max-height 0.6s ease, opacity 0.5s ease",
-    }}>
+    <div
+      style={{
+        overflow: "hidden",
+        maxHeight: visible ? "600px" : "0",
+        opacity: visible ? 1 : 0,
+        transition: "max-height 0.6s ease, opacity 0.5s ease",
+      }}
+    >
       <div style={{ paddingTop: "16px" }}>
         {/* Meta pills */}
-        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "18px" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "8px",
+            flexWrap: "wrap",
+            marginBottom: "18px",
+          }}
+        >
           {[
             { label: "⏱ " + course.duration },
             { label: "📍 " + course.mode },
           ].map((p, i) => (
-            <span key={i} style={{
-              fontFamily: "'DM Sans',sans-serif", fontSize: "0.68rem", letterSpacing: "0.08em",
-              padding: "5px 12px", borderRadius: "999px",
-              border: "1px solid rgba(33,198,207,0.2)", color: "rgba(33,198,207,0.75)",
-              background: "rgba(33,198,207,0.05)",
-            }}>{p.label}</span>
+            <span
+              key={i}
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontSize: "0.68rem",
+                letterSpacing: "0.08em",
+                padding: "5px 12px",
+                borderRadius: "999px",
+                border: "1px solid rgba(33,198,207,0.2)",
+                color: "rgba(33,198,207,0.75)",
+                background: "rgba(33,198,207,0.05)",
+              }}
+            >
+              {p.label}
+            </span>
           ))}
         </div>
 
         {/* Outcomes */}
         <div style={{ marginBottom: "16px" }}>
-          <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.72rem", fontWeight: 700, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "10px" }}>
+          <div
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "0.72rem",
+              fontWeight: 700,
+              color: "rgba(255,255,255,0.5)",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              marginBottom: "10px",
+            }}
+          >
             Learning Outcomes
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             {course.outcomes.map((o, i) => (
-              <div key={i} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
-                <span style={{ color: "#21C6CF", fontSize: "0.75rem", marginTop: "2px", flexShrink: 0 }}>✓</span>
-                <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>{o}</span>
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  gap: "10px",
+                  alignItems: "flex-start",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#21C6CF",
+                    fontSize: "0.75rem",
+                    marginTop: "2px",
+                    flexShrink: 0,
+                  }}
+                >
+                  ✓
+                </span>
+                <span
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "0.78rem",
+                    color: "rgba(255,255,255,0.6)",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {o}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
-        <div style={{ height: "1px", background: "linear-gradient(90deg, rgba(33,198,207,0.12), transparent)", marginBottom: "16px" }} />
+        <div
+          style={{
+            height: "1px",
+            background:
+              "linear-gradient(90deg, rgba(33,198,207,0.12), transparent)",
+            marginBottom: "16px",
+          }}
+        />
 
         {/* Who can join */}
         <div>
-          <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.72rem", fontWeight: 700, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "10px" }}>
+          <div
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "0.72rem",
+              fontWeight: 700,
+              color: "rgba(255,255,255,0.5)",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              marginBottom: "10px",
+            }}
+          >
             Who Should Join
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
             {course.whoCanJoin.map((w, i) => (
-              <span key={i} style={{
-                fontFamily: "'DM Sans',sans-serif", fontSize: "0.68rem",
-                padding: "4px 10px", borderRadius: "6px",
-                background: "rgba(33,198,207,0.06)",
-                border: "1px solid rgba(33,198,207,0.12)",
-                color: "rgba(255,255,255,0.5)",
-              }}>{w}</span>
+              <span
+                key={i}
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "0.68rem",
+                  padding: "4px 10px",
+                  borderRadius: "6px",
+                  background: "rgba(33,198,207,0.06)",
+                  border: "1px solid rgba(33,198,207,0.12)",
+                  color: "rgba(255,255,255,0.5)",
+                }}
+              >
+                {w}
+              </span>
             ))}
           </div>
         </div>
@@ -562,48 +1365,126 @@ function CurriculumAccordion({ curriculum, visible }) {
   const [openModule, setOpenModule] = useState(null);
 
   return (
-    <div style={{
-      overflow: "hidden", maxHeight: visible ? "800px" : "0",
-      opacity: visible ? 1 : 0,
-      transition: "max-height 0.7s ease, opacity 0.5s ease",
-    }}>
+    <div
+      style={{
+        overflow: "hidden",
+        maxHeight: visible ? "800px" : "0",
+        opacity: visible ? 1 : 0,
+        transition: "max-height 0.7s ease, opacity 0.5s ease",
+      }}
+    >
       <div style={{ paddingTop: "16px" }}>
-        <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.72rem", fontWeight: 700, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "12px" }}>
+        <div
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: "0.72rem",
+            fontWeight: 700,
+            color: "rgba(255,255,255,0.5)",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            marginBottom: "12px",
+          }}
+        >
           Full Curriculum
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
           {curriculum.map((mod, i) => {
             const isOpen = openModule === i;
             return (
-              <div key={i} style={{
-                borderRadius: "10px", overflow: "hidden",
-                border: `1px solid ${isOpen ? "rgba(33,198,207,0.25)" : "rgba(33,198,207,0.1)"}`,
-                background: isOpen ? "rgba(33,198,207,0.04)" : "transparent",
-                transition: "border-color 0.25s, background 0.25s",
-              }}>
-                <button onClick={() => setOpenModule(isOpen ? null : i)}
+              <div
+                key={i}
+                style={{
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  border: `1px solid ${isOpen ? "rgba(33,198,207,0.25)" : "rgba(33,198,207,0.1)"}`,
+                  background: isOpen ? "rgba(33,198,207,0.04)" : "transparent",
+                  transition: "border-color 0.25s, background 0.25s",
+                }}
+              >
+                <button
+                  onClick={() => setOpenModule(isOpen ? null : i)}
                   style={{
-                    width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
-                    padding: "10px 14px", background: "transparent", border: "none", cursor: "pointer",
-                  }}>
-                  <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-                    <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.6rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#21C6CF", flexShrink: 0 }}>{mod.module}</span>
-                    <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.8rem", fontWeight: 700, color: "rgba(255,255,255,0.8)" }}>{mod.title}</span>
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    padding: "10px 14px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "10px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: "0.6rem",
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        color: "#21C6CF",
+                        flexShrink: 0,
+                      }}
+                    >
+                      {mod.module}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: "0.8rem",
+                        fontWeight: 700,
+                        color: "rgba(255,255,255,0.8)",
+                      }}
+                    >
+                      {mod.title}
+                    </span>
                   </div>
-                  <span style={{ color: "#21C6CF", fontSize: "0.8rem", transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.25s ease" }}>+</span>
+                  <span
+                    style={{
+                      color: "#21C6CF",
+                      fontSize: "0.8rem",
+                      transform: isOpen ? "rotate(45deg)" : "rotate(0)",
+                      transition: "transform 0.25s ease",
+                    }}
+                  >
+                    +
+                  </span>
                 </button>
-                <div style={{
-                  maxHeight: isOpen ? "200px" : "0", overflow: "hidden",
-                  transition: "max-height 0.4s ease",
-                }}>
-                  <div style={{ padding: "0 14px 12px", display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                <div
+                  style={{
+                    maxHeight: isOpen ? "200px" : "0",
+                    overflow: "hidden",
+                    transition: "max-height 0.4s ease",
+                  }}
+                >
+                  <div
+                    style={{
+                      padding: "0 14px 12px",
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: "6px",
+                    }}
+                  >
                     {mod.topics.map((t, j) => (
-                      <span key={j} style={{
-                        fontFamily: "'DM Sans',sans-serif", fontSize: "0.68rem",
-                        padding: "3px 9px", borderRadius: "5px",
-                        background: "rgba(33,198,207,0.06)", border: "1px solid rgba(33,198,207,0.12)",
-                        color: "rgba(255,255,255,0.5)",
-                      }}>{t}</span>
+                      <span
+                        key={j}
+                        style={{
+                          fontFamily: "Inter, sans-serif",
+                          fontSize: "0.68rem",
+                          padding: "3px 9px",
+                          borderRadius: "5px",
+                          background: "rgba(33,198,207,0.06)",
+                          border: "1px solid rgba(33,198,207,0.12)",
+                          color: "rgba(255,255,255,0.5)",
+                        }}
+                      >
+                        {t}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -637,67 +1518,196 @@ function CourseSection({ course, index }) {
   return (
     <div ref={sectionRef} id={`course-${course.id}`}>
       {index > 0 && (
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 clamp(20px,4vw,60px)" }}>
-          <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(33,198,207,0.15), transparent)" }} />
+        <div
+          style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "0 clamp(20px,4vw,60px)",
+          }}
+        >
+          <div
+            style={{
+              height: "1px",
+              background:
+                "linear-gradient(90deg, transparent, rgba(33,198,207,0.15), transparent)",
+            }}
+          />
         </div>
       )}
 
-      <section style={{ padding: "clamp(50px,4vw,100px) 0", position: "relative", overflow: "hidden" }}>
-        <div style={{
-          position: "absolute", width: "700px", height: "700px", borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(33,198,207,0.04) 0%, transparent 65%)",
-          top: "50%", [imageLeft ? "right" : "left"]: "-200px",
-          transform: "translateY(-50%)", opacity: inView ? 1 : 0,
-          transition: "opacity 1.2s ease", pointerEvents: "none",
-        }} />
-        <div style={{
-          position: "absolute", top: "clamp(20px,4vw,40px)",
-          [imageLeft ? "right" : "left"]: "clamp(20px,4vw,60px)",
-          fontFamily: "'Syne',sans-serif", fontSize: "clamp(5rem,12vw,9rem)",
-          fontWeight: 800, color: "rgba(33,198,207,0.025)",
-          lineHeight: 1, userSelect: "none", pointerEvents: "none", letterSpacing: "-0.05em",
-        }}>0{index + 1}</div>
+      <section
+        style={{
+          padding: "clamp(50px,4vw,100px) 0",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            width: "700px",
+            height: "700px",
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(33,198,207,0.04) 0%, transparent 65%)",
+            top: "50%",
+            [imageLeft ? "right" : "left"]: "-200px",
+            transform: "translateY(-50%)",
+            opacity: inView ? 1 : 0,
+            transition: "opacity 1.2s ease",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "clamp(20px,4vw,40px)",
+            [imageLeft ? "right" : "left"]: "clamp(20px,4vw,60px)",
+            fontFamily: "Inter, sans-serif",
+            fontSize: "clamp(5rem,12vw,9rem)",
+            fontWeight: 800,
+            color: "rgba(33,198,207,0.025)",
+            lineHeight: 1,
+            userSelect: "none",
+            pointerEvents: "none",
+            letterSpacing: "-0.05em",
+          }}
+        >
+          0{index + 1}
+        </div>
 
-        <div style={{ position: "relative", zIndex: 1, maxWidth: "1200px", margin: "0 auto", padding: "0 clamp(20px,4vw,60px)" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "clamp(28px,4vw,56px)", alignItems: "stretch" }} className={`prow ${imageLeft ? "" : "prow--rev"}`}>
-
+        <div
+          style={{
+            position: "relative",
+            zIndex: 1,
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "0 clamp(20px,4vw,60px)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "clamp(28px,4vw,56px)",
+              alignItems: "stretch",
+            }}
+            className={`prow ${imageLeft ? "" : "prow--rev"}`}
+          >
             {/* IMAGE */}
             <div style={{ ...slideImg, minWidth: 0 }} className="pcol">
               <ImageGallery images={course.images} imageLeft={imageLeft} />
             </div>
 
             {/* CONTENT */}
-            <div style={{ ...slideContent, minWidth: 0, display: "flex", flexDirection: "column", gap: "0" }} className="pcol">
-
+            <div
+              style={{
+                ...slideContent,
+                minWidth: 0,
+                display: "flex",
+                flexDirection: "column",
+                gap: "0",
+              }}
+              className="pcol"
+            >
               {/* Eyebrow + tag */}
-              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: "10px",
+                  color: "#28E7C5",                 
+                  marginBottom: "14px",
+                }}
+              >
                 <Eyebrow label={course.eyebrow} />
-                <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.6rem", letterSpacing: "0.12em", textTransform: "uppercase", padding: "4px 10px", borderRadius: "999px", border: "1px solid rgba(33,198,207,0.2)", color: "rgba(33,198,207,0.7)", background: "rgba(33,198,207,0.05)" }}>
+                <span
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "0.6rem",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    padding: "4px 10px",
+                    borderRadius: "999px",
+                    border: "1px solid rgba(33,198,207,0.2)",
+                    color: "#28E7C5",
+                    background: "rgba(33,198,207,0.05)",
+                  }}
+                >
                   {course.tag}
                 </span>
               </div>
 
               {/* Title */}
-              <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(2rem,4.5vw,2.8rem)", fontWeight: 800, color: "#fff", lineHeight: 1.05, letterSpacing: "-0.02em", margin: "0 0 8px" }}>
+              <h2
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "clamp(2rem,4.5vw,2.8rem)",
+                  fontWeight: 800,
+                  color: "#fff",
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.02em",
+                  margin: "0 0 8px",
+                }}
+              >
                 {course.title}
               </h2>
 
               {/* Tagline */}
-              <p style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(0.9rem,1.5vw,1rem)", fontWeight: 600, color: "#21C6CF", margin: "0 0 14px" }}>
+              <p
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "clamp(0.9rem,1.5vw,1rem)",
+                  fontWeight: 600,
+                  color: "#28E7C5",
+                  margin: "0 0 14px",
+                }}
+              >
                 {course.tagline}
               </p>
 
               {/* Description */}
-              <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.88rem", lineHeight: 1.75, color: "rgba(255,255,255,0.38)", margin: "0 0 18px", maxWidth: "460px" }}>
+              <p
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "0.88rem",
+                  lineHeight: 1.75,
+                  color: "rgba(255,255,255,0.38)",
+                  margin: "0 0 18px",
+                  maxWidth: "460px",
+                }}
+              >
                 {course.description}
               </p>
 
-              <div style={{ height: "1px", background: "linear-gradient(90deg, rgba(33,198,207,0.2), transparent)", marginBottom: "16px" }} />
+              <div
+                style={{
+                  height: "1px",
+                  background:
+                    "linear-gradient(90deg, rgba(33,198,207,0.2), transparent)",
+                  marginBottom: "16px",
+                }}
+              />
 
               {/* Features */}
-              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 16px", display: "flex", flexDirection: "column", gap: "2px" }}>
+              <ul
+                style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: "0 0 16px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "2px",
+                }}
+              >
                 {course.features.map((f, i) => (
-                  <FeatureRow key={i} icon={f.icon} label={f.label} desc={f.desc} />
+                  <FeatureRow
+                    key={i}
+                    icon={f.icon}
+                    label={f.label}
+                    desc={f.desc}
+                  />
                 ))}
               </ul>
 
@@ -705,23 +1715,56 @@ function CourseSection({ course, index }) {
               <ExpandableContent course={course} visible={expanded} />
 
               {/* Level 3 — Curriculum */}
-              <CurriculumAccordion curriculum={course.curriculum} visible={expanded && showCurriculum} />
+              <CurriculumAccordion
+                curriculum={course.curriculum}
+                visible={expanded && showCurriculum}
+              />
 
-              <div style={{ height: "1px", background: "linear-gradient(90deg, rgba(33,198,207,0.12), transparent)", margin: "16px 0" }} />
+              <div
+                style={{
+                  height: "1px",
+                  background:
+                    "linear-gradient(90deg, rgba(33,198,207,0.12), transparent)",
+                  margin: "16px 0",
+                }}
+              />
 
               {/* CTA row */}
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "10px",
+                  alignItems: "center",
+                }}
+              >
                 <CTAButton label={course.cta} />
                 <button
-                  onClick={() => { setExpanded(!expanded); if (expanded) setShowCurriculum(false); }}
-                  style={{
-                    fontFamily: "'DM Sans',sans-serif", fontSize: "0.72rem", letterSpacing: "0.08em",
-                    textTransform: "uppercase", padding: "10px 16px", borderRadius: "8px",
-                    border: "1px solid rgba(33,198,207,0.2)", color: "rgba(33,198,207,0.7)",
-                    background: "transparent", cursor: "pointer", transition: "all 0.25s ease",
+                  onClick={() => {
+                    setExpanded(!expanded);
+                    if (expanded) setShowCurriculum(false);
                   }}
-                  onMouseEnter={e => { e.target.style.borderColor = "rgba(33,198,207,0.45)"; e.target.style.color = "#21C6CF"; }}
-                  onMouseLeave={e => { e.target.style.borderColor = "rgba(33,198,207,0.2)"; e.target.style.color = "rgba(33,198,207,0.7)"; }}
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "0.72rem",
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    padding: "10px 16px",
+                    borderRadius: "8px",
+                    border: "1px solid rgba(33,198,207,0.2)",
+                    color: "rgba(33,198,207,0.7)",
+                    background: "transparent",
+                    cursor: "pointer",
+                    transition: "all 0.25s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.borderColor = "rgba(33,198,207,0.45)";
+                    e.target.style.color = "#21C6CF";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.borderColor = "rgba(33,198,207,0.2)";
+                    e.target.style.color = "rgba(33,198,207,0.7)";
+                  }}
                 >
                   {expanded ? "↑ Less" : "↓ Who Should Join"}
                 </button>
@@ -729,13 +1772,26 @@ function CourseSection({ course, index }) {
                   <button
                     onClick={() => setShowCurriculum(!showCurriculum)}
                     style={{
-                      fontFamily: "'DM Sans',sans-serif", fontSize: "0.72rem", letterSpacing: "0.08em",
-                      textTransform: "uppercase", padding: "10px 16px", borderRadius: "8px",
-                      border: "1px solid rgba(33,198,207,0.15)", color: "rgba(255,255,255,0.35)",
-                      background: "transparent", cursor: "pointer", transition: "all 0.25s ease",
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: "0.72rem",
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      padding: "10px 16px",
+                      borderRadius: "8px",
+                      border: "1px solid rgba(33,198,207,0.15)",
+                      color: "rgba(255,255,255,0.35)",
+                      background: "transparent",
+                      cursor: "pointer",
+                      transition: "all 0.25s ease",
                     }}
-                    onMouseEnter={e => { e.target.style.borderColor = "rgba(33,198,207,0.3)"; e.target.style.color = "rgba(255,255,255,0.6)"; }}
-                    onMouseLeave={e => { e.target.style.borderColor = "rgba(33,198,207,0.15)"; e.target.style.color = "rgba(255,255,255,0.35)"; }}
+                    onMouseEnter={(e) => {
+                      e.target.style.borderColor = "rgba(33,198,207,0.3)";
+                      e.target.style.color = "rgba(255,255,255,0.6)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.borderColor = "rgba(33,198,207,0.15)";
+                      e.target.style.color = "rgba(255,255,255,0.35)";
+                    }}
                   >
                     {showCurriculum ? "▲ Hide Curriculum" : "▼ View Curriculum"}
                   </button>
@@ -753,18 +1809,26 @@ function CourseSection({ course, index }) {
 function NavPill({ href, label }) {
   const [hov, setHov] = useState(false);
   return (
-    <a href={href}
-      onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+    <a
+      href={href}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
       style={{
-        fontFamily: "'DM Sans',sans-serif", fontSize: "0.72rem", letterSpacing: "0.08em",
-        textTransform: "uppercase", padding: "6px 14px", borderRadius: "999px",
+        fontFamily: "Inter, sans-serif",
+        fontSize: "0.72rem",
+        letterSpacing: "0.08em",
+        textTransform: "uppercase",
+        padding: "6px 14px",
+        borderRadius: "999px",
         textDecoration: "none",
         border: `1px solid ${hov ? "rgba(33,198,207,0.45)" : "rgba(33,198,207,0.15)"}`,
         color: hov ? "#21C6CF" : "rgba(255,255,255,0.4)",
         background: hov ? "rgba(33,198,207,0.06)" : "transparent",
         transition: "all 0.25s ease",
       }}
-    >{label}</a>
+    >
+      {label}
+    </a>
   );
 }
 
@@ -772,37 +1836,100 @@ function NavPill({ href, label }) {
 function PlacementStrip() {
   const [ref, inView] = useInView(0.1);
   const items = [
-    { icon: "📄", title: "ATS-Friendly Resume", desc: "Crafted to pass applicant tracking systems" },
-    { icon: "💼", title: "LinkedIn Optimization", desc: "Profile that attracts recruiter attention" },
-    { icon: "🎯", title: "Mock Interviews", desc: "Real scenario-based interview simulations" },
-    { icon: "🌐", title: "Naukri Profile Setup", desc: "Recruiter-optimized profile for India market" },
+    {
+      icon: "📄",
+      title: "ATS-Friendly Resume",
+      desc: "Crafted to pass applicant tracking systems",
+    },
+    {
+      icon: "💼",
+      title: "LinkedIn Optimization",
+      desc: "Profile that attracts recruiter attention",
+    },
+    {
+      icon: "🎯",
+      title: "Mock Interviews",
+      desc: "Real scenario-based interview simulations",
+    },
+    {
+      icon: "🌐",
+      title: "Naukri Profile Setup",
+      desc: "Recruiter-optimized profile for India market",
+    },
   ];
   return (
-    <div ref={ref} style={{
-      maxWidth: "1200px", margin: "0 auto", padding: "0 clamp(20px,4vw,60px) clamp(40px,6vw,80px)",
-    }}>
-      <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(33,198,207,0.15), transparent)", marginBottom: "48px" }} />
-      <div style={{
-        opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(24px)",
-        transition: "opacity 0.9s ease, transform 0.9s ease",
-      }}>
+    <div
+      ref={ref}
+      style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "0 clamp(20px,4vw,60px) clamp(40px,6vw,80px)",
+      }}
+    >
+      <div
+        style={{
+          height: "1px",
+          background:
+            "linear-gradient(90deg, transparent, rgba(33,198,207,0.15), transparent)",
+          marginBottom: "48px",
+        }}
+      />
+      <div
+        style={{
+          opacity: inView ? 1 : 0,
+          transform: inView ? "translateY(0)" : "translateY(24px)",
+          transition: "opacity 0.9s ease, transform 0.9s ease",
+        }}
+      >
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
           <Eyebrow label="Career Preparation" />
-          <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(1.6rem,3vw,2.2rem)", fontWeight: 800, color: "#fff", lineHeight: 1.1, letterSpacing: "-0.02em", marginTop: "12px" }}>
+          <h2
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(1.6rem,3vw,2.2rem)",
+              fontWeight: 800,
+              color: "#fff",
+              lineHeight: 1.1,
+              letterSpacing: "-0.02em",
+              marginTop: "12px",
+            }}
+          >
             100% Placement Support*
           </h2>
-          <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.88rem", color: "rgba(255,255,255,0.35)", marginTop: "8px" }}>
-            Along with technical training, we guide you for job placement success.
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "0.88rem",
+              color: "rgba(255,255,255,0.35)",
+              marginTop: "8px",
+            }}
+          >
+            Along with technical training, we guide you for job placement
+            success.
           </p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "12px" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "12px",
+          }}
+        >
           {items.map((item, i) => (
             <PlacementCard key={i} item={item} delay={i * 80} />
           ))}
         </div>
         <div style={{ textAlign: "center", marginTop: "32px" }}>
           <CTAButton label="Book Free Counselling" />
-          <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", color: "rgba(255,255,255,0.2)", marginTop: "10px", letterSpacing: "0.08em" }}>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "0.65rem",
+              color: "rgba(255,255,255,0.2)",
+              marginTop: "10px",
+              letterSpacing: "0.08em",
+            }}
+          >
             *T&C Apply · info@datagenix.in · 73852 56569
           </p>
         </div>
@@ -814,17 +1941,41 @@ function PlacementStrip() {
 function PlacementCard({ item }) {
   const [hov, setHov] = useState(false);
   return (
-    <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+    <div
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
       style={{
-        padding: "20px", borderRadius: "14px",
+        padding: "20px",
+        borderRadius: "14px",
         border: `1px solid ${hov ? "rgba(33,198,207,0.25)" : "rgba(33,198,207,0.09)"}`,
         background: hov ? "rgba(33,198,207,0.04)" : "#0a0a0a",
-        transition: "all 0.3s ease", cursor: "default",
+        transition: "all 0.3s ease",
+        cursor: "default",
       }}
     >
       <div style={{ fontSize: "1.4rem", marginBottom: "8px" }}>{item.icon}</div>
-      <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.85rem", fontWeight: 700, color: hov ? "#fff" : "rgba(255,255,255,0.75)", marginBottom: "5px", transition: "color 0.2s" }}>{item.title}</div>
-      <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", color: "rgba(255,255,255,0.35)", lineHeight: 1.5 }}>{item.desc}</div>
+      <div
+        style={{
+          fontFamily: "Inter, sans-serif",
+          fontSize: "0.85rem",
+          fontWeight: 700,
+          color: hov ? "#fff" : "rgba(255,255,255,0.75)",
+          marginBottom: "5px",
+          transition: "color 0.2s",
+        }}
+      >
+        {item.title}
+      </div>
+      <div
+        style={{
+          fontFamily: "Inter, sans-serif",
+          fontSize: "0.75rem",
+          color: "rgba(255,255,255,0.35)",
+          lineHeight: 1.5,
+        }}
+      >
+        {item.desc}
+      </div>
     </div>
   );
 }
@@ -834,7 +1985,8 @@ export default function CoursesPage() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
         html { scroll-behavior: smooth; }
         *, *::before, *::after { box-sizing: border-box; }
         button { outline: none; }
@@ -863,31 +2015,83 @@ export default function CoursesPage() {
         }
       `}</style>
 
-      <main className="bg-linear-to-r from-[#140c30] via-[#153D4C] to-[#16A085]" style={{minHeight: "100vh", position: "relative", overflowX: "hidden" }}>
-
+      <main
+        className="bg-linear-to-r from-[#140c30] via-[#153D4C] to-[#16A085]"
+        style={{
+          minHeight: "90vh",
+          position: "relative",
+          overflowX: "hidden",
+        }}
+      >
         {/* HERO */}
-        <header style={{ position: "relative", zIndex: 1, maxWidth: "1200px", margin: "0 auto", padding: "clamp(60px,10vw,100px) clamp(20px,4vw,60px) clamp(4px,1.5vw,8px)" }}>
-          <div style={{ marginBottom: "16px", animation: "heroFadeUp 0.7s ease forwards" }}>
+        <header
+          style={{
+            position: "relative",
+            zIndex: 1,
+            minHeight: "80vh",
+            maxWidth: "90%", // 🔥 full screen
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center", // horizontal center
+            justifyContent: "center", // vertical center
+            textAlign: "center", // center text
+            padding: "0 20px", // only side padding
+          }}
+          className="mx-auto mt-16"
+        >
+          <div
+            style={{
+              display: "inline-block",
+              padding: "6px 14px",
+              borderRadius: "999px",
+              marginBottom: "22px",
+
+              background: "rgba(33,198,207,0.08)",
+              border: "1px solid rgba(33,198,207,0.25)",
+              boxShadow: "0 0 20px rgba(33,198,207,0.12)",
+            }}
+          >
             <Eyebrow label="AI & Data Courses" />
           </div>
-          <h1 style={{
-            fontFamily: "'Syne',sans-serif",
-            fontSize: "clamp(2.4rem,6vw,4.2rem)", fontWeight: 800,
-            color: "#fff", lineHeight: 1.08, letterSpacing: "-0.03em", margin: "0 0 20px",
-            animation: "heroFadeUp 0.8s ease 0.1s both",
-          }}>
-            Master <span style={{ color: "#21C6CF" }}>AI & Data Skills</span>{" "}
+          <h1
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(2.4rem,6vw,4.2rem)",
+              fontWeight: 800,
+              color: "#fff",
+              lineHeight: 1.08,
+              letterSpacing: "-0.03em",
+              margin: "0 0 20px",
+              animation: "heroFadeUp 0.8s ease 0.1s both",
+            }}
+          >
+            Master <span style={{ color: "#28E7C5" }}>AI & Data Skills</span>{" "}
             that the world is hiring for
           </h1>
-          <p style={{
-            fontFamily: "'DM Sans',sans-serif", fontSize: "0.95rem", lineHeight: 1.75,
-            color: "rgba(255,255,255,0.38)", maxWidth: "520px", margin: "0 0 10px",
-            animation: "heroFadeUp 0.8s ease 0.2s both",
-          }}>
-            170M+ AI jobs emerging by 2030. India saw a 33% rise in AI hiring in 2025.
-            The future belongs to those who understand AI & Data — and we'll take you there.
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "0.95rem",
+              lineHeight: 1.75,
+              color: "rgba(255,255,255,0.38)",
+              maxWidth: "520px",
+              margin: "0 0 10px",
+              animation: "heroFadeUp 0.8s ease 0.2s both",
+            }}
+          >
+            170M+ AI jobs emerging by 2030. India saw a 33% rise in AI hiring in
+            2025. The future belongs to those who understand AI & Data — and
+            we'll take you there.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", margin: "0 0 28px", animation: "heroFadeUp 0.8s ease 0.25s both" }}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "20px",
+              margin: "0 0 28px",
+              animation: "heroFadeUp 0.8s ease 0.25s both",
+            }}
+          >
             {[
               { val: "170M+", label: "Jobs by 2030" },
               { val: "2.9L", label: "AI Jobs in India (2025)" },
@@ -895,13 +2099,46 @@ export default function CoursesPage() {
               { val: "100%", label: "Placement Support*" },
             ].map((s, i) => (
               <div key={i} style={{ display: "flex", flexDirection: "column" }}>
-                <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "1.4rem", fontWeight: 800, color: "#21C6CF", lineHeight: 1 }}>{s.val}</span>
-                <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginTop: "3px" }}>{s.label}</span>
+                <span
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "1.4rem",
+                    fontWeight: 800,
+                    color: "#28E7C5",
+                    lineHeight: 1,
+                  }}
+                >
+                  {s.val}
+                </span>
+                <span
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.3)",
+                    marginTop: "3px",
+                  }}
+                >
+                  {s.label}
+                </span>
               </div>
             ))}
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", animation: "heroFadeUp 0.8s ease 0.3s both" }}>
-            {COURSES.map(c => <NavPill key={c.id} href={`#course-${c.id}`} label={c.title} />)}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "6px",
+              animation: "heroFadeUp 0.8s ease 0.3s both",
+              alignItems: "center"
+            }}
+
+            className="w-[75%] items-center"
+          >
+            {COURSES.map((c) => (
+              <NavPill key={c.id} href={`#course-${c.id}`} label={c.title} />
+            ))}
           </div>
         </header>
 
@@ -917,6 +2154,9 @@ export default function CoursesPage() {
           <PlacementStrip />
         </div>
 
+        <div style={{ position: "relative", zIndex: 1 }} className="mb-8">
+          <EnrollmentForm />
+        </div>
       </main>
     </>
   );

@@ -266,7 +266,7 @@ export default function WhatSetsUsApart() {
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shadow-[0_0_10px_#21C6CF]" />
 
-                <span className="font-['DM_Sans',sans-serif] text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[#21C6CF]">
+                <span className="font-['DM_Sans',sans-serif] text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[#28E7C5]">
                   What Sets Us Apart
                 </span>
               </div>
@@ -281,7 +281,7 @@ export default function WhatSetsUsApart() {
               transition: "opacity 0.65s ease 80ms, transform 0.65s ease 80ms",
             }}
           >
-            The <span className="text-[#21C6CF]">DatagenixAi</span> Advantage
+            The <span className="text-[#28E7C5]">DatagenixAi</span> Advantage
           </h2>
         </div>
 
@@ -342,7 +342,7 @@ export default function WhatSetsUsApart() {
               <FeatureCard
                 key={i}
                 feature={f}
-                side="right"
+                side="left"
                 visible={visible}
                 delay={160 + i * 110}
               />
@@ -361,7 +361,7 @@ export default function WhatSetsUsApart() {
         >
           <p className="font-['Syne',sans-serif] text-[clamp(1rem,1.8vw,1.3rem)] font-bold text-white leading-normal mx-auto max-w-175 tracking-[-0.01em] m-0">
             Our work aims to create technology that{" "}
-            <span className="text-[#21C6CF] drop-shadow-[0_0_20px_rgba(33,198,207,0.4)]">
+            <span className="text-[#28E7C5] drop-shadow-[0_0_20px_rgba(33,198,207,0.4)]">
               benefits businesses, society, and the nation.
             </span>
           </p>

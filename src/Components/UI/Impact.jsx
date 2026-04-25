@@ -12,6 +12,11 @@ const CARDS = [
       "Higher operational efficiency",
       "AI-driven decision making",
       "Advantage through automation",
+      "Higher operational efficiency",
+      "AI-driven decision making",
+      "Advantage through automation",
+      "AI-driven decision making",
+      "Advantage through automation",
     ],
   },
   {
@@ -23,6 +28,11 @@ const CARDS = [
       "Real-world AI skills",
       "Industry mentorship",
       "Career acceleration",
+      "Higher operational efficiency",
+      "AI-driven decision making",
+      "Advantage through automation",
+      "AI-driven decision making",
+      "Advantage through automation",
     ],
   },
   {
@@ -34,6 +44,11 @@ const CARDS = [
       "Responsible AI innovation",
       "Sustainable technology development",
       "Alignment with SDG-driven growth",
+      "Higher operational efficiency",
+      "AI-driven decision making",
+      "Advantage through automation",
+      "AI-driven decision making",
+      "Advantage through automation",
     ],
   },
 ];
@@ -107,7 +122,7 @@ export default function ImpactSection() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF]" />
 
-              <span className="font-['DM_Sans',sans-serif] text-[0.62rem] font-medium tracking-[0.18em] uppercase text-[#21C6CF]">
+              <span className="font-['DM_Sans',sans-serif] text-[0.62rem] font-medium tracking-[0.18em] uppercase text-[#28E7C5]">
                 Sustainable Impact
               </span>
             </div>
@@ -121,7 +136,7 @@ export default function ImpactSection() {
             className="mx-auto max-w-2xl font-['Syne',sans-serif] text-[1.8rem] sm:text-[2.4rem] lg:text-[3rem] font-bold leading-[1.1] tracking-[-0.02em] text-white opacity-0 translate-y-8 transition-all duration-700 ease-out delay-150"
           >
             Creating Real-World{" "}
-            <span className="text-[#21C6CF]">Impact with AI</span>
+            <span className="text-[#28E7C5]">Impact with AI</span>
           </h2>
         </div>
 
@@ -144,7 +159,7 @@ export default function ImpactSection() {
               <div className="pointer-events-none absolute -bottom-10 -right-10 h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(33,198,207,0.05)_0%,transparent_70%)]" />
 
               {/* Symbol */}
-              <div className="relative mb-5 w-fit text-4xl leading-none text-[#21C6CF] drop-shadow-[0_0_12px_rgba(33,198,207,0.35)] transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_22px_rgba(33,198,207,0.65)]">
+              <div className="relative mb-5 w-fit text-4xl leading-none text-[#28E7C5] drop-shadow-[0_0_12px_rgba(33,198,207,0.35)] transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_22px_rgba(33,198,207,0.65)]">
                 {card.symbol}
               </div>
 
@@ -154,7 +169,7 @@ export default function ImpactSection() {
               </h3>
 
               {/* Subheading */}
-              <p className="relative mb-5 font-['DM_Sans',sans-serif] text-[0.78rem] tracking-wide text-[rgba(33,198,207,0.55)]">
+              <p className="relative mb-5 font-['DM_Sans',sans-serif] text-[0.78rem] tracking-wide text-[rgba(33,207,149,0.55)]">
                 {card.subheading}
               </p>
 

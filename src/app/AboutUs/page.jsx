@@ -36,13 +36,31 @@ const GRID_BG = {
 function Eyebrow({ children }) {
   return (
     <div
-      className="inline-flex items-center gap-2 text-[#21C6CF] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase mb-4"
-      style={{ fontFamily: "'DM Sans',sans-serif" }}
+      className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-4"
+      style={{
+        background: "rgba(33,198,207,0.08)",
+        border: "1px solid rgba(33,198,207,0.25)",
+        boxShadow: "0 0 20px rgba(33,198,207,0.12)",
+        fontFamily: "'DM Sans',sans-serif",
+        fontSize: "0.65rem",
+        fontWeight: 600,
+        letterSpacing: "0.12em",
+        textTransform: "uppercase",
+        color: "#21C6CF",
+        width: "fit-content",
+      }}
     >
+      {/* dot */}
       <span
-        className="w-[5px] h-[5px] rounded-full bg-[#21C6CF] inline-block shrink-0"
-        style={{ boxShadow: "0 0 8px #21C6CF" }}
+        style={{
+          width: "6px",
+          height: "6px",
+          borderRadius: "50%",
+          background: "#21C6CF",
+          boxShadow: "0 0 6px #21C6CF",
+        }}
       />
+
       {children}
     </div>
   );
@@ -66,7 +84,7 @@ function Hero() {
   }, []);
 
   return (
-    <section className="bg-[none] relative overflow-hidden min-h-[90vh] flex items-center">
+    <section className="bg-[none] relative overflow-hidden min-h-[90vh] flex items-center py-12">
       {/* Top shimmer */}
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[rgba(33,198,207,0.3)] to-transparent" />
 
@@ -96,7 +114,7 @@ function Hero() {
               style={{ fontFamily: "'Syne',sans-serif" }}
             >
               Where Engineering Meets{" "}
-              <span className="text-[#21C6CF]">Intelligence</span>
+              <span className="text-[#28E7C5]">Intelligence</span>
             </h1>
           </div>
 
@@ -129,7 +147,7 @@ function Hero() {
           >
             <Link
               href="/portfolio"
-              className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#21C6CF] text-[#050505] text-[0.82rem] font-semibold tracking-[0.06em] uppercase transition-shadow duration-300 hover:shadow-[0_0_24px_rgba(33,198,207,0.35)]"
+              className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#28E7C5] text-[#050505] text-[0.82rem] font-semibold tracking-[0.06em] uppercase transition-shadow duration-300 hover:shadow-[0_0_24px_rgba(33,198,207,0.35)]"
               style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
               <span className="absolute inset-0 bg-[#0a2f33] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-[380ms]" />
@@ -150,7 +168,7 @@ function Hero() {
             </Link>
             <Link
               href="/contact"
-              className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent border border-[rgba(33,198,207,0.3)] text-[#21C6CF] text-[0.82rem] font-semibold tracking-[0.06em] uppercase hover:border-[#21C6CF] transition-all duration-300"
+              className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent border border-[rgba(33,198,207,0.3)] text-[#28E7C5] text-[0.82rem] font-semibold tracking-[0.06em] uppercase hover:border-[#21C6CF] transition-all duration-300"
               style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
               <span className="absolute inset-0 bg-[rgba(33,198,207,0.08)] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-[380ms]" />
@@ -200,6 +218,11 @@ const TIMELINE = [
     label: "DatagenixAi Founded",
     desc: "Created to bridge engineering depth with AI intelligence — for businesses and professionals alike.",
   },
+  {
+    year: "Birth",
+    label: "DatagenixAi Founded",
+    desc: "Created to bridge engineering depth with AI intelligence — for businesses and professionals alike.",
+  },
 ];
 
 function OriginStory() {
@@ -221,7 +244,7 @@ function OriginStory() {
             <Eyebrow>How We Started</Eyebrow>
             <SectionHeading>
               A Story Born from{" "}
-              <span className="text-[#21C6CF]">Industry Reality</span>
+              <span className="text-[#28E7C5]">Industry Reality</span>
             </SectionHeading>
 
             <div className="mt-8 flex flex-col gap-5">
@@ -247,12 +270,12 @@ function OriginStory() {
             {/* Pull quote */}
             <div className="mt-8 pl-5 border-l-2 border-[#21C6CF]">
               <p
-                className="text-[1rem] sm:text-[1.1rem] font-bold text-white leading-[1.6] italic"
+                className="text-[1rem] sm:text-[1.1rem] font-bold text-white leading-[1.6] italic "
                 style={{ fontFamily: "'Syne',sans-serif" }}
               >
                 "Machines were generating data. Businesses were generating data.
                 But very few were able to convert it into{" "}
-                <span className="text-[#21C6CF] not-italic">intelligence.</span>
+                <span className="text-[#28E7C5] not-italic">intelligence.</span>
                 "
               </p>
             </div>
@@ -329,7 +352,7 @@ function TheGap() {
         <div className="text-center mb-12">
           <Eyebrow>The Problem We Solved</Eyebrow>
           <SectionHeading>
-            The Gap We Set Out to <span className="text-[#21C6CF]">Fill</span>
+            The Gap We Set Out to <span className="text-[#28E7C5]">Fill</span>
           </SectionHeading>
         </div>
 
@@ -496,7 +519,7 @@ const PILLARS = [
   {
     num: "01",
     title: "AI & IoT Product Innovation",
-    desc: "Building intelligent hardware-software systems that bring AI into the physical world — from smart sensors to autonomous monitoring platforms.",
+    desc: "Building intelligent hardware-software systems that bring AI into the physical world — from smart sensors to autonomous monitoring platforms. Building intelligent hardware-software systems that bring AI into the physical world — from smart sensors to autonomous monitoring platforms. Building intelligent hardware-software systems that bring AI into the physical world — from smart sensors to autonomous monitoring platforms. ",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -523,7 +546,7 @@ const PILLARS = [
   {
     num: "02",
     title: "Custom AI Solutions for Businesses",
-    desc: "Designing and deploying tailored AI and automation solutions that solve real operational challenges — improving efficiency, reducing costs, and enabling smarter decisions.",
+    desc: "Designing and deploying tailored AI and automation solutions that solve real operational challenges — improving efficiency, reducing costs, and enabling smarter decisions. Building intelligent hardware-software systems that bring AI into the physical world — from smart sensors to autonomous monitoring platforms. Building intelligent hardware-software systems that bring AI into the physical world — from smart sensors to autonomous monitoring platforms.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -543,7 +566,7 @@ const PILLARS = [
   {
     num: "03",
     title: "AI Talent Development",
-    desc: "Equipping professionals and students with practical AI skills through industry-oriented training, mentorship, and real-world project exposure.",
+    desc: "Equipping professionals and students with practical AI skills through industry-oriented training, mentorship, and real-world project exposure. Building intelligent hardware-software systems that bring AI into the physical world — from smart sensors to autonomous monitoring platforms. Building intelligent hardware-software systems that bring AI into the physical world — from smart sensors to autonomous monitoring platforms.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -569,12 +592,12 @@ function ThreePillars() {
       <div
         ref={r.ref}
         style={r.style}
-        className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10"
+        className="relative z-10 max-w-300 mx-auto px-4 sm:px-6 lg:px-10"
       >
         <div className="text-center mb-12">
           <Eyebrow>What We Do</Eyebrow>
           <SectionHeading>
-            Three Powerful <span className="text-[#21C6CF]">Pillars</span>
+            Three Powerful <span className="text-[#28E7C5]">Pillars</span>
           </SectionHeading>
           <p
             className="text-[rgba(255,255,255,0.38)] text-[0.88rem] sm:text-[0.93rem] leading-[1.75] max-w-lg mx-auto mt-4"
@@ -589,9 +612,9 @@ function ThreePillars() {
         <div className="flex items-center px-4 sm:px-10 lg:px-20 mb-10">
           {PILLARS.map((p, i) => (
             <div key={i} className="contents">
-              <div className="flex flex-col items-center flex-shrink-0">
+              <div className="flex flex-col items-center shrink-0">
                 <div
-                  className="w-[72px] h-[72px] sm:w-[84px] sm:h-[84px] rounded-full flex items-center justify-center font-bold text-[1.1rem] z-[2]"
+                  className="w-18 h-18 sm:w-21 sm:h-21 rounded-full flex items-center justify-center font-bold text-[1.1rem] z-2"
                   style={{
                     fontFamily: "'Syne',sans-serif",
                     background: i === 1 ? "#21C6CF" : "#111418",
@@ -621,28 +644,79 @@ function ThreePillars() {
           {PILLARS.map((p, i) => (
             <div
               key={i}
-              className="group rounded-xl border border-[rgba(33,198,207,0.08)] bg-[#0a0a0a] p-6 hover:border-[rgba(33,198,207,0.25)] transition-all duration-300 relative overflow-hidden"
+              style={{
+                position: "relative",
+                borderRadius: "18px",
+                padding: "24px 24px 60px",
+                minHeight: "280px",
+                background: "rgba(10, 16, 35, 0.55)",
+                overflow: "hidden",
+                boxShadow: `
+          0 10px 40px -10px rgba(33,198,207,0.25),
+          0 20px 80px -20px rgba(33,198,207,0.18),
+          inset 0 0 0 1px rgba(33,198,207,0.25),
+          inset 0 1px 0 rgba(33,198,207,0.2)
+        `,
+              }}
             >
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(33,198,207,0.4)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="w-10 h-10 rounded-lg bg-[rgba(33,198,207,0.08)] border border-[rgba(33,198,207,0.15)] flex items-center justify-center text-[#21C6CF] mb-4">
-                {p.icon}
-              </div>
-              <h3
-                className="text-white font-bold text-[0.95rem] sm:text-[1rem] leading-[1.4] mb-3"
-                style={{ fontFamily: "'Syne',sans-serif" }}
-              >
-                {p.title}
-              </h3>
+              {/* Subtle top shimmer */}
               <div
-                className="w-8 h-0.5 bg-[#21C6CF] rounded-full mb-3"
-                style={{ boxShadow: "0 0 6px rgba(33,198,207,0.5)" }}
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: "20%",
+                  right: "20%",
+                  height: "1px",
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(100,160,255,0.4), transparent)",
+                }}
               />
-              <p
-                className="text-[rgba(255,255,255,0.38)] text-[0.8rem] leading-[1.7]"
-                style={{ fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}
-              >
-                {p.desc}
-              </p>
+
+              {/* Bottom teal flood glow */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: "50px",
+                  background:
+                    "linear-gradient(to top, rgba(33,198,207,0.75) 0%, rgba(33,198,207,0.45) 30%, rgba(33,198,207,0.18) 60%, transparent 100%)",
+                  pointerEvents: "none",
+                }}
+              />
+
+              {/* Content */}
+              <div style={{ position: "relative", zIndex: 1 }}>
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center text-[#21C6CF] mb-4"
+                  style={{
+                    background: "rgba(33,130,255,0.1)",
+                    border: "1px solid rgba(33,130,255,0.2)",
+                  }}
+                >
+                  {p.icon}
+                </div>
+                <h3
+                  className="text-white font-bold text-[0.95rem] sm:text-[1rem] leading-[1.4] mb-3"
+                  style={{ fontFamily: "'Syne',sans-serif" }}
+                >
+                  {p.title}
+                </h3>
+                <div
+                  className="w-7 h-0.5 rounded-full mb-3"
+                  style={{ background: "#21C6CF" }}
+                />
+                <p
+                  className="text-[rgba(255,255,255,0.35)] text-[0.82rem] leading-[1.75]"
+                  style={{
+                    fontFamily: "'DM Sans',sans-serif",
+                    fontWeight: 300,
+                  }}
+                >
+                  {p.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -665,90 +739,95 @@ function MissionVision() {
         <div className="text-center mb-14">
           <Eyebrow>Purpose & Direction</Eyebrow>
           <SectionHeading>
-            Mission & <span className="text-[#0d9ba3]">Vision</span>
+            Vision & <span className="text-[#28E7C5]">Mission</span>
           </SectionHeading>
         </div>
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-
           {/* MISSION */}
-          <div className="relative rounded-2xl p-8 sm:p-10 bg-white 
+          <div
+            className="relative rounded-2xl p-8 sm:p-10 bg-white 
           shadow-[-25px_30px_80px_rgba(0,0,0,0.18),-8px_12px_30px_rgba(0,0,0,0.12)]
           hover:shadow-[0_24px_56px_rgba(0,0,0,0.16),0_8px_20px_rgba(0,0,0,0.1)]
-          transition-all duration-300 min-h-[300px] flex flex-col justify-between">
-
+          transition-all duration-300 min-h-75 flex flex-col justify-between"
+          >
             {/* Label */}
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0d9ba3]" />
-              <span className="text-[#0d9ba3] text-[0.65rem] tracking-[0.18em] uppercase font-medium">
-                Mission
+              <span className="text-[#28E7C5] text-[0.65rem] tracking-[0.18em] uppercase font-medium">
+                Vision
               </span>
             </div>
 
             {/* Title */}
-            <h3 className="font-['Syne'] font-bold text-[1.3rem] text-[#111] mb-4 leading-[1.3]">
+            <h3 className="font-bold text-[1.3rem] text-[#111] mb-4 leading-[1.3]">
               Democratise AI Across Industries
             </h3>
 
             {/* Content */}
             <p className="text-[0.9rem] text-[rgba(0,0,0,0.6)] leading-[1.8]">
-              Our mission is to make Artificial Intelligence accessible, practical,
-              and impactful for every business, industry, and individual—not just
-              large technology corporations. We focus on building scalable AI
-              systems, delivering real-world solutions, and enabling organizations
-              to move from data to intelligent decision-making.
-
-              <br /><br />
-
+              Our mission is to make Artificial Intelligence accessible,
+              practical, and impactful for every business, industry, and
+              individual—not just large technology corporations. We focus on
+              building scalable AI systems, delivering real-world solutions, and
+              enabling organizations to move from data to intelligent
+              decision-making.
+              <br />
+              <br />
               Beyond solutions, we aim to educate and empower people by bridging
               the gap between theoretical knowledge and real-world application,
-              ensuring AI creates meaningful value at every level of society. Beyond solutions, we aim to educate and empower people by bridging
+              ensuring AI creates meaningful value at every level of society.
+              Beyond solutions, we aim to educate and empower people by bridging
               the gap between theoretical knowledge and real-world application,
-              ensuring AI creates meaningful value at every level of society. Beyond solutions, we aim to educate and empower people by bridging
+              ensuring AI creates meaningful value at every level of society.
+              Beyond solutions, we aim to educate and empower people by bridging
               the gap between theoretical knowledge and real-world application,
               ensuring AI creates meaningful value at every level of society.
             </p>
           </div>
 
           {/* VISION */}
-          <div className="relative rounded-2xl p-8 sm:p-10 bg-white 
+          <div
+            className="relative rounded-2xl p-8 sm:p-10 bg-white 
           shadow-[-25px_30px_80px_rgba(0,0,0,0.18),-8px_12px_30px_rgba(0,0,0,0.12)]
           hover:shadow-[0_24px_56px_rgba(0,0,0,0.16),0_8px_20px_rgba(0,0,0,0.1)]
-          transition-all duration-300 min-h-[300px] flex flex-col justify-between">
-
+          transition-all duration-300 min-h-75 flex flex-col justify-between"
+          >
             {/* Label */}
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0d9ba3]" />
-              <span className="text-[#0d9ba3] text-[0.65rem] tracking-[0.18em] uppercase font-medium">
-                Vision
+              <span className="text-[#28E7C5] text-[0.65rem] tracking-[0.18em] uppercase font-medium">
+                Mission
               </span>
             </div>
 
             {/* Title */}
-            <h3 className="font-['Syne'] font-bold text-[1.3rem] text-[#111] mb-4 leading-[1.3]">
+            <h3 className="font-bold text-[1.3rem] text-[#111] mb-4 leading-[1.3]">
               Building an AI-Empowered Nation
             </h3>
 
             {/* Content */}
             <p className="text-[0.9rem] text-[rgba(0,0,0,0.6)] leading-[1.8]">
-              We envision a future where every business operates with intelligence,
-              every professional is equipped with AI capabilities, and technology
-              actively contributes to sustainable growth and innovation.
-
-              <br /><br />
-
-              Our goal is to create an ecosystem where AI is not limited to research
-              labs or large enterprises, but becomes a core driver of productivity,
-              efficiency, and progress across industries. We aspire to position India
-              at the forefront of the next wave of AI-driven industrial transformation. Beyond solutions, we aim to educate and empower people by bridging
-              the gap between theoretical knowledge and real-world application,
-              ensuring AI creates meaningful value at every level of society. Beyond solutions, we aim to educate and empower people by bridging
-              the gap between theoretical knowledge and real-world application,
-              ensuring AI creates meaningful value at every level of society.
+              We envision a future where every business operates with
+              intelligence, every professional is equipped with AI capabilities,
+              and technology actively contributes to sustainable growth and
+              innovation.
+              <br />
+              <br />
+              Our goal is to create an ecosystem where AI is not limited to
+              research labs or large enterprises, but becomes a core driver of
+              productivity, efficiency, and progress across industries. We
+              aspire to position India at the forefront of the next wave of
+              AI-driven industrial transformation. Beyond solutions, we aim to
+              educate and empower people by bridging the gap between theoretical
+              knowledge and real-world application, ensuring AI creates
+              meaningful value at every level of society. Beyond solutions, we
+              aim to educate and empower people by bridging the gap between
+              theoretical knowledge and real-world application, ensuring AI
+              creates meaningful value at every level of society.
             </p>
           </div>
-
         </div>
       </div>
     </section>
@@ -758,32 +837,32 @@ const VALUES = [
   {
     symbol: "◈",
     title: "Innovation First",
-    desc: "We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking.",
+    desc: "We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking.",
   },
   {
     symbol: "⬡",
     title: "Responsible AI",
-    desc: "Aligned with IndiaAI, Skill India, and UN SDGs — we build technology that serves society, not just shareholders.",
+    desc: "Aligned with IndiaAI, Skill India, and UN SDGs — we build technology that serves society, not just shareholders. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking.",
   },
   {
     symbol: "◎",
     title: "Industry Depth",
-    desc: "12+ years of hands-on industrial experience informs every product and solution we build.",
+    desc: "12+ years of hands-on industrial experience informs every product and solution we build. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking.",
   },
   {
     symbol: "◆",
     title: "Social Impact",
-    desc: "From smart cities to AI education for underserved communities — our mission is societal, not just technological.",
+    desc: "From smart cities to AI education for underserved communities — our mission is societal, not just technological. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking.",
   },
   {
     symbol: "⬢",
     title: "Practical Problem Solving",
-    desc: "Every solution is designed to deliver measurable business impact — not theoretical results.",
+    desc: "Every solution is designed to deliver measurable business impact — not theoretical results. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking.",
   },
   {
     symbol: "◉",
     title: "Talent Empowerment",
-    desc: "We invest in people as much as products — building the next generation of AI-capable professionals.",
+    desc: "We invest in people as much as products — building the next generation of AI-capable professionals. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking. We pursue novel, AI-native approaches to every challenge rather than adapting legacy thinking.",
   },
 ];
 
@@ -791,16 +870,16 @@ function CoreValues() {
   const r = useReveal(0);
 
   return (
-    <section className="bg-[#EAEAEA] h-[80vh] w-[97%] rounded-3xl mx-auto relative overflow-hidden py-4 mb-12">
+    <section className="bg-[#EAEAEA] h-[100vh] w-[97%] rounded-3xl mx-auto relative overflow-hidden py-4 mb-12">
       <div
         ref={r.ref}
         style={r.style}
-        className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10"
+        className="relative z-10 max-w-300 mx-auto px-4 sm:px-6 lg:px-10"
       >
         <div className="text-center mb-12">
           <Eyebrow>What We Stand For</Eyebrow>
           <SectionHeading>
-            Core <span className="text-[#21C6CF]">Values</span>
+            Core <span className="text-[#28E7C5]">Values</span>
           </SectionHeading>
         </div>
 
@@ -808,21 +887,23 @@ function CoreValues() {
           {VALUES.map((v, i) => (
             <div
               key={i}
-              className="group flex gap-4 p-5 rounded-xl border border-[rgba(33,198,207,0.08)] bg-[#0a0a0a] hover:border-[rgba(33,198,207,0.25)] transition-all duration-300 relative overflow-hidden"
+              className="group flex gap-4 p-5 rounded-xl relative overflow-hidden bg-white
+    shadow-[-25px_30px_80px_rgba(0,0,0,0.18),-8px_12px_30px_rgba(0,0,0,0.12)]
+    hover:shadow-[0_24px_56px_rgba(0,0,0,0.16),0_8px_20px_rgba(0,0,0,0.1)]
+    transition-all duration-300"
             >
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(33,198,207,0.4)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="w-9 h-9 rounded-lg bg-[rgba(33,198,207,0.08)] border border-[rgba(33,198,207,0.15)] flex items-center justify-center text-[#21C6CF] text-sm shrink-0">
                 {v.symbol}
               </div>
               <div>
                 <h4
-                  className="text-white font-bold text-[0.9rem] mb-1.5 leading-snug"
+                  className="text-[#111] font-bold text-[0.9rem] mb-1.5 leading-snug"
                   style={{ fontFamily: "'Syne',sans-serif" }}
                 >
                   {v.title}
                 </h4>
                 <p
-                  className="text-[rgba(255,255,255,0.35)] text-[0.78rem] leading-[1.65]"
+                  className="text-[rgba(0,0,0,0.6)] text-[0.78rem] leading-[1.65]"
                   style={{
                     fontFamily: "'DM Sans',sans-serif",
                     fontWeight: 300,
@@ -844,54 +925,77 @@ function FounderSpotlight() {
 
   return (
     <section className="bg-none relative overflow-hidden py-2 lg:pb-12">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(33,198,207,0.1)] to-transparent" />
+      {/* subtle divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[rgba(40,231,197,0.12)] to-transparent" />
+
+      {/* radial glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-100 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse,rgba(33,198,207,0.04) 0%,transparent 70%)",
+            "radial-gradient(ellipse, rgba(40,231,197,0.05) 0%, transparent 70%)",
         }}
       />
 
       <div
         ref={r.ref}
         style={r.style}
-        className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10"
+        className="relative z-10 max-w-300 mx-auto px-4 sm:px-6 lg:px-10"
       >
+        {/* Heading */}
         <div className="text-center mb-12">
           <Eyebrow>Leadership</Eyebrow>
           <SectionHeading>
             The People Behind{" "}
-            <span className="text-[#21C6CF]">DatagenixAi</span>
+            <span className="text-[#28E7C5]">DatagenixAi</span>
           </SectionHeading>
         </div>
 
-        {/* Founder card */}
-        <div className="max-w-[780px] mx-auto rounded-xl border border-[rgba(33,198,207,0.15)] bg-[#0a0a0a] overflow-hidden relative">
+        {/* 🔥 CARD */}
+        <div
+          className="max-w-195 mx-auto rounded-xl overflow-hidden relative"
+          style={{
+            background: "rgba(10,16,35,0.7)",
+            backdropFilter: "blur(10px)",
+            boxShadow: `
+              0 10px 40px -10px rgba(40,231,197,0.25),
+              0 20px 80px -20px rgba(40,231,197,0.15),
+              inset 0 0 0 1px rgba(40,231,197,0.2),
+              inset 0 1px 0 rgba(40,231,197,0.15)
+            `,
+          }}
+        >
+          {/* Top shimmer */}
           <div
-            className="absolute left-0 top-0 h-full w-[3px]"
             style={{
+              position: "absolute",
+              top: 0,
+              left: "20%",
+              right: "20%",
+              height: "1px",
               background:
-                "linear-gradient(180deg,#21C6CF,rgba(33,198,207,0.06))",
+                "linear-gradient(90deg, transparent, rgba(40,231,197,0.4), transparent)",
+              pointerEvents: "none",
             }}
           />
 
-          <div className="flex flex-col sm:flex-row gap-0">
-            {/* Photo placeholder */}
-            <div className="sm:w-[220px] shrink-0 bg-[#0d0d0d] flex items-center justify-center min-h-[200px] sm:min-h-0 relative overflow-hidden border-b sm:border-b-0 sm:border-r border-[rgba(33,198,207,0.08)]">
+          <div className="flex flex-col sm:flex-row">
+            {/* LEFT SIDE */}
+            <div className="sm:w-55 shrink-0 flex items-center justify-center min-h-50 relative border-b sm:border-b-0 sm:border-r border-[rgba(40,231,197,0.12)]">
               <div className="flex flex-col items-center gap-3">
                 <div
-                  className="w-20 h-20 rounded-full flex items-center justify-center text-[#050505] text-[1.4rem] font-extrabold"
+                  className="w-20 h-20 rounded-full flex items-center justify-center text-[#06201c] text-[1.4rem] font-extrabold"
                   style={{
                     fontFamily: "'Syne',sans-serif",
-                    background: "linear-gradient(135deg,#21C6CF,#0ea5b5)",
-                    boxShadow: "0 0 30px rgba(33,198,207,0.3)",
+                    background: "#28E7C5",
+                    boxShadow: "0 0 25px rgba(40,231,197,0.35)",
                   }}
                 >
                   F
                 </div>
+
                 <span
-                  className="text-[rgba(33,198,207,0.4)] text-[0.58rem] tracking-[0.16em] uppercase"
+                  className="text-[#28E7C5] text-[0.58rem] tracking-[0.16em] uppercase"
                   style={{ fontFamily: "'DM Sans',sans-serif" }}
                 >
                   Founder & Director
@@ -899,34 +1003,38 @@ function FounderSpotlight() {
               </div>
             </div>
 
-            {/* Bio */}
+            {/* RIGHT SIDE */}
             <div className="flex-1 p-7 sm:p-8">
+              {/* mini eyebrow */}
               <div className="inline-flex items-center gap-2 mb-3">
                 <span
-                  className="w-[5px] h-[5px] rounded-full bg-[#21C6CF] inline-block"
-                  style={{ boxShadow: "0 0 6px #21C6CF" }}
+                  className="w-1.25 h-1.25 rounded-full bg-[#28E7C5]"
+                  style={{ boxShadow: "0 0 6px #28E7C5" }}
                 />
                 <span
-                  className="text-[#21C6CF] text-[0.62rem] tracking-[0.18em] uppercase"
+                  className="text-[#28E7C5] text-[0.62rem] tracking-[0.18em] uppercase"
                   style={{ fontFamily: "'DM Sans',sans-serif" }}
                 >
                   Founder & Director
                 </span>
               </div>
+
               <h3
                 className="text-white font-bold text-[1.3rem] sm:text-[1.5rem] mb-1 tracking-[-0.01em]"
                 style={{ fontFamily: "'Syne',sans-serif" }}
               >
                 Mr. Vinay Khilare
               </h3>
+
               <p
-                className="text-[rgba(33,198,207,0.6)] text-[0.78rem] mb-5"
+                className="text-[#28E7C5] text-[0.78rem] mb-5"
                 style={{ fontFamily: "'DM Sans',sans-serif" }}
               >
                 DatagenixAi · Sangli, Maharashtra
               </p>
+
               <p
-                className="text-[rgba(255,255,255,0.42)] text-[0.83rem] leading-[1.8] mb-6"
+                className="text-[rgba(255,255,255,0.85)] text-[0.95rem] leading-[1.8] mb-6"
                 style={{ fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}
               >
                 With 12+ years of hands-on industrial R&D experience spanning
@@ -934,6 +1042,8 @@ function FounderSpotlight() {
                 to making intelligent technology practical, accessible, and
                 impactful across industries and communities.
               </p>
+
+              {/* tags */}
               <div className="flex flex-wrap gap-2">
                 {[
                   "Electronics & IoT",
@@ -943,7 +1053,7 @@ function FounderSpotlight() {
                 ].map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 rounded-full text-[0.68rem] text-[rgba(33,198,207,0.7)] border border-[rgba(33,198,207,0.15)] bg-[rgba(33,198,207,0.05)]"
+                    className="px-3 py-1 rounded-full text-[0.68rem] text-[#28E7C5] border border-[rgba(40,231,197,0.2)] bg-[rgba(40,231,197,0.06)]"
                     style={{ fontFamily: "'DM Sans',sans-serif" }}
                   >
                     {tag}
@@ -982,18 +1092,18 @@ function ImpactNumbers() {
 
   return (
     <section className="bg-none relative overflow-hidden py-6 lg:mb-12">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(33,198,207,0.15)] to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(33,198,207,0.1)] to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[rgba(33,198,207,0.15)] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[rgba(33,198,207,0.1)] to-transparent" />
 
       <div
         ref={r.ref}
         style={r.style}
-        className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10"
+        className="relative z-10 max-w-300 mx-auto px-4 sm:px-6 lg:px-10"
       >
         <div className="text-center mb-12">
           <Eyebrow>By The Numbers</Eyebrow>
           <SectionHeading>
-            Our <span className="text-[#21C6CF]">Impact</span> in Numbers
+            Our <span className="text-[#28E7C5]">Impact</span> in Numbers
           </SectionHeading>
         </div>
 
@@ -1001,29 +1111,49 @@ function ImpactNumbers() {
           {STATS.map((s, i) => (
             <div
               key={i}
-              className="group rounded-xl border border-[rgba(33,198,207,0.08)] bg-[#0a0a0a] p-6 sm:p-7 text-center hover:border-[rgba(33,198,207,0.25)] transition-all duration-300"
+              className="group rounded-xl p-6 sm:p-7 text-center transition-all duration-300"
+              style={{
+                position: "relative",
+                background: "rgba(10, 16, 35, 0.55)",
+              }}
             >
+              {/* Top shimmer */}
               <div
-                className="text-[2.6rem] sm:text-[3.2rem] font-extrabold text-[#21C6CF] leading-none mb-2"
                 style={{
-                  fontFamily: "'Syne',sans-serif",
-                  textShadow: "0 0 30px rgba(33,198,207,0.3)",
+                  position: "absolute",
+                  top: 0,
+                  left: "20%",
+                  right: "20%",
+                  height: "1px",
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(100,160,255,0.4), transparent)",
+                  pointerEvents: "none",
                 }}
-              >
-                {s.value}
+              />              
+
+              <div style={{ position: "relative", zIndex: 1 }}>
+                <div
+                  className="text-[2.6rem] sm:text-[3.2rem] font-extrabold text-[#28E7C5] leading-none mb-2"
+                  style={{
+                    fontFamily: "'Syne',sans-serif",
+                    textShadow: "0 0 30px rgba(33,198,207,0.3)",
+                  }}
+                >
+                  {s.value}
+                </div>
+                <div
+                  className="text-white font-bold text-[0.85rem] mb-1.5 leading-snug"
+                  style={{ fontFamily: "'Syne',sans-serif" }}
+                >
+                  {s.label}
+                </div>
+                <p
+                  className="text-[rgba(255,255,255,0.3)] text-[0.72rem] leading-[1.55]"
+                  style={{ fontFamily: "'DM Sans',sans-serif" }}
+                >
+                  {s.desc}
+                </p>
               </div>
-              <div
-                className="text-white font-bold text-[0.85rem] mb-1.5 leading-snug"
-                style={{ fontFamily: "'Syne',sans-serif" }}
-              >
-                {s.label}
-              </div>
-              <p
-                className="text-[rgba(255,255,255,0.3)] text-[0.72rem] leading-[1.55]"
-                style={{ fontFamily: "'DM Sans',sans-serif" }}
-              >
-                {s.desc}
-              </p>
             </div>
           ))}
         </div>
@@ -1035,7 +1165,6 @@ function ImpactNumbers() {
 export default function AboutPage() {
   return (
     <main className="bg-linear-to-r from-[#140c30] via-[#153D4C] to-[#16A085]">
-
       <HexBackground />
 
       <Hero />

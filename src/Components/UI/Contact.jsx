@@ -59,7 +59,7 @@ export default function ContactSection() {
   const INFO_ITEMS = [
     {
       label: "Location",
-      value: "Pune, Maharashtra, India",
+      value: "Nirmiti Elite 14, 502, Sangli, S. T. Colony, Vishrambag, Maharashtra 416415",
       icon: (
         <svg viewBox="0 0 20 20" style={{ width: 15, height: 15, fill: "none", stroke: "#21C6CF", strokeWidth: 1.5, strokeLinecap: "round", strokeLinejoin: "round" }}>
           <path d="M10 11a3 3 0 100-6 3 3 0 000 6z" />
@@ -69,7 +69,7 @@ export default function ContactSection() {
     },
     {
       label: "Email",
-      value: "hello@datagenixai.com",
+      value: "info@datagenixai.in",
       icon: (
         <svg viewBox="0 0 20 20" style={{ width: 15, height: 15, fill: "none", stroke: "#21C6CF", strokeWidth: 1.5, strokeLinecap: "round", strokeLinejoin: "round" }}>
           <rect x="2" y="4" width="16" height="12" rx="1" />
@@ -79,7 +79,7 @@ export default function ContactSection() {
     },
     {
       label: "Phone",
-      value: "+91 98765 43210",
+      value: "+91 91750 56569",
       icon: (
         <svg viewBox="0 0 20 20" style={{ width: 15, height: 15, fill: "none", stroke: "#21C6CF", strokeWidth: 1.5, strokeLinecap: "round", strokeLinejoin: "round" }}>
           <path d="M3 3h3.5l1.5 4-2 1.5c1 2 2.5 3.5 4.5 4.5L12 11l4 1.5V16a1 1 0 01-1 1C6.5 17 3 10.5 3 4a1 1 0 011-1z" />
@@ -149,8 +149,8 @@ export default function ContactSection() {
             boxShadow: "0 0 12px rgba(33,198,207,0.15)",
             transition: "all 0.3s ease", cursor: "pointer",
           }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#21C6CF", boxShadow: "0 0 10px #21C6CF", flexShrink: 0 }} />
-            <span style={{ color: "#21C6CF", fontSize: "0.67rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Sans',sans-serif" }}>
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#28E7C5", boxShadow: "0 0 10px #21C6CF", flexShrink: 0 }} />
+            <span style={{ color: "#28E7C5", fontSize: "0.67rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Sans',sans-serif" }}>
               Get In Touch
             </span>
           </div>
@@ -165,7 +165,7 @@ export default function ContactSection() {
             lineHeight: 1.1, letterSpacing: "-0.02em", margin: 0,
           }}>
             Let&apos;s Build Something{" "}
-            <span style={{ color: "#21C6CF" }}>Together</span>
+            <span style={{ color: "#28E7C5" }}>Together</span>
           </h2>
         </div>
 
@@ -231,7 +231,7 @@ export default function ContactSection() {
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 180px), 1fr))", gap: "13px" }}>
                   <div>
                     <label style={labelStyle}>Full Name</label>
-                    <input required type="text" placeholder="Rajesh Kesare" value={form.name}
+                    <input required type="text" placeholder="John Doe" value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       onFocus={() => setFocused("name")} onBlur={() => setFocused(null)}
                       style={inputStyle("name")} />
@@ -272,7 +272,7 @@ export default function ContactSection() {
                     fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: "0.87rem",
                     letterSpacing: "0.04em", padding: "13px", borderRadius: "12px", border: "none",
                     cursor: sending ? "not-allowed" : "pointer",
-                    background: sending ? "rgba(33,198,207,0.1)" : "linear-gradient(135deg,#21C6CF,#0ea5b5)",
+                    background: sending ? "rgba(33,198,207,0.1)" : "linear-gradient(135deg,#28E7C5,#0ea5b5)",
                     color: sending ? "#21C6CF" : "#050505",
                     boxShadow: sending ? "none" : "0 0 22px rgba(33,198,207,0.22)",
                     transition: "all 0.3s ease",
@@ -314,7 +314,7 @@ export default function ContactSection() {
             }}>
               <iframe
                 title="DatagenixAI Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242118.01660727427!2d73.72287313994139!3d18.524564099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1711000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7637.179884348659!2d74.58693539258066!3d16.84668683580468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc123cf6b652473%3A0x436f1c067155fce5!2sDatagenixAi%20LLP!5e0!3m2!1sen!2sin!4v1777036748615!5m2!1sen!2sin"
                 style={{
                   position: "absolute", inset: 0, width: "100%", height: "100%", border: "none",
                   filter: "invert(92%) hue-rotate(180deg) brightness(0.82) saturate(0.55)",
@@ -332,7 +332,7 @@ export default function ContactSection() {
               }}>
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#21C6CF", boxShadow: "0 0 6px #21C6CF", flexShrink: 0 }} />
                 <span style={{ fontFamily: "'DM Sans',sans-serif", color: "#21C6CF", fontSize: "0.6rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                  Pune, India
+                  Sangli, India
                 </span>
               </div>
             </div>

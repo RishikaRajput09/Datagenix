@@ -230,7 +230,7 @@ shadow-[-25px_30px_80px_rgba(0,0,0,0.18),-8px_12px_30px_rgba(0,0,0,0.12)]"
                   ◈
                 </div>
                 <div>
-                  <h3 className="font-['Syne'] font-bold text-[1rem] text-[#111] mb-2">
+                  <h3 className="font-bold text-[1rem] text-[#111] mb-2">
                     Businesses & Industries
                   </h3>
 
@@ -255,7 +255,7 @@ shadow-[-25px_30px_80px_rgba(0,0,0,0.18),-8px_12px_30px_rgba(0,0,0,0.12)]"
                   ⬡
                 </div>
                 <div>
-                  <h3 className="font-['Syne'] font-bold text-[1rem] text-[#111] mb-2">
+                  <h3 className="font-bold text-[1rem] text-[#111] mb-2">
                     Professionals
                   </h3>
 

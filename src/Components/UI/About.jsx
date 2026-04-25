@@ -39,78 +39,77 @@ const CARDS = [
 ];
 
 function Card({ card }) {
-  const [hovered, setHovered] = useState(false);
-
   return (
-
     <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className={`
-    bg-[#050505] text-white rounded-3xl p-6  sm:p-7 lg:p-9 lg:pb-7 flex flex-col relative overflow-hidden cursor-default
-    transition-all duration-900 ease-out
-
-
-    ${hovered
-          ? "border border-[rgba(33,198,207,1)] -translate-y-1.5 shadow-[0_0_15px_rgba(33,198,207,0.5),0_0_40px_rgba(33,198,207,0.3)]"
-          : "border border-[rgba(33,198,207,0.9)] translate-y-0"
-        }
-        
-  `}
+      className="group rounded-2xl p-6 sm:p-7 lg:p-8 flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-1"
+      style={{
+        position: "relative",
+        background: "rgba(10,16,35,0.65)",
+        backdropFilter: "blur(10px)",
+        boxShadow: `
+          0 10px 40px -10px rgba(40,231,197,0.2),
+          0 20px 80px -20px rgba(40,231,197,0.12),
+          inset 0 0 0 1px rgba(40,231,197,0.2),
+          inset 0 1px 0 rgba(40,231,197,0.15)
+        `,
+      }}
     >
-      {/* Top shimmer line */}
+      {/* Top shimmer */}
       <div
-        className={`absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[rgba(33,198,207,0.5)] to-transparent transition-opacity duration-300 ${hovered ? "opacity-100" : "opacity-0"}`}
-      />
-
-      {/* Corner glow */}
-      <div
-        className={`absolute -top-15 -left-15 w-45 h-45 rounded-full bg-[radial-gradient(circle,rgba(33,198,207,0.07)_0%,transparent_70%)] pointer-events-none transition-opacity duration-300 ${hovered ? "opacity-100" : "opacity-0"}`}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: "20%",
+          right: "20%",
+          height: "1px",
+          background:
+            "linear-gradient(90deg, transparent, rgba(40,231,197,0.4), transparent)",
+          pointerEvents: "none",
+        }}
       />
 
       {/* Symbol */}
-      <div className="text-xl sm:text-2xl text-[rgba(0,242,255,0.95)] mb-4 sm:mb-5 leading-none drop-shadow-[0_0_8px_rgba(33,198,207,0.55)]">
+      <div className="text-xl sm:text-2xl text-[#28E7C5] mb-4 leading-none">
         {card.symbol}
       </div>
 
       {/* Tag */}
-      <div className="font-['DM_Sans',sans-serif] text-[0.58rem] sm:text-[0.63rem] font-medium tracking-[0.16em] uppercase text-[rgba(0,242,255,0.95)] mb-2">
+      <div className="font-['DM_Sans'] text-[0.6rem] tracking-[0.16em] uppercase text-[#28E7C5] mb-2">
         {card.tag}
       </div>
 
       {/* Heading */}
-      <h3 className="font-['Syne',sans-serif] text-[0.95rem] sm:text-[1.05rem] lg:text-[1.12rem] font-bold leading-[1.3] tracking-[-0.01em] m-0 mb-3 sm:mb-4">
+      <h3 className="font-['Syne'] text-[1rem] sm:text-[1.1rem] font-bold leading-[1.3] mb-3">
         {card.heading}
       </h3>
 
       {/* Divider */}
-      <div className="w-8 h-px bg-[rgba(33,198,207,0.3)] mb-3 sm:mb-4" />
+      <div className="w-8 h-px bg-[rgba(40,231,197,0.3)] mb-4" />
 
       {/* Body */}
-      <p className="font-['DM_Sans',sans-serif] text-[0.8rem] sm:text-sm leading-6 sm:leading-7 text-[rgba(199,226,228,0.95)] m-0 mb-5 sm:mb-6">
+      <p className="font-['DM_Sans'] text-[0.85rem] leading-[1.7] text-[rgba(255,255,255,0.85)] mb-6">
         {card.body}
       </p>
 
-      {/* Impact label */}
-      <div className="font-['DM_Sans',sans-serif] text-[0.58rem] sm:text-[0.6rem] font-medium tracking-[0.16em] uppercase text-[rgba(33,198,207,0.9)] mb-2">
+      {/* Impact */}
+      <div className="text-[0.6rem] tracking-[0.16em] uppercase text-[rgba(40,231,197,0.7)] mb-2">
         Impact
       </div>
 
-      {/* Impact bullets */}
-      <ul className="list-none p-0 m-0 mb-5 sm:mb-6 flex flex-col gap-2 sm:gap-2.5 flex-1">
+      <ul className="flex flex-col gap-2 mb-6 flex-1">
         {card.impacts.map((pt, j) => (
           <li
             key={j}
-            className="flex items-start gap-2 sm:gap-2.5 font-['DM_Sans',sans-serif] text-[0.75rem] sm:text-[0.8rem] leading-[1.6] text-[rgba(251,249,249,0.9)]"
+            className="flex items-start gap-2 text-[0.8rem] text-[rgba(255,255,255,0.85)]"
           >
-            <span className="w-1 h-1 rounded-full bg-[#21C6CF] shrink-0 mt-1.5 sm:mt-1.75 shadow-[0_0_5px_rgba(33,198,207,0.6)] inline-block" />
+            <span className="w-1 h-1 rounded-full bg-[#28E7C5] mt-1.5" />
             {pt}
           </li>
         ))}
       </ul>
 
       {/* Footer */}
-      <div className="border-t border-[rgba(255,255,255,0.05)] pt-4 sm:pt-4.5 font-['DM_Sans',sans-serif] text-[0.72rem] sm:text-[0.78rem] italic text-[rgba(33,198,207,0.6)] leading-normal">
+      <div className="border-t border-[rgba(255,255,255,0.06)] pt-4 text-[0.8rem] italic text-[rgba(40,231,197,0.6)]">
         {card.footer}
       </div>
     </div>

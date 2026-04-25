@@ -63,7 +63,6 @@ const SOCIALS = [
 export default function Footer() {
   return (
     <footer className="bg-[#050505] relative overflow-hidden">
-
       {/* Grid texture */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -80,21 +79,21 @@ export default function Footer() {
       {/* Top ambient glow */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[200px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse,rgba(33,198,207,0.04) 0%,transparent 70%)" }}
+        style={{
+          background:
+            "radial-gradient(ellipse,rgba(33,198,207,0.04) 0%,transparent 70%)",
+        }}
       />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
-
         {/* ── Main footer grid ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 py-14 sm:py-16">
-
           {/* ── Col 1: Brand ── */}
           <div className="lg:col-span-1 flex flex-col gap-5">
-
             {/* Logo */}
             <div className="flex items-center gap-2.5">
               <Image
-                src="/Images/logo.png"
+                src="/Images/logo-removebg.png"
                 alt="Datagenix AI Logo"
                 width={130}
                 height={40}
@@ -104,20 +103,21 @@ export default function Footer() {
 
             {/* Brand line */}
             <p
-              className="text-[rgba(255,255,255,0.35)] text-[0.8rem] leading-[1.75]"
+              className="text-[rgba(255,255,255,1)] text-[0.8rem] leading-[1.75]"
               style={{ fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}
             >
-              Bridging intelligence and industry — building AI-powered solutions that drive sustainable, inclusive, and impactful growth.
+              Bridging intelligence and industry — building AI-powered solutions
+              that drive sustainable, inclusive, and impactful growth.
             </p>
 
             {/* Teal pill tag */}
             <div className="inline-flex items-center gap-1.5 w-fit">
               <span
-                className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shrink-0"
+                className="w-1.5 h-1.5 rounded-full bg-[#28E7C5] shrink-0"
                 style={{ boxShadow: "0 0 6px #21C6CF" }}
               />
               <span
-                className="text-[#21C6CF] text-[0.62rem] tracking-[0.16em] uppercase font-medium"
+                className="text-[#28E7C5] text-[0.62rem] tracking-[0.16em] uppercase font-medium"
                 style={{ fontFamily: "'DM Sans',sans-serif" }}
               >
                 Innovation · ESG · AI
@@ -131,7 +131,7 @@ export default function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-[rgba(255,255,255,0.4)] border border-[rgba(33,198,207,0.1)] bg-[#0a0a0a] hover:border-[#21C6CF] hover:text-[#21C6CF] transition-all duration-300"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center text-[rgba(255,255,255,1)] border border-[rgba(33,198,207,0.1)] bg-[#0a0a0a] hover:border-[#21C6CF] hover:text-[#21C6CF] transition-all duration-300"
                   style={{ boxShadow: "none" }}
                 >
                   {s.icon}
@@ -148,12 +148,10 @@ export default function Footer() {
                 <li key={l.label}>
                   <Link
                     href={l.href}
-                    className="group flex items-center gap-2 text-[rgba(255,255,255,0.38)] hover:text-[#21C6CF] text-[0.82rem] transition-colors duration-300"
+                    className="group flex items-center gap-2 text-white hover:text-[#21C6CF] text-[0.82rem] transition-colors duration-300"
                     style={{ fontFamily: "'DM Sans',sans-serif" }}
                   >
-                    <span
-                      className="w-1 h-1 rounded-full bg-[rgba(33,198,207,0.35)] shrink-0 group-hover:bg-[#21C6CF] transition-colors duration-300"
-                    />
+                    <span className="w-1 h-1 rounded-full bg-[rgba(33,198,207,0.35)] shrink-0 group-hover:bg-[#21C6CF] transition-colors duration-300" />
                     {l.label}
                   </Link>
                 </li>
@@ -169,7 +167,7 @@ export default function Footer() {
                 <li key={l.label}>
                   <Link
                     href={l.href}
-                    className="group flex items-center gap-2 text-[rgba(255,255,255,0.38)] hover:text-[#21C6CF] text-[0.82rem] transition-colors duration-300"
+                    className="group flex items-center gap-2 text-white hover:text-[#21C6CF] text-[0.82rem] transition-colors duration-300"
                     style={{ fontFamily: "'DM Sans',sans-serif" }}
                   >
                     <span className="w-1 h-1 rounded-full bg-[rgba(33,198,207,0.35)] shrink-0 group-hover:bg-[#21C6CF] transition-colors duration-300" />
@@ -185,23 +183,35 @@ export default function Footer() {
             <FooterColHeading>Get In Touch</FooterColHeading>
 
             <div className="flex flex-col gap-4">
-
               {/* Email */}
               <div className="flex items-start gap-3">
                 <div className="w-7 h-7 rounded-lg bg-[rgba(33,198,207,0.07)] border border-[rgba(33,198,207,0.12)] flex items-center justify-center text-[#21C6CF] shrink-0 mt-0.5">
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-3.5 h-3.5"
+                  >
                     <rect x="1" y="3" width="14" height="10" rx="2" />
                     <path d="M1 5l7 5 7-5" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[rgba(255,255,255,0.25)] text-[0.65rem] uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Sans',sans-serif" }}>Email</p>
-                  <a
-                    href="mailto:contact@datagenixai.com"
-                    className="text-[rgba(255,255,255,0.55)] hover:text-[#21C6CF] text-[0.8rem] transition-colors duration-300"
+                  <p
+                    className="text-[white] text-[0.65rem] uppercase tracking-widest mb-0.5"
                     style={{ fontFamily: "'DM Sans',sans-serif" }}
                   >
-                    contact@datagenixai.com
+                    Email
+                  </p>
+                  <a
+                    href="mailto:contact@datagenixai.com"
+                    className="text-[rgba(255,255,255,1)] hover:text-[#21C6CF] text-[0.8rem] transition-colors duration-300"
+                    style={{ fontFamily: "'DM Sans',sans-serif" }}
+                  >
+                    info@datagenix.in
                   </a>
                 </div>
               </div>
@@ -209,18 +219,31 @@ export default function Footer() {
               {/* Phone */}
               <div className="flex items-start gap-3">
                 <div className="w-7 h-7 rounded-lg bg-[rgba(33,198,207,0.07)] border border-[rgba(33,198,207,0.12)] flex items-center justify-center text-[#21C6CF] shrink-0 mt-0.5">
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-3.5 h-3.5"
+                  >
                     <path d="M2 2.5C2 2.5 3.5 1 5 2.5c.8.8 1.5 2 1 2.5-.5.5-.5 1 0 2s1.5 1.5 2 1c.5-.5 1.7.2 2.5 1C12 10.5 10.5 12 10.5 12 8 14.5 1.5 8 2 2.5z" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[rgba(255,255,255,0.25)] text-[0.65rem] uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Sans',sans-serif" }}>Phone</p>
-                  <a
-                    href="tel:+91XXXXXXXXXX"
-                    className="text-[rgba(255,255,255,0.55)] hover:text-[#21C6CF] text-[0.8rem] transition-colors duration-300"
+                  <p
+                    className="text-[rgba(255,255,255,1)] text-[0.65rem] uppercase tracking-widest mb-0.5"
                     style={{ fontFamily: "'DM Sans',sans-serif" }}
                   >
-                    +91 XXXXX XXXXX
+                    Phone
+                  </p>
+                  <a
+                    href="tel:+917385256569"
+                    className="text-[rgba(255,255,255,1)] hover:text-[#21C6CF] text-[0.8rem] transition-colors duration-300"
+                    style={{ fontFamily: "'DM Sans',sans-serif" }}
+                  >
+                    +91 73852 56569
                   </a>
                 </div>
               </div>
@@ -228,25 +251,37 @@ export default function Footer() {
               {/* Location */}
               <div className="flex items-start gap-3">
                 <div className="w-7 h-7 rounded-lg bg-[rgba(33,198,207,0.07)] border border-[rgba(33,198,207,0.12)] flex items-center justify-center text-[#21C6CF] shrink-0 mt-0.5">
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-3.5 h-3.5"
+                  >
                     <path d="M8 1C5.8 1 4 2.8 4 5c0 3.5 4 9 4 9s4-5.5 4-9c0-2.2-1.8-4-4-4z" />
                     <circle cx="8" cy="5" r="1.2" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[rgba(255,255,255,0.25)] text-[0.65rem] uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Sans',sans-serif" }}>Location</p>
                   <p
-                    className="text-[rgba(255,255,255,0.55)] text-[0.8rem] leading-[1.55]"
+                    className="text-[rgba(255,255,255,1)] text-[0.65rem] uppercase tracking-widest mb-0.5"
                     style={{ fontFamily: "'DM Sans',sans-serif" }}
                   >
-                    Pune, Maharashtra, India
+                    Location
+                  </p>
+                  <p
+                    className="text-[rgba(255,255,255,1)] text-[0.8rem] leading-[1.55]"
+                    style={{ fontFamily: "'DM Sans',sans-serif" }}
+                  >
+                    502, Nirmiti Elite 14, Near Savarkar School, S T Colony,
+                    Sangli, Maharashtra, India
                   </p>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
 
         {/* ── Divider ── */}
@@ -254,10 +289,9 @@ export default function Footer() {
 
         {/* ── Bottom bar ── */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-5">
-
           {/* Copyright */}
           <p
-            className="text-[rgba(255,255,255,0.22)] text-[0.72rem] text-center sm:text-left"
+            className="text-[rgba(255,255,255,1)] text-[0.72rem] text-center sm:text-left"
             style={{ fontFamily: "'DM Sans',sans-serif" }}
           >
             © {new Date().getFullYear()} DatagenixAi. All rights reserved.
@@ -265,24 +299,41 @@ export default function Footer() {
 
           {/* Legal links */}
           <div className="flex items-center gap-1 flex-wrap justify-center">
-            {["Terms & Conditions", "Privacy Policy", "Cookie Policy"].map((item, i, arr) => (
-              <span key={item} className="flex items-center gap-1">
-                <Link
-                  href="#"
-                  className="text-[rgba(255,255,255,0.22)] hover:text-[#21C6CF] text-[0.72rem] transition-colors duration-300"
-                  style={{ fontFamily: "'DM Sans',sans-serif" }}
-                >
-                  {item}
-                </Link>
-                {i < arr.length - 1 && (
-                  <span className="text-[rgba(255,255,255,0.12)] text-[0.65rem]">·</span>
-                )}
-              </span>
-            ))}
+            {["Terms & Conditions", "Privacy Policy", "Cookie Policy"].map(
+              (item, i, arr) => (
+                <span key={item} className="flex items-center gap-1">
+                  <Link
+                    href="#"
+                    className="text-[rgba(255,255,255,1)] hover:text-[#21C6CF] text-[0.72rem] transition-colors duration-300"
+                    style={{ fontFamily: "'DM Sans',sans-serif" }}
+                  >
+                    {item}
+                  </Link>
+                  {i < arr.length - 1 && (
+                    <span className="text-[rgba(255,255,255,1)] text-[0.65rem]">
+                      ·
+                    </span>
+                  )}
+                </span>
+              ),
+            )}
           </div>
 
+          <p
+            className="text-[rgba(255,255,255,1)] text-[0.72rem] text-center sm:text-left"
+            style={{ fontFamily: "'DM Sans',sans-serif" }}
+          >
+            Developed and designed by{" "}
+            <a
+              href="https://www.ikrastudio.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              iKRA Studio
+            </a>
+          </p>
         </div>
-
       </div>
     </footer>
   );
@@ -298,7 +349,7 @@ function FooterColHeading({ children }) {
         {children}
       </h4>
       <div
-        className="w-6 h-[2px] rounded-full bg-[#21C6CF]"
+        className="w-6 h-[2px] rounded-full bg-[#28E7C5]"
         style={{ boxShadow: "0 0 6px rgba(33,198,207,0.5)" }}
       />
     </div>

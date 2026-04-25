@@ -44,8 +44,8 @@ const CTASection = () => {
         {/* Headline */}
         <h2 className="font-['Syne',sans-serif] font-bold text-[#111111] leading-[1.15] tracking-[-0.02em] text-[1.7rem] sm:text-[2.2rem] lg:text-[2.8rem] max-w-190 mx-auto mb-4">
           The Future Will Belong to{" "}
-          <span className="text-[#0d9ba3]">AI-Driven</span> Organizations &{" "}
-          <span className="text-[#0d9ba3]">AI-Skilled</span> Professionals
+          <span className="text-[#28E7C5]">AI-Driven</span> Organizations &{" "}
+          <span className="text-[#28E7C5]">AI-Skilled</span> Professionals
         </h2>
 
         {/* Short info */}
@@ -63,7 +63,7 @@ const CTASection = () => {
           {/* Primary — For Business */}
           <Link
             href="#contact"
-            className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#0d9ba3] text-white font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] uppercase rounded-full transition-all duration-300 hover:bg-[#0b8a92] hover:shadow-[0_4px_20px_rgba(13,155,163,0.3)]"
+            className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#28E7C5] text-white font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] uppercase rounded-full transition-all duration-300 hover:bg-[#0b8a92] hover:shadow-[0_4px_20px_rgba(13,155,163,0.3)]"
           >
             <span>For Business</span>
             <svg
@@ -86,7 +86,7 @@ const CTASection = () => {
           {/* Secondary — For Learners */}
           <Link
             href="#courses"
-            className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-[#0d9ba3] font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] uppercase rounded-full border border-[rgba(13,155,163,0.35)] transition-all duration-300 hover:border-[#0d9ba3] hover:bg-[rgba(13,155,163,0.06)]"
+            className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-[#28E7C5] font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] uppercase rounded-full border border-[rgba(13,155,163,0.35)] transition-all duration-300 hover:border-[#0d9ba3] hover:bg-[rgba(13,155,163,0.06)]"
           >
             <span>For Learners</span>
             <svg

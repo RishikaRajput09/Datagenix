@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { HoverBorderGradient } from "./noiseEffectButton";
 import { useEffect, useRef } from "react";
 
 const CARDS = [
@@ -106,22 +105,9 @@ export default function SolutionsSection() {
                 data-delay="1"
                 className="flex justify-center mb-3"
               >
-                <div
-                  className="
-      inline-flex items-center gap-2
-      px-3 py-1.5
-      rounded-full
-      border border-[rgba(33,198,207,0.35)]
-      bg-[rgba(33,198,207,0.08)]
-      backdrop-blur-md
-      shadow-[0_0_12px_rgba(33,198,207,0.15)]
-      transition-all duration-300
-      hover:shadow-[0_0_20px_rgba(33,198,207,0.35)]
-    "
-                >
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(33,198,207,0.35)] bg-[rgba(33,198,207,0.08)] backdrop-blur-md shadow-[0_0_12px_rgba(33,198,207,0.15)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(33,198,207,0.35)]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF]" />
-
-                  <span className="font-['DM_Sans'] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#21C6CF]">
+                  <span className="text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#28E7C5]">
                     What We Do
                   </span>
                 </div>
@@ -130,10 +116,10 @@ export default function SolutionsSection() {
               <h2
                 data-animate="fade-up"
                 data-delay="2"
-                className="font-['Syne'] text-[1.8rem] sm:text-[2.4rem] lg:text-[3rem] font-bold text-white leading-[1.1] tracking-[-0.02em] max-w-2xl mx-auto mb-4"
+                className="text-[1.8rem] sm:text-[2.4rem] lg:text-[3rem] font-bold text-white leading-[1.1] tracking-[-0.02em] max-w-2xl mx-auto mb-4"
               >
                 We Bridge the Gap Between{" "}
-                <span className="text-[#21C6CF]">AI Innovation</span> and
+                <span className="text-[#28E7C5]">AI Innovation</span> and
                 Real-World Impact
               </h2>
             </div>
@@ -146,41 +132,76 @@ export default function SolutionsSection() {
                 key={i}
                 data-animate="card"
                 data-delay={String(i + 3)}
-                className="group flex flex-col bg-[#050505] border border-[rgba(33,198,207,0.8)] rounded-2xl overflow-hidden hover:border-[rgba(33,198,207,0.9)] transition-[border-color,box-shadow,translate] duration-300 hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(33,198,207,0.2)]"
+                className="group flex flex-col rounded-2xl overflow-hidden transition-[translate] duration-300 hover:-translate-y-1"
+                style={{
+                  position: "relative",
+                  background: "rgba(10, 16, 35, 0.55)",
+                  boxShadow: `
+                    0 10px 40px -10px rgba(33,198,207,0.25),
+                    0 20px 80px -20px rgba(33,198,207,0.18),
+                    inset 0 0 0 1px rgba(33,198,207,0.25),
+                    inset 0 1px 0 rgba(33,198,207,0.2)
+                  `,
+                }}
               >
-                {/* Image area */}
-                <div className="relative h-60 sm:h-70 lg:h-75 overflow-hidden bg-[#050505] p-6">
-                  {/* Inner frame (creates separation) */}
-                  <div className="w-full h-full rounded-xl overflow-hidden bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] shadow-inner">
+                {/* Top shimmer */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: "20%",
+                    right: "20%",
+                    height: "1px",
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(100,160,255,0.4), transparent)",
+                    zIndex: 2,
+                    pointerEvents: "none",
+                  }}
+                />
+
+                {/* Bottom teal flood */}
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: "50px",
+                    background:
+                      "linear-gradient(to top, rgba(33,198,207,0.75) 0%, rgba(33,198,207,0.45) 30%, rgba(33,198,207,0.18) 60%, transparent 100%)",
+                    zIndex: 2,
+                    pointerEvents: "none",
+                  }}
+                />
+
+                <div className="relative h-60 sm:h-70 lg:h-75 overflow-hidden p-4">
+                  <div className="w-full h-full rounded-xl overflow-hidden">
                     <img
                       src={card.image}
                       alt={card.heading}
                       className="card-img w-full h-full object-cover opacity-90"
                     />
                   </div>
-
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-[#0d0d0d] via-[#0d0d0d]/20 to-transparent pointer-events-none" />
-
-                  {/* Top glow line */}
-                  <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[rgba(33,198,207,0.5)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
-                {/* Card body */}
-                <div className="flex flex-col flex-1 p-6 sm:p-7 lg:p-8">
+                {/* ── Card body ── */}
+                <div
+                  className="flex flex-col flex-1 p-6 sm:p-7 lg:p-8"
+                  style={{ position: "relative", zIndex: 3 }}
+                >
                   <div className="w-8 h-px bg-[rgba(33,198,207,0.3)] mb-4" />
 
                   <h3 className="font-['Syne',sans-serif] text-[1rem] sm:text-[1.05rem] font-bold text-white leading-snug mb-3">
                     {card.heading}
                   </h3>
 
-                  <p className="font-['DM_Sans',sans-serif] text-[0.82rem] leading-[1.7] text-[rgba(255,255,255,0.9)] flex-1 mb-6">
+                  <p className="font-['DM_Sans',sans-serif] text-[0.82rem] leading-[1.7] text-[rgba(255,255,255,0.55)] flex-1 mb-6">
                     {card.body}
                   </p>
 
                   <Link
                     href={card.href}
-                    className="inline-flex items-center gap-2 font-['DM_Sans',sans-serif] text-[0.8rem] font-semibold text-[rgba(33,198,207,0.8)] hover:text-[#21C6CF] transition-colors duration-200 group/link"
+                    className="inline-flex items-center gap-2 font-['DM_Sans',sans-serif] text-[0.8rem] font-semibold text-[#28E7C5] hover:text-[#28E7C5] transition-colors duration-200 group/link"
                   >
                     Read More
                     <span className="inline-block transition-transform duration-200 group-hover/link:translate-x-1">
@@ -198,20 +219,19 @@ export default function SolutionsSection() {
             data-delay="7"
             className="flex justify-center"
           >
-            <HoverBorderGradient
-              containerClassName="rounded-full"
-              as="button"
-              className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
-            >
-              <Link
-                href="/Services"
-                className="group relative overflow-hidden inline-block px-7 py-3.5 font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] text-white bg-black rounded-2xl transition-shadow duration-300"
+            <Link href="/Services">
+              <button
+                className="transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[3px] px-7 py-3.25 text-[0.8rem] font-semibold tracking-[0.06em]"
+                style={{
+                  fontFamily: "'Google Sans', sans-serif",
+                  color: "#05070e",
+                  background: "#28E7C5",
+                  border: "1px solid #28E7C5",
+                }}
               >
-                <span className="relative z-2 whitespace-nowrap">
-                  Enquire for Solutions →
-                </span>
-              </Link>
-            </HoverBorderGradient>
+                Enquire for Solutions →
+              </button>
+            </Link>
           </div>
         </div>
       </section>

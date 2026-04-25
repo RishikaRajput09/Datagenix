@@ -197,7 +197,7 @@ transition-all duration-500 ease-in-out
                       bg-clip-text text-transparent
                     "
                   >
-                    Book Free Strategy Call
+                    Enquire for Courses
                   </span>
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0">
                     <defs>

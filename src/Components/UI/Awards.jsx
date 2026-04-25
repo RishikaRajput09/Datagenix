@@ -130,14 +130,14 @@ export default function AwardsSection() {
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shadow-[0_0_10px_#21C6CF]" />
 
-            <span className="font-['DM_Sans',sans-serif] text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[#21C6CF]">
+            <span className="font-['DM_Sans',sans-serif] text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[#28E7C5]">
               Awards & Recognition
             </span>
           </div>
         </div>
 
         <h2 className="font-['Syne',sans-serif] text-[clamp(1.9rem,3.2vw,3rem)] font-bold text-white leading-[1.2] tracking-[-0.02em] max-w-160 mx-auto m-0">
-          Awards and <span className="text-[#21C6CF]">Media Coverage</span>
+          Awards and <span className="text-[#28E7C5]">Media Coverage</span>
         </h2>
       </div>
 
@@ -161,7 +161,7 @@ export default function AwardsSection() {
             {/* Tag */}
             <div className="inline-flex items-center gap-1.5 mb-5">
               <span className="w-1 h-1 rounded-full bg-[#21C6CF] shadow-[0_0_5px_rgba(33,198,207,0.8)] inline-block shrink-0" />
-              <span className="text-[0.58rem] sm:text-[0.63rem] font-medium tracking-[0.16em] uppercase text-[rgba(33,198,207,0.65)]">
+              <span className="text-[0.58rem] sm:text-[0.63rem] font-medium tracking-[0.16em] uppercase text-[rgba(40,231,197,0.65)]">
                 {award.tag}
               </span>
             </div>
