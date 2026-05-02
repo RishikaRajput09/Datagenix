@@ -23,8 +23,8 @@ const FEATURES = [
       </svg>
     ),
     number: "01",
-    title: "Multidisciplinary Tech Expertise",
-    body: "A rare combination of Electrical, Electronics, Embedded Systems, IoT, Data Science, and AI expertise under one roof.",
+    title: "Recognized Excellence & Industry Credibility",
+    body: "We are proud to be recognized for our innovation and contribution to AI and technology. DatagenixAI has been featured in leading publications like Sakaar Newspaper and Pudhari Newspaper, and acknowledged at prestigious platforms including AI in Journalism events.",
   },
   {
     icon: (
@@ -50,8 +50,8 @@ const FEATURES = [
       </svg>
     ),
     number: "02",
-    title: "Industry Experience",
-    body: "Built by professionals with 12+ years of hands-on industrial R&D and technology development experience.",
+    title: "Innovation in AI & Conversational Technologies",
+    body: "We actively build and deploy cutting-edge AI solutions including conversational AI chatbots, intelligent automation systems, and domain-specific AI applications. ",
   },
   {
     icon: (
@@ -73,8 +73,8 @@ const FEATURES = [
       </svg>
     ),
     number: "03",
-    title: "End-to-End AI Ecosystem",
-    body: "From AI product development and business transformation to AI capability building and training.",
+    title: "Strong Academic & Training Contribution",
+    body: "We have successfully conducted multiple Faculty Development Programs (FDPs), including national-level and online FDPs organized in collaboration with AIMIEEE. ",
   },
   {
     icon: (
@@ -94,8 +94,8 @@ const FEATURES = [
       </svg>
     ),
     number: "04",
-    title: "Innovation-First Approach",
-    body: "Focused on developing AI-native and IoT-driven intelligent products that solve real problems.",
+    title: "12+ Years of Deep R&D Experience",
+    body: "With over a decade of hands-on experience in Electronics, Embedded Systems, IoT, AI, Data Science, and Data Analytics, we bring strong research-driven expertise into every solution we design.",
   },
   {
     icon: (
@@ -118,8 +118,8 @@ const FEATURES = [
       </svg>
     ),
     number: "05",
-    title: "Practical Problem Solving",
-    body: "Every solution is designed to deliver measurable business impact, not just theoretical results.",
+    title: "Unique Blend of Industry & Academic Expertise",
+    body: "Our team brings together professionals from industry and academia—combining practical engineering experience with research and teaching excellence. This unique mix ensures solutions that are both innovative and implementable.",
   },
   {
     icon: (
@@ -138,8 +138,8 @@ const FEATURES = [
       </svg>
     ),
     number: "06",
-    title: "Responsible AI Vision",
-    body: "Committed to sustainable innovation and workforce empowerment, aligned with IndiaAI, Skill India, and SDGs.",
+    title: "Focused on Outcomes, Not Just Technology",
+    body: "We don’t just build AI systems—we solve business problems. Every solution is designed to improve efficiency, reduce costs, and drive measurable growth. Real results. Real impact.",
   },
 ];
 
@@ -190,9 +190,9 @@ function FeatureCard({ feature, side, visible, delay }) {
       {/* Icon box */}
       <div
         className={`
-          w-10.5 h-10.5 rounded-[10px] shrink-0
+          w-10.5 h-10.5 rounded-[13px] shrink-0
           border border-[rgba(33,198,207,0.2)]
-          flex items-center justify-center text-[#21C6CF]
+          flex items-center justify-center text-[#28E7C5]
           transition-all duration-300
           ${hovered ? "bg-[rgba(33,198,207,0.15)] drop-shadow-[0_0_6px_rgba(33,198,207,0.4)]" : "bg-[rgba(33,198,207,0.07)]"}
         `}
@@ -215,7 +215,7 @@ function FeatureCard({ feature, side, visible, delay }) {
         <h4 className="font-['Syne',sans-serif] m-0 mb-1.5 text-[0.9rem] font-bold text-white leading-[1.3] tracking-[-0.01em]">
           {feature.title}
         </h4>
-        <p className="font-['DM_Sans',sans-serif] m-0 text-[0.75rem] leading-[1.65] text-[rgba(255,255,255,0.4)]">
+        <p className="font-['DM_Sans',sans-serif] m-0 text-[0.75rem] leading-[1.65] text-[rgba(255,255,255,0.6)]">
           {feature.body}
         </p>
       </div>
@@ -235,9 +235,9 @@ export default function WhatSetsUsApart() {
       className="bg-transparent relative overflow-hidden py-2"
     >
       {/* Top radial glow */}
-      <div className="absolute -top-30 left-1/2 -translate-x-1/2 w-175 h-100 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.07)_0%,transparent_70%)]" />
+      <div className="absolute -top-30 left-1/2 -translate-x-1/2 w-175 h-100 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(40, 231, 197,0.07)_0%,transparent_70%)]" />
       {/* Center bottom glow */}
-      <div className="absolute -bottom-15 left-1/2 -translate-x-1/2 w-125 h-125 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.12)_0%,transparent_65%)]" />
+      <div className="absolute -bottom-15 left-1/2 -translate-x-1/2 w-125 h-125 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(40, 231, 197,0.12)_0%,transparent_65%)]" />
 
       <div className="relative z-2 max-w-300 mx-auto px-6">
         {/* ── Header ── */}
@@ -264,9 +264,9 @@ export default function WhatSetsUsApart() {
       hover:scale-[1.03]
     "
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shadow-[0_0_10px_#21C6CF]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#28E7C5] shadow-[0_0_10px_#21C6CF]" />
 
-                <span className="font-['DM_Sans',sans-serif] text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[#28E7C5]">
+                <span className="text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[#28E7C5]">
                   What Sets Us Apart
                 </span>
               </div>
@@ -331,7 +331,7 @@ export default function WhatSetsUsApart() {
                 alt="DatagenixAi Platform"
                 width={220}
                 height={420}
-                className="object-contain drop-shadow-[0_0_40px_rgba(33,198,207,0.2)]"
+                className="object-cover drop-shadow-[0_0_40px_rgba(33,198,207,0.2)] rounded-full"
               />
             </div>
           </div>
@@ -360,9 +360,9 @@ export default function WhatSetsUsApart() {
           }}
         >
           <p className="font-['Syne',sans-serif] text-[clamp(1rem,1.8vw,1.3rem)] font-bold text-white leading-normal mx-auto max-w-175 tracking-[-0.01em] m-0">
-            Our work aims to create technology that{" "}
+            DatagenixAI isn’t just another AI company{" "}
             <span className="text-[#28E7C5] drop-shadow-[0_0_20px_rgba(33,198,207,0.4)]">
-              benefits businesses, society, and the nation.
+              - it's your partner in building the future.
             </span>
           </p>
 

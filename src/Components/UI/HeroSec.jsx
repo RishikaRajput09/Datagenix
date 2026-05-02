@@ -3,35 +3,96 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 
 const SLIDES = [
+  // ===== AI TRAINING =====
+  {
+    badge: "AI Training",
+    headingLines: ["From Beginner to", "AI Professional"],
+    sub: "Hands-on training with real projects, portfolios, and job-ready skills. Built for careers, not just certificates.",
+    para: "Most courses teach theory. We build careers. At DatagenixAI, you’ll work on real industry projects, build portfolios, and gain skills companies actually hire for. Whether you're a student or working professional, this is your fast track into AI.",
+    primaryCta: "Explore Courses",
+    ghostCta: "Enroll Now",
+    images: [
+      "/Images/HeroSec/Training/1.jpg",
+      "/Images/HeroSec/Training/2.jpg",
+      "/Images/HeroSec/Training/3.jpg",
+    ],
+    poster: "/Images/HeroSec/Training/1.jpg",
+  },
+
+  // ===== AI BUSINESS =====
+  {
+    badge: "AI for Business",
+    headingLines: ["AI Is Not Optional.", "It’s Advantage."],
+    sub: "Drive growth, efficiency, and scalability with intelligent AI systems built for real business impact.",
+    primaryCta: "Automate Now",
+    ghostCta: "See Use Cases",
+    images: [
+      "/Images/HeroSec/Business/1.jpg",
+      "/Images/HeroSec/Business/2.jpg",
+      "/Images/HeroSec/Business/3.jpg",
+    ],
+    poster: "/Images/HeroSec/Business/1.jpg",
+  },
+
+  // ===== AI PRODUCT DEVELOPMENT =====
+  {
+    badge: "AI Product Development",
+    headingLines: ["Build Smart Products", "Before the Market"],
+    sub: "Create AI-powered, connected systems with IoT and automation that lead the next wave of innovation.",
+    primaryCta: "Start Building",
+    ghostCta: "Discuss Idea",
+    images: [
+      "/Images/HeroSec/Product/1.jpg",
+      "/Images/HeroSec/Product/2.jpg",
+    ],
+    poster: "/Images/HeroSec/Product/1.jpg",
+  },
+
+  // ===== AI AGRICULTURE =====
   {
     badge: "AI in Agriculture",
-    headingLines: ["Smart Farming,", "Higher Yield,", "Less Effort."],
-    accentLine: 1,
-    sub: "Leverage AI for crop monitoring, yield prediction, and precision farming to maximize productivity while reducing costs.",
-    primaryCta: "Explore Agri AI",
-    ghostCta: "See Use Cases",
-    video: "/videos/hero-sec-1.mp4",
-    poster: "/Images/hero-sec-1.jpg",
+    headingLines: ["Farm Smarter.", "Grow Better."],
+    sub: "Use AI to monitor crops, predict outcomes, and maximize yield while reducing risks and costs.",
+    primaryCta: "Explore Farming AI",
+    ghostCta: "Book Consultation",
+    images: [
+      "/Images/HeroSec/Agri/1.jpg",
+      "/Images/HeroSec/Agri/2.jpg",
+      "/Images/HeroSec/Agri/3.jpg",
+      "/Images/HeroSec/Agri/4.jpg",
+    ],
+    poster: "/Images/HeroSec/Agri/1.jpg",
   },
+
+  // ===== AI HEALTHCARE =====
   {
-    badge: "AI Business Solutions",
-    headingLines: ["Automate,", "Optimize,", "Scale Faster."],
-    accentLine: 2,
-    sub: "Transform your business with AI-driven automation, workflows, and decision intelligence tailored for real-world impact.",
-    primaryCta: "Get AI for Business",
-    ghostCta: "View Solutions",
-    video: "/videos/hero-sec-2.mp4",
-    poster: "/Images/hero-sec-2.jpg",
+    badge: "AI in Healthcare",
+    headingLines: ["Faster Decisions.", "Better Care."],
+    sub: "Enable smarter diagnostics, predictive monitoring, and efficient healthcare systems with AI.",
+    primaryCta: "Explore Healthcare AI",
+    ghostCta: "Schedule Demo",
+    images: [
+      "/Images/HeroSec/Health/1.jpg",
+      "/Images/HeroSec/Health/2.jpg",
+      "/Images/HeroSec/Health/3.jpg",
+    ],
+    poster: "/Images/HeroSec/Health/1.jpg",
   },
+
+  // ===== AI REAL ESTATE =====
   {
     badge: "AI in Real Estate",
-    headingLines: ["Smarter Deals,", "Better Insights,", "Faster Sales."],
-    accentLine: 1,
-    sub: "Use AI for property valuation, demand prediction, and personalized recommendations to close deals with confidence.",
-    primaryCta: "Explore Real Estate AI",
-    ghostCta: "Watch Demo",
-    video: "/videos/hero-sec-3.mp4",
-    poster: "/Images/hero-sec-3.jpg",
+    headingLines: ["Sell Before", "You Build"],
+    sub: "Immersive AI visualizations that help buyers experience properties before construction begins.",
+    primaryCta: "Get 3D Walkthrough",
+    ghostCta: "Free Consultation",
+    images: [
+      "/Images/HeroSec/Real/1.jpg",
+      "/Images/HeroSec/Real/2.jpg",
+      "/Images/HeroSec/Real/3.jpg",
+      "/Images/HeroSec/Real/4.jpg",
+    ],
+    poster: "/Images/HeroSec/Real/1.jpg",
   },
 ];
 
@@ -39,33 +100,17 @@ const ACCENT = "#28E7C5"; // sky-300
 
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [videoProgress, setVideoProgress] = useState(0);
   const videoRefs = useRef(SLIDES.map(() => null));
   const rafRef = useRef(null);
-
-  const tick = useCallback(() => {
-    const v = videoRefs.current[currentSlide];
-    if (v && v.duration) setVideoProgress((v.currentTime / v.duration) * 100);
-    rafRef.current = requestAnimationFrame(tick);
-  }, [currentSlide]);
-
-  const startProgress = useCallback(() => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    rafRef.current = requestAnimationFrame(tick);
-  }, [tick]);
 
   const goToSlide = useCallback(
     (next) => {
       if (isTransitioning || next === currentSlide) return;
       setIsTransitioning(true);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      setVideoProgress(0);
-      videoRefs.current.forEach((v, i) => {
-        if (!v) return;
-        v.pause();
-        if (i === currentSlide) v.currentTime = 0;
-      });
+    
       setTimeout(() => {
         setCurrentSlide(next);
         requestAnimationFrame(() =>
@@ -76,13 +121,16 @@ export default function HeroCarousel() {
               v.play().catch(() => {});
             }
             setIsTransitioning(false);
-            startProgress();
           }),
         );
       }, 420);
     },
-    [currentSlide, isTransitioning, startProgress],
+    [currentSlide, isTransitioning],
   );
+
+  useEffect(() => {
+    setCurrentImageIndex(0);
+  }, [currentSlide]);
 
   const goToNext = useCallback(
     () => goToSlide((currentSlide + 1) % SLIDES.length),
@@ -94,16 +142,15 @@ export default function HeroCarousel() {
   );
 
   useEffect(() => {
-    const v = videoRefs.current[0];
-    if (v) {
-      v.play().catch(() => {});
-      startProgress();
-    }
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, []); // eslint-disable-line
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => {
+        const total = SLIDES[currentSlide].images.length;
+        return (prev + 1) % total;
+      });
+    }, 2500); // speed of inner slideshow
 
+    return () => clearInterval(interval);
+  }, [currentSlide]);
   const s = SLIDES[currentSlide];
 
   return (
@@ -111,7 +158,7 @@ export default function HeroCarousel() {
       id="hero-section"
       className="relative w-full flex items-center overflow-hidden bg-none pt-15"
     >
-      {/* Keyframe styles */} 
+      {/* Keyframe styles */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -169,24 +216,6 @@ export default function HeroCarousel() {
         }}
       />
 
-      {/* Dot grid */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.016]"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <pattern
-            id="dot-grid"
-            width="28"
-            height="28"
-            patternUnits="userSpaceOnUse"
-          >
-            <circle cx="1" cy="1" r="0.8" fill="white" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#dot-grid)" />
-      </svg>
-
       {/* Layout */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-[clamp(1.5rem,4vw,3rem)] flex items-center gap-[clamp(2.5rem,5vw,5rem)] lg:flex-row flex-col py-16 lg:py-20">
         {/* ── LEFT: Content ── */}
@@ -196,7 +225,7 @@ export default function HeroCarousel() {
             <div
               className="
       inline-flex items-center gap-2
-      px-3 py-1.5
+      px-6 py-3
       rounded-full
       border border-[rgba(125,211,252,0.35)]
       bg-[rgba(125,211,252,0.08)]
@@ -204,10 +233,10 @@ export default function HeroCarousel() {
       shadow-[0_0_14px_rgba(125,211,252,0.15)]
     "
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#28E7C5] shadow-[0_0_8px_#7DD3FC]" />
+              <span className="w-2 h-2 rounded-full bg-[#28E7C5] shadow-[0_0_8px_#7DD3FC]" />
 
               <span
-                className="text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase"
+                className="text-[1rem] sm:text-[0.8rem] tracking-[0.18em] uppercase"
                 style={{
                   fontFamily: "'Google Sans', sans-serif",
                   color: "#28E7C5",
@@ -249,21 +278,33 @@ export default function HeroCarousel() {
 
           {/* Sub */}
           <p
-            className="hero-anim-fadeup delay-3 mb-8.5 mt-0 max-w-140 leading-[1.8]"
+            className="hero-anim-fadeup delay-3 mb-8.5 mt-0 max-w-140 leading-[1.8] font-bold"
             style={{
               fontFamily: "'Google Sans', sans-serif",
               fontWeight: 400,
-              fontSize: "clamp(1rem,1.25vw,1.15rem)", 
-              color: "#ffffff", 
+              fontSize: "clamp(1rem,1.25vw,1.15rem)",
+              color: "#ffffff",
             }}
           >
             {s.sub}
           </p>
 
+        <p
+            className="hero-anim-fadeup delay-3 mb-8.5 mt-0 max-w-140 leading-[1.8]"
+            style={{
+              fontFamily: "'Google Sans', sans-serif",
+              fontWeight: 100,
+              fontSize: "15px",
+              color: "white/20",
+            }}
+          >
+            {s.para}
+          </p>
+
           {/* CTAs */}
           <div className="hero-anim-fadeup delay-4 flex flex-wrap gap-3">
             <button
-              className="bg-[#28E7C5] transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[3px] px-7 py-3.25 text-[0.8rem] font-semibold tracking-[0.06em]"
+              className="bg-[#28E7C5] transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[13px] px-7 py-3.25 text-[0.8rem] font-semibold tracking-[0.06em]"
               style={{
                 fontFamily: "'Google Sans', sans-serif",
                 color: "#05070e",
@@ -275,7 +316,7 @@ export default function HeroCarousel() {
             </button>
 
             <button
-              className="btn-ghost transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[3px] px-6.5 py-3.25 text-[0.8rem] font-medium tracking-[0.06em] inline-flex items-center gap-1.5"
+              className="btn-ghost transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[13px] px-6.5 py-3.25 text-[0.8rem] font-medium tracking-[0.06em] inline-flex items-center gap-1.5"
               style={{
                 fontFamily: "'Google Sans', sans-serif",
                 color: "rgba(255,255,255,0.5)",
@@ -296,47 +337,6 @@ export default function HeroCarousel() {
                 <path d="M3 8h10M9 4l4 4-4 4" />
               </svg>
             </button>
-          </div>
-
-          {/* Trust */}
-          <div className="hero-anim-fadeup delay-5 flex items-center gap-3 mt-8">
-            <div className="flex">
-              {[ACCENT, "rgba(125,211,252,0.38)", "rgba(125,211,252,0.16)"].map(
-                (bg, i) => (
-                  <div
-                    key={i}
-                    className="w-6.5 h-6.5 rounded-full border-2 flex items-center justify-center text-[0.58rem] font-bold"
-                    style={{
-                      fontFamily: "'Google Sans', sans-serif",
-                      background: bg,
-                      borderColor: "#05070e",
-                      marginLeft: i > 0 ? -8 : 0,
-                      color: i === 0 ? "#05070e" : ACCENT,
-                      zIndex: 3 - i,
-                    }}
-                  >
-                    {["A", "B", "C"][i]}
-                  </div>
-                ),
-              )}
-            </div>
-            <div
-              className="w-px h-4.5"
-              style={{ background: "rgba(255,255,255,0.07)" }}
-            />
-            <p
-              className="text-[0.7rem] leading-[1.55] m-0"
-              style={{
-                fontFamily: "'Google Sans', sans-serif",
-                color: "rgba(255,255,255,0.28)",
-              }}
-            >
-              Responsible AI aligned with
-              <br />
-              <span style={{ color: "rgba(125,211,252,0.55)" }}>
-                UN Sustainable Development Goals
-              </span>
-            </p>
           </div>
 
           {/* Slide Nav */}
@@ -426,24 +426,19 @@ export default function HeroCarousel() {
                   "0 0 0 1px rgba(0,0,0,0.5), 0 40px 90px rgba(0,0,0,0.7)",
               }}
             >
-              {SLIDES.map((sl, i) => (
-                <video
-                  key={i}
-                  ref={(el) => {
-                    videoRefs.current[i] = el;
-                  }}
-                  src={sl.video}
-                  poster={sl.poster}
-                  playsInline
-                  muted
-                  preload="auto"
-                  onEnded={i === currentSlide ? goToNext : undefined}
-                  className="absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-[0.45s] ease-in-out"
-                  style={{
-                    opacity: i === currentSlide && !isTransitioning ? 1 : 0,
-                  }}
-                />
-              ))}
+              <div className="relative w-full h-full">
+                {SLIDES[currentSlide].images.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[0.8s] ease-in-out"
+                    style={{
+                      opacity: i === currentImageIndex ? 1 : 0,
+                    }}
+                  />
+                ))}
+              </div>
 
               {/* Vignette */}
               <div
@@ -540,32 +535,6 @@ export default function HeroCarousel() {
                 filter: "blur(16px)",
               }}
             />
-          </div>
-
-          {/* Progress bar */}
-          <div className="w-full flex items-center gap-2.5">
-            <div
-              className="flex-1 h-0.5 rounded-xs overflow-hidden"
-              style={{ background: "rgba(255,255,255,0.06)" }}
-            >
-              <div
-                className="h-full rounded-xs transition-[width] duration-[0.08s] linear"
-                style={{
-                  background: ACCENT,
-                  width: `${videoProgress}%`,
-                  boxShadow: "0 0 6px rgba(125,211,252,0.45)",
-                }}
-              />
-            </div>
-            <span
-              className="text-[0.6rem] tracking-[0.08em]"
-              style={{
-                fontFamily: "'Google Sans', sans-serif",
-                color: "rgba(125,211,252,0.38)",
-              }}
-            >
-              {Math.round(videoProgress)}%
-            </span>
           </div>
 
           {/* Thumbnails */}

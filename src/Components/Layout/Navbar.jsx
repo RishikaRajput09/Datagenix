@@ -1,22 +1,34 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { label: "About", href: "/AboutUs" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/AboutUs" },
   { label: "Products", href: "/Products" },
   { label: "Services", href: "/Services" },
   { label: "Courses", href: "/Courses" },
   { label: "Blog", href: "/Blogs" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact Us", href: "/#contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("Products");
   const [isDarkSection, setIsDarkSection] = useState(false);
+
+  useEffect(() => {
+    const current = NAV_LINKS.find((link) => {
+      if (link.href === "/") return pathname === "/";
+      return pathname.startsWith(link.href);
+    });
+
+    if (current) setActive(current.label);
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -27,13 +39,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsDarkSection(entry.target.id === "dark-section");
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     const darkSection = document.getElementById("dark-section");
@@ -41,6 +52,46 @@ export default function Navbar() {
 
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const sections = [
+      "hero",
+      "about",
+      "products",
+      "services",
+      "courses",
+      "blogs",
+      "contact",
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+
+            const match = NAV_LINKS.find(
+              (link) =>
+                link.href.includes(`#${id}`) ||
+                (id === "hero" && link.href === "/"),
+            );
+
+            if (match) setActive(match.label);
+          }
+        });
+      },
+      { threshold: 0.6 },
+    );
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [pathname]);
 
   return (
     <>
@@ -85,7 +136,6 @@ export default function Navbar() {
       `}</style>
 
       <nav className="fixed inset-x-0 top-0 z-9999 pointer-events-none">
-
         {/* Outer padding wrapper */}
         <div
           className={`
@@ -93,7 +143,6 @@ transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)]
 ${scrolled ? "translate-y-2" : "translate-y-0"}
           `}
         >
-
           {/* The bar */}
           <div
             className={`
@@ -105,42 +154,43 @@ ${scrolled ? "translate-y-2" : "translate-y-0"}
 
     transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)]
 
-    ${scrolled
-                ? "scale-[0.85] translate-y-1 show-glint"
-                : "scale-97 translate-y-4"
-              }
+    ${
+      scrolled
+        ? "scale-[0.85] translate-y-1 show-glint"
+        : "scale-97 translate-y-4"
+    }
 
     h-24 px-10 rounded-[22px] max-w-full mx-auto
 
-    ${isDarkSection
-                ? `
+    ${
+      isDarkSection
+        ? `
     bg-[rgba(10,12,25,0.25)]
     border border-[rgba(255,255,255, 0)]
     text-white
   `
-                : `
+        : `
     bg-[rgba(255,255,255,0.08)]
     border border-[rgba(0,0,0,0.0)]
     text-black
   `
-              }
+    }
 backdrop-blur-[20px]
 transition-all duration-500 ease-in-out
     shadow-[0_0_0_0.5px_rgba(0,229,255,0.05)_inset,0_1px_0_rgba(255,255,255,0.07)_inset,0_24px_60px_rgba(0,0,0,0.25),0_6px_20px_rgba(0,0,0,0.6)]
  saturate-150
   `}
           >
-
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 no-underline shrink-0 group">
-
-
+            <Link
+              href="/"
+              className="flex items-center gap-2.5 no-underline shrink-0 group"
+            >
               <img
                 src="/Images/logo-removebg.png"
                 alt="Datagenix AI Logo"
                 className="h-11 sm:h-12 w-auto object-contain"
               />
-
             </Link>
 
             {/* Desktop center links */}
@@ -151,14 +201,25 @@ transition-all duration-500 ease-in-out
                   href={link.href}
                   onClick={() => setActive(link.label)}
                   className={`
-                    relative px-5 py-3 rounded-[11px]
-                    text-[18.5px] font-normal tracking-[-0.015em] whitespace-nowrap
-                    no-underline transition-all duration-180
-                    ${active === link.label
-                      ? "text-[rgba(255,255,255,0.92)] nav-active-dot"
-                      : "text-[rgba(255,255,255,1)] hover:text-black hover:bg-[rgba(255,255,255,0.055)]"
-                    }
-                  `}
+  relative px-5 py-3 rounded-[11px]
+  text-[18.5px] font-normal tracking-[-0.015em]
+  whitespace-nowrap no-underline
+  transition-all duration-300 ease-out
+
+  before:absolute before:inset-0 before:rounded-[11px]
+  before:bg-linear-to-r before:from-[#00e5ff22] before:to-[#a855f722]
+  before:opacity-0 before:transition-opacity before:duration-300
+
+  hover:before:opacity-100
+  hover:scale-[1.04]
+  hover:-translate-y-px
+
+  ${
+    active === link.label
+      ? "text-white nav-active-dot"
+      : "text-white/80 hover:text-white"
+  }
+`}
                 >
                   {link.label}
                 </Link>
@@ -167,7 +228,6 @@ transition-all duration-500 ease-in-out
 
             {/* Right side */}
             <div className="flex items-center gap-2 shrink-0">
-
               {/* Desktop CTA */}
               <Link
                 href="#consultation"
@@ -199,17 +259,32 @@ transition-all duration-500 ease-in-out
                   >
                     Enquire for Courses
                   </span>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0">
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    className="shrink-0"
+                  >
                     <defs>
-                      <linearGradient id="ag" x1="2" y1="10" x2="10" y2="2" gradientUnits="userSpaceOnUse">
+                      <linearGradient
+                        id="ag"
+                        x1="2"
+                        y1="10"
+                        x2="10"
+                        y2="2"
+                        gradientUnits="userSpaceOnUse"
+                      >
                         <stop stopColor="#00e5ff" />
                         <stop offset="1" stopColor="#a855f7" />
                       </linearGradient>
                     </defs>
                     <path
                       d="M2 10L10 2M10 2H4M10 2V8"
-                      stroke="url(#ag)" strokeWidth="1.5"
-                      strokeLinecap="round" strokeLinejoin="round"
+                      stroke="url(#ag)"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </div>
@@ -243,9 +318,10 @@ transition-all duration-500 ease-in-out
               backdrop-blur-2xl saturate-180
               shadow-[0_32px_80px_rgba(0,0,0,0.8)]
               transition-all duration-300 ease-[cubic-bezier(.22,1,.36,1)]
-              ${menuOpen
-                ? "opacity-100 translate-y-4 pointer-events-auto"
-                : "opacity-0 translate-y-0 pointer-events-none"
+              ${
+                menuOpen
+                  ? "opacity-100 translate-y-4 pointer-events-auto"
+                  : "opacity-0 translate-y-0 pointer-events-none"
               }
             `}
           >
@@ -255,7 +331,10 @@ transition-all duration-500 ease-in-out
                 <Link
                   key={link.label}
                   href={link.href}
-                  onClick={() => { setMenuOpen(false); setActive(link.label); }}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setActive(link.label);
+                  }}
                   className="
                     mob-link flex items-center justify-between
                     px-3 py-3.25 rounded-[10px]
@@ -290,7 +369,6 @@ transition-all duration-500 ease-in-out
               </Link>
             </div>
           </div>
-
         </div>
       </nav>
     </>

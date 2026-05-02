@@ -5,22 +5,22 @@ import { useEffect, useRef } from "react";
 
 const CARDS = [
   {
-    href: "/solutions/ai-iot-smart-products",
-    image: "/Images/solution.png",
-    heading: "AI & IoT Smart Products",
-    body: "Industrial automation, edge AI systems, predictive maintenance, and intelligent monitoring solutions.",
-  },
-  {
-    href: "/solutions/ai-business-solutions",
-    image: "/Images/business.png",
+    href: "/Services",
+    image: "/Images/HeroSec/Business/3.jpg",
     heading: "AI-Powered Business Solutions",
-    body: "Custom AI systems, ERP/CRM platforms, AI agents, workflow automation, and data intelligence.",
+    body: "Automate operations, unlock real-time insights, and scale with confidence. Our AI solutions help you reduce costs, improve decisions, and drive measurable growth—without complexity.",
   },
   {
-    href: "/solutions/ai-talent-development",
-    image: "/Images/training.png",
-    heading: "AI Talent Development",
-    body: "Practical AI, Data Science, and automation training designed to create industry-ready professionals.",
+    href: "/Courses",
+    image: "/Images/HeroSec/Training/3.jpg",
+    heading: "AI Training & Courses",
+    body: "Build in-demand skills with hands-on, industry-focused training.From beginners to professionals, we help you become job-ready with real-world AI and data science expertise.",
+  },
+  {
+    href: "/Products",
+    image: "/Images/HeroSec/Product/2.jpg",
+    heading: "Build Intelligent AI Products",
+    body: "Transform your ideas into smart, connected solutions. We design and develop AI-powered IoT and embedded systems that are innovative, scalable, and market-ready.",
   },
 ];
 
@@ -118,9 +118,8 @@ export default function SolutionsSection() {
                 data-delay="2"
                 className="text-[1.8rem] sm:text-[2.4rem] lg:text-[3rem] font-bold text-white leading-[1.1] tracking-[-0.02em] max-w-2xl mx-auto mb-4"
               >
-                We Bridge the Gap Between{" "}
-                <span className="text-[#28E7C5]">AI Innovation</span> and
-                Real-World Impact
+                Turning AI into Real Business Impact,{" "}
+                <span className="text-[#28E7C5]">Career Growth,</span> and Smart Innovation
               </h2>
             </div>
           </div>
@@ -166,7 +165,7 @@ export default function SolutionsSection() {
                     bottom: 0,
                     left: 0,
                     right: 0,
-                    height: "50px",
+                    height: "20px",
                     background:
                       "linear-gradient(to top, rgba(33,198,207,0.75) 0%, rgba(33,198,207,0.45) 30%, rgba(33,198,207,0.18) 60%, transparent 100%)",
                     zIndex: 2,
@@ -214,14 +213,14 @@ export default function SolutionsSection() {
           </div>
 
           {/* ── Bottom CTA ── */}
-          <div
+          {/* <div
             data-animate="fade-up"
             data-delay="7"
             className="flex justify-center"
           >
             <Link href="/Services">
               <button
-                className="transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[3px] px-7 py-3.25 text-[0.8rem] font-semibold tracking-[0.06em]"
+                className="transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[13px] px-7 py-3.25 text-[0.8rem] font-semibold tracking-[0.06em]"
                 style={{
                   fontFamily: "'Google Sans', sans-serif",
                   color: "#05070e",
@@ -232,7 +231,7 @@ export default function SolutionsSection() {
                 Enquire for Solutions →
               </button>
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

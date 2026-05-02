@@ -35,11 +35,11 @@ export default function RootLayout({children}) {
       <HexBackground />
       <HeroSection />
       <AboutSection/>
-      <WhyChooseUs/>
       <SolutionsSection/>
-      <ImpactSection/>
-      <ESGSection/>
+      {/* <WhyChooseUs/> */}
+      {/* <ESGSection/> */}
       <WhatSetsUsApart/>
+      <ImpactSection/>
       <AwardsSection/>
       <CTASection/>
       <TestimonialsSection/>

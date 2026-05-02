@@ -7,49 +7,49 @@ const CARDS = [
     id: "businesses",
     label: "Businesses",
     symbol: "◈",
-    subheading: "Operational excellence through AI",
+    subheading: "Smarter operations. Faster growth. Measurable results.",
     points: [
-      "Higher operational efficiency",
-      "AI-driven decision making",
-      "Advantage through automation",
-      "Higher operational efficiency",
-      "AI-driven decision making",
-      "Advantage through automation",
-      "AI-driven decision making",
-      "Advantage through automation",
-    ],
+    "Higher operational efficiency through AI-driven optimization",
+    "Data-driven decision making with real-time insights",
+    "Intelligent automation of repetitive business processes",
+    "AI agents for customer support, sales, and operations",
+    "End-to-end AI workflows for scalable business execution",
+    // "Predictive analytics for demand forecasting and planning",
+    // "Cost reduction through process and energy optimization",
+    // "Enhanced customer experience with personalization"
+  ],
   },
   {
     id: "professionals",
     label: "Professionals",
     symbol: "⬡",
-    subheading: "Skills that matter in the real world",
+    subheading: "From learning AI to leading with AI.",
     points: [
-      "Real-world AI skills",
-      "Industry mentorship",
-      "Career acceleration",
-      "Higher operational efficiency",
-      "AI-driven decision making",
-      "Advantage through automation",
-      "AI-driven decision making",
-      "Advantage through automation",
-    ],
+    "Real-world AI skills aligned with industry needs",
+    "Hands-on project-based learning and portfolio building",
+    "Industry mentorship from experts and practitioners",
+    "Career acceleration with in-demand AI capabilities",
+    "Exposure to live use cases and practical problem solving",
+    // "Increased employability and high-growth career paths",
+    // "Continuous upskilling in emerging AI technologies",
+    // "Confidence to build, deploy, and scale AI solutions"
+  ],
   },
   {
     id: "society",
     label: "Society",
     symbol: "◎",
-    subheading: "Technology with purpose and responsibility",
+    subheading: "Responsible innovation for a smarter, inclusive future.",
     points: [
-      "Responsible AI innovation",
-      "Sustainable technology development",
-      "Alignment with SDG-driven growth",
-      "Higher operational efficiency",
-      "AI-driven decision making",
-      "Advantage through automation",
-      "AI-driven decision making",
-      "Advantage through automation",
-    ],
+    "Promotion of responsible and ethical AI adoption",
+    "Alignment with national initiatives like IndiaAI Mission",
+    "Support for entrepreneurship through Startup India",
+    "Contribution to manufacturing innovation via Make in India",
+    "Alignment with global Sustainable Development Goals",
+    // "Bridging the digital and skill gap in emerging technologies",
+    // "Enabling inclusive access to AI education and solutions",
+    // "Driving innovation that creates long-term societal value"
+  ],
   },
 ];
 
@@ -147,7 +147,7 @@ export default function ImpactSection() {
               key={card.id}
               ref={(el) => (cardRefs.current[i] = el)}
               style={{ transitionDelay: `${260 + i * 130}ms` }}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-[rgba(33,198,207,0.9)] bg-[#050505] p-6 sm:p-7 opacity-0 translate-y-8 scale-95 blur-sm transition-all duration-700 ease-out hover:-translate-y-2 hover:border-[rgba(33,198,207,1)] hover:shadow-[0_0_15px_rgba(33,198,207,0.5),0_0_40px_rgba(33,198,207,0.3)]"
+              className="group relative w-full flex flex-col overflow-hidden rounded-2xl border border-[rgba(33,198,207,0.9)] bg-[#0D2B36] p-6 sm:p-7 opacity-0 translate-y-8 scale-95 blur-sm transition-all duration-700 ease-out hover:-translate-y-2 hover:border-[rgba(33,198,207,1)] hover:shadow-[0_0_15px_rgba(33,198,207,0.5),0_0_40px_rgba(33,198,207,0.3)]"
             >
               {/* Top shimmer line */}
               <div className="absolute left-0 right-0 top-0 h-px bg-linear-to-r from-transparent via-[rgba(33,198,207,0.4)] to-transparent" />
@@ -177,7 +177,7 @@ export default function ImpactSection() {
               <div className="relative mb-5 h-px w-10 bg-[rgba(33,198,207,0.25)]" />
 
               {/* Points */}
-              <ul className="relative mt-auto flex flex-col gap-3.5">
+              <ul className="relative flex flex-col gap-3.5">
                 {card.points.map((pt, j) => (
                   <li key={j} className="flex items-start gap-3.5">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-[rgba(33,198,207,0.13)] bg-[rgba(33,198,207,0.07)] font-['Syne',sans-serif] text-[0.6rem] font-bold text-[#21C6CF] transition-colors duration-300 group-hover:border-[rgba(33,198,207,0.25)] group-hover:bg-[rgba(33,198,207,0.12)]">

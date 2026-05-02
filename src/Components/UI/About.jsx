@@ -6,35 +6,31 @@ const CARDS = [
   {
     symbol: "◈",
     tag: "Who We Are",
-    heading: "Engineering AI & IoT Innovation",
-    body: "We design intelligent products that combine embedded systems, IoT, data analytics, and AI to solve practical industrial problems and leave an imprint.",
-    impacts: [
-      "Edge AI, predictive maintenance and smarter industrial systems.",
-      "Efficient monitoring & automation products for various industries.",
-    ],
-    footer: "Transforming industries with smart technology.",
+    heading: "Engineering Intelligence for Real-World Impact",
+    body: "DatagenixAI is a technology-driven company focused on transforming businesses through practical AI solutions. With deep expertise in AI, Data Science, IoT, and Embedded Systems, we bridge the gap between advanced technology and real-world applications—especially for MSMEs and growing enterprises.",
+    impacts: ["We don’t just understand AI—we make it work where it matters."],
+    footer: "From complexity to clarity. From ideas to impact",
   },
   {
     symbol: "⬡",
     tag: "What We Do",
-    heading: "AI Solutions for Business Growth",
-    body: "We help organizations adopt AI through custom software, automation, and data intelligence to increase efficiency, reduce costs, and gain competitive advantage.",
+    heading: "AI Solutions That Drive Growth, Efficiency, and Innovation",
+    body: "We design and deliver AI-powered business automation, intelligent analytics, and smart product development solutions. From optimizing operations to building AI-driven systems and training future-ready professionals, DatagenixAI helps organizations unlock measurable growth and long-term value.",
     impacts: [
-      "AI agents, workflow automation, AI-powered ERP & CRM systems.",
-      "Data analytics, business intelligence and data-driven decision making.",
+      "Every solution we build is focused on outcomes—faster decisions, lower costs, and higher returns.",
     ],
-    footer: "Helping businesses grow smarter and faster.",
+    footer: "We don’t sell AI tools. We deliver results.",
   },
   {
     symbol: "◎",
-    tag: "Our Vision",
-    heading: "AI & Data Skill Development",
-    body: "We believe AI should not only transform businesses but also contribute to sustainable innovation, responsible technology, and future-ready talent development.",
+    tag: "Our Vision for the Future",
+    heading: "Democratizing AI for Every Business and Individual",
+    body: "Our vision is to make advanced AI accessible, affordable, and impactful for all—empowering businesses to scale smarter and individuals to build future-ready careers. We aim to create a world where AI is not a luxury, but a growth enabler for everyone.",
     impacts: [
-      "Data Science, AI training, mentorship and career guidance.",
-      "Supporting innovation aligned with National and UN Sustainable Development Goals.",
+      "Data Science, AI training and mentorship.",
+      "Enabling individuals and organizations to adapt, innovate, and lead in an AI-driven world.",
     ],
-    footer: "Creating future-ready AI leaders.",
+    footer: "Lead the future with smart AI.",
   },
 ];
 
@@ -74,12 +70,12 @@ function Card({ card }) {
       </div>
 
       {/* Tag */}
-      <div className="font-['DM_Sans'] text-[0.6rem] tracking-[0.16em] uppercase text-[#28E7C5] mb-2">
+      <div className="text-[0.6rem] tracking-[0.16em] uppercase text-[#28E7C5] mb-2">
         {card.tag}
       </div>
 
       {/* Heading */}
-      <h3 className="font-['Syne'] text-[1rem] sm:text-[1.1rem] font-bold leading-[1.3] mb-3">
+      <h3 className="text-[1rem] sm:text-[1.1rem] font-bold leading-[1.3] mb-3">
         {card.heading}
       </h3>
 
@@ -87,7 +83,7 @@ function Card({ card }) {
       <div className="w-8 h-px bg-[rgba(40,231,197,0.3)] mb-4" />
 
       {/* Body */}
-      <p className="font-['DM_Sans'] text-[0.85rem] leading-[1.7] text-[rgba(255,255,255,0.85)] mb-6">
+      <p className="text-[0.85rem] leading-[1.7] text-[rgba(255,255,255,0.85)] mb-6">
         {card.body}
       </p>
 
@@ -128,7 +124,7 @@ export default function AboutSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -141,27 +137,21 @@ export default function AboutSection() {
       id="about"
       className="bg-none relative top-1 overflow-hidden py-10 sm:py-14 lg:py-7.5 lg:pb-16"
     >
-
-
       {/* Top glow */}
       <div className="absolute top-30 left-1/2 -translate-x-1/2 w-75 sm:w-125 lg:w-175 h-75 sm:h-87.5 lg:h-100 bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.07)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Inner */}
       <div className="relative z-2 max-w-300 mx-auto px-4 sm:px-6 lg:px-10">
-
         {/* Header */}
         <div
           className="text-center mb-8 sm:mb-10 lg:mb-6
     transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
         >
-
           {/* Eyebrow */}
           <div className="text-center">
-
             <div className="flex justify-center mb-4 sm:mb-5">
-              
-            <div
-              className="
+              <div
+                className="
                 inline-flex items-center gap-2
                 px-3 py-1.5
                 rounded-full
@@ -170,20 +160,19 @@ export default function AboutSection() {
                 backdrop-blur-md
                 shadow-[0_0_12px_rgba(33,198,207,0.15)]
               "
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#28E7C5] shadow-[0_0_8px_#21C6CF]" />
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#28E7C5] shadow-[0_0_8px_#21C6CF]" />
 
-              <span className="font-['DM_Sans',sans-serif] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#21C6CF]">
-                About DatagenixAi
-              </span>
+                <span className="font-['DM_Sans',sans-serif] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#21C6CF]">
+                  About DatagenixAi
+                </span>
+              </div>
             </div>
-          </div>
 
             <h2 className="font-['Syne',sans-serif] text-[1.7rem] sm:text-[2.2rem] lg:text-[clamp(2rem,3.2vw,3.2rem)] font-bold text-white leading-[1.2] tracking-[-0.02em] max-w-[90%] sm:max-w-150 lg:max-w-180 mx-auto">
               Building the Future with{" "}
               <span className="text-[#28E7C5]">Intelligent Data</span> & AI
             </h2>
-
           </div>
         </div>
 
@@ -202,7 +191,6 @@ export default function AboutSection() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

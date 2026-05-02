@@ -5,17 +5,17 @@ import { useEffect, useRef, useState, useCallback } from "react";
 const TESTIMONIALS = [
   {
     name: "Mr. Rajesh Kesare",
-    role: "Partner, SNR Electronics",
+    role: "Founder, Director SNR Electronics",
     initials: "RK",
     quote:
-      "DatagenixAI brings a rare combination of deep technical expertise and practical industry understanding. Their innovative approach to automation and intelligent solutions helped us optimize processes, improve efficiency, and streamline operations. The team delivered high-quality work within timelines and demonstrated strong commitment to solving real engineering challenges.",
+      "DatagenixAI helped us bring real automation into our operations. Their approach is practical, not theoretical. We’ve seen improved efficiency, better decision-making, and a clear path toward smart manufacturing. This is the kind of AI implementation MSMEs truly need.",
   },
   {
     name: "Mrs. Urvi Kadam",
     role: "Owner, Magnum Impex",
     initials: "UK",
     quote:
-      "Working with DatagenixAI has been a great experience. Their digital and technology solutions helped us strengthen our brand identity and improve our operational efficiency. The team is highly professional, innovative, and always focused on delivering results that create real business value.",
+      "DatagenixAI brings clarity where there was confusion. Their AI-driven insights helped us streamline operations and take faster, smarter business decisions. The impact is real and measurable.",
   },
   {
     name: "Mr. Prashant Ghodke",
@@ -25,25 +25,32 @@ const TESTIMONIALS = [
       "DatagenixAI helped us adopt modern digital tools that significantly improved our business operations and customer engagement. Their strategic insights and technology solutions enabled us to operate more efficiently while maintaining a strong and professional brand presence.",
   },
   {
-    name: "Dr. Savita Patil-Kolekar",
-    role: "Founder, Vision Diagnostics",
-    initials: "SP",
+    name: "Ms. Radhika Kumbhar",
+    role: "B.TECH Student",
+    initials: "RK",
     quote:
-      "The DatagenixAI team understands both technology and business needs extremely well. Their solutions helped us improve operational workflows and build a stronger digital presence. Their professionalism, timely execution, and commitment to quality make them a highly reliable technology partner.",
+      "Before joining DatagenixAI, AI felt overwhelming. Now I’ve built real projects, gained confidence, and even unlocked career opportunities. This training is practical, industry-focused, and truly transformational.",
   },
   {
-    name: "Mr. Swanand Naravekar",
-    role: "Owner, Aaple Naravekar Jewellery",
-    initials: "SN",
+    name: "Smita Patil",
+    role: "Teacher Appasaheb Birnale Public School",
+    initials: "SP",
     quote:
-      "DatagenixAI helped us enhance our digital presence and streamline several operational processes. Their innovative ideas and attention to detail helped create a stronger brand identity for our business while improving overall efficiency.",
+      "The FDP and training sessions conducted by DatagenixAI were highly insightful and engaging. They simplified complex AI concepts and made them accessible for educators. It’s a big step toward future-ready education.",
   },
   {
     name: "Mrs. Tejaswini Dhanwade",
-    role: "Partner, IndoPloyflex Pvt. Ltd.",
+    role: "Director IndoPolyFlex Pvt Ltd",
     initials: "TD",
     quote:
-      "The training programs conducted by DatagenixAI are extremely practical and industry-oriented. Their ability to simplify complex AI and data concepts makes learning highly effective. The sessions provided valuable insights that can be directly applied in real-world professional environments.",
+      "What stood out is their ability to translate complex AI into simple, usable solutions. We experienced better process control, reduced inefficiencies, and a noticeable improvement in overall productivity.",
+  },
+    {
+    name: "Mr. Prathamesh Kulkarni",
+    role: "Owner & Director IRCED",
+    initials: "PK",
+    quote:
+      "DatagenixAI brought a completely new level of efficiency to our operations. Their AI-powered automation streamlined our loan processing workflows, significantly reducing manual effort and turnaround time. What used to take hours now happens in minutes—with better accuracy and control. This is real transformation for financial services.",
   },
 ];
 
@@ -171,7 +178,6 @@ export default function TestimonialsSection() {
             />
             <span
               className="text-[0.62rem] font-medium uppercase tracking-[0.18em] text-[#28E7C5]"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               Client Testimonials
             </span>
@@ -190,10 +196,11 @@ export default function TestimonialsSection() {
         >
           <h2
             className="text-[1.9rem] font-bold leading-[1.1] tracking-tight text-white sm:text-[2.5rem] lg:text-[3rem]"
-            style={{ fontFamily: "'Syne', sans-serif", letterSpacing: "-0.02em" }}
+            style={{letterSpacing: "-0.02em" }}
           >
-            Trusted by Businesses &{" "}
-            <span className="text-[#28E7C5]">Professionals</span>
+            Real Transformations.{" "}
+            <span className="text-[#28E7C5]">Sustainable Impact. </span>
+            Proven AI Excellence.
           </h2>
         </div>
 
@@ -209,10 +216,8 @@ export default function TestimonialsSection() {
         >
           <p
             className="mx-auto max-w-lg text-[0.88rem] font-light leading-[1.75] text-white/40 sm:text-[0.95rem]"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
-            Organizations and professionals trust DatagenixAI for innovation,
-            expertise, and impactful technology solutions.
+            From businesses to healthcare and education, DatagenixAI delivers practical, scalable, and impactful AI solutions. Our work creates measurable transformation—driving efficiency, innovation, and long-term sustainable growth.
           </p>
         </div>
 
@@ -302,7 +307,6 @@ export default function TestimonialsSection() {
                     <div
                       className="mb-1 text-[3.5rem] font-bold leading-none"
                       style={{
-                        fontFamily: "'Syne', sans-serif",
                         color: isFocused
                           ? "rgba(33,198,207,0.3)"
                           : "rgba(33,198,207,0.15)",
@@ -320,7 +324,6 @@ export default function TestimonialsSection() {
                           ? "rgba(255,255,255,0.82)"
                           : "rgba(255,255,255,0.55)",
                         transition: "color 0.45s ease",
-                        fontFamily: "'DM Sans', sans-serif",
                       }}
                     >
                       {t.quote}
@@ -359,7 +362,6 @@ export default function TestimonialsSection() {
                       <div>
                         <div
                           className="text-sm font-semibold text-white"
-                          style={{ fontFamily: "'DM Sans', sans-serif" }}
                         >
                           {t.name}
                         </div>
@@ -368,7 +370,6 @@ export default function TestimonialsSection() {
                           style={{
                             opacity: isFocused ? 1 : 0.7,
                             transition: "opacity 0.45s ease",
-                            fontFamily: "'DM Sans', sans-serif",
                           }}
                         >
                           {t.role}
@@ -481,7 +482,6 @@ export default function TestimonialsSection() {
           <div className="mt-4 flex justify-center">
             <span
               className="text-[0.72rem] tracking-widest text-white/20"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               {String(focused + 1).padStart(2, "0")} /{" "}
               {String(total).padStart(2, "0")}
