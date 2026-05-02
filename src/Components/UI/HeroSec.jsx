@@ -24,6 +24,7 @@ const SLIDES = [
     badge: "AI for Business",
     headingLines: ["AI Is Not Optional.", "It’s Advantage."],
     sub: "Drive growth, efficiency, and scalability with intelligent AI systems built for real business impact.",
+    para: "AI is reshaping every industry—from manufacturing to finance. Companies are actively looking for skilled professionals, but there’s a massive talent gap. This is your opportunity to step ahead of the crowd.",
     primaryCta: "Automate Now",
     ghostCta: "See Use Cases",
     images: [
@@ -39,6 +40,7 @@ const SLIDES = [
     badge: "AI Product Development",
     headingLines: ["Build Smart Products", "Before the Market"],
     sub: "Create AI-powered, connected systems with IoT and automation that lead the next wave of innovation.",
+    para: "AI is projected to unlock massive value for MSMEs—but adoption is still fragmented. Businesses that act today will dominate tomorrow. At DatagenixAI, we don’t just implement AI—we design intelligent ecosystems that drive revenue, efficiency, and long-term scalability.",
     primaryCta: "Start Building",
     ghostCta: "Discuss Idea",
     images: [
