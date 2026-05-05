@@ -9,759 +9,497 @@ const COURSES = [
     id: 1,
     eyebrow: "Most Popular · No Coding Needed",
     title: "AI for Everyone",
-    tagline: "Understand, use, and profit from AI — starting today.",
+    tagline: "Understand AI. Use AI. Grow with AI — no technical background required.",
     description:
-      "AI is reshaping every career. This course strips away the jargon and gives you practical mastery of ChatGPT and modern AI tools — so you can boost productivity, explore new income streams, and future-proof your career. No technical background required.",
+      "This program is designed for anyone who wants to learn Artificial Intelligence, use AI tools effectively, boost productivity, and grow in their career or business. No coding required — just curiosity and willingness to learn.",
+
     features: [
-      {
-        icon: "◈",
-        label: "What is AI (Simple & Clear)",
-        desc: "Demystify AI, LLMs, and GenAI in plain language",
-      },
-      {
-        icon: "⬡",
-        label: "ChatGPT & AI Tools",
-        desc: "Hands-on with the tools that are changing every industry",
-      },
-      {
-        icon: "◉",
-        label: "AI for Studies, Job & Business",
-        desc: "Real use-cases across education, careers, and entrepreneurship",
-      },
-      {
-        icon: "◆",
-        label: "Productivity Hacks",
-        desc: "Automate repetitive tasks and multiply your output",
-      },
-      {
-        icon: "▣",
-        label: "Career Opportunities in AI",
-        desc: "Discover roles and income paths emerging right now",
-      },
+      { icon: "◈", label: "Introduction to Artificial Intelligence", desc: "" },
+      { icon: "⬡", label: "Generative AI Fundamentals", desc: "" },
+      { icon: "◉", label: "Prompt Engineering (Core Skill)", desc: "" },
+      { icon: "◆", label: "AI Tools & Applications", desc: "" },
+      { icon: "▣", label: "Introduction to AI Agents & Agentic AI", desc: "" },
+      { icon: "◈", label: "Introduction AI Automation for Business", desc: "" },
+      { icon: "⬡", label: "Domain-wise Applications of AI", desc: "" },
+      { icon: "◉", label: "Ethical & Responsible AI Usage", desc: "" },
     ],
+
     whoCanJoin: [
-      "Students (9th–12th, UG, PG)",
-      "Teachers & Professors",
-      "Business Owners",
-      "Working Professionals",
+      "Students",
+      "Working professionals",
+      "Business owners & entrepreneurs",
+      "Freelancers",
       "Anyone curious about AI",
     ],
+
     outcomes: [
-      "Confidently use AI tools in daily work",
-      "Automate repetitive tasks",
-      "Identify AI career opportunities",
-      "Apply AI to your specific domain",
+      "Confidently use AI tools in daily life",
+      "Save time & increase productivity",
+      "Apply AI in your domain or business",
+      "Understand AI agents & automation opportunities",
+      "Stay ahead in the AI-driven world",
     ],
+
     curriculum: [
       {
         module: "Module 1",
-        title: "AI Foundations",
-        topics: [
-          "What is AI, ML, GenAI",
-          "History & evolution",
-          "Key players & tools",
-        ],
+        title: "Introduction to Artificial Intelligence",
+        topics: ["Introduction to Artificial Intelligence"],
       },
       {
         module: "Module 2",
-        title: "ChatGPT Mastery",
-        topics: [
-          "Prompting techniques",
-          "Use-cases by profession",
-          "Custom GPTs",
-        ],
+        title: "Generative AI",
+        topics: ["Generative AI Fundamentals"],
       },
       {
         module: "Module 3",
-        title: "AI for Productivity",
-        topics: [
-          "Automating daily tasks",
-          "AI writing & research",
-          "Time optimization",
-        ],
+        title: "Prompt Engineering",
+        topics: ["Prompt Engineering (Core Skill)"],
       },
       {
         module: "Module 4",
-        title: "Career & Business",
-        topics: ["AI job roles", "Freelancing with AI", "Business use-cases"],
+        title: "AI Applications",
+        topics: [
+          "AI Tools & Applications",
+          "Domain-wise Applications of AI",
+          "AI Automation for Business",
+        ],
+      },
+      {
+        module: "Module 5",
+        title: "AI Systems",
+        topics: [
+          "Introduction to AI Agents & Agentic AI",
+          "Ethical & Responsible AI Usage",
+        ],
       },
     ],
+
     cta: "Explore Course",
     tag: "Beginner Friendly",
     duration: "4–6 Weeks",
     mode: "Online / Offline",
     images: [
-      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=85",
-      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=85",
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=85",
-      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=85",
+      "/Images/HeroSec/Training/1.jpg",
+      "/Images/HeroSec/Training/2.jpg",
+      "/Images/HeroSec/Training/3.jpg",
     ],
     imageLeft: true,
   },
+
   {
     id: 2,
     eyebrow: "Most Popular · Job-Focused",
-    title: "Data Analyst Program",
-    tagline: "From raw data to powerful business insights — in 3 months.",
+    title: "Data Analysis with Generative AI",
+    tagline: "Your gateway to a high-demand data career — even from zero",
     description:
-      "Master Excel, SQL, Python, and Power BI with real industry datasets. Build a capstone project, get placement support, and become job-ready with the skills companies are actively hiring for right now.",
+      "Master Excel, SQL, Python, Data Visualization, Statistics & Probability, Power BI, and Generative AI tools with real-world projects and case studies.",
+
     features: [
-      {
-        icon: "◈",
-        label: "Excel for Data Analytics",
-        desc: "From basics to advanced pivot tables and dashboards",
-      },
-      {
-        icon: "⬡",
-        label: "SQL for Data Analysis",
-        desc: "Query databases like a professional analyst",
-      },
-      {
-        icon: "◉",
-        label: "Python & Libraries",
-        desc: "Pandas, NumPy, Matplotlib for data wrangling",
-      },
-      {
-        icon: "◆",
-        label: "Power BI Dashboards",
-        desc: "Visual storytelling with enterprise BI tools",
-      },
-      {
-        icon: "▣",
-        label: "Capstone Industry Project",
-        desc: "Real-world project to showcase to employers",
-      },
+      { icon: "◈", label: "Excel (Basic to Advanced)", desc: "" },
+      { icon: "⬡", label: "SQL (Basic to Advanced)", desc: "" },
+      { icon: "◉", label: "Python for Data Analysis", desc: "" },
+      { icon: "◆", label: "Data Visualization (Matplotlib, Seaborn)", desc: "" },
+      { icon: "▣", label: "Statistics & Probability", desc: "" },
+      { icon: "◈", label: "Power BI", desc: "" },
+      { icon: "⬡", label: "Generative AI", desc: "" },
+      { icon: "◉", label: "Projects & Case Studies", desc: "" },
     ],
+
     whoCanJoin: [
-      "Students & Graduates (any stream)",
-      "Teachers & Faculty",
-      "Working Professionals & Career Switchers",
-      "Entrepreneurs & Business Owners",
-      "Anyone curious about the Data domain",
+      "10th–12th students",
+      "Graduates & job seekers",
+      "Career transitioners",
+      "Work-from-home aspirants (especially women restarting careers)",
     ],
+
     outcomes: [
-      "Analyze and visualize real datasets",
-      "Build professional dashboards",
-      "Present data-driven insights to stakeholders",
-      "Land a data analyst role with placement support",
+      "Job-ready Data Analyst skills",
+      "Portfolio with real-world projects",
+      "Strong foundation to enter data domain",
     ],
+
     curriculum: [
       {
         module: "Module 1",
-        title: "Excel Mastery",
-        topics: [
-          "Data cleaning",
-          "Pivot tables",
-          "Advanced formulas",
-          "Charts & dashboards",
-        ],
+        title: "Excel",
+        topics: ["Excel (Basic to Advanced)"],
       },
       {
         module: "Module 2",
-        title: "SQL Deep Dive",
-        topics: [
-          "Queries & joins",
-          "Aggregations",
-          "Subqueries",
-          "Database design basics",
-        ],
+        title: "SQL",
+        topics: ["SQL (Basic to Advanced)"],
       },
       {
         module: "Module 3",
-        title: "Python for Data",
-        topics: [
-          "Pandas & NumPy",
-          "Data visualization",
-          "EDA techniques",
-          "Automation scripts",
-        ],
+        title: "Python",
+        topics: ["Python for Data Analysis"],
       },
       {
         module: "Module 4",
-        title: "Power BI & Capstone",
+        title: "Visualization & Stats",
         topics: [
-          "DAX formulas",
-          "Interactive dashboards",
-          "Industry project",
-          "Presentation skills",
+          "Data Visualization",
+          "Statistics & Probability",
         ],
       },
+      {
+        module: "Module 5",
+        title: "Power BI & AI",
+        topics: ["Power BI", "Generative AI"],
+      },
     ],
+
     cta: "Enroll Now",
-    tag: "3 Months · 100% Placement Support*",
-    duration: "~3 Months",
-    mode: "Online / Offline",
+    tag: "Placement Ready",
+    duration: "",
+    mode: "",
     images: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=85",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=85",
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&q=85",
-      "https://images.unsplash.com/photo-1543286386-713bdd548da4?w=1200&q=85",
+      "/Images/HeroSec/Business/4.jpg",
+      "/Images/HeroSec/Business/2.jpg",
+      "/Images/HeroSec/Business/3.jpg",
     ],
     imageLeft: false,
   },
+
   {
     id: 3,
     eyebrow: "Advanced · Industry-Grade",
-    title: "Data Science & Machine Learning",
-    tagline: "Build models that think. Deploy systems that scale.",
+    title: "Data Science with Generative AI",
+    tagline: "Go beyond analysis — build intelligent AI systems",
     description:
-      "Go beyond analysis. Learn to engineer ML pipelines, build predictive models, and deploy AI solutions used in production. Mentored by industry practitioners — with real data, real projects.",
+      "Learn Machine Learning, Advanced ML Algorithms, Computer Vision, Natural Language Processing (NLP), and Generative AI with real-world projects.",
+
     features: [
-      {
-        icon: "◈",
-        label: "ML Algorithms",
-        desc: "Regression, classification, clustering — from scratch",
-      },
-      {
-        icon: "⬡",
-        label: "Deep Learning Basics",
-        desc: "Neural networks, CNNs, and NLP fundamentals",
-      },
-      {
-        icon: "◉",
-        label: "Model Deployment",
-        desc: "Flask APIs, cloud deployment, and MLOps basics",
-      },
-      {
-        icon: "◆",
-        label: "Feature Engineering",
-        desc: "The real craft behind high-performing models",
-      },
-      {
-        icon: "▣",
-        label: "Industry Projects",
-        desc: "Build portfolio-ready ML solutions end-to-end",
-      },
+      { icon: "◈", label: "Complete Data Analysis Stack", desc: "" },
+      { icon: "⬡", label: "Mathematics for Machine Learning", desc: "" },
+      { icon: "◉", label: "Machine Learning Fundamentals", desc: "" },
+      { icon: "◆", label: "Advanced ML Algorithms", desc: "" },
+      { icon: "▣", label: "Computer Vision", desc: "" },
+      { icon: "◈", label: "Natural Language Processing (NLP)", desc: "" },
+      { icon: "⬡", label: "Generative AI in Data Science", desc: "" },
+      { icon: "◉", label: "Projects & Capstone", desc: "" },
     ],
+
     whoCanJoin: [
-      "Python programmers wanting to level up",
-      "Data Analysts moving into ML",
-      "CS/IT graduates",
-      "Researchers & academics",
-      "Professionals in analytics roles",
+      "Aspiring Data Scientists",
+      "AI Engineers",
+      "Advanced learners aiming for high-paying roles",
     ],
+
     outcomes: [
-      "Build and evaluate ML models",
-      "Work with real-world datasets",
-      "Deploy models to production",
-      "Create a strong ML portfolio",
+      "Industry-ready Data Scientist skillset",
+      "Strong ML + AI project portfolio",
     ],
-    curriculum: [
-      {
-        module: "Module 1",
-        title: "Python & Statistics",
-        topics: ["Python for ML", "Probability & stats", "Data preprocessing"],
-      },
-      {
-        module: "Module 2",
-        title: "Supervised Learning",
-        topics: [
-          "Regression & classification",
-          "Decision trees",
-          "Ensemble methods",
-        ],
-      },
-      {
-        module: "Module 3",
-        title: "Unsupervised & NLP",
-        topics: [
-          "Clustering",
-          "Dimensionality reduction",
-          "Text processing basics",
-        ],
-      },
-      {
-        module: "Module 4",
-        title: "Deep Learning & Deploy",
-        topics: [
-          "Neural networks",
-          "CNNs & RNNs",
-          "Model deployment",
-          "Capstone project",
-        ],
-      },
-    ],
-    cta: "Explore Course",
-    tag: "Intermediate–Advanced",
-    duration: "4–5 Months",
-    mode: "Online",
-    images: [
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=85",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=85",
-      "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200&q=85",
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&q=85",
-    ],
-    imageLeft: true,
-  },
-  {
-    id: 4,
-    eyebrow: "Business Intelligence · No Code",
-    title: "Power BI & Business Intelligence",
-    tagline: "Turn spreadsheets into strategic dashboards.",
-    description:
-      "Learn to design interactive dashboards and BI reports that executives actually use. From data modeling to DAX to publishing — master the full Power BI workflow with business-focused projects.",
-    features: [
-      {
-        icon: "◈",
-        label: "Data Modeling",
-        desc: "Star schema, relationships, and clean data architecture",
-      },
-      {
-        icon: "⬡",
-        label: "DAX Formulas",
-        desc: "Calculated columns, measures, and time intelligence",
-      },
-      {
-        icon: "◉",
-        label: "Interactive Reports",
-        desc: "Drill-throughs, bookmarks, and dynamic visuals",
-      },
-      {
-        icon: "◆",
-        label: "Power Query (ETL)",
-        desc: "Data transformation with M language",
-      },
-      {
-        icon: "▣",
-        label: "Publishing & Sharing",
-        desc: "Power BI Service, workspaces, and scheduled refresh",
-      },
-    ],
-    whoCanJoin: [
-      "Business analysts",
-      "Finance & operations professionals",
-      "HR and management teams",
-      "Anyone who works with Excel reports",
-      "Entrepreneurs & founders",
-    ],
-    outcomes: [
-      "Build executive-ready dashboards",
-      "Master DAX and data modeling",
-      "Publish and share BI reports",
-      "Replace static Excel reports with live visuals",
-    ],
-    curriculum: [
-      {
-        module: "Module 1",
-        title: "Power BI Foundations",
-        topics: [
-          "Interface & workflow",
-          "Connecting data sources",
-          "Basic visuals",
-        ],
-      },
-      {
-        module: "Module 2",
-        title: "Data Modeling",
-        topics: [
-          "Relationships",
-          "Star schema design",
-          "Data cleaning with Power Query",
-        ],
-      },
-      {
-        module: "Module 3",
-        title: "DAX & Analytics",
-        topics: [
-          "Measures vs columns",
-          "Time intelligence",
-          "Advanced calculations",
-        ],
-      },
-      {
-        module: "Module 4",
-        title: "Reports & Projects",
-        topics: [
-          "Report design principles",
-          "Publishing to service",
-          "Industry dashboard project",
-        ],
-      },
-    ],
-    cta: "Explore Course",
-    tag: "Business-Focused",
-    duration: "6–8 Weeks",
-    mode: "Online / Offline",
-    images: [
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=85",
-      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=85",
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=85",
-      "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=1200&q=85",
-    ],
-    imageLeft: false,
-  },
-  {
-    id: 5,
-    eyebrow: "Programming · Beginner to Pro",
-    title: "Python Programming",
-    tagline: "The most in-demand language — mastered the practical way.",
-    description:
-      "Python powers AI, data science, automation, and web backends. This course builds you from zero to job-ready with real projects, clean code practices, and hands-on problem-solving.",
-    features: [
-      {
-        icon: "◈",
-        label: "Core Python",
-        desc: "Data types, loops, functions, OOP, and file handling",
-      },
-      {
-        icon: "⬡",
-        label: "Libraries & APIs",
-        desc: "NumPy, Pandas, Requests, and automation tools",
-      },
-      {
-        icon: "◉",
-        label: "Real Projects",
-        desc: "Automation scripts, web scrapers, data tools",
-      },
-      {
-        icon: "◆",
-        label: "Problem Solving",
-        desc: "Coding challenges and algorithmic thinking",
-      },
-      {
-        icon: "▣",
-        label: "Bridge to Data/AI",
-        desc: "Pathway into data science and ML with Python",
-      },
-    ],
-    whoCanJoin: [
-      "Complete beginners — no coding experience needed",
-      "Students in any technical stream",
-      "Working professionals wanting to automate tasks",
-      "Aspiring data scientists",
-      "Developers from other languages",
-    ],
-    outcomes: [
-      "Write clean, production-quality Python",
-      "Build automation and data tools",
-      "Understand libraries for data & AI",
-      "Solve real-world programming challenges",
-    ],
-    curriculum: [
-      {
-        module: "Module 1",
-        title: "Python Basics",
-        topics: [
-          "Syntax & data types",
-          "Conditionals & loops",
-          "Functions & scope",
-        ],
-      },
-      {
-        module: "Module 2",
-        title: "Intermediate Python",
-        topics: [
-          "OOP concepts",
-          "File handling",
-          "Error handling",
-          "Modules & packages",
-        ],
-      },
-      {
-        module: "Module 3",
-        title: "Libraries & Automation",
-        topics: [
-          "NumPy & Pandas",
-          "Web scraping",
-          "API integration",
-          "Automation scripts",
-        ],
-      },
-      {
-        module: "Module 4",
-        title: "Projects & Pathways",
-        topics: [
-          "Mini-projects",
-          "Code review practices",
-          "Bridge to data science",
-        ],
-      },
-    ],
-    cta: "Start Learning",
-    tag: "Beginner–Intermediate",
-    duration: "6–8 Weeks",
-    mode: "Online / Offline",
-    images: [
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=85",
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=85",
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=85",
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=85",
-    ],
-    imageLeft: true,
-  },
-  {
-    id: 6,
-    eyebrow: "Data · Foundation Skill",
-    title: "SQL for Data Analysis",
-    tagline: "Query any database. Answer any business question.",
-    description:
-      "SQL is the universal language of data. Learn to write queries that extract insights, aggregate trends, and answer critical business questions — used by analysts, developers, and PMs worldwide.",
-    features: [
-      {
-        icon: "◈",
-        label: "Core SQL Queries",
-        desc: "SELECT, WHERE, GROUP BY, ORDER BY mastery",
-      },
-      {
-        icon: "⬡",
-        label: "Joins & Relationships",
-        desc: "INNER, LEFT, RIGHT joins across multiple tables",
-      },
-      {
-        icon: "◉",
-        label: "Aggregations & Windows",
-        desc: "SUM, COUNT, RANK, and window functions",
-      },
-      {
-        icon: "◆",
-        label: "Subqueries & CTEs",
-        desc: "Advanced query patterns for complex analysis",
-      },
-      {
-        icon: "▣",
-        label: "Real Business Cases",
-        desc: "Sales, HR, and e-commerce analysis projects",
-      },
-    ],
-    whoCanJoin: [
-      "Aspiring data analysts",
-      "Business professionals who need data access",
-      "Developers learning backend data",
-      "Finance & operations teams",
-      "Students preparing for analytics roles",
-    ],
-    outcomes: [
-      "Write professional SQL queries",
-      "Analyze real business datasets",
-      "Combine SQL with Excel/Python for full analysis",
-      "Interview-ready for data analyst roles",
-    ],
-    curriculum: [
-      {
-        module: "Module 1",
-        title: "SQL Fundamentals",
-        topics: ["Database concepts", "Basic queries", "Filtering & sorting"],
-      },
-      {
-        module: "Module 2",
-        title: "Joins & Aggregations",
-        topics: ["Types of joins", "GROUP BY", "HAVING clause"],
-      },
-      {
-        module: "Module 3",
-        title: "Advanced SQL",
-        topics: ["Subqueries", "CTEs", "Window functions"],
-      },
-      {
-        module: "Module 4",
-        title: "Projects & Integration",
-        topics: [
-          "Business case projects",
-          "SQL + Python integration",
-          "Interview prep",
-        ],
-      },
-    ],
-    cta: "Explore Course",
-    tag: "High Demand Skill",
-    duration: "4–6 Weeks",
-    mode: "Online",
-    images: [
-      "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&q=85",
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=85",
-      "https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=1200&q=85",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=85",
-    ],
-    imageLeft: false,
-  },
-  {
-    id: 7,
-    eyebrow: "AI Skills · High ROI",
-    title: "Prompt Engineering",
-    tagline: "Get more from AI by saying the right thing.",
-    description:
-      "Prompt engineering is the fastest-growing meta-skill of the AI era. Learn to design prompts that get precise, high-quality outputs from ChatGPT, Claude, Gemini, and other LLMs — for any use case.",
-    features: [
-      {
-        icon: "◈",
-        label: "Prompt Anatomy",
-        desc: "Role, context, instruction, format — the full framework",
-      },
-      {
-        icon: "⬡",
-        label: "Advanced Techniques",
-        desc: "Chain-of-thought, few-shot, and system prompts",
-      },
-      {
-        icon: "◉",
-        label: "Use-Case Libraries",
-        desc: "Prompt templates for marketing, coding, research, HR",
-      },
-      {
-        icon: "◆",
-        label: "AI Tool Integration",
-        desc: "ChatGPT, Claude, Gemini, Midjourney, and more",
-      },
-      {
-        icon: "▣",
-        label: "Prompt-to-Product",
-        desc: "Build AI-powered workflows and mini-automations",
-      },
-    ],
-    whoCanJoin: [
-      "Marketers, writers, and content creators",
-      "Business professionals using AI tools",
-      "Developers building AI-powered apps",
-      "Students wanting an edge in the AI era",
-      "Entrepreneurs automating operations",
-    ],
-    outcomes: [
-      "Write prompts that get consistent results",
-      "Build reusable prompt libraries",
-      "Automate workflows with LLMs",
-      "Save hours weekly using AI intelligently",
-    ],
+
     curriculum: [
       {
         module: "Module 1",
         title: "Foundations",
         topics: [
-          "How LLMs work (simplified)",
-          "Anatomy of a prompt",
-          "Common pitfalls",
+          "Mathematics for Machine Learning",
+          "Machine Learning Fundamentals",
         ],
       },
       {
         module: "Module 2",
-        title: "Core Techniques",
-        topics: ["Zero-shot vs few-shot", "Chain-of-thought", "Role prompting"],
+        title: "Advanced ML",
+        topics: ["Advanced ML Algorithms"],
       },
       {
         module: "Module 3",
-        title: "Domain Applications",
-        topics: [
-          "Content creation",
-          "Code generation",
-          "Research & analysis prompts",
-        ],
+        title: "AI Domains",
+        topics: ["Computer Vision", "Natural Language Processing (NLP)"],
       },
       {
         module: "Module 4",
-        title: "Advanced & Automation",
-        topics: [
-          "System prompts",
-          "API-based prompting",
-          "Workflow automation project",
-        ],
+        title: "Generative AI",
+        topics: ["Generative AI in Data Science"],
       },
     ],
-    cta: "Learn Prompt Engineering",
-    tag: "In-Demand Skill 2025",
-    duration: "3–4 Weeks",
-    mode: "Online",
+
+    cta: "Explore Course",
+    tag: "Advanced",
+    duration: "",
+    mode: "",
     images: [
-      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=85",
-      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=85",
-      "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1200&q=85",
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=85",
+      "/Images/HeroSec/Product/1.jpg",
+      "/Images/HeroSec/Product/2.jpg",
     ],
     imageLeft: true,
   },
+
   {
-    id: 8,
-    eyebrow: "Foundation · AI & Data",
-    title: "Probability & Statistics for AI",
-    tagline: "The math behind every model — made intuitive.",
+    id: 4,
+    eyebrow: "Programming",
+    title: "Python Programming (Beginner to Advanced)",
+    tagline: "Build a strong coding foundation for AI & Data",
     description:
-      "Statistics is the backbone of data science and AI. This course makes probability, distributions, and hypothesis testing genuinely intuitive — with visual explanations and real datasets, not just formulas.",
+      "Learn Python basics, data types, loops, programming practices, NumPy, Pandas, visualization, and mini projects.",
+
     features: [
-      {
-        icon: "◈",
-        label: "Probability Foundations",
-        desc: "Events, distributions, Bayes theorem — made clear",
-      },
-      {
-        icon: "⬡",
-        label: "Descriptive Statistics",
-        desc: "Mean, variance, correlation, and data summarization",
-      },
-      {
-        icon: "◉",
-        label: "Inferential Statistics",
-        desc: "Hypothesis testing, confidence intervals, p-values",
-      },
-      {
-        icon: "◆",
-        label: "Distributions for ML",
-        desc: "Normal, binomial, Poisson — and when to use each",
-      },
-      {
-        icon: "▣",
-        label: "Python Implementation",
-        desc: "Apply stats concepts with NumPy, SciPy, and Pandas",
-      },
+      { icon: "◈", label: "Python basics & syntax", desc: "" },
+      { icon: "⬡", label: "Data types", desc: "" },
+      { icon: "◉", label: "Lists, Tuples, Dictionaries", desc: "" },
+      { icon: "◆", label: "Control statements & loops", desc: "" },
+      { icon: "▣", label: "NumPy & Pandas", desc: "" },
+      { icon: "◈", label: "Matplotlib & Seaborn", desc: "" },
+      { icon: "⬡", label: "Mini projects", desc: "" },
     ],
-    whoCanJoin: [
-      "Aspiring data scientists needing math foundations",
-      "ML learners who skipped statistics",
-      "Students in engineering or commerce",
-      "Working professionals moving into AI roles",
-      "Data analysts wanting deeper analytical skills",
-    ],
+
+    whoCanJoin: ["Beginners", "students", "aspiring developers"],
+
     outcomes: [
-      "Understand the math behind ML algorithms",
-      "Interpret statistical outputs correctly",
-      "Apply hypothesis testing to real data",
-      "Build a strong foundation for data science",
+      "Strong programming logic",
+      "Ready for Data Science / AI learning",
     ],
+
     curriculum: [
       {
         module: "Module 1",
-        title: "Probability Basics",
-        topics: ["Sample spaces", "Conditional probability", "Bayes theorem"],
+        title: "Basics",
+        topics: ["Python basics & syntax", "Data types"],
       },
       {
         module: "Module 2",
-        title: "Statistics Foundations",
-        topics: [
-          "Descriptive stats",
-          "Data distributions",
-          "Correlation & causation",
-        ],
+        title: "Structures",
+        topics: ["Lists, Tuples, Dictionaries"],
       },
       {
         module: "Module 3",
-        title: "Inferential Statistics",
-        topics: [
-          "Sampling",
-          "Hypothesis testing",
-          "t-tests, chi-square, ANOVA",
-        ],
+        title: "Logic",
+        topics: ["Control statements & loops"],
       },
       {
         module: "Module 4",
-        title: "Stats for AI/ML",
-        topics: [
-          "Probability in ML",
-          "Python implementation",
-          "Real-world case studies",
-        ],
+        title: "Libraries",
+        topics: ["NumPy & Pandas", "Matplotlib & Seaborn"],
       },
     ],
-    cta: "Build Your Foundation",
-    tag: "Essential for Data Science",
-    duration: "4–6 Weeks",
-    mode: "Online / Offline",
+
+    cta: "Start Learning",
+    tag: "Beginner",
+    duration: "",
+    mode: "",
     images: [
-      "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=1200&q=85",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=85",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=85",
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&q=85",
+      "/Images/HeroSec/Business/1.jpg",
+      "/Images/HeroSec/Business/5.jpg",
+      "/Images/HeroSec/Business/6.jpg",
+    ],
+    imageLeft: false,
+  },
+
+  {
+    id: 5,
+    eyebrow: "Core Skills",
+    title: "Excel & SQL for Data Analysis",
+    tagline: "Core tools every data professional must master",
+    description:
+      "Learn Excel and SQL fundamentals, dashboards, queries, filtering, aggregations, and real-world use cases.",
+
+    features: [
+      { icon: "◈", label: "Excel basics to advanced", desc: "" },
+      { icon: "⬡", label: "Conditional Formatting", desc: "" },
+      { icon: "◉", label: "Pivot Tables", desc: "" },
+      { icon: "◆", label: "SQL queries", desc: "" },
+      { icon: "▣", label: "Data filtering & aggregation", desc: "" },
+      { icon: "◈", label: "Advanced queries", desc: "" },
+    ],
+
+    whoCanJoin: ["Students", "analysts", "job seekers"],
+
+    outcomes: [
+      "Strong data handling skills",
+      "Industry-ready analytical capabilities",
+    ],
+
+    curriculum: [
+      {
+        module: "Module 1",
+        title: "Excel",
+        topics: ["Excel basics", "Pivot Tables", "Dashboarding"],
+      },
+      {
+        module: "Module 2",
+        title: "SQL",
+        topics: ["SELECT", "JOIN", "GROUP BY", "Advanced queries"],
+      },
+    ],
+
+    cta: "Explore Course",
+    tag: "Essential",
+    duration: "",
+    mode: "",
+    images: [
+      "/Images/HeroSec/Training/1.jpg"
+    ],
+    imageLeft: true,
+  },
+
+  {
+    id: 6,
+    eyebrow: "Visualization",
+    title: "Power BI & Advanced Dashboarding",
+    tagline: "Transform raw data into business insights",
+    description:
+      "Learn Power BI, data modeling, DAX functions, dashboard design, and visualization techniques.",
+
+    features: [
+      { icon: "◈", label: "Power BI basics", desc: "" },
+      { icon: "⬡", label: "Data modeling", desc: "" },
+      { icon: "◉", label: "DAX functions", desc: "" },
+      { icon: "◆", label: "Dashboard design", desc: "" },
+      { icon: "▣", label: "Visualization techniques", desc: "" },
+    ],
+
+    whoCanJoin: ["Analysts", "professionals", "students"],
+
+    outcomes: [
+      "Build professional dashboards",
+      "Deliver impactful business insights",
+    ],
+
+    curriculum: [
+      {
+        module: "Module 1",
+        title: "Power BI",
+        topics: ["Introduction to Power BI"],
+      },
+      {
+        module: "Module 2",
+        title: "Modeling",
+        topics: ["Data modeling", "Data transformation"],
+      },
+      {
+        module: "Module 3",
+        title: "DAX",
+        topics: ["DAX functions"],
+      },
+      {
+        module: "Module 4",
+        title: "Dashboards",
+        topics: ["Dashboard design", "Projects"],
+      },
+    ],
+
+    cta: "Explore Course",
+    tag: "BI",
+    duration: "",
+    mode: "",
+    images: [
+      "/Images/HeroSec/Training/1.jpg"
+    ],
+    imageLeft: false,
+  },
+
+  {
+    id: 7,
+    eyebrow: "School Program",
+    title: "AI & Robotics for Students (5th–9th)",
+    tagline: "Build future-ready skills from an early age",
+    description:
+      "Introduce students to Artificial Intelligence, logic building, robotics, sensors, hardware, and creative AI applications.",
+
+    features: [
+      { icon: "◈", label: "Introduction to Artificial Intelligence", desc: "" },
+      { icon: "⬡", label: "Logic building", desc: "" },
+      { icon: "◉", label: "Block-based coding", desc: "" },
+      { icon: "◆", label: "Robotics & sensors", desc: "" },
+      { icon: "▣", label: "DIY projects", desc: "" },
+    ],
+
+    whoCanJoin: ["School students (5th–9th)"],
+
+    outcomes: [
+      "Strong logical thinking",
+      "Early exposure to AI & robotics",
+    ],
+
+    curriculum: [
+      {
+        module: "Module 1",
+        title: "Basics",
+        topics: ["Introduction to Artificial Intelligence"],
+      },
+      {
+        module: "Module 2",
+        title: "Logic",
+        topics: ["Logic building & computational thinking"],
+      },
+      {
+        module: "Module 3",
+        title: "Robotics",
+        topics: ["Robotics & sensors"],
+      },
+      {
+        module: "Module 4",
+        title: "Projects",
+        topics: ["DIY projects", "Creative AI applications"],
+      },
+    ],
+
+    cta: "Explore Course",
+    tag: "School",
+    duration: "",
+    mode: "",
+    images: [
+      "/Images/HeroSec/Training/1.jpg"
+    ],
+    imageLeft: true,
+  },
+
+  {
+    id: 8,
+    eyebrow: "Career",
+    title: "Employability Skill Development Programs",
+    tagline: "Don’t just learn — get hired",
+    description:
+      "Programs focused on resume building, LinkedIn optimization, interviews, personal branding, and mentorship.",
+
+    features: [
+      { icon: "◈", label: "Resume Building", desc: "" },
+      { icon: "⬡", label: "LinkedIn Profile Optimization", desc: "" },
+      { icon: "◉", label: "Interview Preparation", desc: "" },
+      { icon: "◆", label: "Personal Branding", desc: "" },
+      { icon: "▣", label: "Mock Interviews", desc: "" },
+    ],
+
+    whoCanJoin: ["Students", "job seekers", "professionals"],
+
+    outcomes: [
+      "Higher chances of selection",
+      "Strong professional presence",
+      "Confidence to crack interviews",
+    ],
+
+    curriculum: [
+      {
+        module: "Module 1",
+        title: "Profiles",
+        topics: ["Resume Building", "LinkedIn Optimization"],
+      },
+      {
+        module: "Module 2",
+        title: "Interviews",
+        topics: ["Interview Preparation", "Mock Interviews"],
+      },
+      {
+        module: "Module 3",
+        title: "Branding",
+        topics: ["Personal Branding", "Portfolio Building"],
+      },
+    ],
+
+    cta: "Explore Course",
+    tag: "Career",
+    duration: "",
+    mode: "",
+    images: [
+      "/Images/HeroSec/Training/1.jpg"
     ],
     imageLeft: false,
   },
 ];
-
 // ── HOOKS ────────────────────────────────────────────────────────────────────
 function useInView(threshold = 0.08) {
   const ref = useRef(null);

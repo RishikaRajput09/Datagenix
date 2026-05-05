@@ -43,10 +43,7 @@ const SLIDES = [
     para: "AI is projected to unlock massive value for MSMEs—but adoption is still fragmented. Businesses that act today will dominate tomorrow. At DatagenixAI, we don’t just implement AI—we design intelligent ecosystems that drive revenue, efficiency, and long-term scalability.",
     primaryCta: "Start Building",
     ghostCta: "Discuss Idea",
-    images: [
-      "/Images/HeroSec/Product/1.jpg",
-      "/Images/HeroSec/Product/2.jpg",
-    ],
+    images: ["/Images/HeroSec/Product/1.jpg", "/Images/HeroSec/Product/2.jpg"],
     poster: "/Images/HeroSec/Product/1.jpg",
   },
 
@@ -112,7 +109,7 @@ export default function HeroCarousel() {
       if (isTransitioning || next === currentSlide) return;
       setIsTransitioning(true);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    
+
       setTimeout(() => {
         setCurrentSlide(next);
         requestAnimationFrame(() =>
@@ -147,7 +144,12 @@ export default function HeroCarousel() {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => {
         const total = SLIDES[currentSlide].images.length;
-        return (prev + 1) % total;
+        if (prev === total - 1) {
+          goToNext(); // trigger outer slide
+          return 0; // reset inner slideshow
+        }
+
+        return prev + 1;
       });
     }, 2500); // speed of inner slideshow
 
@@ -291,7 +293,7 @@ export default function HeroCarousel() {
             {s.sub}
           </p>
 
-        <p
+          <p
             className="hero-anim-fadeup delay-3 mb-8.5 mt-0 max-w-140 leading-[1.8]"
             style={{
               fontFamily: "'Google Sans', sans-serif",
@@ -443,13 +445,13 @@ export default function HeroCarousel() {
               </div>
 
               {/* Vignette */}
-              <div
+              {/* <div
                 className="absolute inset-0 z-2 pointer-events-none"
                 style={{
                   background:
                     "linear-gradient(to top,rgba(40,231,197,0.6) 0%,transparent 35%,transparent 70%,rgba(5,7,14,0.22) 100%)",
                 }}
-              />
+              /> */}
 
               {/* Live chip */}
               <div

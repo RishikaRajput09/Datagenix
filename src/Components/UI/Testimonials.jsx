@@ -7,13 +7,15 @@ const TESTIMONIALS = [
     name: "Mr. Rajesh Kesare",
     role: "Founder, Director SNR Electronics",
     initials: "RK",
+    tag: "Smart Manufacturing",
     quote:
-      "DatagenixAI helped us bring real automation into our operations. Their approach is practical, not theoretical. We’ve seen improved efficiency, better decision-making, and a clear path toward smart manufacturing. This is the kind of AI implementation MSMEs truly need.",
+      "DatagenixAI helped us bring real automation into our operations. Their approach is practical, not theoretical. We've seen improved efficiency, better decision-making, and a clear path toward smart manufacturing. This is the kind of AI implementation MSMEs truly need.",
   },
   {
     name: "Mrs. Urvi Kadam",
     role: "Owner, Magnum Impex",
     initials: "UK",
+    tag: "Business Operations",
     quote:
       "DatagenixAI brings clarity where there was confusion. Their AI-driven insights helped us streamline operations and take faster, smarter business decisions. The impact is real and measurable.",
   },
@@ -21,6 +23,7 @@ const TESTIMONIALS = [
     name: "Mr. Prashant Ghodke",
     role: "Owner, Induscare Wellness",
     initials: "PG",
+    tag: "Healthcare & Wellness",
     quote:
       "DatagenixAI helped us adopt modern digital tools that significantly improved our business operations and customer engagement. Their strategic insights and technology solutions enabled us to operate more efficiently while maintaining a strong and professional brand presence.",
   },
@@ -28,33 +31,37 @@ const TESTIMONIALS = [
     name: "Ms. Radhika Kumbhar",
     role: "B.TECH Student",
     initials: "RK",
+    tag: "AI Training",
     quote:
-      "Before joining DatagenixAI, AI felt overwhelming. Now I’ve built real projects, gained confidence, and even unlocked career opportunities. This training is practical, industry-focused, and truly transformational.",
+      "Before joining DatagenixAI, AI felt overwhelming. Now I've built real projects, gained confidence, and even unlocked career opportunities. This training is practical, industry-focused, and truly transformational.",
   },
   {
     name: "Smita Patil",
     role: "Teacher Appasaheb Birnale Public School",
     initials: "SP",
+    tag: "Education & FDP",
     quote:
-      "The FDP and training sessions conducted by DatagenixAI were highly insightful and engaging. They simplified complex AI concepts and made them accessible for educators. It’s a big step toward future-ready education.",
+      "The FDP and training sessions conducted by DatagenixAI were highly insightful and engaging. They simplified complex AI concepts and made them accessible for educators. It's a big step toward future-ready education.",
   },
   {
     name: "Mrs. Tejaswini Dhanwade",
     role: "Director IndoPolyFlex Pvt Ltd",
     initials: "TD",
+    tag: "Manufacturing",
     quote:
       "What stood out is their ability to translate complex AI into simple, usable solutions. We experienced better process control, reduced inefficiencies, and a noticeable improvement in overall productivity.",
   },
-    {
+  {
     name: "Mr. Prathamesh Kulkarni",
     role: "Owner & Director IRCED",
     initials: "PK",
+    tag: "Financial Services",
     quote:
       "DatagenixAI brought a completely new level of efficiency to our operations. Their AI-powered automation streamlined our loan processing workflows, significantly reducing manual effort and turnaround time. What used to take hours now happens in minutes—with better accuracy and control. This is real transformation for financial services.",
   },
 ];
 
-const CARD_GAP = 20; // px — must match the gap in the track
+const CARD_GAP = 20;
 
 export default function TestimonialsSection() {
   const [focused, setFocused] = useState(0);
@@ -69,7 +76,6 @@ export default function TestimonialsSection() {
 
   const total = TESTIMONIALS.length;
 
-  // ── Intersection observer for fade-in ──
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) setVisible(true); },
@@ -79,7 +85,6 @@ export default function TestimonialsSection() {
     return () => obs.disconnect();
   }, []);
 
-  // ── Recalculate track offset whenever focused or viewport resizes ──
   const recalcOffset = useCallback(() => {
     if (!viewportRef.current || !trackRef.current) return;
     const cards = trackRef.current.querySelectorAll("[data-card]");
@@ -90,16 +95,13 @@ export default function TestimonialsSection() {
     setOffset(newOffset);
   }, [focused]);
 
-  useEffect(() => {
-    recalcOffset();
-  }, [recalcOffset]);
+  useEffect(() => { recalcOffset(); }, [recalcOffset]);
 
   useEffect(() => {
     window.addEventListener("resize", recalcOffset);
     return () => window.removeEventListener("resize", recalcOffset);
   }, [recalcOffset]);
 
-  // ── Navigation ──
   const goTo = useCallback((idx) => {
     setFocused(((idx % total) + total) % total);
   }, [total]);
@@ -107,7 +109,6 @@ export default function TestimonialsSection() {
   const prev = () => goTo(focused - 1);
   const next = () => goTo(focused + 1);
 
-  // ── Auto-play ──
   const startAuto = useCallback(() => {
     clearInterval(autoTimer.current);
     autoTimer.current = setInterval(() => goTo(focused + 1), 4500);
@@ -118,7 +119,6 @@ export default function TestimonialsSection() {
     return () => clearInterval(autoTimer.current);
   }, [focused]);
 
-  // ── Drag / swipe ──
   const onDragStart = (clientX) => { dragStartX.current = clientX; };
   const onDragEnd = (clientX) => {
     if (dragStartX.current === null) return;
@@ -127,7 +127,6 @@ export default function TestimonialsSection() {
     dragStartX.current = null;
   };
 
-  // ── Keyboard ──
   useEffect(() => {
     const handler = (e) => {
       if (e.key === "ArrowLeft") prev();
@@ -152,9 +151,9 @@ export default function TestimonialsSection() {
         }}
       />
 
-      <div className="relative z-10 mx-auto w-7xl sm:px-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        {/* ── Eyebrow ── */}
+        {/* Eyebrow */}
         <div
           className="mb-4 flex justify-center"
           style={{
@@ -176,15 +175,13 @@ export default function TestimonialsSection() {
               className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#28E7C5]"
               style={{ boxShadow: "0 0 10px #21C6CF" }}
             />
-            <span
-              className="text-[0.62rem] font-medium uppercase tracking-[0.18em] text-[#28E7C5]"
-            >
+            <span className="text-[0.62rem] font-medium uppercase tracking-[0.18em] text-[#28E7C5]">
               Client Testimonials
             </span>
           </div>
         </div>
 
-        {/* ── Heading ── */}
+        {/* Heading */}
         <div
           className="mb-3 text-center"
           style={{
@@ -196,7 +193,7 @@ export default function TestimonialsSection() {
         >
           <h2
             className="text-[1.9rem] font-bold leading-[1.1] tracking-tight text-white sm:text-[2.5rem] lg:text-[3rem]"
-            style={{letterSpacing: "-0.02em" }}
+            style={{ letterSpacing: "-0.02em" }}
           >
             Real Transformations.{" "}
             <span className="text-[#28E7C5]">Sustainable Impact. </span>
@@ -204,7 +201,7 @@ export default function TestimonialsSection() {
           </h2>
         </div>
 
-        {/* ── Subheading ── */}
+        {/* Subheading */}
         <div
           className="mb-14 text-center sm:mb-16"
           style={{
@@ -214,14 +211,12 @@ export default function TestimonialsSection() {
             transitionDelay: "140ms",
           }}
         >
-          <p
-            className="mx-auto max-w-lg text-[0.88rem] font-light leading-[1.75] text-white/40 sm:text-[0.95rem]"
-          >
+          <p className="mx-auto max-w-lg text-[0.88rem] font-light leading-[1.75] text-white/40 sm:text-[0.95rem]">
             From businesses to healthcare and education, DatagenixAI delivers practical, scalable, and impactful AI solutions. Our work creates measurable transformation—driving efficiency, innovation, and long-term sustainable growth.
           </p>
         </div>
 
-        {/* ── Slider ── */}
+        {/* Slider */}
         <div
           style={{
             opacity: visible ? 1 : 0,
@@ -230,11 +225,16 @@ export default function TestimonialsSection() {
             transitionDelay: "220ms",
           }}
         >
-          {/* Viewport — clips cards */}
+          {/* Viewport */}
           <div
             ref={viewportRef}
-            className="relative overflow-hidden"
-            style={{ cursor: "grab" }}
+            className="relative"
+            style={{
+              overflow: "visible",
+              cursor: "grab",
+              /* Clip only vertically so cards aren't cut on sides */
+              clipPath: "inset(0 -100vw)",
+            }}
             onMouseDown={(e) => {
               e.currentTarget.style.cursor = "grabbing";
               onDragStart(e.clientX);
@@ -276,7 +276,7 @@ export default function TestimonialsSection() {
                     className="relative flex shrink-0 cursor-pointer flex-col rounded-2xl p-6 sm:p-7"
                     style={{
                       width: "calc(33.333% - 14px)",
-                      minWidth: 260,
+                      minWidth: 280,
                       background: "#0d0d0d",
                       border: isFocused
                         ? "1px solid rgba(33,198,207,0.45)"
@@ -292,7 +292,7 @@ export default function TestimonialsSection() {
                         "border-color 0.45s ease, box-shadow 0.45s ease, transform 0.45s ease, opacity 0.45s ease",
                     }}
                   >
-                    {/* Inner glow overlay for focused card */}
+                    {/* Inner glow overlay */}
                     <div
                       className="pointer-events-none absolute inset-0 rounded-2xl"
                       style={{
@@ -303,6 +303,31 @@ export default function TestimonialsSection() {
                       }}
                     />
 
+                    {/* Category Tag */}
+                    <div className="mb-4 flex items-start justify-end">
+                      <span
+                        className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.14em]"
+                        style={{
+                          background: isFocused
+                            ? "rgba(33,198,207,0.15)"
+                            : "rgba(33,198,207,0.07)",
+                          border: isFocused
+                            ? "1px solid rgba(33,198,207,0.4)"
+                            : "1px solid rgba(33,198,207,0.18)",
+                          color: isFocused ? "#28E7C5" : "rgba(40,231,197,0.6)",
+                          transition: "all 0.45s ease",
+                        }}
+                      >
+                        <span
+                          className="h-1 w-1 rounded-full bg-current"
+                          style={{
+                            boxShadow: isFocused ? "0 0 6px #28E7C5" : "none",
+                          }}
+                        />
+                        {t.tag}
+                      </span>
+                    </div>
+
                     {/* Quote mark */}
                     <div
                       className="mb-1 text-[3.5rem] font-bold leading-none"
@@ -311,6 +336,8 @@ export default function TestimonialsSection() {
                           ? "rgba(33,198,207,0.3)"
                           : "rgba(33,198,207,0.15)",
                         transition: "color 0.45s ease",
+                        lineHeight: "1",
+                        marginTop: "-8px",
                       }}
                     >
                       "
@@ -360,9 +387,7 @@ export default function TestimonialsSection() {
                         {t.initials}
                       </div>
                       <div>
-                        <div
-                          className="text-sm font-semibold text-white"
-                        >
+                        <div className="text-sm font-semibold text-white">
                           {t.name}
                         </div>
                         <div
@@ -382,9 +407,8 @@ export default function TestimonialsSection() {
             </div>
           </div>
 
-          {/* ── Nav Row ── */}
+          {/* Nav Row */}
           <div className="mt-10 flex items-center justify-center gap-5">
-            {/* Prev */}
             <button
               onClick={prev}
               className="flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300"
@@ -396,8 +420,7 @@ export default function TestimonialsSection() {
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "#21C6CF";
                 e.currentTarget.style.color = "#21C6CF";
-                e.currentTarget.style.boxShadow =
-                  "0 0 14px rgba(33,198,207,0.2)";
+                e.currentTarget.style.boxShadow = "0 0 14px rgba(33,198,207,0.2)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = "rgba(33,198,207,0.2)";
@@ -406,20 +429,11 @@ export default function TestimonialsSection() {
               }}
               aria-label="Previous"
             >
-              <svg
-                viewBox="0 0 16 16"
-                className="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M10.5 3L5.5 8l5 5" />
               </svg>
             </button>
 
-            {/* Dots */}
             <div className="flex items-center gap-1.5">
               {TESTIMONIALS.map((_, i) => (
                 <button
@@ -429,10 +443,8 @@ export default function TestimonialsSection() {
                   style={{
                     height: "6px",
                     width: focused === i ? "24px" : "6px",
-                    background:
-                      focused === i ? "#21C6CF" : "rgba(33,198,207,0.22)",
-                    boxShadow:
-                      focused === i ? "0 0 8px rgba(33,198,207,0.5)" : "none",
+                    background: focused === i ? "#21C6CF" : "rgba(33,198,207,0.22)",
+                    boxShadow: focused === i ? "0 0 8px rgba(33,198,207,0.5)" : "none",
                     border: "none",
                     padding: 0,
                     cursor: "pointer",
@@ -442,7 +454,6 @@ export default function TestimonialsSection() {
               ))}
             </div>
 
-            {/* Next */}
             <button
               onClick={next}
               className="flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300"
@@ -454,8 +465,7 @@ export default function TestimonialsSection() {
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "#21C6CF";
                 e.currentTarget.style.color = "#21C6CF";
-                e.currentTarget.style.boxShadow =
-                  "0 0 14px rgba(33,198,207,0.2)";
+                e.currentTarget.style.boxShadow = "0 0 14px rgba(33,198,207,0.2)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = "rgba(33,198,207,0.2)";
@@ -464,15 +474,7 @@ export default function TestimonialsSection() {
               }}
               aria-label="Next"
             >
-              <svg
-                viewBox="0 0 16 16"
-                className="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5.5 3L10.5 8l-5 5" />
               </svg>
             </button>
@@ -480,9 +482,7 @@ export default function TestimonialsSection() {
 
           {/* Counter */}
           <div className="mt-4 flex justify-center">
-            <span
-              className="text-[0.72rem] tracking-widest text-white/20"
-            >
+            <span className="text-[0.72rem] tracking-widest text-white/20">
               {String(focused + 1).padStart(2, "0")} /{" "}
               {String(total).padStart(2, "0")}
             </span>

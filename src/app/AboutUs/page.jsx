@@ -147,13 +147,13 @@ function Hero() {
           >
             <Link
               href="/portfolio"
-              className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#28E7C5] text-[#050505] text-[0.82rem] font-semibold tracking-[0.06em] uppercase transition-shadow duration-300 hover:shadow-[0_0_24px_rgba(33,198,207,0.35)]"
+              className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#28E7C5] text-[#050505] rounded-[13px] text-[0.82rem] font-semibold tracking-[0.06em] uppercase transition-shadow duration-300 hover:shadow-[0_0_24px_rgba(33,198,207,0.35)]"
               style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
-              <span className="absolute inset-0 bg-[#0a2f33] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-[380ms]" />
-              <span className="relative z-[1]">Our Work</span>
+              <span className="absolute inset-0 bg-[#0a2f33] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-380" />
+              <span className="relative z-1">Our Work</span>
               <svg
-                className="relative z-[1] w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
+                className="relative z-1 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
                 viewBox="0 0 14 14"
                 fill="none"
               >
@@ -168,13 +168,13 @@ function Hero() {
             </Link>
             <Link
               href="/contact"
-              className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent border border-[rgba(33,198,207,0.3)] text-[#28E7C5] text-[0.82rem] font-semibold tracking-[0.06em] uppercase hover:border-[#21C6CF] transition-all duration-300"
+              className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent rounded-[13px] border border-[rgba(33,198,207,0.3)] text-[#28E7C5] text-[0.82rem] font-semibold tracking-[0.06em] uppercase hover:border-[#21C6CF] transition-all duration-300"
               style={{ fontFamily: "'DM Sans',sans-serif" }}
             >
-              <span className="absolute inset-0 bg-[rgba(33,198,207,0.08)] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-[380ms]" />
-              <span className="relative z-[1]">Contact Us</span>
+              <span className="absolute inset-0 bg-[rgba(33,198,207,0.08)] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-380" />
+              <span className="relative z-1">Contact Us</span>
               <svg
-                className="relative z-[1] w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
+                className="relative z-1 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
                 viewBox="0 0 14 14"
                 fill="none"
               >
@@ -288,14 +288,14 @@ function OriginStory() {
             className="lg:w-[52%] flex flex-col gap-0 relative"
           >
             {/* Vertical line */}
-            <div className="absolute left-[19px] top-6 bottom-6 w-px bg-gradient-to-b from-[#21C6CF] via-[rgba(33,198,207,0.3)] to-transparent" />
+            <div className="absolute left-4.75 top-6 bottom-6 w-px bg-linear-to-b from-[#21C6CF] via-[rgba(33,198,207,0.3)] to-transparent" />
 
             {TIMELINE.map((item, i) => (
               <div key={i} className="flex gap-5 pb-8 last:pb-0">
                 {/* Dot */}
                 <div className="flex flex-col items-center shrink-0">
                   <div
-                    className="w-10 h-10 rounded-full bg-[#0a0a0a] border border-[rgba(33,198,207,0.25)] flex items-center justify-center z-[1]"
+                    className="w-10 h-10 rounded-full bg-[#0a0a0a] border border-[rgba(33,198,207,0.25)] flex items-center justify-center z-1"
                     style={{ boxShadow: "0 0 16px rgba(33,198,207,0.1)" }}
                   >
                     <span

@@ -1,90 +1,96 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// ─── Data ─────────────────────────────────────────────────────────────────────
 
 const services = [
   {
-    id: "ai-consulting",
-    title: "AI Consulting",
-    tagline: "Strategy that transforms your business at its core.",
+    id: "ai-growth",
+    number: "01",
+    title: "AI-Powered Business Growth Solutions",
+    tagline: "Convert operations into intelligent, automated workflows",
     description:
-      "We partner with organizations to architect AI roadmaps that align with your business objectives. From opportunity analysis to implementation planning, we deliver clarity in a world of complexity.",
+      "We design customized AI-driven ecosystems tailored to your business needs — from strategy to full deployment.",
     features: [
-      "End-to-end AI readiness assessment",
-      "Custom model selection & architecture design",
-      "ROI forecasting & risk mitigation frameworks",
-      "Executive alignment & change management",
-      "Ongoing advisory & performance reviews",
+      "AI Agents for business operations and customer interaction",
+      "AI Automation to eliminate repetitive tasks",
+      "AI Workflows for seamless process integration",
+      "Faster execution, reduced costs, and improved productivity",
     ],
     visual: "consulting",
+    accent: "#21C6CF",
   },
   {
-    id: "data-engineering",
-    title: "Data Engineering",
-    tagline: "Build the foundation. Power everything.",
+    id: "ai-agents",
+    number: "02",
+    title: "AI Agents & Automation Systems",
+    tagline: "24×7 intelligent execution without manual dependency",
     description:
-      "Raw data is noise. We design and build the pipelines, lakes, and warehouses that turn chaos into a reliable, scalable signal your AI systems can trust and act upon.",
+      "We develop AI agents capable of handling business processes, customer interactions, and internal operations autonomously.",
     features: [
-      "Scalable ETL & ELT pipeline architecture",
-      "Real-time streaming with Kafka & Flink",
-      "Data lakehouse implementation (Databricks, Delta)",
-      "Data quality monitoring & governance",
-      "Schema evolution & versioning strategies",
-    ],
-    visual: "data",
-  },
-  {
-    id: "automation",
-    title: "Automation Solutions",
-    tagline: "Remove friction. Multiply output.",
-    description:
-      "We identify high-value manual workflows and replace them with intelligent automation — from RPA bots to full agentic AI pipelines that reason, decide, and act autonomously.",
-    features: [
-      "Intelligent RPA with cognitive capabilities",
-      "Agentic AI workflow orchestration",
-      "LLM-powered document understanding",
-      "API integration & inter-system automation",
-      "Human-in-the-loop escalation design",
+      "Handling customer queries and lead interactions",
+      "Automating follow-ups and engagement",
+      "Managing internal workflows and operations",
+      "Processing and organizing business data",
     ],
     visual: "automation",
+    accent: "#28E7C5",
   },
   {
     id: "iot-ai",
-    title: "IoT + AI Integration",
-    tagline: "Connect the physical. Unlock the intelligent.",
+    number: "03",
+    title: "AI-Powered Embedded Systems & IoT",
+    tagline: "Build smart, connected, and intelligent products — end-to-end",
     description:
-      "Edge devices generate vast data streams. We integrate AI at the edge and in the cloud to deliver predictive maintenance, anomaly detection, and real-time intelligence across your entire hardware fleet.",
+      "We provide complete AI-powered embedded and IoT product development — from circuit design all the way to bulk manufacturing.",
     features: [
-      "Edge AI model deployment & optimization",
-      "MQTT / OPC-UA device integration layers",
-      "Predictive maintenance & anomaly detection",
-      "Digital twin architecture",
-      "Secure IoT data ingestion at scale",
+      "Circuit design, PCB development & firmware",
+      "AI integration on edge devices",
+      "IoT connectivity and cloud integration",
+      "Prototyping, testing & product validation",
+      "Bulk manufacturing support",
     ],
     visual: "iot",
+    accent: "#21C6CF",
   },
   {
-    id: "cloud-deployment",
-    title: "Cloud & AI Deployment",
-    tagline: "Ship faster. Scale without limits.",
+    id: "erp-crm",
+    number: "04",
+    title: "ERP & CRM Systems (AI-Enabled)",
+    tagline: "Streamline operations. Strengthen customer relationships.",
     description:
-      "We build and maintain cloud-native AI infrastructure that is resilient, cost-optimized, and production-ready — so your models don't just work in notebooks, they work in the real world.",
+      "We implement and customize ERP and CRM systems enhanced with AI capabilities for smarter decision-making.",
     features: [
-      "MLOps pipelines (MLflow, Kubeflow, SageMaker)",
-      "Containerized inference on Kubernetes",
-      "Auto-scaling GPU cluster management",
-      "Model monitoring, drift detection & retraining",
-      "Multi-cloud & hybrid cloud strategies",
+      "Business process management across departments",
+      "Workflow automation and real-time reporting",
+      "Lead and customer lifecycle management",
+      "Customer insights and personalization using AI",
+    ],
+    visual: "data",
+    accent: "#28E7C5",
+  },
+  {
+    id: "data-analytics",
+    number: "05",
+    title: "AI-Powered Data Analytics & Business Intelligence",
+    tagline: "Transform raw data into actionable business insights",
+    description:
+      "We help businesses leverage data for smarter decisions — with interactive dashboards, predictive analytics, and AI-driven BI.",
+    features: [
+      "Advanced data analytics & pipeline design",
+      "Interactive dashboards and reporting",
+      "Predictive analytics using AI",
+      "Data-driven strategies and measurable growth",
     ],
     visual: "cloud",
+    accent: "#21C6CF",
   },
 ];
 
-// ─── Visual Illustrations ─────────────────────────────────────────────────────
+// ─── SVG Visuals ──────────────────────────────────────────────────────────────
 
-/* ── 1. AI CONSULTING — Animated neural brain network with glowing synapses ── */
 function ConsultingVisual() {
   const nodes = [
     [240, 170, 28, "CORE"],
@@ -125,7 +131,7 @@ function ConsultingVisual() {
     >
       <defs>
         <radialGradient id="cRad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#21C6CF" stopOpacity="0.18" />
+          <stop offset="0%" stopColor="#21C6CF" stopOpacity="0.2" />
           <stop offset="100%" stopColor="#21C6CF" stopOpacity="0" />
         </radialGradient>
         <filter id="cGlow">
@@ -143,15 +149,11 @@ function ConsultingVisual() {
           </feMerge>
         </filter>
       </defs>
-
-      {/* Ambient bg glow */}
       <ellipse cx="240" cy="170" rx="160" ry="120" fill="url(#cRad)" />
-
-      {/* Edges */}
       {edges.map(([a, b], i) => {
-        const [x1, y1] = nodes[a];
-        const [x2, y2] = nodes[b];
-        const len = Math.hypot(x2 - x1, y2 - y1);
+        const [x1, y1] = nodes[a],
+          [x2, y2] = nodes[b];
+        const len = fix(Math.hypot(x2 - x1, y2 - y1));
         return (
           <g key={i}>
             <line
@@ -162,7 +164,6 @@ function ConsultingVisual() {
               stroke="rgba(33,198,207,0.12)"
               strokeWidth="1.5"
             />
-            {/* Travelling pulse */}
             <line
               x1={x1}
               y1={y1}
@@ -172,7 +173,6 @@ function ConsultingVisual() {
               strokeWidth="2"
               strokeOpacity="0.7"
               strokeDasharray={`6 ${len}`}
-              strokeDashoffset="0"
               filter="url(#cGlow)"
             >
               <animate
@@ -186,18 +186,15 @@ function ConsultingVisual() {
           </g>
         );
       })}
-
-      {/* Nodes */}
       {nodes.map(([x, y, r, label], i) => (
         <g key={i} filter={i === 0 ? "url(#cGlow2)" : undefined}>
-          {/* Outer pulse ring */}
           <circle
             cx={x}
             cy={y}
             r={r + 8}
             fill="none"
             stroke="#21C6CF"
-            strokeOpacity="0.0"
+            strokeOpacity="0"
           >
             <animate
               attributeName="r"
@@ -216,7 +213,6 @@ function ConsultingVisual() {
               begin={`${i * 0.3}s`}
             />
           </circle>
-          {/* Main body */}
           <circle
             cx={x}
             cy={y}
@@ -225,7 +221,6 @@ function ConsultingVisual() {
             stroke={i === 0 ? "#21C6CF" : "rgba(33,198,207,0.55)"}
             strokeWidth={i === 0 ? 2 : 1}
           />
-          {/* Inner bright dot */}
           <circle
             cx={x}
             cy={y}
@@ -240,7 +235,6 @@ function ConsultingVisual() {
               textAnchor="middle"
               fontSize="8"
               fill="rgba(33,198,207,0.8)"
-              fontFamily="monospace"
               letterSpacing="1"
             >
               {label}
@@ -248,285 +242,10 @@ function ConsultingVisual() {
           )}
         </g>
       ))}
-
-      {/* Corner label */}
-      <text
-        x="24"
-        y="320"
-        fontSize="9"
-        fill="rgba(33,198,207,0.3)"
-        fontFamily="monospace"
-        letterSpacing="3"
-      >
-        NEURAL STRATEGY MESH
-      </text>
     </svg>
   );
 }
 
-/* ── 2. DATA ENGINEERING — Live scrolling data-stream terminal + bar chart ── */
-function DataVisual() {
-  const barHeights = [55, 80, 45, 95, 60, 110, 75, 90, 50, 85];
-  const streamLines = [
-    "→ ingesting kafka.stream.prod    [OK]",
-    "→ schema validated  v4.2.1       [OK]",
-    "→ transform delta_lake_write     [··]",
-    "→ quality_check null_rate: 0.2%  [OK]",
-    "→ enrichment geo_resolve         [OK]",
-    "→ load warehouse.fact_events     [··]",
-    "→ partition pruning  -38% scan   [OK]",
-  ];
-  return (
-    <svg
-      viewBox="0 0 480 340"
-      className="w-full h-full"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#21C6CF" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#21C6CF" stopOpacity="0.2" />
-        </linearGradient>
-        <filter id="dGlow">
-          <feGaussianBlur stdDeviation="2.5" result="b" />
-          <feMerge>
-            <feMergeNode in="b" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-        <clipPath id="termClip">
-          <rect x="20" y="20" width="240" height="200" rx="4" />
-        </clipPath>
-      </defs>
-
-      {/* ── Terminal panel ── */}
-      <rect
-        x="20"
-        y="20"
-        width="240"
-        height="200"
-        rx="6"
-        fill="rgba(10,10,10,0.9)"
-        stroke="rgba(33,198,207,0.35)"
-        strokeWidth="1"
-      />
-      {/* Title bar */}
-      <rect
-        x="20"
-        y="20"
-        width="240"
-        height="24"
-        rx="6"
-        fill="rgba(33,198,207,0.12)"
-      />
-      <circle cx="38" cy="32" r="4" fill="rgba(33,198,207,0.4)" />
-      <circle cx="52" cy="32" r="4" fill="rgba(33,198,207,0.25)" />
-      <circle cx="66" cy="32" r="4" fill="rgba(33,198,207,0.15)" />
-      <text
-        x="140"
-        y="36"
-        textAnchor="middle"
-        fontSize="8"
-        fill="rgba(33,198,207,0.7)"
-        fontFamily="monospace"
-      >
-        pipeline.stream — bash
-      </text>
-
-      {/* Scrolling lines */}
-      <g clipPath="url(#termClip)">
-        {streamLines.map((line, i) => (
-          <text
-            key={i}
-            x="28"
-            y={62 + i * 22}
-            fontSize="8.2"
-            fill={
-              line.includes("[OK]")
-                ? "rgba(33,198,207,0.85)"
-                : "rgba(255,255,255,0.45)"
-            }
-            fontFamily="monospace"
-            opacity="1"
-          >
-            {line}
-            {i === 2 || i === 5 ? (
-              <animate
-                attributeName="opacity"
-                values="1;0.3;1"
-                dur="1.2s"
-                repeatCount="indefinite"
-              />
-            ) : null}
-          </text>
-        ))}
-        {/* Cursor blink */}
-        <rect x="28" y="212" width="7" height="11" fill="#21C6CF">
-          <animate
-            attributeName="opacity"
-            values="1;0;1"
-            dur="0.9s"
-            repeatCount="indefinite"
-          />
-        </rect>
-      </g>
-
-      {/* ── Bar chart ── */}
-      <rect
-        x="275"
-        y="20"
-        width="185"
-        height="200"
-        rx="6"
-        fill="rgba(10,10,10,0.8)"
-        stroke="rgba(33,198,207,0.2)"
-        strokeWidth="1"
-      />
-      <text
-        x="367"
-        y="38"
-        textAnchor="middle"
-        fontSize="8"
-        fill="rgba(33,198,207,0.6)"
-        fontFamily="monospace"
-        letterSpacing="2"
-      >
-        THROUGHPUT / s
-      </text>
-      {/* Grid lines */}
-      {[0, 1, 2, 3].map((i) => (
-        <line
-          key={i}
-          x1="285"
-          y1={165 - i * 35}
-          x2="450"
-          y2={165 - i * 35}
-          stroke="rgba(33,198,207,0.07)"
-          strokeWidth="1"
-        />
-      ))}
-      {barHeights.map((h, i) => (
-        <g key={i}>
-          <rect
-            x={288 + i * 16}
-            y={165 - h}
-            width="11"
-            height={h}
-            rx="2"
-            fill="url(#barGrad)"
-            filter="url(#dGlow)"
-          >
-            <animate
-              attributeName="height"
-              from="0"
-              to={h}
-              dur={`${0.6 + i * 0.08}s`}
-              fill="freeze"
-              begin={`${i * 0.05}s`}
-            />
-            <animate
-              attributeName="y"
-              from="165"
-              to={165 - h}
-              dur={`${0.6 + i * 0.08}s`}
-              fill="freeze"
-              begin={`${i * 0.05}s`}
-            />
-          </rect>
-          {/* Top glow cap */}
-          <rect
-            x={288 + i * 16}
-            y={165 - h}
-            width="11"
-            height="3"
-            rx="1"
-            fill="#21C6CF"
-            opacity="0.9"
-            filter="url(#dGlow)"
-          >
-            <animate
-              attributeName="y"
-              from="165"
-              to={165 - h}
-              dur={`${0.6 + i * 0.08}s`}
-              fill="freeze"
-              begin={`${i * 0.05}s`}
-            />
-          </rect>
-        </g>
-      ))}
-
-      {/* ── Flow connectors between panels ── */}
-      {[60, 100, 140, 180].map((y, i) => (
-        <g key={i}>
-          <line
-            x1="260"
-            y1={y}
-            x2="275"
-            y2={y}
-            stroke="rgba(33,198,207,0.25)"
-            strokeWidth="1"
-            strokeDasharray="3 2"
-          >
-            <animate
-              attributeName="stroke-opacity"
-              from="0.5"
-              to="0.1"
-              dur={`${0.8 + i * 0.2}s`}
-              repeatCount="indefinite"
-              direction="alternate"
-            />
-          </line>
-        </g>
-      ))}
-
-      {/* ── Bottom stats bar ── */}
-      {[
-        ["RECORDS/S", "4.2M", 60],
-        ["LATENCY", "12ms", 200],
-        ["UPTIME", "99.98%", 340],
-      ].map(([label, val, x], i) => (
-        <g key={i}>
-          <rect
-            x={x}
-            y="238"
-            width="100"
-            height="48"
-            rx="4"
-            fill="rgba(33,198,207,0.06)"
-            stroke="rgba(33,198,207,0.2)"
-            strokeWidth="1"
-          />
-          <text
-            x={x + 50}
-            y="256"
-            textAnchor="middle"
-            fontSize="7.5"
-            fill="rgba(33,198,207,0.5)"
-            fontFamily="monospace"
-            letterSpacing="2"
-          >
-            {label}
-          </text>
-          <text
-            x={x + 50}
-            y="275"
-            textAnchor="middle"
-            fontSize="16"
-            fill="#21C6CF"
-            fontFamily="monospace"
-            fontWeight="bold"
-            filter="url(#dGlow)"
-          >
-            {val}
-          </text>
-        </g>
-      ))}
-    </svg>
-  );
-}
-
-/* ── 3. AUTOMATION — Orbital workflow engine with live step execution ── */
 function AutomationVisual() {
   const cx = 200,
     cy = 170;
@@ -560,11 +279,7 @@ function AutomationVisual() {
           </feMerge>
         </filter>
       </defs>
-
-      {/* Ambient core glow */}
       <circle cx={cx} cy={cy} r="140" fill="url(#aCore)" />
-
-      {/* Outer orbit ring */}
       <circle
         cx={cx}
         cy={cy}
@@ -573,10 +288,9 @@ function AutomationVisual() {
         stroke="rgba(33,198,207,0.12)"
         strokeWidth="1"
       />
-      {/* Tick marks on orbit */}
       {Array.from({ length: 36 }).map((_, i) => {
-        const a = (i / 36) * Math.PI * 2;
-        const inner = r1 - 4,
+        const a = (i / 36) * Math.PI * 2,
+          inner = r1 - 4,
           outer = r1 + 4;
         return (
           <line
@@ -590,8 +304,6 @@ function AutomationVisual() {
           />
         );
       })}
-
-      {/* Spinning dashed orbit */}
       <circle
         cx={cx}
         cy={cy}
@@ -610,8 +322,6 @@ function AutomationVisual() {
           repeatCount="indefinite"
         />
       </circle>
-
-      {/* Inner orbit */}
       <circle
         cx={cx}
         cy={cy}
@@ -630,16 +340,13 @@ function AutomationVisual() {
           repeatCount="indefinite"
         />
       </circle>
-
-      {/* Step nodes on outer orbit */}
       {steps.map((step, i) => {
         const angle = (i / steps.length) * Math.PI * 2 - Math.PI / 2;
-        const nx = cx + Math.cos(angle) * r1;
-        const ny = cy + Math.sin(angle) * r1;
+        const nx = fix(cx + Math.cos(angle) * r1);
+        const ny = fix(cy + Math.sin(angle) * r1);
         const isActive = i % 3 === 0;
         return (
           <g key={i} filter={isActive ? "url(#aGlow)" : undefined}>
-            {/* Node glow aura */}
             <circle
               cx={nx}
               cy={ny}
@@ -679,14 +386,12 @@ function AutomationVisual() {
               r="4"
               fill={isActive ? "#21C6CF" : "rgba(33,198,207,0.5)"}
             />
-            {/* Label */}
             <text
               x={nx}
               y={ny + 28}
               textAnchor="middle"
               fontSize="7.5"
               fill={isActive ? "#21C6CF" : "rgba(33,198,207,0.55)"}
-              fontFamily="monospace"
               letterSpacing="1"
             >
               {step}
@@ -694,8 +399,6 @@ function AutomationVisual() {
           </g>
         );
       })}
-
-      {/* Orbiting dot on outer ring */}
       <circle r="5" fill="#21C6CF" filter="url(#aGlow)">
         <animateMotion dur="4s" repeatCount="indefinite">
           <mpath href="#outerPath" />
@@ -707,8 +410,6 @@ function AutomationVisual() {
         fill="none"
         stroke="none"
       />
-
-      {/* Core */}
       <circle
         cx={cx}
         cy={cy}
@@ -732,23 +433,13 @@ function AutomationVisual() {
         textAnchor="middle"
         fontSize="8"
         fill="#21C6CF"
-        fontFamily="monospace"
         letterSpacing="1"
       >
         AGENT
       </text>
-      <text
-        x={cx}
-        y={cy + 8}
-        textAnchor="middle"
-        fontSize="8"
-        fill="#21C6CF"
-        fontFamily="monospace"
-      >
+      <text x={cx} y={cy + 8} textAnchor="middle" fontSize="8" fill="#21C6CF">
         CORE
       </text>
-
-      {/* Right panel — live log */}
       <rect
         x="320"
         y="80"
@@ -773,7 +464,6 @@ function AutomationVisual() {
         textAnchor="middle"
         fontSize="7.5"
         fill="rgba(33,198,207,0.7)"
-        fontFamily="monospace"
         letterSpacing="2"
       >
         LIVE LOG
@@ -792,7 +482,6 @@ function AutomationVisual() {
             y={107 + i * 20}
             fontSize="7"
             fill="rgba(33,198,207,0.45)"
-            fontFamily="monospace"
           >
             {time}
           </text>
@@ -801,8 +490,7 @@ function AutomationVisual() {
             y={118 + i * 20}
             fontSize="7.5"
             fill="rgba(255,255,255,0.65)"
-            fontFamily="monospace"
-            filter={i === 4 || i === 5 ? "url(#aSoftGlow)" : undefined}
+            filter={i >= 4 ? "url(#aSoftGlow)" : undefined}
           >
             {msg}
             {i === 5 && (
@@ -820,7 +508,6 @@ function AutomationVisual() {
   );
 }
 
-/* ── 4. IoT + AI — Radar sweep + device mesh with animated signal rings ── */
 function IoTVisual() {
   const devices = [
     [110, 85, "SENSOR"],
@@ -865,8 +552,6 @@ function IoTVisual() {
           <circle cx="240" cy="170" r="120" />
         </clipPath>
       </defs>
-
-      {/* Radar background */}
       {[120, 90, 60, 30].map((r, i) => (
         <circle
           key={i}
@@ -878,7 +563,6 @@ function IoTVisual() {
           strokeWidth="1"
         />
       ))}
-      {/* Radar crosshairs */}
       <line
         x1="240"
         y1="50"
@@ -895,28 +579,11 @@ function IoTVisual() {
         stroke="rgba(33,198,207,0.07)"
         strokeWidth="1"
       />
-
-      {/* Radar sweep */}
       <g clipPath="url(#radarClip)">
         <path
           d="M240,170 L360,170 A120,120 0 0,0 240,50 Z"
           fill="url(#radarGrad)"
           opacity="0.8"
-        >
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="0 240 170"
-            to="360 240 170"
-            dur="4s"
-            repeatCount="indefinite"
-          />
-        </path>
-        {/* Sweep trail */}
-        <path
-          d="M240,170 L354,144 A120,120 0 0,0 240,50 Z"
-          fill="rgba(33,198,207,0.06)"
-          opacity="0.6"
         >
           <animateTransform
             attributeName="transform"
@@ -936,11 +603,9 @@ function IoTVisual() {
         stroke="rgba(33,198,207,0.25)"
         strokeWidth="1.5"
       />
-
-      {/* Mesh edges */}
       {edges.map(([a, b], i) => {
-        const [x1, y1] = devices[a];
-        const [x2, y2] = devices[b];
+        const [x1, y1] = devices[a],
+          [x2, y2] = devices[b];
         return (
           <line
             key={i}
@@ -962,13 +627,10 @@ function IoTVisual() {
           </line>
         );
       })}
-
-      {/* Device nodes */}
       {devices.map(([x, y, label], i) => {
         const isHub = i === 6;
         return (
           <g key={i} filter={isHub ? "url(#iGlow)" : undefined}>
-            {/* Pulse ring */}
             <circle
               cx={x}
               cy={y}
@@ -1009,7 +671,6 @@ function IoTVisual() {
               textAnchor="middle"
               fontSize={isHub ? 8 : 7}
               fill={isHub ? "#21C6CF" : "rgba(33,198,207,0.7)"}
-              fontFamily="monospace"
               letterSpacing="0.5"
             >
               {label}
@@ -1017,43 +678,211 @@ function IoTVisual() {
           </g>
         );
       })}
+    </svg>
+  );
+}
 
-      {/* Live status badges */}
+function DataVisual() {
+  const barHeights = [55, 80, 45, 95, 60, 110, 75, 90, 50, 85];
+  return (
+    <svg
+      viewBox="0 0 480 340"
+      className="w-full h-full"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#21C6CF" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#21C6CF" stopOpacity="0.2" />
+        </linearGradient>
+        <filter id="dGlow">
+          <feGaussianBlur stdDeviation="2.5" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <clipPath id="termClip">
+          <rect x="20" y="20" width="240" height="200" rx="4" />
+        </clipPath>
+      </defs>
+      <rect
+        x="20"
+        y="20"
+        width="240"
+        height="200"
+        rx="6"
+        fill="rgba(10,10,10,0.9)"
+        stroke="rgba(33,198,207,0.35)"
+        strokeWidth="1"
+      />
+      <rect
+        x="20"
+        y="20"
+        width="240"
+        height="24"
+        rx="6"
+        fill="rgba(33,198,207,0.12)"
+      />
+      <circle cx="38" cy="32" r="4" fill="rgba(33,198,207,0.4)" />
+      <circle cx="52" cy="32" r="4" fill="rgba(33,198,207,0.25)" />
+      <circle cx="66" cy="32" r="4" fill="rgba(33,198,207,0.15)" />
+      <text
+        x="140"
+        y="36"
+        textAnchor="middle"
+        fontSize="8"
+        fill="rgba(33,198,207,0.7)"
+      >
+        pipeline.stream — bash
+      </text>
+      <g clipPath="url(#termClip)">
+        {[
+          "→ ingesting kafka.stream.prod    [OK]",
+          "→ schema validated  v4.2.1       [OK]",
+          "→ transform delta_lake_write     [··]",
+          "→ quality_check null_rate: 0.2%  [OK]",
+          "→ enrichment geo_resolve         [OK]",
+          "→ load warehouse.fact_events     [··]",
+          "→ partition pruning  -38% scan   [OK]",
+        ].map((line, i) => (
+          <text
+            key={i}
+            x="28"
+            y={62 + i * 22}
+            fontSize="8.2"
+            fill={
+              line.includes("[OK]")
+                ? "rgba(33,198,207,0.85)"
+                : "rgba(255,255,255,0.45)"
+            }
+          >
+            {line}
+          </text>
+        ))}
+        <rect x="28" y="212" width="7" height="11" fill="#21C6CF">
+          <animate
+            attributeName="opacity"
+            values="1;0;1"
+            dur="0.9s"
+            repeatCount="indefinite"
+          />
+        </rect>
+      </g>
+      <rect
+        x="275"
+        y="20"
+        width="185"
+        height="200"
+        rx="6"
+        fill="rgba(10,10,10,0.8)"
+        stroke="rgba(33,198,207,0.2)"
+        strokeWidth="1"
+      />
+      <text
+        x="367"
+        y="38"
+        textAnchor="middle"
+        fontSize="8"
+        fill="rgba(33,198,207,0.6)"
+        letterSpacing="2"
+      >
+        THROUGHPUT / s
+      </text>
+      {[0, 1, 2, 3].map((i) => (
+        <line
+          key={i}
+          x1="285"
+          y1={165 - i * 35}
+          x2="450"
+          y2={165 - i * 35}
+          stroke="rgba(33,198,207,0.07)"
+          strokeWidth="1"
+        />
+      ))}
+      {barHeights.map((h, i) => (
+        <g key={i}>
+          <rect
+            x={288 + i * 16}
+            y={165 - h}
+            width="11"
+            height={h}
+            rx="2"
+            fill="url(#barGrad)"
+            filter="url(#dGlow)"
+          >
+            <animate
+              attributeName="height"
+              from="0"
+              to={h}
+              dur={`${0.6 + i * 0.08}s`}
+              fill="freeze"
+              begin={`${i * 0.05}s`}
+            />
+            <animate
+              attributeName="y"
+              from="165"
+              to={165 - h}
+              dur={`${0.6 + i * 0.08}s`}
+              fill="freeze"
+              begin={`${i * 0.05}s`}
+            />
+          </rect>
+          <rect
+            x={288 + i * 16}
+            y={165 - h}
+            width="11"
+            height="3"
+            rx="1"
+            fill="#21C6CF"
+            opacity="0.9"
+            filter="url(#dGlow)"
+          >
+            <animate
+              attributeName="y"
+              from="165"
+              to={165 - h}
+              dur={`${0.6 + i * 0.08}s`}
+              fill="freeze"
+              begin={`${i * 0.05}s`}
+            />
+          </rect>
+        </g>
+      ))}
       {[
-        ["ONLINE", "9/9", 330, 28],
-        ["ALERTS", "0", 420, 28],
-        ["LATENCY", "8ms", 330, 300],
-      ].map(([lbl, val, x, y], i) => (
+        ["RECORDS/S", "4.2M", 60],
+        ["LATENCY", "12ms", 200],
+        ["UPTIME", "99.98%", 340],
+      ].map(([label, val, x], i) => (
         <g key={i}>
           <rect
             x={x}
-            y={y}
-            width="65"
-            height="28"
-            rx="3"
-            fill="rgba(33,198,207,0.07)"
-            stroke="rgba(33,198,207,0.25)"
+            y="238"
+            width="100"
+            height="48"
+            rx="4"
+            fill="rgba(33,198,207,0.06)"
+            stroke="rgba(33,198,207,0.2)"
             strokeWidth="1"
           />
           <text
-            x={x + 32}
-            y={y + 10}
+            x={x + 50}
+            y="256"
             textAnchor="middle"
-            fontSize="6.5"
+            fontSize="7.5"
             fill="rgba(33,198,207,0.5)"
-            fontFamily="monospace"
-            letterSpacing="1"
+            letterSpacing="2"
           >
-            {lbl}
+            {label}
           </text>
           <text
-            x={x + 32}
-            y={y + 22}
+            x={x + 50}
+            y="275"
             textAnchor="middle"
-            fontSize="11"
+            fontSize="16"
             fill="#21C6CF"
-            fontFamily="monospace"
             fontWeight="bold"
+            filter="url(#dGlow)"
           >
             {val}
           </text>
@@ -1063,7 +892,6 @@ function IoTVisual() {
   );
 }
 
-/* ── 5. CLOUD & AI DEPLOYMENT — Layered infra stack with health indicators ── */
 function CloudVisual() {
   const layers = [
     { label: "CDN / EDGE", y: 40, color: "0.55", active: true },
@@ -1093,11 +921,8 @@ function CloudVisual() {
           </feMerge>
         </filter>
       </defs>
-
-      {/* ── Stack layers ── */}
       {layers.map((lyr, i) => (
         <g key={i}>
-          {/* Layer body */}
           <rect
             x="30"
             y={lyr.y}
@@ -1109,7 +934,6 @@ function CloudVisual() {
             strokeWidth={lyr.active ? 1.5 : 1}
             filter={lyr.active ? "url(#clGlow)" : undefined}
           />
-          {/* Left accent bar */}
           <rect
             x="30"
             y={lyr.y}
@@ -1125,12 +949,10 @@ function CloudVisual() {
             fill={
               lyr.active ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.4)"
             }
-            fontFamily="monospace"
             letterSpacing="1"
           >
             {lyr.label}
           </text>
-          {/* Health dot */}
           <circle
             cx="265"
             cy={lyr.y + 19}
@@ -1148,7 +970,6 @@ function CloudVisual() {
               />
             )}
           </circle>
-          {/* Connecting arrow down */}
           {i < layers.length - 1 && (
             <g>
               <line
@@ -1176,8 +997,6 @@ function CloudVisual() {
           )}
         </g>
       ))}
-
-      {/* ── Pod cluster (right) ── */}
       <rect
         x="305"
         y="30"
@@ -1194,17 +1013,15 @@ function CloudVisual() {
         textAnchor="middle"
         fontSize="8"
         fill="rgba(33,198,207,0.6)"
-        fontFamily="monospace"
         letterSpacing="2"
       >
         POD CLUSTER
       </text>
-
       {pods.map((pod, i) => {
-        const col = i % 2;
-        const row = Math.floor(i / 2);
-        const px = 315 + col * 72;
-        const py = 62 + row * 68;
+        const col = i % 2,
+          row = Math.floor(i / 2);
+        const px = 315 + col * 72,
+          py = 62 + row * 68;
         const util = [82, 76, 91, 45, 60, 38][i];
         return (
           <g key={i}>
@@ -1224,11 +1041,9 @@ function CloudVisual() {
               textAnchor="middle"
               fontSize="7.5"
               fill="rgba(33,198,207,0.8)"
-              fontFamily="monospace"
             >
               {pod}
             </text>
-            {/* Utilisation bar */}
             <rect
               x={px + 6}
               y={py + 22}
@@ -1260,56 +1075,12 @@ function CloudVisual() {
               textAnchor="middle"
               fontSize="7"
               fill="rgba(255,255,255,0.4)"
-              fontFamily="monospace"
             >
               {util}%
             </text>
           </g>
         );
       })}
-
-      {/* ── Bottom metrics ── */}
-      {[
-        ["DEPLOY TIME", "43s", 42],
-        ["REPLICAS", "12×", 180],
-        ["ERROR RATE", "0.01%", 318],
-      ].map(([lbl, val, x], i) => (
-        <g key={i}>
-          <rect
-            x={x}
-            y="298"
-            width="100"
-            height="32"
-            rx="3"
-            fill="rgba(33,198,207,0.05)"
-            stroke="rgba(33,198,207,0.18)"
-            strokeWidth="1"
-          />
-          <text
-            x={x + 50}
-            y="311"
-            textAnchor="middle"
-            fontSize="7"
-            fill="rgba(33,198,207,0.45)"
-            fontFamily="monospace"
-            letterSpacing="2"
-          >
-            {lbl}
-          </text>
-          <text
-            x={x + 50}
-            y="324"
-            textAnchor="middle"
-            fontSize="12"
-            fill="#21C6CF"
-            fontFamily="monospace"
-            fontWeight="bold"
-            filter="url(#clGlow)"
-          >
-            {val}
-          </text>
-        </g>
-      ))}
     </svg>
   );
 }
@@ -1322,30 +1093,30 @@ const visuals = {
   cloud: CloudVisual,
 };
 
-// ─── useInView hook ───────────────────────────────────────────────────────────
+const fix = (n) => Number(n.toFixed(4));
+
+// ─── useInView ────────────────────────────────────────────────────────────────
 
 function useInView(threshold = 0.15) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.disconnect();
+          obs.disconnect();
         }
       },
       { threshold },
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
   }, [threshold]);
-
   return [ref, visible];
 }
 
-// ─── Animated Section ─────────────────────────────────────────────────────────
+// ─── Reveal wrapper ───────────────────────────────────────────────────────────
 
 function Reveal({ children, delay = 0, className = "" }) {
   const [ref, visible] = useInView();
@@ -1355,8 +1126,8 @@ function Reveal({ children, delay = 0, className = "" }) {
       className={className}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(32px)",
-        transition: `opacity 0.75s ease ${delay}ms, transform 0.75s ease ${delay}ms`,
+        transform: visible ? "translateY(0)" : "translateY(28px)",
+        transition: `opacity 0.8s ease ${delay}ms, transform 0.8s ease ${delay}ms`,
       }}
     >
       {children}
@@ -1364,139 +1135,164 @@ function Reveal({ children, delay = 0, className = "" }) {
   );
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+// ─── Main Page ────────────────────────────────────────────────────────────────
 
 export default function ServicesPage() {
   return (
-    <main
-      style={{ color: "#fff", fontFamily: "'Syne', 'Space Mono', monospace" }}
-      className="bg-linear-to-r from-[#140c30] via-[#153D4C] to-[#16A085] min-h-screen overflow-x-hidden"
-    >
-      {/* Google Fonts */}
+    <main className="min-h-screen overflow-x-hidden bg-linear-to-r from-[#140c30] via-[#153D4C] to-[#16A085] text-white pt-12">
+      {/* Global styles */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; }
 
-        .teal { color: #21C6CF; }
 
-        .glow-btn {
-          background: rgba(40,231,197,0.1);
-          border: 1px solid rgba(40,231,197,0.4);
+        /* Glass card */
+        .glass-card {
+          background: linear-gradient(135deg,
+            rgba(255,255,255,0.04) 0%,
+            rgba(33,198,207,0.03) 40%,
+            rgba(255,255,255,0.02) 100%
+          );
+          backdrop-filter: blur(20px) saturate(1.4);
+          -webkit-backdrop-filter: blur(20px) saturate(1.4);
+          border: 1px solid rgba(33,198,207,0.12);
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.06),
+            inset 0 -1px 0 rgba(33,198,207,0.04),
+            0 8px 32px rgba(0,0,0,0.4),
+            0 2px 8px rgba(0,0,0,0.2);
+        }
+        .glass-card:hover {
+          border-color: rgba(33,198,207,0.22);
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.08),
+            inset 0 -1px 0 rgba(33,198,207,0.06),
+            0 12px 48px rgba(0,0,0,0.5),
+            0 0 60px rgba(33,198,207,0.06),
+            0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Visual panel glass */
+        .glass-visual {
+          background: linear-gradient(145deg,
+            rgba(33,198,207,0.05) 0%,
+            rgba(8,13,24,0.6) 50%,
+            rgba(33,198,207,0.03) 100%
+          );
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border: 1px solid rgba(33,198,207,0.1);
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.04),
+            0 8px 32px rgba(0,0,0,0.5),
+            0 0 80px rgba(33,198,207,0.04);
+        }
+
+        /* Glow button */
+        .btn-primary {
+          background: linear-gradient(135deg, rgba(33,198,207,0.15), rgba(40,231,197,0.08));
+          border: 1px solid rgba(33,198,207,0.4);
           color: #28E7C5;
-          padding: 14px 36px;
-          font-family: 'Space Mono', monospace;
-          font-size: 13px;
-          letter-spacing: 2px;
-          cursor: pointer;
           transition: all 0.3s ease;
-          text-transform: uppercase;
-          display: inline-block;
-          text-decoration: none;
           position: relative;
           overflow: hidden;
         }
-        .glow-btn::before {
+        .btn-primary::before {
           content: '';
           position: absolute;
           inset: 0;
-          background: rgba(33,198,207,0.08);
-          transform: translateX(-100%);
-          transition: transform 0.4s ease;
+          background: linear-gradient(135deg, rgba(33,198,207,0.2), rgba(40,231,197,0.1));
+          opacity: 0;
+          transition: opacity 0.3s ease;
         }
-        .glow-btn:hover::before { transform: translateX(0); }
-        .glow-btn:hover {
+        .btn-primary:hover::before { opacity: 1; }
+        .btn-primary:hover {
           border-color: rgba(33,198,207,0.7);
-          box-shadow: 0 0 30px rgba(33,198,207,0.25), 0 0 60px rgba(33,198,207,0.1);
+          box-shadow: 0 0 28px rgba(33,198,207,0.2), 0 0 60px rgba(33,198,207,0.08);
           color: #fff;
+          transform: translateY(-1px);
         }
 
-        .service-card {
-          background: #0a0a0a;
-          border: 1px solid rgba(33,198,207,0.08);
-          transition: all 0.35s ease;
+        /* Feature pill */
+        .feature-pill {
+          background: rgba(33,198,207,0.06);
+          border: 1px solid rgba(33,198,207,0.12);
+          transition: all 0.2s ease;
         }
-        .service-card:hover {
-          border-color: rgba(33,198,207,0.22);
-          box-shadow: 0 0 30px rgba(33,198,207,0.1);
-          transform: translateY(-4px);
-        }
-
-        .visual-wrap {
-          background: rgba(33,198,207,0.03);
-          border: 1px solid rgba(33,198,207,0.1);
-          overflow: hidden;
-          transition: box-shadow 0.4s ease;
-        }
-        .visual-wrap:hover {
-          box-shadow: 0 0 40px rgba(33,198,207,0.15);
+        .feature-pill:hover {
+          background: rgba(33,198,207,0.1);
+          border-color: rgba(33,198,207,0.25);
         }
 
-        .feature-dot {
-          width: 6px; height: 6px;
-          border-radius: 50%;
-          background: #21C6CF;
-          flex-shrink: 0;
-          margin-top: 7px;
-          box-shadow: 0 0 8px rgba(33,198,207,0.6);
+        /* Number badge */
+        .number-badge {
+          background: linear-gradient(135deg, rgba(33,198,207,0.12), rgba(33,198,207,0.04));
+          border: 1px solid rgba(33,198,207,0.2);
         }
 
-        .section-label {
-          font-family: 'Space Mono', monospace;
-          font-size: 11px;
-          letter-spacing: 4px;
+        /* Separator glow */
+        .sep-line {
+          background: linear-gradient(90deg, transparent, rgba(33,198,207,0.3), transparent);
+        }
+
+        /* Teal glow text */
+        .teal-glow {
           color: #28E7C5;
-          text-transform: uppercase;
+          text-shadow: 0 0 30px rgba(40,231,197,0.4);
         }
 
-        .divider-line {
-          width: 40px; height: 1px;
-          background: linear-gradient(90deg, #21C6CF, transparent);
-        }
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #080d18; }
+        ::-webkit-scrollbar-thumb { background: rgba(33,198,207,0.3); border-radius: 2px; }
       `}</style>
 
-      {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center">
-        {/* Radial glow */}
+      {/* ── BACKGROUND ORBS (decorative, fixed) ── */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div
           style={{
             position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
+            top: "-20%",
+            left: "-10%",
             width: "600px",
             height: "600px",
+            borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(33,198,207,0.06) 0%, transparent 70%)",
-            pointerEvents: "none",
+              "radial-gradient(circle, rgba(33,198,207,0.06) 0%, transparent 65%)",
           }}
         />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-10%",
+            right: "-10%",
+            width: "500px",
+            height: "500px",
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(40,231,197,0.04) 0%, transparent 65%)",
+          }}
+        />
+      </div>
 
-        <div className="max-w-300 mx-auto px-6 sm:px-10 lg:px-16 relative z-1 text-center flex flex-col items-center">
+      {/* ── HERO ── */}
+      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 lg:px-12 ">
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
           <Reveal>
+            {/* Pill badge */}
             <div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 font-display"
               style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                padding: "6px 14px",
-                borderRadius: "999px",
-                marginBottom: "26px",
-
                 background: "rgba(33,198,207,0.08)",
-                border: "1px solid rgba(33,198,207,0.25)",
-                boxShadow: "0 0 18px rgba(33,198,207,0.12)",
-
-                fontFamily: "'Space Mono', monospace",
-                fontSize: "11px",
+                border: "1px solid rgba(33,198,207,0.2)",
+                boxShadow: "0 0 20px rgba(33,198,207,0.1)",
+                fontSize: "10px",
                 letterSpacing: "3px",
-                textTransform: "uppercase",
                 color: "#21C6CF",
-                width: "fit-content",
               }}
             >
-              {/* dot */}
               <span
                 style={{
                   width: "6px",
@@ -1509,254 +1305,335 @@ export default function ServicesPage() {
               WHAT WE DO
             </div>
           </Reveal>
+
           <Reveal delay={100}>
             <h1
-              className="text-[2.4rem] sm:text-[3.2rem] lg:text-[5rem] font-bold text-white leading-[1.08] tracking-[-0.03em] mb-6"
-              style={{ fontFamily: "Inter, sans-serif" }}
+              className="font-display font-extrabold text-white leading-tight tracking-tight mb-6"
+              style={{
+                fontSize: "clamp(2.2rem,6vw,5rem)",
+                letterSpacing: "-0.03em",
+              }}
             >
-              Intelligence <span className="text-[#28E7C5]">engineered</span>
-              <br />
-              for the{" "}
+              Intelligence <span className="teal-glow">engineered</span>
+              <br className="hidden sm:block" /> for the{" "}
               <span className="relative inline-block">
-                <span className="text-[#28E7C5]">real world.</span>
-                <span className="absolute -bottom-1 left-0 right-0 h-px bg-linear-to-r from-[#21C6CF] to-transparent" />
+                <span className="teal-glow">real world.</span>
+                <span
+                  className="absolute -bottom-1 left-0 right-0 h-px"
+                  style={{
+                    background: "linear-gradient(90deg, #21C6CF, transparent)",
+                  }}
+                />
               </span>
             </h1>
           </Reveal>
+
           <Reveal delay={200}>
             <p
+              className="mx-auto mb-10 leading-relaxed"
               style={{
-                fontSize: "18px",
-                color: "rgba(255,255,255,0.55)",
-                lineHeight: 1.7,
-                maxWidth: "720px",
-                margin: "0 0 48px",
-                fontFamily: "Inter, sans-serif",
-                fontWeight: 400,
+                fontSize: "clamp(15px,2vw,18px)",
+                color: "rgba(255,255,255,0.5)",
+                maxWidth: "620px",
+                fontWeight: 300,
               }}
             >
               From strategy to deployment — we build AI systems that operate at
-              the intersection of precision, scale, and impact.
+              the intersection of precision, scale, and lasting impact.
             </p>
           </Reveal>
+
           <Reveal delay={300}>
-            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+            <div className="flex flex-wrap gap-3 justify-center">
               <a
                 href="#services"
-                className="glow-btn"
-                style={{
-                  background: "#28E7C5",
-                  borderColor: "#28E7C5",
-                  color: "#06201c",
-                }}
+                className="btn-primary font-display rounded-xl px-7 py-3.5 text-sm font-semibold tracking-widest uppercase"
               >
                 Explore Services
               </a>
-
               <a
-                href="#cta"
-                className="glow-btn"
+                href="#contact"
+                className="font-display rounded-xl px-7 py-3.5 text-sm font-semibold tracking-widest uppercase"
                 style={{
-                  background: "transparent",
-                  color: "#28E7C5",
-                  borderColor: "rgba(40,231,197,0.4)",
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "rgba(255,255,255,0.6)",
+                  transition: "all 0.3s ease",
                 }}
               >
                 Contact Us
               </a>
             </div>
           </Reveal>
+
+          {/* Scroll indicator */}
+          <Reveal delay={600}>
+            <div className="flex flex-col items-center mt-16 gap-2 opacity-40">
+              <span
+                className="font-display text-xs tracking-widest"
+                style={{ color: "#21C6CF" }}
+              >
+                SCROLL
+              </span>
+              <div
+                style={{
+                  width: "1px",
+                  height: "40px",
+                  background:
+                    "linear-gradient(to bottom, #21C6CF, transparent)",
+                }}
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── MAIN SERVICES ─────────────────────────────────────────────────── */}
-      <section id="services" style={{ paddingTop: "80px" }}>
-        {services.map((svc, i) => {
-          const Visual = visuals[svc.visual];
-          const isEven = i % 2 !== 0;
-          return (
-            <ServiceSection
-              key={svc.id}
-              svc={svc}
-              Visual={Visual}
-              isEven={isEven}
-              index={i}
-            />
-          );
-        })}
+      {/* ── SERVICES ── */}
+      <section id="services" className="relative z-10 py-8">
+        {services.map((svc, i) => (
+          <ServiceCard key={svc.id} svc={svc} index={i} />
+        ))}
       </section>
     </main>
   );
 }
 
-// ─── Service Section ──────────────────────────────────────────────────────────
+// ─── Service Card ─────────────────────────────────────────────────────────────
 
-function ServiceSection({ svc, Visual, isEven, index }) {
-  const [ref, visible] = useInView(0.1);
+function ServiceCard({ svc, index }) {
+  const [ref, visible] = useInView(0.08);
+  const Visual = visuals[svc.visual];
+  const isEven = index % 2 !== 0;
 
   return (
     <div
       ref={ref}
-      style={{
-        padding: "100px 0",
-        borderBottom: "1px solid rgba(33,198,207,0.06)",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      className="relative py-12 sm:py-20 lg:py-28 px-4 sm:px-8 lg:px-12"
+      style={{ borderBottom: "1px solid rgba(33,198,207,0.05)" }}
     >
-      {/* bg number */}
+      {/* Ambient glow per section */}
       <div
         style={{
           position: "absolute",
-          [isEven ? "left" : "right"]: "40px",
+          [isEven ? "right" : "left"]: "0",
           top: "50%",
           transform: "translateY(-50%)",
-          fontSize: "160px",
-          fontWeight: 800,
-          fontFamily: "Inter, sans-serif",
-          color: "rgba(33,198,207,0.025)",
-          lineHeight: 1,
-          userSelect: "none",
+          width: "40%",
+          height: "60%",
+          background: `radial-gradient(ellipse, rgba(33,198,207,0.04) 0%, transparent 70%)`,
           pointerEvents: "none",
         }}
-      >
-        {String(index + 1).padStart(2, "0")}
-      </div>
+      />
 
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 40px",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "80px",
-          alignItems: "center",
-        }}
-      >
-        {/* Visual */}
+      <div className="max-w-6xl mx-auto">
+        {/* ── GLASS CARD WRAPPER ── */}
         <div
+          className="glass-card rounded-2xl sm:rounded-3xl overflow-hidden"
           style={{
-            order: isEven ? 1 : 2,
             opacity: visible ? 1 : 0,
             transform: visible
-              ? "translateX(0)"
-              : `translateX(${isEven ? "-40px" : "40px"})`,
-            transition: "opacity 0.8s ease, transform 0.8s ease",
+              ? "translateY(0) scale(1)"
+              : "translateY(40px) scale(0.98)",
+            transition: "opacity 0.9s ease, transform 0.9s ease",
           }}
         >
+          {/* Top accent bar */}
           <div
-            className="visual-wrap"
             style={{
-              borderRadius: "4px",
-              height: "360px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "20px",
-              position: "relative",
+              height: "2px",
+              background: `linear-gradient(90deg, transparent, rgba(33,198,207,0.6), rgba(40,231,197,0.4), transparent)`,
             }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "radial-gradient(circle at 50% 50%, rgba(33,198,207,0.04) 0%, transparent 70%)",
-              }}
-            />
-            <Visual />
-          </div>
-        </div>
+          />
 
-        {/* Content */}
-        <div
-          style={{
-            order: isEven ? 2 : 1,
-            opacity: visible ? 1 : 0,
-            transform: visible
-              ? "translateX(0)"
-              : `translateX(${isEven ? "40px" : "-40px"})`,
-            transition: "opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s",
-          }}
-        >
-          <p className="section-label" style={{ marginBottom: "16px" }}>
-            {String(index + 1).padStart(2, "0")} /{" "}
-            {String(services.length).padStart(2, "0")}
-          </p>
-          <h2
-            style={{
-              fontFamily: "Inter, sans-serif",
-              fontSize: "clamp(28px,3.5vw,46px)",
-              fontWeight: 800,
-              lineHeight: 1.1,
-              marginBottom: "12px",
-              letterSpacing: "-0.5px",
-            }}
+          <div
+            className={`flex flex-col ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"} gap-0`}
           >
-            {svc.title}
-          </h2>
-          <p
-            style={{
-              fontSize: "16px",
-              color: "#28E7C5",
-              fontFamily: "Inter, sans-serif",
-              marginBottom: "20px",
-              fontStyle: "italic",
-            }}
-          >
-            {svc.tagline}
-          </p>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "rgba(255,255,255,0.55)",
-              lineHeight: 1.8,
-              marginBottom: "32px",
-              fontFamily: "Inter, sans-serif",
-            }}
-          >
-            {svc.description}
-          </p>
-
-          {/* Features */}
-          <ul
-            style={{
-              listStyle: "none",
-              padding: 0,
-              margin: "0 0 36px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "12px",
-            }}
-          >
-            {svc.features.map((feat, j) => (
-              <li
-                key={j}
-                style={{
-                  display: "flex",
-                  gap: "14px",
-                  alignItems: "flex-start",
-                }}
-              >
-                <span className="feature-dot" />
+            {/* ── VISUAL PANEL ── */}
+            <div className="lg:w-[48%] relative">
+              <div className="glass-visual h-64 sm:h-80 lg:h-full min-h-[320px] flex items-center justify-center p-6 relative">
+                {/* Corner decorations */}
                 <span
                   style={{
-                    fontSize: "14px",
-                    color: "rgba(255,255,255,0.7)",
-                    fontFamily: "Inter, sans-serif",
-                    lineHeight: 1.6,
+                    position: "absolute",
+                    top: "12px",
+                    left: "12px",
+                    width: "16px",
+                    height: "16px",
+                    borderTop: "1px solid rgba(33,198,207,0.4)",
+                    borderLeft: "1px solid rgba(33,198,207,0.4)",
                   }}
+                />
+                <span
+                  style={{
+                    position: "absolute",
+                    top: "12px",
+                    right: "12px",
+                    width: "16px",
+                    height: "16px",
+                    borderTop: "1px solid rgba(33,198,207,0.4)",
+                    borderRight: "1px solid rgba(33,198,207,0.4)",
+                  }}
+                />
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: "12px",
+                    left: "12px",
+                    width: "16px",
+                    height: "16px",
+                    borderBottom: "1px solid rgba(33,198,207,0.4)",
+                    borderLeft: "1px solid rgba(33,198,207,0.4)",
+                  }}
+                />
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: "12px",
+                    right: "12px",
+                    width: "16px",
+                    height: "16px",
+                    borderBottom: "1px solid rgba(33,198,207,0.4)",
+                    borderRight: "1px solid rgba(33,198,207,0.4)",
+                  }}
+                />
+                {/* Inner radial */}
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background:
+                      "radial-gradient(circle at 50% 50%, rgba(33,198,207,0.04) 0%, transparent 65%)",
+                  }}
+                />
+                <div
+                  className="relative w-full h-full"
+                  style={{ minHeight: "260px" }}
                 >
-                  {feat}
-                </span>
-              </li>
-            ))}
-          </ul>
+                  <Visual />
+                </div>
+              </div>
+            </div>
 
-          <a href="#cta" className="glow-btn">
-            Learn More →
-          </a>
+            {/* ── CONTENT PANEL ── */}
+            <div className="lg:w-[52%] flex flex-col justify-center p-6 sm:p-8 lg:p-12">
+              {/* Number + index */}
+              <div className="flex items-center gap-3 mb-5">
+                <div
+                  className="number-badge rounded-lg px-3 py-1.5 font-display font-bold text-xs tracking-widest"
+                  style={{ color: "#21C6CF", letterSpacing: "3px" }}
+                >
+                  {svc.number}
+                </div>
+                <div
+                  style={{
+                    flex: 1,
+                    height: "1px",
+                    background:
+                      "linear-gradient(90deg, rgba(33,198,207,0.25), transparent)",
+                  }}
+                />
+                <span
+                  className="font-display text-xs tracking-widest"
+                  style={{ color: "rgba(33,198,207,0.35)" }}
+                >
+                  {svc.number} / 05
+                </span>
+              </div>
+
+              {/* Title */}
+              <h2
+                className="font-display font-extrabold text-white mb-3 leading-tight"
+                style={{
+                  fontSize: "clamp(20px,3vw,36px)",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {svc.title}
+              </h2>
+
+              {/* Tagline */}
+              <p
+                className="font-display text-sm sm:text-base mb-4 italic"
+                style={{ color: "#28E7C5", opacity: 0.85 }}
+              >
+                {svc.tagline}
+              </p>
+
+              {/* Description */}
+              <p
+                className="text-sm sm:text-base leading-relaxed mb-6"
+                style={{
+                  color: "rgba(255,255,255,0.45)",
+                  fontWeight: 300,
+                  lineHeight: 1.8,
+                }}
+              >
+                {svc.description}
+              </p>
+
+              {/* Separator */}
+              <div className="sep-line h-px mb-6" />
+
+              {/* Features */}
+              <ul className="flex flex-col gap-2.5 mb-8">
+                {svc.features.map((feat, j) => (
+                  <li
+                    key={j}
+                    className="feature-pill flex items-start gap-3 rounded-xl px-4 py-3"
+                  >
+                    {/* Dot */}
+                    <span
+                      style={{
+                        width: "6px",
+                        height: "6px",
+                        borderRadius: "50%",
+                        background: "#21C6CF",
+                        boxShadow: "0 0 8px rgba(33,198,207,0.7)",
+                        flexShrink: 0,
+                        marginTop: "6px",
+                      }}
+                    />
+                    <span
+                      className="text-sm leading-relaxed"
+                      style={{
+                        color: "rgba(255,255,255,0.65)",
+                        fontWeight: 300,
+                      }}
+                    >
+                      {feat}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <div>
+                <Link
+                  href="/#contact"
+                  className="btn-primary inline-flex items-center gap-2 font-display rounded-xl px-6 py-3 text-sm font-semibold tracking-wider uppercase"
+                >
+                  Get Started
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path
+                      d="M1 7h12M8 2l5 5-5 5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom accent */}
+          <div
+            style={{
+              height: "1px",
+              background: `linear-gradient(90deg, transparent, rgba(33,198,207,0.15), transparent)`,
+            }}
+          />
         </div>
       </div>
     </div>

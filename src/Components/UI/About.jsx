@@ -9,7 +9,7 @@ const CARDS = [
     heading: "Engineering Intelligence for Real-World Impact",
     body: "DatagenixAI is a technology-driven company focused on transforming businesses through practical AI solutions. With deep expertise in AI, Data Science, IoT, and Embedded Systems, we bridge the gap between advanced technology and real-world applications—especially for MSMEs and growing enterprises.",
     impacts: ["We don’t just understand AI—we make it work where it matters."],
-    footer: "From complexity to clarity. From ideas to impact",
+    footer: "From complexity to clarity.",
   },
   {
     symbol: "⬡",
@@ -17,7 +17,7 @@ const CARDS = [
     heading: "AI Solutions That Drive Growth, Efficiency, and Innovation",
     body: "We design and deliver AI-powered business automation, intelligent analytics, and smart product development solutions. From optimizing operations to building AI-driven systems and training future-ready professionals, DatagenixAI helps organizations unlock measurable growth and long-term value.",
     impacts: [
-      "Every solution we build is focused on outcomes—faster decisions, lower costs, and higher returns.",
+      "Every solution we build is focused on faster decisions higher returns.",
     ],
     footer: "We don’t sell AI tools. We deliver results.",
   },
@@ -28,7 +28,7 @@ const CARDS = [
     body: "Our vision is to make advanced AI accessible, affordable, and impactful for all—empowering businesses to scale smarter and individuals to build future-ready careers. We aim to create a world where AI is not a luxury, but a growth enabler for everyone.",
     impacts: [
       "Data Science, AI training and mentorship.",
-      "Enabling individuals and organizations to adapt, innovate, and lead in an AI-driven world.",
+      "Enabling individuals and organizations to adapt, innovate and lead in an AI-driven tech world.",
     ],
     footer: "Lead the future with smart AI.",
   },

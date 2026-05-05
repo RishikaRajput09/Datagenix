@@ -9,7 +9,7 @@ const AWARDS = [
     symbol: "◈",
     heading: "Felicitation for 'AIRIAA' in Pudhari Newspaper",
     body: "Launch of 'AIRIAA' — an AI-powered Admission & Information Assistant. Coverage on the launch of AI-driven admission assistance at PVPIT, recognising the innovation in student outreach.",
-    image: "/Images/Pudhari.jpg",
+    image: "/Images/Awards/Pudhari News VRK AIRIAA.png",
     imageAlt: "Pudhari Newspaper coverage of AIRIAA launch",
     imageLabel: "Pudhari Newspaper",
     footer: "AI transforming admissions, one student at a time.",
@@ -20,7 +20,7 @@ const AWARDS = [
     symbol: "⬡",
     heading: "Launch of 'AIRIAA' Featured in Sakal Newspaper",
     body: "Feature on AI making the admission process smarter and more inclusive. AIRIAA was designed to transform student engagement and streamline institutional processes across campuses.",
-    image: "/Images/Sakal.jpg",
+    image: "/Images/Awards/Sakaal News VRK AIRIAA.png",
     imageAlt: "Sakal Newspaper feature on AIRIAA",
     imageLabel: "Sakal Newspaper",
     footer: "Smarter admissions, broader reach.",
@@ -31,7 +31,7 @@ const AWARDS = [
     symbol: "◎",
     heading: "Higher Education & Digital News Portals",
     body: "We built and deployed 'AIRIAA' and received recognition from Infimit and digital higher-education portals for strengthening industry-academia collaboration through applied AI.",
-    image: "/Images/Infimit.png",
+    image: "/Images/Awards/The Infimit.png",
     imageAlt: "Infimit digital news portal coverage",
     imageLabel: "Infimit News Portal",
     footer: "Industry-academia bridges, built with AI.",
@@ -42,7 +42,7 @@ const AWARDS = [
     symbol: "◆",
     heading: "Prize at AI in Media Hackathon, Pune",
     body: "We won the prize at the 'AI in Media Hackathon, Pune' for presenting an innovative AI-driven solution — recognised for clarity of vision, real-world applicability, and impactful presentation.",
-    image: "/Images/Media.jpg",
+    image: "/Images/Awards/AI in Media VRK.png",
     imageAlt: "AI in Media Hackathon award ceremony",
     imageLabel: "AI in Media Hackathon",
     footer: "Innovation recognised, vision validated.",
@@ -53,7 +53,7 @@ const AWARDS = [
     symbol: "⬢",
     heading: "Leadership & Community Impact",
     body: "Our Founder & Director serves as Chartered President of the Rotaract Club of Sangli Midtown Synergy, leading social, professional, and community initiatives in collaboration with Rotaract and DatagenixAi.",
-    image: "/Images/Impact.jpg",
+    image: "/Images/Awards/Rotaract Club VRK.png",
     imageAlt: "Rotaract Club leadership and community impact",
     imageLabel: "Rotaract Club Sangli",
     footer: "Leading communities, shaping futures.",
@@ -64,7 +64,7 @@ const AWARDS = [
     symbol: "◉",
     heading: "Appreciation from AMIEE Association",
     body: "Received appreciation from AMIEE Association for conducting a Faculty Development Program on Applications of AI & ML in Electrical Engineering — empowering educators and professionals with AI-driven insights.",
-    image: "/Images/FDP.jpg",
+    image: "/Images/Awards/AMIEE VRK.png",
     imageAlt: "AMIEE Association appreciation certificate",
     imageLabel: "AMIEE Association",
     footer: "Empowering educators with AI knowledge.",
@@ -108,6 +108,8 @@ export default function AwardsSection() {
       id="awards"
       className="bg-transparent relative overflow-hidden py-8"
     >
+
+      
       {/* Ambient glow — left side */}
       <div className="absolute top-1/2 -translate-y-1/2 -left-25 w-100 h-100 bg-[radial-gradient(circle,rgba(33,198,207,0.06)_0%,transparent_70%)] pointer-events-none" />
 
@@ -143,6 +145,48 @@ export default function AwardsSection() {
 
       {/* ── Two-column split ── */}
       <div className="relative z-2 w-[97%] mx-auto flex flex-col lg:flex-row gap-0">
+
+        <div className="relative w-[97%] rounded-3xl lg:w-[52%] h-64 sm:h-80 lg:h-auto min-h-105 overflow-hidden">
+          <div
+            className="absolute inset-0"
+            style={{
+              opacity: animating ? 0 : 1,
+              transform: animating
+                ? direction === "next"
+                  ? "scale(1.04)"
+                  : "scale(0.97)"
+                : "scale(1)",
+              transition: "opacity 0.5s ease, transform 0.5s ease",
+            }}
+          >
+            {!imgErrors[current] ? (
+              <img
+                src={award.image}
+                alt={award.imageAlt}
+                onError={() =>
+                  setImgErrors((prev) => ({ ...prev, [current]: true }))
+                }
+                className="w-full h-full object-contain"
+              />
+            ) : (
+              <div className="w-full h-full bg-[#0d0d0d] flex flex-col items-center justify-center gap-4">
+                <span className="text-[4rem] text-[#21C6CF] opacity-20">
+                  {award.symbol}
+                </span>
+                <span className="font-['DM_Sans',sans-serif] text-[0.6rem] tracking-[0.2em] uppercase text-[rgba(33,198,207,0.3)]">
+                  {award.tag}
+                </span>
+              </div>
+            )}
+          </div>
+
+          <div className="absolute bottom-0 left-0 right-0 px-6 py-4 bg-none">
+            <span className="font-['DM_Sans',sans-serif] text-[0.58rem] font-medium tracking-[0.18em] uppercase text-[rgba(33,198,207,0.55)]">
+              {award.imageLabel}
+            </span>
+          </div>
+        </div>
+        
         {/* ── LEFT: Content panel ── */}
         <div className="flex flex-col justify-between w-full lg:w-[48%] px-6 sm:px-10 lg:px-16 pt-6 pb-10 lg:pb-12">
           {/* Card content */}
@@ -259,46 +303,7 @@ export default function AwardsSection() {
         </div>
 
         {/* ── RIGHT: Image panel ── */}
-        <div className="relative w-[97%] rounded-3xl lg:w-[52%] h-64 sm:h-80 lg:h-auto min-h-105 overflow-hidden">
-          <div
-            className="absolute inset-0"
-            style={{
-              opacity: animating ? 0 : 1,
-              transform: animating
-                ? direction === "next"
-                  ? "scale(1.04)"
-                  : "scale(0.97)"
-                : "scale(1)",
-              transition: "opacity 0.5s ease, transform 0.5s ease",
-            }}
-          >
-            {!imgErrors[current] ? (
-              <img
-                src={award.image}
-                alt={award.imageAlt}
-                onError={() =>
-                  setImgErrors((prev) => ({ ...prev, [current]: true }))
-                }
-                className="w-full h-full object-contain"
-              />
-            ) : (
-              <div className="w-full h-full bg-[#0d0d0d] flex flex-col items-center justify-center gap-4">
-                <span className="text-[4rem] text-[#21C6CF] opacity-20">
-                  {award.symbol}
-                </span>
-                <span className="font-['DM_Sans',sans-serif] text-[0.6rem] tracking-[0.2em] uppercase text-[rgba(33,198,207,0.3)]">
-                  {award.tag}
-                </span>
-              </div>
-            )}
-          </div>
-
-          <div className="absolute bottom-0 left-0 right-0 px-6 py-4 bg-none">
-            <span className="font-['DM_Sans',sans-serif] text-[0.58rem] font-medium tracking-[0.18em] uppercase text-[rgba(33,198,207,0.55)]">
-              {award.imageLabel}
-            </span>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

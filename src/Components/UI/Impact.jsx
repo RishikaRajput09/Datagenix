@@ -9,15 +9,15 @@ const CARDS = [
     symbol: "◈",
     subheading: "Smarter operations. Faster growth. Measurable results.",
     points: [
-    "Higher operational efficiency through AI-driven optimization",
-    "Data-driven decision making with real-time insights",
-    "Intelligent automation of repetitive business processes",
-    "AI agents for customer support, sales, and operations",
-    "End-to-end AI workflows for scalable business execution",
-    // "Predictive analytics for demand forecasting and planning",
-    // "Cost reduction through process and energy optimization",
-    // "Enhanced customer experience with personalization"
-  ],
+      "Higher operational efficiency through AI-driven optimization",
+      "Data-driven decision making with real-time insights",
+      "Intelligent automation of repetitive business processes",
+      "AI agents for customer support, sales, and operations",
+      "End-to-end AI workflows for scalable business execution",
+      // "Predictive analytics for demand forecasting and planning",
+      // "Cost reduction through process and energy optimization",
+      // "Enhanced customer experience with personalization"
+    ],
   },
   {
     id: "professionals",
@@ -25,15 +25,15 @@ const CARDS = [
     symbol: "⬡",
     subheading: "From learning AI to leading with AI.",
     points: [
-    "Real-world AI skills aligned with industry needs",
-    "Hands-on project-based learning and portfolio building",
-    "Industry mentorship from experts and practitioners",
-    "Career acceleration with in-demand AI capabilities",
-    "Exposure to live use cases and practical problem solving",
-    // "Increased employability and high-growth career paths",
-    // "Continuous upskilling in emerging AI technologies",
-    // "Confidence to build, deploy, and scale AI solutions"
-  ],
+      "Real-world AI skills aligned with industry needs",
+      "Hands-on project-based learning and portfolio building",
+      "Industry mentorship from experts and practitioners",
+      "Career acceleration with in-demand AI capabilities",
+      "Exposure to live use cases and practical problem solving",
+      // "Increased employability and high-growth career paths",
+      // "Continuous upskilling in emerging AI technologies",
+      // "Confidence to build, deploy, and scale AI solutions"
+    ],
   },
   {
     id: "society",
@@ -41,15 +41,15 @@ const CARDS = [
     symbol: "◎",
     subheading: "Responsible innovation for a smarter, inclusive future.",
     points: [
-    "Promotion of responsible and ethical AI adoption",
-    "Alignment with national initiatives like IndiaAI Mission",
-    "Support for entrepreneurship through Startup India",
-    "Contribution to manufacturing innovation via Make in India",
-    "Alignment with global Sustainable Development Goals",
-    // "Bridging the digital and skill gap in emerging technologies",
-    // "Enabling inclusive access to AI education and solutions",
-    // "Driving innovation that creates long-term societal value"
-  ],
+      "Promotion of responsible and ethical AI adoption",
+      "Alignment with national initiatives like IndiaAI Mission",
+      "Support for entrepreneurship through Startup India",
+      "Contribution to manufacturing innovation via Make in India",
+      "Alignment with global Sustainable Development Goals",
+      // "Bridging the digital and skill gap in emerging technologies",
+      // "Enabling inclusive access to AI education and solutions",
+      // "Driving innovation that creates long-term societal value"
+    ],
   },
 ];
 
@@ -136,7 +136,9 @@ export default function ImpactSection() {
             className="mx-auto max-w-2xl font-['Syne',sans-serif] text-[1.8rem] sm:text-[2.4rem] lg:text-[3rem] font-bold leading-[1.1] tracking-[-0.02em] text-white opacity-0 translate-y-8 transition-all duration-700 ease-out delay-150"
           >
             Creating Real-World{" "}
-            <span className="text-[#28E7C5]">Impact with AI</span>
+            <span className="text-[#28E7C5] whitespace-nowrap">
+              Impact with AI
+            </span>
           </h2>
         </div>
 

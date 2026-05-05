@@ -1,70 +1,71 @@
 "use client";
+
 import Link from "next/link";
-import { HoverBorderGradient } from "./noiseEffectButton";
 import { HexBackgroundLight } from "./HexBackgroundLight";
 
 const CTASection = () => {
   return (
     <section
       id="cta"
-      className="bg-[#f5f2ee] w-[97%] rounded-2xl mx-auto relative overflow-hidden py-4"
+      className="relative w-full overflow-hidden py-24 bg-transparent"
     >
+      {/* ================= BACKGROUND LAYER ================= */}
+
+      {/* Seamless gradient continuation */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,10,18,0)_0%,rgba(3,12,20,0.9)_40%,rgba(3,12,20,1)_100%)]" />
+      </div>
+
       {/* Hex background */}
       <HexBackgroundLight />
 
-      {/* Center glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-[radial-gradient(ellipse_at_center,rgba(13,155,163,0.08)_0%,transparent_70%)] pointer-events-none" />
+      {/* Top blend (merges with previous section) */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#020617]/80 to-transparent pointer-events-none" />
 
-      <div className="relative z-10 max-w-300 mx-auto px-4 sm:px-6 lg:px-10 text-center">
-        {/* Eyebrow */}
-        <div className="flex justify-center mb-4">
-          <div
-            className="
-      inline-flex items-center gap-2
-      px-4 py-1.5
-      rounded-full
-      border border-[rgba(13,155,163,0.4)]
-      bg-[rgba(13,155,163,0.1)]
-      backdrop-blur-md
-      shadow-[0_0_14px_rgba(13,155,163,0.18)]
-      transition-all duration-300
-      hover:shadow-[0_0_26px_rgba(13,155,163,0.45)]
-      hover:scale-[1.04]
-      cursor-pointer
-    "
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0d9ba3] shadow-[0_0_10px_rgba(13,155,163,0.7)]" />
+      {/* Ambient glow (main) */}
+      <div className="pointer-events-none absolute left-1/2 top-[-120px] h-[500px] w-[900px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.12)_0%,transparent_70%)]" />
 
-            <span className="text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#0d9ba3]">
+      {/* Ambient glow (secondary) */}
+      <div className="pointer-events-none absolute bottom-[-100px] right-1/3 h-[400px] w-[500px] bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.08)_0%,transparent_70%)]" />
+
+      {/* ================= CONTENT ================= */}
+
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-10 text-center">
+
+        {/* Badge */}
+        <div className="flex justify-center mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(33,198,207,0.35)] bg-[rgba(33,198,207,0.08)] backdrop-blur-md shadow-[0_0_14px_rgba(33,198,207,0.2)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shadow-[0_0_10px_#21C6CF]" />
+            <span className="text-[0.65rem] font-medium tracking-[0.18em] uppercase text-[#28E7C5]">
               Let’s Work Together
             </span>
           </div>
         </div>
 
-        {/* Headline */}
-        <h2 className="font-bold text-[#111111] leading-[1.15] tracking-[-0.02em] text-[1.7rem] sm:text-[2.2rem] lg:text-[2.8rem] max-w-240 mx-auto mb-4">
+        {/* Heading */}
+        <h2 className="font-bold text-white leading-[1.15] tracking-[-0.02em] text-[1.8rem] sm:text-[2.4rem] lg:text-[3rem] max-w-3xl mx-auto mb-5">
           The Future Won’t{" "}
           <span className="text-[#28E7C5]">Wait.</span> Why Should You?
         </h2>
 
-        {/* Short info */}
-        <p
-          className="font-['DM_Sans',sans-serif] text-[0.82rem] sm:text-[0.9rem] leading-[1.75] text-[rgba(0,0,0,0.45)] max-w-130 mx-auto mb-7"
-          style={{ fontWeight: 300 }}
-        >
-          AI is already transforming industries, careers, and opportunities. Those who act now will lead. Those who delay will follow. Let’s help you take the first step toward smarter growth and innovation.
+        {/* Description */}
+        <p className="font-['DM_Sans',sans-serif] text-[0.9rem] sm:text-[1rem] leading-[1.75] text-[rgba(255,255,255,0.6)] max-w-xl mx-auto mb-10">
+          AI is already transforming industries, careers, and opportunities.
+          Those who act now will lead. Those who delay will follow.
+          Let’s help you take the first step toward smarter growth and innovation.
         </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          {/* Primary — For Business */}
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          
+          {/* Primary */}
           <Link
             href="#contact"
-            className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#28E7C5] text-white font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] uppercase rounded-full transition-all duration-300 hover:bg-[#0b8a92] hover:shadow-[0_4px_20px_rgba(13,155,163,0.3)]"
+            className="group inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#28E7C5] text-[#071E26] font-['DM_Sans',sans-serif] text-[0.85rem] font-semibold tracking-[0.06em] uppercase rounded-[13px] transition-all duration-300 hover:bg-[#21C6CF] hover:shadow-[0_6px_25px_rgba(33,198,207,0.4)]"
           >
-            <span>•	Get Started Now </span>
+            <span>• Get Started Now</span>
             <svg
-              className="transition-transform duration-300 group-hover:translate-x-0.5"
+              className="transition-transform duration-300 group-hover:translate-x-1"
               width="14"
               height="14"
               viewBox="0 0 14 14"
@@ -80,14 +81,14 @@ const CTASection = () => {
             </svg>
           </Link>
 
-          {/* Secondary — For Learners */}
+          {/* Secondary */}
           <Link
             href="/Courses"
-            className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-[#28E7C5] font-['DM_Sans',sans-serif] text-[0.82rem] font-semibold tracking-[0.06em] uppercase rounded-full border border-[rgba(13,155,163,0.35)] transition-all duration-300 hover:border-[#0d9ba3] hover:bg-[rgba(13,155,163,0.06)]"
+            className="group inline-flex items-center gap-2.5 px-8 py-3.5 text-[#28E7C5] font-['DM_Sans',sans-serif] text-[0.85rem] font-semibold tracking-[0.06em] uppercase rounded-[13px] border border-[rgba(33,198,207,0.35)] transition-all duration-300 hover:border-[#21C6CF] hover:bg-[rgba(33,198,207,0.08)] hover:shadow-[0_0_20px_rgba(33,198,207,0.25)]"
           >
-            <span>•	Talk to AI Experts</span>
+            <span>• Talk to AI Experts</span>
             <svg
-              className="transition-transform duration-300 group-hover:translate-x-0.5"
+              className="transition-transform duration-300 group-hover:translate-x-1"
               width="14"
               height="14"
               viewBox="0 0 14 14"
@@ -102,6 +103,7 @@ const CTASection = () => {
               />
             </svg>
           </Link>
+
         </div>
       </div>
     </section>
