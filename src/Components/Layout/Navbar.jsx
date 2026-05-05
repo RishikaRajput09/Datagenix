@@ -230,7 +230,7 @@ transition-all duration-500 ease-in-out
             <div className="flex items-center gap-2 shrink-0">
               {/* Desktop CTA */}
               <Link
-                href="#consultation"
+                href="/Courses"
                 className="
                   hidden md:flex items-center
                   relative p-0.5 rounded-[15px] no-underline shrink-0
