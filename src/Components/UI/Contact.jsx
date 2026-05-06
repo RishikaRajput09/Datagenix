@@ -11,6 +11,7 @@ export default function ContactSection() {
     contactPref: "",
     phone: "",
     email: "",
+    message: "",
   });
   const [focused, setFocused] = useState(null);
   const [sending, setSending] = useState(false);
@@ -30,7 +31,6 @@ export default function ContactSection() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!form.intent) return alert("Select what you're looking for");
     if (!form.name) return alert("Name is required");
     if (!form.email) return alert("Email is required");
@@ -39,51 +39,32 @@ export default function ContactSection() {
 
     setSending(true);
 
-    // 1️⃣ Send to YOU (lead notification)
     emailjs
       .send(
-        "service_axxh0ra", // from EmailJS
-        "template_8ndb5nt", // from EmailJS
+        "service_axxh0ra",
+        "template_1m0k24g",
         {
-          intent: form.intent,
           name: form.name,
           email: form.email,
-          phone: form.phone,
+          intent: form.intent,
           contactPref: form.contactPref,
+          message: form.message,
         },
         "_zjpymKLLxbKMaBVW",
-      )
+      ) 
 
-      // 2️⃣ Send to USER (auto-reply)
-      .then(() => {
-        return emailjs.send(
-          "service_axxh0ra",
-          "template_1m0k24g", // 👈 new template
-          {
-            name: form.name,
-            email: form.email,
-            intent: form.intent,
-            contactPref: form.contactPref,
-          },
-          "_zjpymKLLxbKMaBVW",
-        );
-      })
-
-      // 3️⃣ Success
       .then(() => {
         setSending(false);
         setSent(true);
-
         setForm({
           intent: "",
           name: "",
           contactPref: "",
           phone: "",
           email: "",
+          message: "",
         });
       })
-
-      // ❌ Error
       .catch((err) => {
         console.error(err);
         setSending(false);
@@ -91,12 +72,10 @@ export default function ContactSection() {
       });
   };
 
-
   const inputStyle = (name) => ({
-    fontFamily: "'DM Sans',sans-serif",
     width: "100%",
-    background: "#0a0a0a",
-    border: `1px solid ${focused === name ? "#21C6CF" : "rgba(33,198,207,0.1)"}`,
+    background: "rgba(255,255,255,0.03)",
+    border: `1px solid ${focused === name ? "#21C6CF" : "rgba(33,198,207,0.12)"}`,
     boxShadow: focused === name ? "0 0 0 1px rgba(33,198,207,0.15)" : "none",
     borderRadius: "12px",
     padding: "11px 14px",
@@ -108,8 +87,7 @@ export default function ContactSection() {
   });
 
   const labelStyle = {
-    fontFamily: "'DM Sans',sans-serif",
-    color: "rgba(255,255,255,0.35)",
+    color: "rgba(255,255,255,1)",
     fontSize: "0.67rem",
     letterSpacing: "0.1em",
     textTransform: "uppercase",
@@ -117,32 +95,21 @@ export default function ContactSection() {
     display: "block",
   };
 
+  // Card style matching Image 2 — dark translucent with teal border tint
+  const cardStyle = {
+    background: "rgba(13,20,30,0.72)",
+    border: "1px solid rgba(33,198,207,0.18)",
+    borderRadius: "16px",
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
+    boxShadow:
+      "0 8px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(33,198,207,0.06)",
+  };
+
   const INFO_ITEMS = [
     {
-      label: "Location",
-      value:
-        "Nirmiti Elite 14, 502, Sangli, S. T. Colony, Vishrambag, Maharashtra 416415",
-      icon: (
-        <svg
-          viewBox="0 0 20 20"
-          style={{
-            width: 15,
-            height: 15,
-            fill: "none",
-            stroke: "#21C6CF",
-            strokeWidth: 1.5,
-            strokeLinecap: "round",
-            strokeLinejoin: "round",
-          }}
-        >
-          <path d="M10 11a3 3 0 100-6 3 3 0 000 6z" />
-          <path d="M10 1C6.13 1 3 4.13 3 8c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" />
-        </svg>
-      ),
-    },
-    {
       label: "Email",
-      value: "info@datagenixai.in",
+      value: "info@datagenix.in",
       icon: (
         <svg
           viewBox="0 0 20 20"
@@ -217,6 +184,143 @@ export default function ContactSection() {
       label: "Instagram",
       d: "M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2z",
     },
+  ];
+
+  const WHY_ITEMS = [
+    {
+      title: "Fast Response",
+      desc: "We reply within 24 hours, guaranteed.",
+      icon: (
+        <svg
+          viewBox="0 0 20 20"
+          style={{
+            width: 16,
+            height: 16,
+            fill: "none",
+            stroke: "#21C6CF",
+            strokeWidth: 1.6,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+          }}
+        >
+          <circle cx="10" cy="10" r="8" />
+          <path d="M10 5v5l3 3" />
+        </svg>
+      ),
+    },
+    {
+      title: "Free Consultation",
+      desc: "First call is on us — no strings attached.",
+      icon: (
+        <svg
+          viewBox="0 0 20 20"
+          style={{
+            width: 16,
+            height: 16,
+            fill: "none",
+            stroke: "#21C6CF",
+            strokeWidth: 1.6,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+          }}
+        >
+          <path d="M17 10c0 4-3.13 7-7 7a7.16 7.16 0 01-3.5-.9L3 17l.9-3.5A7.16 7.16 0 013 10c0-3.87 3.13-7 7-7s7 3.13 7 7z" />
+        </svg>
+      ),
+    },
+    {
+      title: "100% Confidential",
+      desc: "Your data and ideas are fully protected.",
+      icon: (
+        <svg
+          viewBox="0 0 20 20"
+          style={{
+            width: 16,
+            height: 16,
+            fill: "none",
+            stroke: "#21C6CF",
+            strokeWidth: 1.6,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+          }}
+        >
+          <rect x="4" y="9" width="12" height="9" rx="2" />
+          <path d="M7 9V6a3 3 0 016 0v3" />
+        </svg>
+      ),
+    },
+    {
+      title: "No-Code Solutions",
+      desc: "We build AI tools that work without technical skills.",
+      icon: (
+        <svg
+          viewBox="0 0 20 20"
+          style={{
+            width: 16,
+            height: 16,
+            fill: "none",
+            stroke: "#21C6CF",
+            strokeWidth: 1.6,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+          }}
+        >
+          <polyline points="5 8 2 10 5 12" />
+          <polyline points="15 8 18 10 15 12" />
+          <line x1="9" y1="14" x2="11" y2="6" />
+        </svg>
+      ),
+    },
+    {
+      title: "End-to-End Support",
+      desc: "From strategy to deployment, we've got you covered.",
+      icon: (
+        <svg
+          viewBox="0 0 20 20"
+          style={{
+            width: 16,
+            height: 16,
+            fill: "none",
+            stroke: "#21C6CF",
+            strokeWidth: 1.6,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+          }}
+        >
+          <path d="M10 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z" />
+        </svg>
+      ),
+    },
+    // {
+    //   title: "Real Business Impact",
+    //   desc: "Every solution is built for measurable ROI.",
+    //   icon: (
+    //     <svg viewBox="0 0 20 20" style={{ width: 16, height: 16, fill: "none", stroke: "#21C6CF", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" }}>
+    //       <polyline points="3 14 7 9 11 12 17 5" />
+    //       <polyline points="14 5 17 5 17 8" />
+    //     </svg>
+    //   ),
+    // },
+    // {
+    //   title: "India-Focused Expertise",
+    //   desc: "Built for MSMEs and Indian market dynamics.",
+    //   icon: (
+    //     <svg viewBox="0 0 20 20" style={{ width: 16, height: 16, fill: "none", stroke: "#21C6CF", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" }}>
+    //       <circle cx="10" cy="10" r="8" />
+    //       <path d="M2 10h16M10 2a14 14 0 010 16M10 2a14 14 0 000 16" />
+    //     </svg>
+    //   ),
+    // },
+    // {
+    //   title: "Ongoing Training",
+    //   desc: "We upskill your team so they own the AI tools.",
+    //   icon: (
+    //     <svg viewBox="0 0 20 20" style={{ width: 16, height: 16, fill: "none", stroke: "#21C6CF", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" }}>
+    //       <path d="M2 5l8-3 8 3v5c0 4-4 7-8 8-4-1-8-4-8-8V5z" />
+    //       <polyline points="7 10 9 12 13 8" />
+    //     </svg>
+    //   ),
+    // },
   ];
 
   const fadeIn = (delay) => ({
@@ -340,7 +444,6 @@ export default function ContactSection() {
         >
           <p
             style={{
-              fontFamily: "'DM Sans',sans-serif",
               fontWeight: 300,
               color: "rgba(255,255,255,0.38)",
               fontSize: "clamp(0.82rem, 2vw, 0.92rem)",
@@ -354,7 +457,7 @@ export default function ContactSection() {
           </p>
         </div>
 
-        {/* ── Two columns (stacks on mobile) ── */}
+        {/* Two columns */}
         <div
           style={{
             display: "grid",
@@ -368,12 +471,8 @@ export default function ContactSection() {
           {/* ── LEFT: Form ── */}
           <div
             style={{
-              background: "#0d0d0d",
-              border: "1px solid rgba(33,198,207,0.14)",
-              borderRadius: "16px",
+              ...cardStyle,
               padding: "clamp(18px, 3vw, 28px)",
-              boxShadow:
-                "0 0 40px rgba(33,198,207,0.05), 0 8px 40px rgba(0,0,0,0.4)",
               display: "flex",
               flexDirection: "column",
             }}
@@ -391,9 +490,8 @@ export default function ContactSection() {
             </h3>
             <p
               style={{
-                fontFamily: "'DM Sans',sans-serif",
                 fontWeight: 300,
-                color: "rgba(255,255,255,0.3)",
+                color: "rgba(255,255,255,1)",
                 fontSize: "0.77rem",
                 margin: "0 0 22px 0",
               }}
@@ -453,7 +551,6 @@ export default function ContactSection() {
                   </p>
                   <p
                     style={{
-                      fontFamily: "'DM Sans',sans-serif",
                       color: "rgba(255,255,255,0.38)",
                       fontSize: "0.78rem",
                       margin: 0,
@@ -471,10 +568,10 @@ export default function ContactSection() {
                       contactPref: "",
                       phone: "",
                       email: "",
+                      message: "",
                     });
                   }}
                   style={{
-                    fontFamily: "'DM Sans',sans-serif",
                     color: "#21C6CF",
                     fontSize: "0.75rem",
                     background: "none",
@@ -525,7 +622,7 @@ export default function ContactSection() {
                           color:
                             form.intent === option
                               ? "#21C6CF"
-                              : "rgba(255,255,255,0.6)",
+                              : "rgba(255,255,255,1)",
                           fontSize: "0.75rem",
                           cursor: "pointer",
                         }}
@@ -550,6 +647,8 @@ export default function ContactSection() {
                     style={inputStyle("name")}
                   />
                 </div>
+
+                {/* EMAIL */}
                 <div>
                   <label style={labelStyle}>Email Address</label>
                   <input
@@ -565,6 +664,8 @@ export default function ContactSection() {
                     required
                   />
                 </div>
+
+                {/* PHONE */}
                 <div>
                   <label style={labelStyle}>Phone Number</label>
                   <input
@@ -578,6 +679,38 @@ export default function ContactSection() {
                     onBlur={() => setFocused(null)}
                     style={inputStyle("phone")}
                     required
+                  />
+                </div>
+
+                {/* MESSAGE */}
+                <div>
+                  <label style={labelStyle}>
+                    Your Message{" "}
+                    <span
+                      style={{
+                        color: "rgba(255,255,255,0.2)",
+                        textTransform: "none",
+                        letterSpacing: 0,
+                      }}
+                    >
+                      (optional)
+                    </span>
+                  </label>
+                  <textarea
+                    placeholder="Tell us about your project, goals, or any questions you have..."
+                    value={form.message}
+                    onChange={(e) =>
+                      setForm({ ...form, message: e.target.value })
+                    }
+                    onFocus={() => setFocused("message")}
+                    onBlur={() => setFocused(null)}
+                    rows={3}
+                    style={{
+                      ...inputStyle("message"),
+                      resize: "vertical",
+                      minHeight: "80px",
+                      lineHeight: 1.6,
+                    }}
                   />
                 </div>
 
@@ -605,7 +738,7 @@ export default function ContactSection() {
                           color:
                             form.contactPref === opt
                               ? "#21C6CF"
-                              : "rgba(255,255,255,0.6)",
+                              : "rgba(255,255,255,1)",
                           fontSize: "0.75rem",
                           cursor: "pointer",
                         }}
@@ -687,143 +820,88 @@ export default function ContactSection() {
 
           {/* ── RIGHT COLUMN ── */}
           <div
-            style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+            style={{ display: "flex", flexDirection: "column", gap: "16px" }}
           >
-            {/* MAP */}
+            {/* Contact Info Card */}
             <div
               style={{
-                flex: "2 0 0",
-                position: "relative",
-                borderRadius: "16px",
-                overflow: "hidden",
-                border: "1px solid rgba(33,198,207,0.14)",
-                minHeight: "180px",
-              }}
-            >
-              <iframe
-                title="DatagenixAI Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7637.179884348659!2d74.58693539258066!3d16.84668683580468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc123cf6b652473%3A0x436f1c067155fce5!2sDatagenixAi%20LLP!5e0!3m2!1sen!2sin!4v1777036748615!5m2!1sen!2sin"
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  width: "100%",
-                  height: "100%",
-                  border: "none",
-                  filter:
-                    "invert(92%) hue-rotate(180deg) brightness(0.82) saturate(0.55)",
-                }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  background: "rgba(5,5,5,0.15)",
-                  pointerEvents: "none",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  top: "10px",
-                  left: "10px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  padding: "5px 10px",
-                  borderRadius: "8px",
-                  background: "rgba(13,13,13,0.88)",
-                  border: "1px solid rgba(33,198,207,0.22)",
-                }}
-              >
-                <span
-                  style={{
-                    width: 6,
-                    height: 6,
-                    borderRadius: "50%",
-                    background: "#21C6CF",
-                    boxShadow: "0 0 6px #21C6CF",
-                    flexShrink: 0,
-                  }}
-                />
-                <span
-                  style={{
-                    fontFamily: "'DM Sans',sans-serif",
-                    color: "#21C6CF",
-                    fontSize: "0.6rem",
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Sangli, India
-                </span>
-              </div>
-            </div>
-
-            {/* INFO */}
-            <div
-              style={{
-                flex: "3 0 0",
-                background: "#0d0d0d",
-                border: "1px solid rgba(33,198,207,0.14)",
-                borderRadius: "16px",
+                ...cardStyle,
                 padding: "clamp(16px, 3vw, 24px)",
-                boxShadow:
-                  "0 0 40px rgba(33,198,207,0.04), 0 8px 40px rgba(0,0,0,0.4)",
                 display: "flex",
                 flexDirection: "column",
-                gap: "18px",
+                gap: "16px",
               }}
             >
-              {INFO_ITEMS.map((item, i) => (
-                <div
-                  key={i}
-                  style={{ display: "flex", alignItems: "center", gap: "14px" }}
+              <div>
+                <p
+                  style={{
+                    color: "rgba(255,255,255,1)",
+                    fontSize: "0.63rem",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    margin: "0 0 10px",
+                  }}
                 >
-                  <div
-                    style={{
-                      width: 34,
-                      height: 34,
-                      borderRadius: "9px",
-                      flexShrink: 0,
-                      background: "rgba(33,198,207,0.07)",
-                      border: "1px solid rgba(33,198,207,0.13)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {item.icon}
-                  </div>
-                  <div>
-                    <p
+                  Contact Info
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "14px",
+                  }}
+                >
+                  {INFO_ITEMS.map((item, i) => (
+                    <div
+                      key={i}
                       style={{
-                        fontFamily: "'DM Sans',sans-serif",
-                        color: "rgba(255,255,255,0.3)",
-                        fontSize: "0.63rem",
-                        letterSpacing: "0.12em",
-                        textTransform: "uppercase",
-                        margin: "0 0 2px",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "14px",
                       }}
                     >
-                      {item.label}
-                    </p>
-                    <p
-                      style={{
-                        fontFamily: "'DM Sans',sans-serif",
-                        fontWeight: 300,
-                        color: "rgba(255,255,255,0.75)",
-                        fontSize: "0.83rem",
-                        margin: 0,
-                      }}
-                    >
-                      {item.value}
-                    </p>
-                  </div>
+                      <div
+                        style={{
+                          width: 34,
+                          height: 34,
+                          borderRadius: "9px",
+                          flexShrink: 0,
+                          background: "rgba(33,198,207,0.07)",
+                          border: "1px solid rgba(33,198,207,0.13)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        {item.icon}
+                      </div>
+                      <div>
+                        <p
+                          style={{
+                            color: "rgba(255,255,255,1)",
+                            fontSize: "0.63rem",
+                            letterSpacing: "0.12em",
+                            textTransform: "uppercase",
+                            margin: "0 0 2px",
+                          }}
+                        >
+                          {item.label}
+                        </p>
+                        <p
+                          style={{
+                            fontWeight: 300,
+                            color: "rgba(255,255,255,0.75)",
+                            fontSize: "0.83rem",
+                            margin: 0,
+                          }}
+                        >
+                          {item.value}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
 
               <div
                 style={{ height: "1px", background: "rgba(33,198,207,0.08)" }}
@@ -840,8 +918,7 @@ export default function ContactSection() {
               >
                 <span
                   style={{
-                    fontFamily: "'DM Sans',sans-serif",
-                    color: "rgba(255,255,255,0.28)",
+                    color: "rgba(255,255,255,1)",
                     fontSize: "0.65rem",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
@@ -883,6 +960,68 @@ export default function ContactSection() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Why Choose Us — 3 mini cards like Image 2 */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr",
+                gap: "12px",
+              }}
+            >
+              {WHY_ITEMS.map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    ...cardStyle,
+                    padding: "14px 16px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "14px",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 34,
+                      height: 34,
+                      borderRadius: "9px",
+                      flexShrink: 0,
+                      background: "rgba(33,198,207,0.07)",
+                      border: "1px solid rgba(33,198,207,0.14)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p
+                      style={{
+                        fontFamily: "'Syne',sans-serif",
+                        color: "white",
+                        fontWeight: 600,
+                        fontSize: "0.83rem",
+                        margin: "0 0 2px",
+                      }}
+                    >
+                      {item.title}
+                    </p>
+                    <p
+                      style={{
+                        color: "rgba(255,255,255,1)",
+                        fontSize: "0.73rem",
+                        margin: 0,
+                        lineHeight: 1.5,
+                        fontWeight: 300,
+                      }}
+                    >
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

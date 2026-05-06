@@ -5,20 +5,20 @@ import Image from "next/image";
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "ESG", href: "/esg" },
-  { label: "Contact", href: "/contact" },
+  { label: "About Us", href: "/AboutUs" },
+  { label: "Services", href: "/Services" },
+  { label: "Products", href: "/Products" },
+  { label: "Courses", href: "/Courses" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const SERVICES = [
-  { label: "AI & Automation", href: "/services/ai-automation" },
-  { label: "Smart City Solutions", href: "/services/smart-cities" },
-  { label: "IoT Integration", href: "/services/iot" },
-  { label: "AI Training Programs", href: "/services/training" },
-  { label: "Digital Transformation", href: "/services/digital" },
-  { label: "Data Analytics", href: "/services/analytics" },
+  { label: "AI & Automation", href: "/Services" },
+  { label: "Smart City Solutions", href: "/Services" },
+  { label: "IoT Integration", href: "/Services" },
+  { label: "AI Training Programs", href: "/Services" },
+  { label: "Digital Transformation", href: "/Services" },
+  { label: "Data Analytics", href: "/Services" },
 ];
 
 const SOCIALS = [
@@ -74,18 +74,18 @@ export default function Footer() {
       />
 
       {/* Top glow line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(33,198,207,0.3)] to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[rgba(33,198,207,0.3)] to-transparent" />
 
       {/* Top ambient glow */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[200px] pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-50 pointer-events-none"
         style={{
           background:
             "radial-gradient(ellipse,rgba(33,198,207,0.04) 0%,transparent 70%)",
         }}
       />
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="relative z-10 max-w-300 mx-auto px-4 sm:px-6 lg:px-10">
         {/* ── Main footer grid ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 py-14 sm:py-16">
           {/* ── Col 1: Brand ── */}
@@ -120,7 +120,7 @@ export default function Footer() {
                 className="text-[#28E7C5] text-[0.62rem] tracking-[0.16em] uppercase font-medium"
                 style={{ fontFamily: "'DM Sans',sans-serif" }}
               >
-                Innovation · ESG · AI
+                AI · Innovation · Impact
               </span>
             </div>
 
@@ -247,45 +247,12 @@ export default function Footer() {
                   </a>
                 </div>
               </div>
-
-              {/* Location */}
-              <div className="flex items-start gap-3">
-                <div className="w-7 h-7 rounded-lg bg-[rgba(33,198,207,0.07)] border border-[rgba(33,198,207,0.12)] flex items-center justify-center text-[#21C6CF] shrink-0 mt-0.5">
-                  <svg
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-3.5 h-3.5"
-                  >
-                    <path d="M8 1C5.8 1 4 2.8 4 5c0 3.5 4 9 4 9s4-5.5 4-9c0-2.2-1.8-4-4-4z" />
-                    <circle cx="8" cy="5" r="1.2" />
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    className="text-[rgba(255,255,255,1)] text-[0.65rem] uppercase tracking-widest mb-0.5"
-                    style={{ fontFamily: "'DM Sans',sans-serif" }}
-                  >
-                    Location
-                  </p>
-                  <p
-                    className="text-[rgba(255,255,255,1)] text-[0.8rem] leading-[1.55]"
-                    style={{ fontFamily: "'DM Sans',sans-serif" }}
-                  >
-                    502, Nirmiti Elite 14, Near Savarkar School, S T Colony,
-                    Sangli, Maharashtra, India
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
         {/* ── Divider ── */}
-        <div className="h-px bg-gradient-to-r from-transparent via-[rgba(33,198,207,0.15)] to-transparent" />
+        <div className="h-px bg-linear-to-r from-transparent via-[rgba(33,198,207,0.15)] to-transparent" />
 
         {/* ── Bottom bar ── */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-5">
@@ -299,24 +266,27 @@ export default function Footer() {
 
           {/* Legal links */}
           <div className="flex items-center gap-1 flex-wrap justify-center">
-            {["Terms & Conditions", "Privacy Policy", "Cookie Policy"].map(
-              (item, i, arr) => (
-                <span key={item} className="flex items-center gap-1">
-                  <Link
-                    href="#"
-                    className="text-[rgba(255,255,255,1)] hover:text-[#21C6CF] text-[0.72rem] transition-colors duration-300"
-                    style={{ fontFamily: "'DM Sans',sans-serif" }}
-                  >
-                    {item}
-                  </Link>
-                  {i < arr.length - 1 && (
-                    <span className="text-[rgba(255,255,255,1)] text-[0.65rem]">
-                      ·
-                    </span>
-                  )}
-                </span>
-              ),
-            )}
+            {[
+              { label: "Terms & Conditions", href: "/Terms" },
+              { label: "Privacy Policy", href: "/Privacy" },
+              { label: "Cookie Policy", href: "/Cookies" },
+            ].map((item, i, arr) => (
+              <span key={item.label} className="flex items-center gap-1">
+                <Link
+                  href={item.href}
+                  className="text-[rgba(255,255,255,1)] hover:text-[#21C6CF] text-[0.72rem] transition-colors duration-300"
+                  style={{ fontFamily: "'DM Sans',sans-serif" }}
+                >
+                  {item.label}
+                </Link>
+
+                {i < arr.length - 1 && (
+                  <span className="text-[rgba(255,255,255,1)] text-[0.65rem]">
+                    ·
+                  </span>
+                )}
+              </span>
+            ))}
           </div>
 
           <p
@@ -349,7 +319,7 @@ function FooterColHeading({ children }) {
         {children}
       </h4>
       <div
-        className="w-6 h-[2px] rounded-full bg-[#28E7C5]"
+        className="w-6 h-0.5 rounded-full bg-[#28E7C5]"
         style={{ boxShadow: "0 0 6px rgba(33,198,207,0.5)" }}
       />
     </div>

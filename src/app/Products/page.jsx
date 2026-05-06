@@ -1,6 +1,7 @@
 "use client";
 
 import { HexBackground } from "@/Components/UI/HexBackground";
+import Link from "next/link";
 import { useState, useRef, useEffect, useCallback } from "react";
 
 const PRODUCTS = [
@@ -403,11 +404,11 @@ function ImageGallery({ images, imageLeft, showChart }) {
             border: "1px solid rgba(33,198,207,0.18)",
             borderRadius: "999px",
             padding: "5px 12px",
-            fontFamily: "Inter, sans-serif",
+
             fontSize: "0.65rem",
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "#21C6CF",
+            color: "#28e7c5",
           }}
         >
           <span
@@ -415,8 +416,8 @@ function ImageGallery({ images, imageLeft, showChart }) {
               width: "5px",
               height: "5px",
               borderRadius: "50%",
-              background: "#21C6CF",
-              boxShadow: "0 0 6px #21C6CF",
+              background: "#28e7c5",
+              boxShadow: "0 0 6px #28e7c5",
               animation: "pulse 2s ease-in-out infinite",
             }}
           />
@@ -450,7 +451,7 @@ function ImageGallery({ images, imageLeft, showChart }) {
                 border: "none",
                 cursor: "pointer",
                 padding: 0,
-                background: i === active ? "#21C6CF" : "rgba(255,255,255,0.3)",
+                background: i === active ? "#28e7c5" : "rgba(255,255,255,0.3)",
                 boxShadow:
                   i === active ? "0 0 8px rgba(33,198,207,0.8)" : "none",
                 transition: "all 0.35s ease",
@@ -486,7 +487,6 @@ function ImageGallery({ images, imageLeft, showChart }) {
             >
               <span
                 style={{
-                  fontFamily: "'Syne',sans-serif",
                   fontSize: "0.72rem",
                   fontWeight: 700,
                   color: "#fff",
@@ -496,11 +496,10 @@ function ImageGallery({ images, imageLeft, showChart }) {
               </span>
               <span
                 style={{
-                  fontFamily: "Inter, sans-serif",
                   fontSize: "0.55rem",
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
-                  color: "#21C6CF",
+                  color: "#28e7c5",
                 }}
               >
                 Live
@@ -521,7 +520,7 @@ function ImageGallery({ images, imageLeft, showChart }) {
                     flex: 1,
                     borderRadius: "2px",
                     height: `${h}%`,
-                    background: i === 5 ? "#21C6CF" : "rgba(33,198,207,0.22)",
+                    background: i === 5 ? "#28e7c5" : "rgba(33,198,207,0.22)",
                     transition: "height 0.4s ease",
                   }}
                 />
@@ -538,7 +537,6 @@ function ImageGallery({ images, imageLeft, showChart }) {
                 <span
                   key={i}
                   style={{
-                    fontFamily: "Inter, sans-serif",
                     fontSize: "0.5rem",
                     color: "rgba(255,255,255,0.3)",
                   }}
@@ -568,7 +566,7 @@ function ImageGallery({ images, imageLeft, showChart }) {
               cursor: "pointer",
               border:
                 i === active
-                  ? "1.5px solid #21C6CF"
+                  ? "1.5px solid #28e7c5"
                   : thumbHov === i
                     ? "1.5px solid rgba(33,198,207,0.4)"
                     : "1.5px solid rgba(33,198,207,0.08)",
@@ -627,7 +625,7 @@ function ArrowBtn({ side, onClick, visible }) {
         background: hov ? "rgba(33,198,207,0.25)" : "rgba(5,5,5,0.65)",
         backdropFilter: "blur(10px)",
         border: `1px solid ${hov ? "rgba(33,198,207,0.5)" : "rgba(33,198,207,0.2)"}`,
-        color: "#21C6CF",
+        color: "#28e7c5",
         fontSize: "1rem",
         cursor: "pointer",
         display: "flex",
@@ -676,7 +674,7 @@ function FeatureRow({ icon, label, desc, delay }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#21C6CF",
+          color: "#28e7c5",
           fontSize: "0.8rem",
           transition: "border-color 0.25s",
         }}
@@ -686,7 +684,6 @@ function FeatureRow({ icon, label, desc, delay }) {
       <div>
         <div
           style={{
-            fontFamily: "'Syne',sans-serif",
             fontSize: "0.82rem",
             fontWeight: 700,
             color: hov ? "#fff" : "rgba(255,255,255,0.85)",
@@ -698,7 +695,6 @@ function FeatureRow({ icon, label, desc, delay }) {
         </div>
         <div
           style={{
-            fontFamily: "Inter, sans-serif",
             fontSize: "0.75rem",
             lineHeight: 1.5,
             color: "rgba(255,255,255,0.38)",
@@ -712,57 +708,6 @@ function FeatureRow({ icon, label, desc, delay }) {
 }
 
 /* ════════════════════════════════════════════════════════
-   STAT PILL  — compact horizontal
-═══════════════════════════════════════════════════════════ */
-function StatPill({ value, label }) {
-  const [hov, setHov] = useState(false);
-  return (
-    <div
-      onMouseEnter={() => setHov(true)}
-      onMouseLeave={() => setHov(false)}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "14px 10px",
-        borderRadius: "12px",
-        flex: 1,
-        background: hov ? "rgba(33,198,207,0.06)" : "#0a0a0a",
-        border: `1px solid ${hov ? "rgba(33,198,207,0.25)" : "rgba(33,198,207,0.08)"}`,
-        transition: "all 0.3s ease",
-        cursor: "default",
-      }}
-    >
-      <span
-        style={{
-          fontFamily: "'Syne',sans-serif",
-          fontSize: "1.5rem",
-          fontWeight: 800,
-          color: "#21C6CF",
-          lineHeight: 1,
-          marginBottom: "4px",
-        }}
-      >
-        {value}
-      </span>
-      <span
-        style={{
-          fontFamily: "Inter, sans-serif",
-          fontSize: "0.65rem",
-          letterSpacing: "0.1em",
-          textTransform: "uppercase",
-          color: "rgba(255,255,255,0.35)",
-          textAlign: "center",
-        }}
-      >
-        {label}
-      </span>
-    </div>
-  );
-}
-
-/* ════════════════════════════════════════════════════════
    EYEBROW
 ═══════════════════════════════════════════════════════════ */
 function Eyebrow({ label }) {
@@ -772,12 +717,12 @@ function Eyebrow({ label }) {
         display: "inline-flex",
         alignItems: "center",
         gap: "8px",
-        fontFamily: "Inter, sans-serif",
+
         fontSize: "0.62rem",
         fontWeight: 500,
         letterSpacing: "0.18em",
         textTransform: "uppercase",
-        color: "#21C6CF",
+        color: "#28e7c5",
       }}
     >
       <span
@@ -785,8 +730,8 @@ function Eyebrow({ label }) {
           width: "5px",
           height: "5px",
           borderRadius: "50%",
-          background: "#21C6CF",
-          boxShadow: "0 0 8px #21C6CF",
+          background: "#28e7c5",
+          boxShadow: "0 0 8px #28e7c5",
           flexShrink: 0,
         }}
       />
@@ -801,42 +746,46 @@ function Eyebrow({ label }) {
 function CTAButton({ label }) {
   const [hov, setHov] = useState(false);
   return (
-    <button
-      onMouseEnter={() => setHov(true)}
-      onMouseLeave={() => setHov(false)}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: "10px",
-        fontFamily: "'Syne',sans-serif",
-        fontSize: "0.78rem",
-        fontWeight: 700,
-        letterSpacing: "0.06em",
-        textTransform: "uppercase",
-        color: "#050505",
-        background: hov ? "#fff" : "#28E7C5",
-        padding: "11px 22px",
-        borderRadius: "8px",
-        border: "none",
-        cursor: "pointer",
-        boxShadow: hov
-          ? "0 0 36px rgba(33,198,207,0.55)"
-          : "0 0 20px rgba(33,198,207,0.28)",
-        transition: "all 0.3s ease",
-      }}
+    <Link
+      href="/#contact"
     >
-      {label}
-      <span
+      <button
+        onMouseEnter={() => setHov(true)}
+        onMouseLeave={() => setHov(false)}
         style={{
-          fontSize: "1rem",
-          display: "inline-block",
-          transform: hov ? "translateX(3px)" : "translateX(0)",
-          transition: "transform 0.25s ease",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "10px",
+
+          fontSize: "0.78rem",
+          fontWeight: 700,
+          letterSpacing: "0.06em",
+          textTransform: "uppercase",
+          color: "#050505",
+          background: hov ? "#fff" : "#28E7C5",
+          padding: "11px 22px",
+          borderRadius: "8px",
+          border: "none",
+          cursor: "pointer",
+          boxShadow: hov
+            ? "0 0 36px rgba(33,198,207,0.55)"
+            : "0 0 20px rgba(33,198,207,0.28)",
+          transition: "all 0.3s ease",
         }}
       >
-        →
-      </span>
-    </button>
+        {label}
+        <span
+          style={{
+            fontSize: "1rem",
+            display: "inline-block",
+            transform: hov ? "translateX(3px)" : "translateX(0)",
+            transition: "transform 0.25s ease",
+          }}
+        >
+          →
+        </span>
+      </button>
+    </Link>
   );
 }
 
@@ -910,7 +859,7 @@ function ProductSection({ product, index }) {
             position: "absolute",
             top: "clamp(20px,4vw,40px)",
             [imageLeft ? "right" : "left"]: "clamp(20px,4vw,60px)",
-            fontFamily: "'Syne',sans-serif",
+
             fontSize: "clamp(5rem,12vw,9rem)",
             fontWeight: 800,
             color: "rgba(33,198,207,0.025)",
@@ -974,14 +923,13 @@ function ProductSection({ product, index }) {
                 <Eyebrow label={product.eyebrow} />
                 <span
                   style={{
-                    fontFamily: "Inter, sans-serif",
                     fontSize: "0.6rem",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     padding: "4px 10px",
                     borderRadius: "999px",
                     border: "1px solid rgba(33,198,207,0.2)",
-                    color: "rgba(33,198,207,0.7)",
+                    color: "rgba(33,198,207,1)",
                     background: "rgba(33,198,207,0.05)",
                   }}
                 >
@@ -992,10 +940,9 @@ function ProductSection({ product, index }) {
               {/* Title */}
               <h2
                 style={{
-                  fontFamily: "'Syne',sans-serif",
                   fontSize: "clamp(2rem,4.5vw,2.5 rem)",
                   fontWeight: 800,
-                  color: "#fff",
+                  color: "white",
                   lineHeight: 1.05,
                   letterSpacing: "-0.02em",
                   margin: "0 0 8px",
@@ -1007,7 +954,6 @@ function ProductSection({ product, index }) {
               {/* Tagline */}
               <p
                 style={{
-                  fontFamily: "'Syne',sans-serif",
                   fontSize: "clamp(0.9rem,1.5vw,1rem)",
                   fontWeight: 600,
                   color: "#28E7C5",
@@ -1020,10 +966,9 @@ function ProductSection({ product, index }) {
               {/* Description */}
               <p
                 style={{
-                  fontFamily: "Inter, sans-serif",
                   fontSize: "0.88rem",
                   lineHeight: 1.75,
-                  color: "rgba(255,255,255,0.38)",
+                  color: "rgba(255,255,255,1)",
                   margin: "0 0 18px",
                   maxWidth: "460px",
                 }}
@@ -1101,7 +1046,6 @@ function NavPill({ href, label }) {
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
-        fontFamily: "Inter, sans-serif",
         fontSize: "0.72rem",
         letterSpacing: "0.08em",
         textTransform: "uppercase",
@@ -1109,7 +1053,7 @@ function NavPill({ href, label }) {
         borderRadius: "999px",
         textDecoration: "none",
         border: `1px solid ${hov ? "rgba(33,198,207,0.45)" : "rgba(33,198,207,0.15)"}`,
-        color: hov ? "#21C6CF" : "rgba(255,255,255,0.4)",
+        color: hov ? "#28e7c5" : "rgba(255,255,255,1)",
         background: hov ? "rgba(33,198,207,0.06)" : "transparent",
         transition: "all 0.25s ease",
       }}
@@ -1122,7 +1066,6 @@ export default function ProductsPage() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         html { scroll-behavior: smooth; }
         *, *::before, *::after { box-sizing: border-box; }
         button { outline: none; }
@@ -1198,7 +1141,6 @@ export default function ProductsPage() {
           <h1
             className="text-[2.4rem] sm:text-[3.2rem] lg:text-[4.2rem] font-bold text-white leading-[1.08] tracking-[-0.03em] mb-6"
             style={{
-              fontFamily: "'Syne',sans-serif",
               animation: "heroFadeUp 0.8s ease 0.1s both",
             }}
           >
@@ -1207,10 +1149,9 @@ export default function ProductsPage() {
           </h1>
           <p
             style={{
-              fontFamily: "Inter, sans-serif",
               fontSize: "0.95rem",
               lineHeight: 1.75,
-              color: "rgba(255,255,255,0.38)",
+              color: "rgba(255,255,255,1)",
               maxWidth: "500px",
               margin: "0 0 28px",
               animation: "heroFadeUp 0.8s ease 0.2s both",
@@ -1221,18 +1162,18 @@ export default function ProductsPage() {
           </p>
 
           {/* Nav pills */}
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "4px",
-              animation: "heroFadeUp 0.8s ease 0.3s both",
-            }}
-          >
-            {PRODUCTS.map((p) => (
-              <NavPill key={p.id} href={`#product-${p.id}`} label={p.title} />
-            ))}
-          </div>
+<div
+  className="hidden xl:flex"
+  style={{
+    flexWrap: "wrap",
+    gap: "4px",
+    animation: "heroFadeUp 0.8s ease 0.3s both",
+  }}
+>
+  {PRODUCTS.map((p) => (
+    <NavPill key={p.id} href={`#product-${p.id}`} label={p.title} />
+  ))}
+</div>
         </header>
 
         {/* ── Product sections ── */}

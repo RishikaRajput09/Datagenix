@@ -62,19 +62,49 @@ const TESTIMONIALS = [
 ];
 
 const CARD_GAP = 20;
+const VISIBLE_CARDS = 3;
 
 export default function TestimonialsSection() {
   const [focused, setFocused] = useState(0);
   const [visible, setVisible] = useState(false);
-  const [offset, setOffset] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  // true when viewport width < 1024px (tablet + mobile)
+  const [isMobile, setIsMobile] = useState(false);
 
   const sectionRef = useRef(null);
-  const viewportRef = useRef(null);
-  const trackRef = useRef(null);
+  const containerRef = useRef(null);
   const dragStartX = useRef(null);
   const autoTimer = useRef(null);
 
   const total = TESTIMONIALS.length;
+
+  // Detect breakpoint
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // Recalculate so focused card is always centred (slot index 1 of 3)
+  const recalc = useCallback(() => {
+    if (!containerRef.current) return;
+    if (isMobile) {
+      // On mobile: full-width single card, no offset needed
+      setTranslateX(0);
+      return;
+    }
+    const containerW = containerRef.current.getBoundingClientRect().width;
+    const cardW = (containerW - CARD_GAP * (VISIBLE_CARDS - 1)) / VISIBLE_CARDS;
+    const tx = -((focused - 1) * (cardW + CARD_GAP));
+    setTranslateX(tx);
+  }, [focused, isMobile]);
+
+  useEffect(() => { recalc(); }, [recalc]);
+  useEffect(() => {
+    window.addEventListener("resize", recalc);
+    return () => window.removeEventListener("resize", recalc);
+  }, [recalc]);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -85,23 +115,6 @@ export default function TestimonialsSection() {
     return () => obs.disconnect();
   }, []);
 
-  const recalcOffset = useCallback(() => {
-    if (!viewportRef.current || !trackRef.current) return;
-    const cards = trackRef.current.querySelectorAll("[data-card]");
-    if (!cards.length) return;
-    const vw = viewportRef.current.getBoundingClientRect().width;
-    const cardW = cards[0].getBoundingClientRect().width;
-    const newOffset = vw / 2 - focused * (cardW + CARD_GAP) - cardW / 2;
-    setOffset(newOffset);
-  }, [focused]);
-
-  useEffect(() => { recalcOffset(); }, [recalcOffset]);
-
-  useEffect(() => {
-    window.addEventListener("resize", recalcOffset);
-    return () => window.removeEventListener("resize", recalcOffset);
-  }, [recalcOffset]);
-
   const goTo = useCallback((idx) => {
     setFocused(((idx % total) + total) % total);
   }, [total]);
@@ -109,17 +122,16 @@ export default function TestimonialsSection() {
   const prev = () => goTo(focused - 1);
   const next = () => goTo(focused + 1);
 
-  const startAuto = useCallback(() => {
+  useEffect(() => {
     clearInterval(autoTimer.current);
     autoTimer.current = setInterval(() => goTo(focused + 1), 4500);
+    return () => clearInterval(autoTimer.current);
   }, [focused, goTo]);
 
-  useEffect(() => {
-    startAuto();
-    return () => clearInterval(autoTimer.current);
-  }, [focused]);
-
-  const onDragStart = (clientX) => { dragStartX.current = clientX; };
+  const onDragStart = (clientX) => {
+    dragStartX.current = clientX;
+    clearInterval(autoTimer.current);
+  };
   const onDragEnd = (clientX) => {
     if (dragStartX.current === null) return;
     const diff = dragStartX.current - clientX;
@@ -136,65 +148,181 @@ export default function TestimonialsSection() {
     return () => window.removeEventListener("keydown", handler);
   }, [focused]);
 
+  // ─── Mobile: single-card view ───────────────────────────────────────────────
+  if (isMobile) {
+    const t = TESTIMONIALS[focused];
+    return (
+      <section
+        ref={sectionRef}
+        id="testimonials-section"
+        className="relative bg-transparent py-14"
+      >
+        {/* Ambient glow */}
+        <div
+          className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2"
+          style={{
+            width: "340px", height: "200px",
+            background: "radial-gradient(ellipse, rgba(33,198,207,0.06) 0%, transparent 70%)",
+          }}
+        />
+
+        <div className="relative z-10 mx-auto max-w-lg px-4 sm:px-6">
+
+          {/* Eyebrow */}
+          <div className="mb-3 flex justify-center" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.65s ease, transform 0.65s ease" }}>
+            <div
+              className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5"
+              style={{ border: "1px solid rgba(33,198,207,0.35)", background: "rgba(33,198,207,0.08)", boxShadow: "0 0 12px rgba(33,198,207,0.15)" }}
+            >
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#28E7C5]" style={{ boxShadow: "0 0 10px #21C6CF" }} />
+              <span className="text-[0.62rem] font-medium uppercase tracking-[0.18em] text-[#28E7C5]">Client Testimonials</span>
+            </div>
+          </div>
+
+          {/* Heading */}
+          <div className="mb-3 text-center" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.65s ease, transform 0.65s ease", transitionDelay: "80ms" }}>
+            <h2 className="text-[1.5rem] font-bold leading-[1.15] text-white sm:text-[1.9rem]" style={{ letterSpacing: "-0.02em" }}>
+              Real Transformations.{" "}
+              <span className="text-[#28E7C5]">Sustainable Impact. </span>
+              Proven AI Excellence.
+            </h2>
+          </div>
+
+          {/* Subheading */}
+          <div className="mb-10 text-center" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.65s ease, transform 0.65s ease", transitionDelay: "140ms" }}>
+            <p className="mx-auto max-w-sm text-[0.83rem] font-light leading-[1.75] text-white">
+              From businesses to healthcare and education, DatagenixAI delivers practical, scalable, and impactful AI solutions.
+            </p>
+          </div>
+
+          {/* Single Card */}
+          <div
+            style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.65s ease, transform 0.65s ease, all 0.45s cubic-bezier(0.4,0,0.2,1)", transitionDelay: "220ms" }}
+            onMouseDown={(e) => onDragStart(e.clientX)}
+            onMouseUp={(e) => onDragEnd(e.clientX)}
+            onTouchStart={(e) => onDragStart(e.touches[0].clientX)}
+            onTouchEnd={(e) => onDragEnd(e.changedTouches[0].clientX)}
+          >
+            <div
+              style={{
+                position: "relative",
+                display: "flex",
+                flexDirection: "column",
+                borderRadius: "16px",
+                padding: "24px 20px",
+                cursor: "grab",
+                background: "linear-gradient(145deg, #0d2030 0%, #0a1a26 60%, #071420 100%)",
+                border: "1px solid rgba(33,198,207,0.45)",
+                boxShadow: "0 0 0 1px rgba(33,198,207,0.15), 0 8px 48px rgba(33,198,207,0.14), inset 0 0 60px rgba(33,198,207,0.04)",
+              }}
+            >
+              {/* Inner glow */}
+              <div style={{ pointerEvents: "none", position: "absolute", inset: 0, borderRadius: "16px", background: "radial-gradient(ellipse at 50% 0%, rgba(33,198,207,0.08) 0%, transparent 55%)" }} />
+
+              {/* Tag */}
+              <div style={{ marginBottom: "14px", display: "flex", justifyContent: "flex-end" }}>
+                <span style={{
+                  display: "inline-flex", alignItems: "center", gap: "6px",
+                  borderRadius: "999px", padding: "4px 10px",
+                  fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase",
+                  background: "rgba(33,198,207,0.15)", border: "1px solid rgba(33,198,207,0.4)", color: "#28E7C5",
+                }}>
+                  <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "currentColor", boxShadow: "0 0 6px #28E7C5" }} />
+                  {t.tag}
+                </span>
+              </div>
+
+              {/* Quote mark */}
+              <div style={{ fontSize: "3.2rem", fontWeight: 800, lineHeight: 1, color: "rgba(33,198,207,0.35)", marginTop: "-6px", marginBottom: "4px" }}>"</div>
+
+              {/* Quote text */}
+              <p style={{ flex: 1, margin: "0 0 20px", fontSize: "0.875rem", lineHeight: 1.75, color: "rgba(255,255,255,0.92)" }}>{t.quote}</p>
+
+              {/* Divider */}
+              <div style={{ height: "1px", marginBottom: "16px", background: "linear-gradient(90deg, rgba(33,198,207,0.35), transparent)" }} />
+
+              {/* Author */}
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <div style={{
+                  flexShrink: 0, width: "40px", height: "40px", borderRadius: "50%",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: "0.72rem", fontWeight: 700, color: "#28E7C5",
+                  background: "linear-gradient(135deg, rgba(33,198,207,0.22), rgba(33,198,207,0.06))",
+                  border: "1px solid rgba(33,198,207,0.5)", boxShadow: "0 0 14px rgba(33,198,207,0.22)",
+                }}>{t.initials}</div>
+                <div>
+                  <div style={{ fontSize: "0.875rem", fontWeight: 600, color: "white" }}>{t.name}</div>
+                  <div style={{ fontSize: "0.75rem", color: "#28E7C5" }}>{t.role}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Nav */}
+          <div style={{ marginTop: "28px", display: "flex", alignItems: "center", justifyContent: "center", gap: "16px" }}>
+            <button onClick={prev} aria-label="Previous" style={{ width: "40px", height: "40px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(33,198,207,0.2)", background: "rgba(10,26,38,0.8)", color: "rgba(255,255,255,0.5)", cursor: "pointer", transition: "all 0.3s ease" }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#21C6CF"; e.currentTarget.style.color = "#21C6CF"; e.currentTarget.style.boxShadow = "0 0 14px rgba(33,198,207,0.2)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(33,198,207,0.2)"; e.currentTarget.style.color = "rgba(255,255,255,0.5)"; e.currentTarget.style.boxShadow = "none"; }}>
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10.5 3L5.5 8l5 5" /></svg>
+            </button>
+
+            <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+              {TESTIMONIALS.map((_, i) => (
+                <button key={i} onClick={() => goTo(i)} aria-label={`Go to testimonial ${i + 1}`}
+                  style={{ height: "6px", width: focused === i ? "24px" : "6px", borderRadius: "999px", border: "none", padding: 0, cursor: "pointer", background: focused === i ? "#21C6CF" : "rgba(33,198,207,0.22)", boxShadow: focused === i ? "0 0 8px rgba(33,198,207,0.5)" : "none", transition: "all 0.3s ease" }} />
+              ))}
+            </div>
+
+            <button onClick={next} aria-label="Next" style={{ width: "40px", height: "40px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(33,198,207,0.2)", background: "rgba(10,26,38,0.8)", color: "rgba(255,255,255,0.5)", cursor: "pointer", transition: "all 0.3s ease" }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#21C6CF"; e.currentTarget.style.color = "#21C6CF"; e.currentTarget.style.boxShadow = "0 0 14px rgba(33,198,207,0.2)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(33,198,207,0.2)"; e.currentTarget.style.color = "rgba(255,255,255,0.5)"; e.currentTarget.style.boxShadow = "none"; }}>
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5.5 3L10.5 8l-5 5" /></svg>
+            </button>
+          </div>
+
+          {/* Counter */}
+          <div style={{ marginTop: "10px", display: "flex", justifyContent: "center" }}>
+            <span style={{ fontSize: "0.72rem", letterSpacing: "0.15em", color: "rgba(255,255,255,0.2)" }}>
+              {String(focused + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+            </span>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // ─── Desktop: original 3-card carousel (unchanged) ──────────────────────────
   return (
     <section
       ref={sectionRef}
       id="testimonials-section"
-      className="relative overflow-hidden bg-transparent py-20"
+      className="relative bg-transparent py-20"
     >
       {/* Ambient glow */}
       <div
-        className="pointer-events-none absolute left-1/2 top-0 h-72 w-150 -translate-x-1/2"
+        className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2"
         style={{
-          background:
-            "radial-gradient(ellipse, rgba(33,198,207,0.06) 0%, transparent 70%)",
+          width: "600px", height: "300px",
+          background: "radial-gradient(ellipse, rgba(33,198,207,0.06) 0%, transparent 70%)",
         }}
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Eyebrow */}
-        <div
-          className="mb-4 flex justify-center"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(20px)",
-            transition: "opacity 0.65s ease, transform 0.65s ease",
-            transitionDelay: "0ms",
-          }}
-        >
+        <div className="mb-4 flex justify-center" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.65s ease, transform 0.65s ease" }}>
           <div
-            className="inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 backdrop-blur-md"
-            style={{
-              border: "1px solid rgba(33,198,207,0.35)",
-              background: "rgba(33,198,207,0.08)",
-              boxShadow: "0 0 12px rgba(33,198,207,0.15)",
-            }}
+            className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5"
+            style={{ border: "1px solid rgba(33,198,207,0.35)", background: "rgba(33,198,207,0.08)", boxShadow: "0 0 12px rgba(33,198,207,0.15)" }}
           >
-            <span
-              className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#28E7C5]"
-              style={{ boxShadow: "0 0 10px #21C6CF" }}
-            />
-            <span className="text-[0.62rem] font-medium uppercase tracking-[0.18em] text-[#28E7C5]">
-              Client Testimonials
-            </span>
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#28E7C5]" style={{ boxShadow: "0 0 10px #21C6CF" }} />
+            <span className="text-[0.62rem] font-medium uppercase tracking-[0.18em] text-[#28E7C5]">Client Testimonials</span>
           </div>
         </div>
 
         {/* Heading */}
-        <div
-          className="mb-3 text-center"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(20px)",
-            transition: "opacity 0.65s ease, transform 0.65s ease",
-            transitionDelay: "80ms",
-          }}
-        >
-          <h2
-            className="text-[1.9rem] font-bold leading-[1.1] tracking-tight text-white sm:text-[2.5rem] lg:text-[3rem]"
-            style={{ letterSpacing: "-0.02em" }}
-          >
+        <div className="mb-3 text-center" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.65s ease, transform 0.65s ease", transitionDelay: "80ms" }}>
+          <h2 className="text-[1.9rem] font-bold leading-[1.1] text-white sm:text-[2.5rem] lg:text-[3rem]" style={{ letterSpacing: "-0.02em" }}>
             Real Transformations.{" "}
             <span className="text-[#28E7C5]">Sustainable Impact. </span>
             Proven AI Excellence.
@@ -202,292 +330,166 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Subheading */}
-        <div
-          className="mb-14 text-center sm:mb-16"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(20px)",
-            transition: "opacity 0.65s ease, transform 0.65s ease",
-            transitionDelay: "140ms",
-          }}
-        >
-          <p className="mx-auto max-w-lg text-[0.88rem] font-light leading-[1.75] text-white/40 sm:text-[0.95rem]">
+        <div className="mb-14 text-center sm:mb-16" style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.65s ease, transform 0.65s ease", transitionDelay: "140ms" }}>
+          <p className="mx-auto max-w-lg text-[0.88rem] font-light leading-[1.75] text-white sm:text-[0.95rem]">
             From businesses to healthcare and education, DatagenixAI delivers practical, scalable, and impactful AI solutions. Our work creates measurable transformation—driving efficiency, innovation, and long-term sustainable growth.
           </p>
         </div>
 
-        {/* Slider */}
-        <div
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(24px)",
-            transition: "opacity 0.65s ease, transform 0.65s ease",
-            transitionDelay: "220ms",
-          }}
-        >
-          {/* Viewport */}
-          <div
-            ref={viewportRef}
-            className="relative"
-            style={{
-              overflow: "visible",
-              cursor: "grab",
-              /* Clip only vertically so cards aren't cut on sides */
-              clipPath: "inset(0 -100vw)",
-            }}
-            onMouseDown={(e) => {
-              e.currentTarget.style.cursor = "grabbing";
-              onDragStart(e.clientX);
-              clearInterval(autoTimer.current);
-            }}
-            onMouseUp={(e) => {
-              e.currentTarget.style.cursor = "grab";
-              onDragEnd(e.clientX);
-            }}
-            onMouseLeave={(e) => {
-              if (dragStartX.current !== null) {
-                e.currentTarget.style.cursor = "grab";
-                dragStartX.current = null;
-              }
-              startAuto();
-            }}
-            onMouseEnter={() => clearInterval(autoTimer.current)}
-            onTouchStart={(e) => onDragStart(e.touches[0].clientX)}
-            onTouchEnd={(e) => onDragEnd(e.changedTouches[0].clientX)}
-          >
-            {/* Track */}
-            <div
-              ref={trackRef}
-              className="flex"
-              style={{
-                gap: `${CARD_GAP}px`,
-                transform: `translateX(${offset}px)`,
-                transition: "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)",
-                willChange: "transform",
-              }}
-            >
-              {TESTIMONIALS.map((t, i) => {
-                const isFocused = i === focused;
-                return (
-                  <div
-                    key={i}
-                    data-card
-                    onClick={() => goTo(i)}
-                    className="relative flex shrink-0 cursor-pointer flex-col rounded-2xl p-6 sm:p-7"
-                    style={{
-                      width: "calc(33.333% - 14px)",
-                      minWidth: 280,
-                      background: "#0d0d0d",
-                      border: isFocused
-                        ? "1px solid rgba(33,198,207,0.45)"
-                        : "1px solid rgba(33,198,207,0.12)",
-                      boxShadow: isFocused
-                        ? "0 0 0 1px rgba(33,198,207,0.18), 0 0 40px rgba(33,198,207,0.12), inset 0 0 60px rgba(33,198,207,0.03)"
-                        : "none",
-                      transform: isFocused
-                        ? "scale(1.00) translateY(-4px)"
-                        : "scale(0.97)",
-                      opacity: isFocused ? 1 : 0.5,
-                      transition:
-                        "border-color 0.45s ease, box-shadow 0.45s ease, transform 0.45s ease, opacity 0.45s ease",
-                    }}
-                  >
-                    {/* Inner glow overlay */}
-                    <div
-                      className="pointer-events-none absolute inset-0 rounded-2xl"
-                      style={{
-                        background:
-                          "radial-gradient(ellipse at 50% 0%, rgba(33,198,207,0.06) 0%, transparent 60%)",
-                        opacity: isFocused ? 1 : 0,
-                        transition: "opacity 0.45s ease",
-                      }}
-                    />
+        {/* ── SLIDER ── */}
+        <div style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.65s ease, transform 0.65s ease", transitionDelay: "220ms" }}>
 
-                    {/* Category Tag */}
-                    <div className="mb-4 flex items-start justify-end">
-                      <span
-                        className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.14em]"
-                        style={{
-                          background: isFocused
-                            ? "rgba(33,198,207,0.15)"
-                            : "rgba(33,198,207,0.07)",
-                          border: isFocused
-                            ? "1px solid rgba(33,198,207,0.4)"
-                            : "1px solid rgba(33,198,207,0.18)",
+          <div style={{ overflow: "hidden", marginTop: "-28px", paddingTop: "28px", marginBottom: "-28px", paddingBottom: "28px" }}>
+            <div
+              ref={containerRef}
+              style={{ position: "relative", overflow: "visible", cursor: "grab", userSelect: "none" }}
+              onMouseDown={(e) => onDragStart(e.clientX)}
+              onMouseUp={(e) => onDragEnd(e.clientX)}
+              onMouseLeave={() => { dragStartX.current = null; }}
+              onTouchStart={(e) => onDragStart(e.touches[0].clientX)}
+              onTouchEnd={(e) => onDragEnd(e.changedTouches[0].clientX)}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  gap: `${CARD_GAP}px`,
+                  transform: `translateX(${translateX}px)`,
+                  transition: "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)",
+                  willChange: "transform",
+                }}
+              >
+                {TESTIMONIALS.map((t, i) => {
+                  const isFocused = i === focused;
+                  const dist = Math.min(
+                    Math.abs(i - focused),
+                    Math.abs(i - focused + total),
+                    Math.abs(i - focused - total)
+                  );
+                  const isAdjacent = dist === 1;
+
+                  return (
+                    <div
+                      key={i}
+                      data-card
+                      onClick={() => goTo(i)}
+                      style={{
+                        flex: `0 0 calc((100% - ${CARD_GAP * (VISIBLE_CARDS - 1)}px) / ${VISIBLE_CARDS})`,
+                        minWidth: 0,
+                        position: "relative",
+                        display: "flex",
+                        flexDirection: "column",
+                        borderRadius: "16px",
+                        padding: "28px",
+                        cursor: "pointer",
+                        background: isFocused
+                          ? "linear-gradient(145deg, #0d2030 0%, #0a1a26 60%, #071420 100%)"
+                          : "linear-gradient(145deg, #0b1c2a 0%, #091624 60%, #061220 100%)",
+                        border: isFocused
+                          ? "1px solid rgba(33,198,207,0.45)"
+                          : "1px solid rgba(33,198,207,0.12)",
+                        boxShadow: isFocused
+                          ? "0 0 0 1px rgba(33,198,207,0.15), 0 8px 48px rgba(33,198,207,0.14), inset 0 0 60px rgba(33,198,207,0.04)"
+                          : "0 2px 16px rgba(0,0,0,0.3)",
+                        transform: isFocused ? "translateY(-6px)" : "translateY(0px)",
+                        opacity: isFocused ? 1 : isAdjacent ? 0.6 : 0.3,
+                        transition: "all 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+                      }}
+                    >
+                      <div style={{
+                        pointerEvents: "none", position: "absolute", inset: 0, borderRadius: "16px",
+                        background: "radial-gradient(ellipse at 50% 0%, rgba(33,198,207,0.08) 0%, transparent 55%)",
+                        opacity: isFocused ? 1 : 0, transition: "opacity 0.45s ease",
+                      }} />
+
+                      <div style={{ marginBottom: "16px", display: "flex", justifyContent: "flex-end" }}>
+                        <span style={{
+                          display: "inline-flex", alignItems: "center", gap: "6px",
+                          borderRadius: "999px", padding: "4px 10px",
+                          fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase",
+                          background: isFocused ? "rgba(33,198,207,0.15)" : "rgba(33,198,207,0.07)",
+                          border: isFocused ? "1px solid rgba(33,198,207,0.4)" : "1px solid rgba(33,198,207,0.18)",
                           color: isFocused ? "#28E7C5" : "rgba(40,231,197,0.6)",
                           transition: "all 0.45s ease",
-                        }}
-                      >
-                        <span
-                          className="h-1 w-1 rounded-full bg-current"
-                          style={{
-                            boxShadow: isFocused ? "0 0 6px #28E7C5" : "none",
-                          }}
-                        />
-                        {t.tag}
-                      </span>
-                    </div>
+                        }}>
+                          <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "currentColor", boxShadow: isFocused ? "0 0 6px #28E7C5" : "none" }} />
+                          {t.tag}
+                        </span>
+                      </div>
 
-                    {/* Quote mark */}
-                    <div
-                      className="mb-1 text-[3.5rem] font-bold leading-none"
-                      style={{
-                        color: isFocused
-                          ? "rgba(33,198,207,0.3)"
-                          : "rgba(33,198,207,0.15)",
+                      <div style={{
+                        fontSize: "3.2rem", fontWeight: 800, lineHeight: 1,
+                        color: isFocused ? "rgba(33,198,207,0.35)" : "rgba(33,198,207,0.15)",
+                        marginTop: "-6px", marginBottom: "4px",
                         transition: "color 0.45s ease",
-                        lineHeight: "1",
-                        marginTop: "-8px",
-                      }}
-                    >
-                      "
-                    </div>
+                      }}>"</div>
 
-                    {/* Quote text */}
-                    <p
-                      className="mb-5 flex-1 text-sm leading-[1.75]"
-                      style={{
-                        color: isFocused
-                          ? "rgba(255,255,255,0.82)"
-                          : "rgba(255,255,255,0.55)",
+                      <p style={{
+                        flex: 1, margin: "0 0 20px",
+                        fontSize: "0.875rem", lineHeight: 1.75,
+                        color: isFocused ? "rgba(255,255,255,0.92)" : "rgba(255,255,255,0.5)",
                         transition: "color 0.45s ease",
-                      }}
-                    >
-                      {t.quote}
-                    </p>
+                      }}>{t.quote}</p>
 
-                    {/* Divider */}
-                    <div
-                      className="mb-4 h-px"
-                      style={{
+                      <div style={{
+                        height: "1px", marginBottom: "16px",
                         background: isFocused
-                          ? "rgba(33,198,207,0.22)"
-                          : "rgba(33,198,207,0.1)",
+                          ? "linear-gradient(90deg, rgba(33,198,207,0.35), transparent)"
+                          : "rgba(33,198,207,0.08)",
                         transition: "background 0.45s ease",
-                      }}
-                    />
+                      }} />
 
-                    {/* Author */}
-                    <div className="flex items-center gap-3">
-                      <div
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold text-[#28E7C5]"
-                        style={{
-                          background:
-                            "linear-gradient(135deg, rgba(33,198,207,0.22), rgba(33,198,207,0.06))",
-                          border: isFocused
-                            ? "1px solid rgba(33,198,207,0.5)"
-                            : "1px solid rgba(33,198,207,0.22)",
-                          boxShadow: isFocused
-                            ? "0 0 14px rgba(33,198,207,0.2)"
-                            : "none",
-                          transition:
-                            "border-color 0.45s ease, box-shadow 0.45s ease",
-                        }}
-                      >
-                        {t.initials}
-                      </div>
-                      <div>
-                        <div className="text-sm font-semibold text-white">
-                          {t.name}
-                        </div>
-                        <div
-                          className="text-xs text-[#28E7C5]"
-                          style={{
-                            opacity: isFocused ? 1 : 0.7,
-                            transition: "opacity 0.45s ease",
-                          }}
-                        >
-                          {t.role}
+                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                        <div style={{
+                          flexShrink: 0, width: "40px", height: "40px", borderRadius: "50%",
+                          display: "flex", alignItems: "center", justifyContent: "center",
+                          fontSize: "0.72rem", fontWeight: 700, color: "#28E7C5",
+                          background: "linear-gradient(135deg, rgba(33,198,207,0.22), rgba(33,198,207,0.06))",
+                          border: isFocused ? "1px solid rgba(33,198,207,0.5)" : "1px solid rgba(33,198,207,0.2)",
+                          boxShadow: isFocused ? "0 0 14px rgba(33,198,207,0.22)" : "none",
+                          transition: "all 0.45s ease",
+                        }}>{t.initials}</div>
+                        <div>
+                          <div style={{ fontSize: "0.875rem", fontWeight: 600, color: "white" }}>{t.name}</div>
+                          <div style={{ fontSize: "0.75rem", color: "#28E7C5", opacity: isFocused ? 1 : 0.6, transition: "opacity 0.45s ease" }}>{t.role}</div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
 
-          {/* Nav Row */}
-          <div className="mt-10 flex items-center justify-center gap-5">
-            <button
-              onClick={prev}
-              className="flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300"
-              style={{
-                border: "1px solid rgba(33,198,207,0.2)",
-                background: "#0a0a0a",
-                color: "rgba(255,255,255,0.5)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "#21C6CF";
-                e.currentTarget.style.color = "#21C6CF";
-                e.currentTarget.style.boxShadow = "0 0 14px rgba(33,198,207,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(33,198,207,0.2)";
-                e.currentTarget.style.color = "rgba(255,255,255,0.5)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
-              aria-label="Previous"
-            >
-              <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M10.5 3L5.5 8l5 5" />
-              </svg>
+          {/* Nav */}
+          <div style={{ marginTop: "40px", display: "flex", alignItems: "center", justifyContent: "center", gap: "20px" }}>
+            <button onClick={prev} aria-label="Previous" style={{ width: "40px", height: "40px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(33,198,207,0.2)", background: "rgba(10,26,38,0.8)", color: "rgba(255,255,255,0.5)", cursor: "pointer", transition: "all 0.3s ease" }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#21C6CF"; e.currentTarget.style.color = "#21C6CF"; e.currentTarget.style.boxShadow = "0 0 14px rgba(33,198,207,0.2)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(33,198,207,0.2)"; e.currentTarget.style.color = "rgba(255,255,255,0.5)"; e.currentTarget.style.boxShadow = "none"; }}>
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10.5 3L5.5 8l5 5" /></svg>
             </button>
 
-            <div className="flex items-center gap-1.5">
+            <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
               {TESTIMONIALS.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goTo(i)}
-                  className="rounded-full transition-all duration-300"
-                  style={{
-                    height: "6px",
-                    width: focused === i ? "24px" : "6px",
-                    background: focused === i ? "#21C6CF" : "rgba(33,198,207,0.22)",
-                    boxShadow: focused === i ? "0 0 8px rgba(33,198,207,0.5)" : "none",
-                    border: "none",
-                    padding: 0,
-                    cursor: "pointer",
-                  }}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                />
+                <button key={i} onClick={() => goTo(i)} aria-label={`Go to testimonial ${i + 1}`}
+                  style={{ height: "6px", width: focused === i ? "24px" : "6px", borderRadius: "999px", border: "none", padding: 0, cursor: "pointer", background: focused === i ? "#21C6CF" : "rgba(33,198,207,0.22)", boxShadow: focused === i ? "0 0 8px rgba(33,198,207,0.5)" : "none", transition: "all 0.3s ease" }} />
               ))}
             </div>
 
-            <button
-              onClick={next}
-              className="flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300"
-              style={{
-                border: "1px solid rgba(33,198,207,0.2)",
-                background: "#0a0a0a",
-                color: "rgba(255,255,255,0.5)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "#21C6CF";
-                e.currentTarget.style.color = "#21C6CF";
-                e.currentTarget.style.boxShadow = "0 0 14px rgba(33,198,207,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(33,198,207,0.2)";
-                e.currentTarget.style.color = "rgba(255,255,255,0.5)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
-              aria-label="Next"
-            >
-              <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5.5 3L10.5 8l-5 5" />
-              </svg>
+            <button onClick={next} aria-label="Next" style={{ width: "40px", height: "40px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(33,198,207,0.2)", background: "rgba(10,26,38,0.8)", color: "rgba(255,255,255,0.5)", cursor: "pointer", transition: "all 0.3s ease" }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#21C6CF"; e.currentTarget.style.color = "#21C6CF"; e.currentTarget.style.boxShadow = "0 0 14px rgba(33,198,207,0.2)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(33,198,207,0.2)"; e.currentTarget.style.color = "rgba(255,255,255,0.5)"; e.currentTarget.style.boxShadow = "none"; }}>
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5.5 3L10.5 8l-5 5" /></svg>
             </button>
           </div>
 
           {/* Counter */}
-          <div className="mt-4 flex justify-center">
-            <span className="text-[0.72rem] tracking-widest text-white/20">
-              {String(focused + 1).padStart(2, "0")} /{" "}
-              {String(total).padStart(2, "0")}
+          <div style={{ marginTop: "12px", display: "flex", justifyContent: "center" }}>
+            <span style={{ fontSize: "0.72rem", letterSpacing: "0.15em", color: "rgba(255,255,255,0.2)" }}>
+              {String(focused + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
             </span>
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import Link from "next/link";
 
 const SLIDES = [
   // ===== AI TRAINING =====
@@ -17,6 +18,8 @@ const SLIDES = [
       "/Images/HeroSec/Training/3.jpg",
     ],
     poster: "/Images/HeroSec/Training/1.jpg",
+    primaryLink: "/Courses",
+    ghostLink: "/Courses#connect"
   },
 
   // ===== AI BUSINESS =====
@@ -33,6 +36,8 @@ const SLIDES = [
       "/Images/HeroSec/Business/3.jpg",
     ],
     poster: "/Images/HeroSec/Business/1.jpg",
+    primaryLink: "/Services",
+    ghostLink: "/#contact"
   },
 
   // ===== AI PRODUCT DEVELOPMENT =====
@@ -45,6 +50,8 @@ const SLIDES = [
     ghostCta: "Discuss Idea",
     images: ["/Images/HeroSec/Product/1.jpg", "/Images/HeroSec/Product/2.jpg"],
     poster: "/Images/HeroSec/Product/1.jpg",
+    primaryLink: "/Products",
+    ghostLink: "/#contact"
   },
 
   // ===== AI AGRICULTURE =====
@@ -61,6 +68,8 @@ const SLIDES = [
       "/Images/HeroSec/Agri/4.jpg",
     ],
     poster: "/Images/HeroSec/Agri/1.jpg",
+    primaryLink: "/Products",
+    ghostLink: "/#contact"
   },
 
   // ===== AI HEALTHCARE =====
@@ -76,6 +85,8 @@ const SLIDES = [
       "/Images/HeroSec/Health/3.jpg",
     ],
     poster: "/Images/HeroSec/Health/1.jpg",
+    primaryLink: "/Products",
+    ghostLink: "/#contact"
   },
 
   // ===== AI REAL ESTATE =====
@@ -92,6 +103,8 @@ const SLIDES = [
       "/Images/HeroSec/Real/4.jpg",
     ],
     poster: "/Images/HeroSec/Real/1.jpg",
+    primaryLink: "/Products",
+    ghostLink: "/#contact"
   },
 ];
 
@@ -307,6 +320,7 @@ export default function HeroCarousel() {
 
           {/* CTAs */}
           <div className="hero-anim-fadeup delay-4 flex flex-wrap gap-3">
+            <Link href={s.primaryLink}>
             <button
               className="bg-[#28E7C5] transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[13px] px-7 py-3.25 text-[0.8rem] font-semibold tracking-[0.06em]"
               style={{
@@ -318,8 +332,10 @@ export default function HeroCarousel() {
             >
               {s.primaryCta}
             </button>
+            </Link>
 
-            <button
+            <Link href={s.ghostLink}>
+              <button
               className="btn-ghost transition-all duration-[0.22s] ease-in-out whitespace-nowrap cursor-pointer rounded-[13px] px-6.5 py-3.25 text-[0.8rem] font-medium tracking-[0.06em] inline-flex items-center gap-1.5"
               style={{
                 fontFamily: "'Google Sans', sans-serif",
@@ -341,6 +357,7 @@ export default function HeroCarousel() {
                 <path d="M3 8h10M9 4l4 4-4 4" />
               </svg>
             </button>
+            </Link>
           </div>
 
           {/* Slide Nav */}

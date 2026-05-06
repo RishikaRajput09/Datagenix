@@ -9,7 +9,8 @@ const COURSES = [
     id: 1,
     eyebrow: "Most Popular · No Coding Needed",
     title: "AI for Everyone",
-    tagline: "Understand AI. Use AI. Grow with AI — no technical background required.",
+    tagline:
+      "Understand AI. Use AI. Grow with AI — no technical background required.",
     description:
       "This program is designed for anyone who wants to learn Artificial Intelligence, use AI tools effectively, boost productivity, and grow in their career or business. No coding required — just curiosity and willingness to learn.",
 
@@ -79,11 +80,13 @@ const COURSES = [
     tag: "Beginner Friendly",
     duration: "4–6 Weeks",
     mode: "Online / Offline",
+
     images: [
       "/Images/HeroSec/Training/1.jpg",
       "/Images/HeroSec/Training/2.jpg",
       "/Images/HeroSec/Training/3.jpg",
     ],
+
     imageLeft: true,
   },
 
@@ -92,6 +95,7 @@ const COURSES = [
     eyebrow: "Most Popular · Job-Focused",
     title: "Data Analysis with Generative AI",
     tagline: "Your gateway to a high-demand data career — even from zero",
+
     description:
       "Master Excel, SQL, Python, Data Visualization, Statistics & Probability, Power BI, and Generative AI tools with real-world projects and case studies.",
 
@@ -99,7 +103,11 @@ const COURSES = [
       { icon: "◈", label: "Excel (Basic to Advanced)", desc: "" },
       { icon: "⬡", label: "SQL (Basic to Advanced)", desc: "" },
       { icon: "◉", label: "Python for Data Analysis", desc: "" },
-      { icon: "◆", label: "Data Visualization (Matplotlib, Seaborn)", desc: "" },
+      {
+        icon: "◆",
+        label: "Data Visualization (Matplotlib, Seaborn)",
+        desc: "",
+      },
       { icon: "▣", label: "Statistics & Probability", desc: "" },
       { icon: "◈", label: "Power BI", desc: "" },
       { icon: "⬡", label: "Generative AI", desc: "" },
@@ -138,10 +146,7 @@ const COURSES = [
       {
         module: "Module 4",
         title: "Visualization & Stats",
-        topics: [
-          "Data Visualization",
-          "Statistics & Probability",
-        ],
+        topics: ["Data Visualization", "Statistics & Probability"],
       },
       {
         module: "Module 5",
@@ -154,11 +159,13 @@ const COURSES = [
     tag: "Placement Ready",
     duration: "",
     mode: "",
+
     images: [
       "/Images/HeroSec/Business/4.jpg",
       "/Images/HeroSec/Business/2.jpg",
       "/Images/HeroSec/Business/3.jpg",
     ],
+
     imageLeft: false,
   },
 
@@ -167,6 +174,7 @@ const COURSES = [
     eyebrow: "Advanced · Industry-Grade",
     title: "Data Science with Generative AI",
     tagline: "Go beyond analysis — build intelligent AI systems",
+
     description:
       "Learn Machine Learning, Advanced ML Algorithms, Computer Vision, Natural Language Processing (NLP), and Generative AI with real-world projects.",
 
@@ -222,10 +230,14 @@ const COURSES = [
     tag: "Advanced",
     duration: "",
     mode: "",
+
     images: [
       "/Images/HeroSec/Product/1.jpg",
       "/Images/HeroSec/Product/2.jpg",
+      "/Images/HeroSec/Health/1.jpg",
+      "/Images/HeroSec/Health/2.jpg",
     ],
+
     imageLeft: true,
   },
 
@@ -234,6 +246,7 @@ const COURSES = [
     eyebrow: "Programming",
     title: "Python Programming (Beginner to Advanced)",
     tagline: "Build a strong coding foundation for AI & Data",
+
     description:
       "Learn Python basics, data types, loops, programming practices, NumPy, Pandas, visualization, and mini projects.",
 
@@ -281,11 +294,14 @@ const COURSES = [
     tag: "Beginner",
     duration: "",
     mode: "",
+
     images: [
       "/Images/HeroSec/Business/1.jpg",
       "/Images/HeroSec/Business/5.jpg",
       "/Images/HeroSec/Business/6.jpg",
+      "/Images/HeroSec/Product/2.jpg",
     ],
+
     imageLeft: false,
   },
 
@@ -294,6 +310,7 @@ const COURSES = [
     eyebrow: "Core Skills",
     title: "Excel & SQL for Data Analysis",
     tagline: "Core tools every data professional must master",
+
     description:
       "Learn Excel and SQL fundamentals, dashboards, queries, filtering, aggregations, and real-world use cases.",
 
@@ -330,9 +347,14 @@ const COURSES = [
     tag: "Essential",
     duration: "",
     mode: "",
+
     images: [
-      "/Images/HeroSec/Training/1.jpg"
+      "/Images/HeroSec/Training/1.jpg",
+      "/Images/HeroSec/Training/2.jpg",
+      "/Images/HeroSec/Business/2.jpg",
+      "/Images/HeroSec/Business/3.jpg",
     ],
+
     imageLeft: true,
   },
 
@@ -341,6 +363,7 @@ const COURSES = [
     eyebrow: "Visualization",
     title: "Power BI & Advanced Dashboarding",
     tagline: "Transform raw data into business insights",
+
     description:
       "Learn Power BI, data modeling, DAX functions, dashboard design, and visualization techniques.",
 
@@ -386,9 +409,14 @@ const COURSES = [
     tag: "BI",
     duration: "",
     mode: "",
+
     images: [
-      "/Images/HeroSec/Training/1.jpg"
+      "/Images/HeroSec/Business/4.jpg",
+      "/Images/HeroSec/Business/5.jpg",
+      "/Images/HeroSec/Health/3.jpg",
+      "/Images/HeroSec/Health/4.jpg",
     ],
+
     imageLeft: false,
   },
 
@@ -397,6 +425,7 @@ const COURSES = [
     eyebrow: "School Program",
     title: "AI & Robotics for Students (5th–9th)",
     tagline: "Build future-ready skills from an early age",
+
     description:
       "Introduce students to Artificial Intelligence, logic building, robotics, sensors, hardware, and creative AI applications.",
 
@@ -410,10 +439,7 @@ const COURSES = [
 
     whoCanJoin: ["School students (5th–9th)"],
 
-    outcomes: [
-      "Strong logical thinking",
-      "Early exposure to AI & robotics",
-    ],
+    outcomes: ["Strong logical thinking", "Early exposure to AI & robotics"],
 
     curriculum: [
       {
@@ -442,9 +468,14 @@ const COURSES = [
     tag: "School",
     duration: "",
     mode: "",
+
     images: [
-      "/Images/HeroSec/Training/1.jpg"
+      "/Images/HeroSec/Agri/1.jpg",
+      "/Images/HeroSec/Agri/2.jpg",
+      "/Images/HeroSec/Agri/3.jpg",
+      "/Images/HeroSec/Product/1.jpg",
     ],
+
     imageLeft: true,
   },
 
@@ -453,6 +484,7 @@ const COURSES = [
     eyebrow: "Career",
     title: "Employability Skill Development Programs",
     tagline: "Don’t just learn — get hired",
+
     description:
       "Programs focused on resume building, LinkedIn optimization, interviews, personal branding, and mentorship.",
 
@@ -494,9 +526,14 @@ const COURSES = [
     tag: "Career",
     duration: "",
     mode: "",
+
     images: [
-      "/Images/HeroSec/Training/1.jpg"
+      "/Images/HeroSec/Training/1.jpg",
+      "/Images/HeroSec/Training/2.jpg",
+      "/Images/HeroSec/Training/3.jpg",
+      "/Images/HeroSec/Business/1.jpg",
     ],
+
     imageLeft: false,
   },
 ];
@@ -579,10 +616,10 @@ function ImageGallery({ images, imageLeft }) {
           height: "480px",
           borderRadius: "20px",
           overflow: "hidden",
-          border: "1px solid rgba(33,198,207,0.12)",
+          border: "1px solid rgba(40, 231, 197,0.12)",
           background: "#0a0a0a",
           boxShadow: hovered
-            ? "0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(33,198,207,0.15)"
+            ? "0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(40, 231, 197,0.15)"
             : "0 12px 48px rgba(0,0,0,0.5)",
           transition: "box-shadow 0.5s ease",
         }}
@@ -647,7 +684,7 @@ function ImageGallery({ images, imageLeft }) {
             height: "180px",
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(33,198,207,0.18) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(40, 231, 197,0.18) 0%, transparent 70%)",
             opacity: hovered ? 1 : 0.4,
             transition: "opacity 0.5s ease",
             pointerEvents: "none",
@@ -663,14 +700,14 @@ function ImageGallery({ images, imageLeft }) {
             gap: "6px",
             background: "rgba(5,5,5,0.7)",
             backdropFilter: "blur(10px)",
-            border: "1px solid rgba(33,198,207,0.18)",
+            border: "1px solid rgba(40, 231, 197,0.18)",
             borderRadius: "999px",
             padding: "5px 12px",
-            fontFamily: "Inter, sans-serif",
+
             fontSize: "0.65rem",
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "#21C6CF",
+            color: "#28e7c5",
           }}
         >
           <span
@@ -678,8 +715,8 @@ function ImageGallery({ images, imageLeft }) {
               width: "5px",
               height: "5px",
               borderRadius: "50%",
-              background: "#21C6CF",
-              boxShadow: "0 0 6px #21C6CF",
+              background: "#28e7c5",
+              boxShadow: "0 0 6px #28e7c5",
               animation: "pulse 2s ease-in-out infinite",
             }}
           />
@@ -709,9 +746,9 @@ function ImageGallery({ images, imageLeft }) {
                 border: "none",
                 cursor: "pointer",
                 padding: 0,
-                background: i === active ? "#21C6CF" : "rgba(255,255,255,0.3)",
+                background: i === active ? "#28e7c5" : "rgba(255,255,255,0.3)",
                 boxShadow:
-                  i === active ? "0 0 8px rgba(33,198,207,0.8)" : "none",
+                  i === active ? "0 0 8px rgba(40, 231, 197,0.8)" : "none",
                 transition: "all 0.35s ease",
               }}
             />
@@ -734,12 +771,12 @@ function ImageGallery({ images, imageLeft }) {
               cursor: "pointer",
               border:
                 i === active
-                  ? "1.5px solid #21C6CF"
+                  ? "1.5px solid #28e7c5"
                   : thumbHov === i
-                    ? "1.5px solid rgba(33,198,207,0.4)"
-                    : "1.5px solid rgba(33,198,207,0.08)",
+                    ? "1.5px solid rgba(40, 231, 197,0.4)"
+                    : "1.5px solid rgba(40, 231, 197,0.08)",
               boxShadow:
-                i === active ? "0 0 12px rgba(33,198,207,0.35)" : "none",
+                i === active ? "0 0 12px rgba(40, 231, 197,0.35)" : "none",
               transition: "border-color 0.25s, box-shadow 0.25s",
               position: "relative",
               background: "#0a0a0a",
@@ -762,7 +799,7 @@ function ImageGallery({ images, imageLeft }) {
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "rgba(33,198,207,0.08)",
+                  background: "rgba(40, 231, 197,0.08)",
                 }}
               />
             )}
@@ -789,10 +826,10 @@ function ArrowBtn({ side, onClick, visible }) {
         width: "38px",
         height: "38px",
         borderRadius: "50%",
-        background: hov ? "rgba(33,198,207,0.25)" : "rgba(5,5,5,0.65)",
+        background: hov ? "rgba(40, 231, 197,0.25)" : "rgba(5,5,5,0.65)",
         backdropFilter: "blur(10px)",
-        border: `1px solid ${hov ? "rgba(33,198,207,0.5)" : "rgba(33,198,207,0.2)"}`,
-        color: "#21C6CF",
+        border: `1px solid ${hov ? "rgba(40, 231, 197,0.5)" : "rgba(40, 231, 197,0.2)"}`,
+        color: "#28e7c5",
         fontSize: "1rem",
         cursor: "pointer",
         display: "flex",
@@ -820,8 +857,8 @@ function FeatureRow({ icon, label, desc }) {
         alignItems: "flex-start",
         padding: "10px 14px",
         borderRadius: "10px",
-        background: hov ? "rgba(33,198,207,0.04)" : "transparent",
-        border: `1px solid ${hov ? "rgba(33,198,207,0.14)" : "transparent"}`,
+        background: hov ? "rgba(40, 231, 197,0.04)" : "transparent",
+        border: `1px solid ${hov ? "rgba(40, 231, 197,0.14)" : "transparent"}`,
         cursor: "default",
         transition: "all 0.25s ease",
         listStyle: "none",
@@ -833,12 +870,12 @@ function FeatureRow({ icon, label, desc }) {
           width: "30px",
           height: "30px",
           borderRadius: "7px",
-          background: "rgba(33,198,207,0.08)",
-          border: `1px solid ${hov ? "rgba(33,198,207,0.3)" : "rgba(33,198,207,0.12)"}`,
+          background: "rgba(40, 231, 197,0.08)",
+          border: `1px solid ${hov ? "rgba(40, 231, 197,0.3)" : "rgba(40, 231, 197,0.12)"}`,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#21C6CF",
+          color: "#28e7c5",
           fontSize: "0.8rem",
           transition: "border-color 0.25s",
         }}
@@ -848,7 +885,6 @@ function FeatureRow({ icon, label, desc }) {
       <div>
         <div
           style={{
-            fontFamily: "Inter, sans-serif",
             fontSize: "0.82rem",
             fontWeight: 700,
             color: hov ? "#fff" : "rgba(255,255,255,0.85)",
@@ -860,7 +896,6 @@ function FeatureRow({ icon, label, desc }) {
         </div>
         <div
           style={{
-            fontFamily: "Inter, sans-serif",
             fontSize: "0.75rem",
             lineHeight: 1.5,
             color: "rgba(255,255,255,0.38)",
@@ -881,12 +916,12 @@ function Eyebrow({ label }) {
         display: "inline-flex",
         alignItems: "center",
         gap: "8px",
-        fontFamily: "Inter, sans-serif",
+
         fontSize: "0.62rem",
         fontWeight: 500,
         letterSpacing: "0.18em",
         textTransform: "uppercase",
-        color: "#21C6CF",
+        color: "#28e7c5",
       }}
     >
       <span
@@ -894,8 +929,8 @@ function Eyebrow({ label }) {
           width: "5px",
           height: "5px",
           borderRadius: "50%",
-          background: "#21C6CF",
-          boxShadow: "0 0 8px #21C6CF",
+          background: "#28e7c5",
+          boxShadow: "0 0 8px #28e7c5",
           flexShrink: 0,
         }}
       />
@@ -907,22 +942,35 @@ function Eyebrow({ label }) {
 // ── CTA BUTTON ───────────────────────────────────────────────────────────────
 function CTAButton({ label, secondary }) {
   const [hov, setHov] = useState(false);
+
+  const handleClick = () => {
+    const formSection = document.getElementById("enrollment-form");
+
+    if (formSection) {
+      formSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <button
+      onClick={handleClick}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
         display: "inline-flex",
         alignItems: "center",
         gap: "10px",
-        fontFamily: "Inter, sans-serif",
+
         fontSize: "0.78rem",
         fontWeight: 700,
         letterSpacing: "0.06em",
         textTransform: "uppercase",
         color: secondary
           ? hov
-            ? "#21C6CF"
+            ? "#28e7c5"
             : "rgba(255,255,255,0.6)"
           : "#050505",
         background: secondary ? "transparent" : hov ? "#fff" : "#28E7C5",
@@ -930,17 +978,18 @@ function CTAButton({ label, secondary }) {
         borderRadius: "8px",
         cursor: "pointer",
         border: secondary
-          ? `1px solid ${hov ? "rgba(33,198,207,0.5)" : "rgba(33,198,207,0.2)"}`
+          ? `1px solid ${hov ? "rgba(40, 231, 197,0.5)" : "rgba(40, 231, 197,0.2)"}`
           : "none",
         boxShadow: secondary
           ? "none"
           : hov
-            ? "0 0 36px rgba(33,198,207,0.55)"
-            : "0 0 20px rgba(33,198,207,0.28)",
+            ? "0 0 36px rgba(40, 231, 197,0.55)"
+            : "0 0 20px rgba(40, 231, 197,0.28)",
         transition: "all 0.3s ease",
       }}
     >
       {label}
+
       {!secondary && (
         <span
           style={{
@@ -985,14 +1034,13 @@ function ExpandableContent({ course, visible }) {
             <span
               key={i}
               style={{
-                fontFamily: "Inter, sans-serif",
                 fontSize: "0.68rem",
                 letterSpacing: "0.08em",
                 padding: "5px 12px",
                 borderRadius: "999px",
-                border: "1px solid rgba(33,198,207,0.2)",
-                color: "rgba(33,198,207,0.75)",
-                background: "rgba(33,198,207,0.05)",
+                border: "1px solid rgba(40, 231, 197,0.2)",
+                color: "rgba(40, 231, 197,0.75)",
+                background: "rgba(40, 231, 197,0.05)",
               }}
             >
               {p.label}
@@ -1004,10 +1052,9 @@ function ExpandableContent({ course, visible }) {
         <div style={{ marginBottom: "16px" }}>
           <div
             style={{
-              fontFamily: "Inter, sans-serif",
               fontSize: "0.72rem",
               fontWeight: 700,
-              color: "rgba(255,255,255,0.5)",
+              color: "rgba(255,255,255,1)",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               marginBottom: "10px",
@@ -1027,7 +1074,7 @@ function ExpandableContent({ course, visible }) {
               >
                 <span
                   style={{
-                    color: "#21C6CF",
+                    color: "#28e7c5",
                     fontSize: "0.75rem",
                     marginTop: "2px",
                     flexShrink: 0,
@@ -1037,9 +1084,8 @@ function ExpandableContent({ course, visible }) {
                 </span>
                 <span
                   style={{
-                    fontFamily: "Inter, sans-serif",
                     fontSize: "0.78rem",
-                    color: "rgba(255,255,255,0.6)",
+                    color: "rgba(255,255,255,1)",
                     lineHeight: 1.5,
                   }}
                 >
@@ -1054,7 +1100,7 @@ function ExpandableContent({ course, visible }) {
           style={{
             height: "1px",
             background:
-              "linear-gradient(90deg, rgba(33,198,207,0.12), transparent)",
+              "linear-gradient(90deg, rgba(40, 231, 197,0.12), transparent)",
             marginBottom: "16px",
           }}
         />
@@ -1063,10 +1109,9 @@ function ExpandableContent({ course, visible }) {
         <div>
           <div
             style={{
-              fontFamily: "Inter, sans-serif",
               fontSize: "0.72rem",
               fontWeight: 700,
-              color: "rgba(255,255,255,0.5)",
+              color: "rgba(255,255,255,1)",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               marginBottom: "10px",
@@ -1079,13 +1124,12 @@ function ExpandableContent({ course, visible }) {
               <span
                 key={i}
                 style={{
-                  fontFamily: "Inter, sans-serif",
                   fontSize: "0.68rem",
                   padding: "4px 10px",
                   borderRadius: "6px",
-                  background: "rgba(33,198,207,0.06)",
-                  border: "1px solid rgba(33,198,207,0.12)",
-                  color: "rgba(255,255,255,0.5)",
+                  background: "rgba(40, 231, 197,0.06)",
+                  border: "1px solid rgba(40, 231, 197,0.12)",
+                  color: "rgba(255,255,255,1)",
                 }}
               >
                 {w}
@@ -1114,7 +1158,6 @@ function CurriculumAccordion({ curriculum, visible }) {
       <div style={{ paddingTop: "16px" }}>
         <div
           style={{
-            fontFamily: "Inter, sans-serif",
             fontSize: "0.72rem",
             fontWeight: 700,
             color: "rgba(255,255,255,0.5)",
@@ -1134,8 +1177,10 @@ function CurriculumAccordion({ curriculum, visible }) {
                 style={{
                   borderRadius: "10px",
                   overflow: "hidden",
-                  border: `1px solid ${isOpen ? "rgba(33,198,207,0.25)" : "rgba(33,198,207,0.1)"}`,
-                  background: isOpen ? "rgba(33,198,207,0.04)" : "transparent",
+                  border: `1px solid ${isOpen ? "rgba(40, 231, 197,0.25)" : "rgba(40, 231, 197,0.1)"}`,
+                  background: isOpen
+                    ? "rgba(40, 231, 197,0.04)"
+                    : "transparent",
                   transition: "border-color 0.25s, background 0.25s",
                 }}
               >
@@ -1161,11 +1206,10 @@ function CurriculumAccordion({ curriculum, visible }) {
                   >
                     <span
                       style={{
-                        fontFamily: "Inter, sans-serif",
                         fontSize: "0.6rem",
                         letterSpacing: "0.12em",
                         textTransform: "uppercase",
-                        color: "#21C6CF",
+                        color: "#28e7c5",
                         flexShrink: 0,
                       }}
                     >
@@ -1173,7 +1217,6 @@ function CurriculumAccordion({ curriculum, visible }) {
                     </span>
                     <span
                       style={{
-                        fontFamily: "Inter, sans-serif",
                         fontSize: "0.8rem",
                         fontWeight: 700,
                         color: "rgba(255,255,255,0.8)",
@@ -1184,7 +1227,7 @@ function CurriculumAccordion({ curriculum, visible }) {
                   </div>
                   <span
                     style={{
-                      color: "#21C6CF",
+                      color: "#28e7c5",
                       fontSize: "0.8rem",
                       transform: isOpen ? "rotate(45deg)" : "rotate(0)",
                       transition: "transform 0.25s ease",
@@ -1212,12 +1255,11 @@ function CurriculumAccordion({ curriculum, visible }) {
                       <span
                         key={j}
                         style={{
-                          fontFamily: "Inter, sans-serif",
                           fontSize: "0.68rem",
                           padding: "3px 9px",
                           borderRadius: "5px",
-                          background: "rgba(33,198,207,0.06)",
-                          border: "1px solid rgba(33,198,207,0.12)",
+                          background: "rgba(40, 231, 197,0.06)",
+                          border: "1px solid rgba(40, 231, 197,0.12)",
                           color: "rgba(255,255,255,0.5)",
                         }}
                       >
@@ -1267,7 +1309,7 @@ function CourseSection({ course, index }) {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, transparent, rgba(33,198,207,0.15), transparent)",
+                "linear-gradient(90deg, transparent, rgba(40, 231, 197,0.15), transparent)",
             }}
           />
         </div>
@@ -1287,7 +1329,7 @@ function CourseSection({ course, index }) {
             height: "700px",
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(33,198,207,0.04) 0%, transparent 65%)",
+              "radial-gradient(circle, rgba(40, 231, 197,0.04) 0%, transparent 65%)",
             top: "50%",
             [imageLeft ? "right" : "left"]: "-200px",
             transform: "translateY(-50%)",
@@ -1301,10 +1343,10 @@ function CourseSection({ course, index }) {
             position: "absolute",
             top: "clamp(20px,4vw,40px)",
             [imageLeft ? "right" : "left"]: "clamp(20px,4vw,60px)",
-            fontFamily: "Inter, sans-serif",
+
             fontSize: "clamp(5rem,12vw,9rem)",
             fontWeight: 800,
-            color: "rgba(33,198,207,0.025)",
+            color: "rgba(40, 231, 197,0.025)",
             lineHeight: 1,
             userSelect: "none",
             pointerEvents: "none",
@@ -1355,22 +1397,21 @@ function CourseSection({ course, index }) {
                   flexWrap: "wrap",
                   alignItems: "center",
                   gap: "10px",
-                  color: "#28E7C5",                 
+                  color: "#28E7C5",
                   marginBottom: "14px",
                 }}
               >
                 <Eyebrow label={course.eyebrow} />
                 <span
                   style={{
-                    fontFamily: "Inter, sans-serif",
                     fontSize: "0.6rem",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     padding: "4px 10px",
                     borderRadius: "999px",
-                    border: "1px solid rgba(33,198,207,0.2)",
+                    border: "1px solid rgba(40, 231, 197,0.2)",
                     color: "#28E7C5",
-                    background: "rgba(33,198,207,0.05)",
+                    background: "rgba(40, 231, 197,0.05)",
                   }}
                 >
                   {course.tag}
@@ -1380,7 +1421,6 @@ function CourseSection({ course, index }) {
               {/* Title */}
               <h2
                 style={{
-                  fontFamily: "Inter, sans-serif",
                   fontSize: "clamp(2rem,4.5vw,2.8rem)",
                   fontWeight: 800,
                   color: "#fff",
@@ -1395,7 +1435,6 @@ function CourseSection({ course, index }) {
               {/* Tagline */}
               <p
                 style={{
-                  fontFamily: "Inter, sans-serif",
                   fontSize: "clamp(0.9rem,1.5vw,1rem)",
                   fontWeight: 600,
                   color: "#28E7C5",
@@ -1408,10 +1447,9 @@ function CourseSection({ course, index }) {
               {/* Description */}
               <p
                 style={{
-                  fontFamily: "Inter, sans-serif",
                   fontSize: "0.88rem",
                   lineHeight: 1.75,
-                  color: "rgba(255,255,255,0.38)",
+                  color: "rgba(255,255,255,1)",
                   margin: "0 0 18px",
                   maxWidth: "460px",
                 }}
@@ -1423,7 +1461,7 @@ function CourseSection({ course, index }) {
                 style={{
                   height: "1px",
                   background:
-                    "linear-gradient(90deg, rgba(33,198,207,0.2), transparent)",
+                    "linear-gradient(90deg, rgba(40, 231, 197,0.2), transparent)",
                   marginBottom: "16px",
                 }}
               />
@@ -1462,7 +1500,7 @@ function CourseSection({ course, index }) {
                 style={{
                   height: "1px",
                   background:
-                    "linear-gradient(90deg, rgba(33,198,207,0.12), transparent)",
+                    "linear-gradient(90deg, rgba(40, 231, 197,0.12), transparent)",
                   margin: "16px 0",
                 }}
               />
@@ -1483,25 +1521,24 @@ function CourseSection({ course, index }) {
                     if (expanded) setShowCurriculum(false);
                   }}
                   style={{
-                    fontFamily: "Inter, sans-serif",
                     fontSize: "0.72rem",
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
                     padding: "10px 16px",
                     borderRadius: "8px",
-                    border: "1px solid rgba(33,198,207,0.2)",
-                    color: "rgba(33,198,207,0.7)",
+                    border: "1px solid rgba(40, 231, 197,0.2)",
+                    color: "rgba(40, 231, 197,0.7)",
                     background: "transparent",
                     cursor: "pointer",
                     transition: "all 0.25s ease",
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.borderColor = "rgba(33,198,207,0.45)";
-                    e.target.style.color = "#21C6CF";
+                    e.target.style.borderColor = "rgba(40, 231, 197,0.45)";
+                    e.target.style.color = "#28e7c5";
                   }}
                   onMouseLeave={(e) => {
-                    e.target.style.borderColor = "rgba(33,198,207,0.2)";
-                    e.target.style.color = "rgba(33,198,207,0.7)";
+                    e.target.style.borderColor = "rgba(40, 231, 197,0.2)";
+                    e.target.style.color = "rgba(40, 231, 197,0.7)";
                   }}
                 >
                   {expanded ? "↑ Less" : "↓ Who Should Join"}
@@ -1510,24 +1547,23 @@ function CourseSection({ course, index }) {
                   <button
                     onClick={() => setShowCurriculum(!showCurriculum)}
                     style={{
-                      fontFamily: "Inter, sans-serif",
                       fontSize: "0.72rem",
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
                       padding: "10px 16px",
                       borderRadius: "8px",
-                      border: "1px solid rgba(33,198,207,0.15)",
+                      border: "1px solid rgba(40, 231, 197,0.15)",
                       color: "rgba(255,255,255,0.35)",
                       background: "transparent",
                       cursor: "pointer",
                       transition: "all 0.25s ease",
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.borderColor = "rgba(33,198,207,0.3)";
-                      e.target.style.color = "rgba(255,255,255,0.6)";
+                      e.target.style.borderColor = "rgba(40, 231, 197,0.3)";
+                      e.target.style.color = "rgba(255,255,255,1)";
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.borderColor = "rgba(33,198,207,0.15)";
+                      e.target.style.borderColor = "rgba(40, 231, 197,0.15)";
                       e.target.style.color = "rgba(255,255,255,0.35)";
                     }}
                   >
@@ -1552,16 +1588,15 @@ function NavPill({ href, label }) {
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
-        fontFamily: "Inter, sans-serif",
         fontSize: "0.72rem",
         letterSpacing: "0.08em",
         textTransform: "uppercase",
         padding: "6px 14px",
         borderRadius: "999px",
         textDecoration: "none",
-        border: `1px solid ${hov ? "rgba(33,198,207,0.45)" : "rgba(33,198,207,0.15)"}`,
-        color: hov ? "#21C6CF" : "rgba(255,255,255,0.4)",
-        background: hov ? "rgba(33,198,207,0.06)" : "transparent",
+        border: `1px solid ${hov ? "rgba(40, 231, 197,0.45)" : "rgba(40, 231, 197,0.15)"}`,
+        color: hov ? "#28e7c5" : "rgba(255,255,255,1)",
+        background: hov ? "rgba(40, 231, 197,0.06)" : "transparent",
         transition: "all 0.25s ease",
       }}
     >
@@ -1575,22 +1610,145 @@ function PlacementStrip() {
   const [ref, inView] = useInView(0.1);
   const items = [
     {
-      icon: "📄",
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect
+            x="3"
+            y="1.5"
+            width="13"
+            height="17"
+            rx="2"
+            stroke="#1bd4a0"
+            strokeWidth="1.4"
+          />
+          <line
+            x1="6.5"
+            y1="6"
+            x2="12.5"
+            y2="6"
+            stroke="#1bd4a0"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+          <line
+            x1="6.5"
+            y1="9"
+            x2="13.5"
+            y2="9"
+            stroke="#1bd4a0"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+          <line
+            x1="6.5"
+            y1="12"
+            x2="11"
+            y2="12"
+            stroke="#1bd4a0"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="16.5"
+            cy="16.5"
+            r="3.5"
+            fill="#0d2a2a"
+            stroke="#1bd4a0"
+            strokeWidth="1.2"
+          />
+          <path
+            d="M15.2 16.5l.9.9 1.6-1.6"
+            stroke="#1bd4a0"
+            strokeWidth="1.1"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
       title: "ATS-Friendly Resume",
       desc: "Crafted to pass applicant tracking systems",
     },
     {
-      icon: "💼",
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect
+            x="2"
+            y="2"
+            width="18"
+            height="18"
+            rx="4"
+            stroke="#1bd4a0"
+            strokeWidth="1.4"
+          />
+          <circle cx="11" cy="9" r="2.8" stroke="#1bd4a0" strokeWidth="1.2" />
+          <path
+            d="M5.5 17c0-3 2.5-5 5.5-5s5.5 2 5.5 5"
+            stroke="#1bd4a0"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+          <rect
+            x="7.5"
+            y="2"
+            width="7"
+            height="2"
+            rx="1"
+            fill="#1bd4a0"
+            opacity="0.5"
+          />
+        </svg>
+      ),
       title: "LinkedIn Optimization",
       desc: "Profile that attracts recruiter attention",
     },
     {
-      icon: "🎯",
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <circle cx="11" cy="11" r="8.5" stroke="#1bd4a0" strokeWidth="1.4" />
+          <path
+            d="M8.5 8.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1.4-.8 2-1.8 2.5C10.7 11.5 10.5 12 10.5 12.5"
+            stroke="#1bd4a0"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+          <circle cx="11" cy="15.2" r="0.8" fill="#1bd4a0" />
+        </svg>
+      ),
       title: "Mock Interviews",
       desc: "Real scenario-based interview simulations",
     },
     {
-      icon: "🌐",
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect
+            x="2"
+            y="4"
+            width="18"
+            height="14"
+            rx="2.5"
+            stroke="#1bd4a0"
+            strokeWidth="1.4"
+          />
+          <circle cx="11" cy="11" r="3" stroke="#1bd4a0" strokeWidth="1.2" />
+          <circle cx="11" cy="11" r="1" fill="#1bd4a0" />
+          <line
+            x1="2"
+            y1="7.5"
+            x2="20"
+            y2="7.5"
+            stroke="#1bd4a0"
+            strokeWidth="1"
+            opacity="0.4"
+          />
+          <path
+            d="M15 4v3M7 4v3"
+            stroke="#1bd4a0"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            opacity="0.5"
+          />
+        </svg>
+      ),
       title: "Naukri Profile Setup",
       desc: "Recruiter-optimized profile for India market",
     },
@@ -1608,7 +1766,7 @@ function PlacementStrip() {
         style={{
           height: "1px",
           background:
-            "linear-gradient(90deg, transparent, rgba(33,198,207,0.15), transparent)",
+            "linear-gradient(90deg, transparent, rgba(40, 231, 197,0.15), transparent)",
           marginBottom: "48px",
         }}
       />
@@ -1623,7 +1781,6 @@ function PlacementStrip() {
           <Eyebrow label="Career Preparation" />
           <h2
             style={{
-              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(1.6rem,3vw,2.2rem)",
               fontWeight: 800,
               color: "#fff",
@@ -1636,9 +1793,8 @@ function PlacementStrip() {
           </h2>
           <p
             style={{
-              fontFamily: "Inter, sans-serif",
               fontSize: "0.88rem",
-              color: "rgba(255,255,255,0.35)",
+              color: "rgba(255,255,255,1)",
               marginTop: "8px",
             }}
           >
@@ -1661,7 +1817,6 @@ function PlacementStrip() {
           <CTAButton label="Book Free Counselling" />
           <p
             style={{
-              fontFamily: "Inter, sans-serif",
               fontSize: "0.65rem",
               color: "rgba(255,255,255,0.2)",
               marginTop: "10px",
@@ -1685,8 +1840,13 @@ function PlacementCard({ item }) {
       style={{
         padding: "20px",
         borderRadius: "14px",
-        border: `1px solid ${hov ? "rgba(33,198,207,0.25)" : "rgba(33,198,207,0.09)"}`,
-        background: hov ? "rgba(33,198,207,0.04)" : "#0a0a0a",
+        border: `1px solid ${hov ? "rgba(40, 231, 197,0.25)" : "rgba(40, 231, 197,0.09)"}`,
+        background: hov
+          ? "linear-gradient(145deg, rgba(20,58,78,0.96), rgba(14,42,58,0.98))"
+          : "linear-gradient(145deg, rgba(24,72,94,0.94), rgba(16,48,66,0.97))",
+        boxShadow: hov
+          ? "0 14px 40px rgba(0,0,0,0.45), 0 0 20px rgba(40,231,197,0.08)"
+          : "0 10px 30px rgba(0,0,0,0.32)",
         transition: "all 0.3s ease",
         cursor: "default",
       }}
@@ -1694,10 +1854,9 @@ function PlacementCard({ item }) {
       <div style={{ fontSize: "1.4rem", marginBottom: "8px" }}>{item.icon}</div>
       <div
         style={{
-          fontFamily: "Inter, sans-serif",
           fontSize: "0.85rem",
           fontWeight: 700,
-          color: hov ? "#fff" : "rgba(255,255,255,0.75)",
+          color: hov ? "#fff" : "rgba(255,255,255,1)",
           marginBottom: "5px",
           transition: "color 0.2s",
         }}
@@ -1706,9 +1865,8 @@ function PlacementCard({ item }) {
       </div>
       <div
         style={{
-          fontFamily: "Inter, sans-serif",
           fontSize: "0.75rem",
-          color: "rgba(255,255,255,0.35)",
+          color: "rgba(255,255,255,1)",
           lineHeight: 1.5,
         }}
       >
@@ -1723,7 +1881,6 @@ export default function CoursesPage() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
         html { scroll-behavior: smooth; }
         *, *::before, *::after { box-sizing: border-box; }
@@ -1784,16 +1941,15 @@ export default function CoursesPage() {
               borderRadius: "999px",
               marginBottom: "22px",
 
-              background: "rgba(33,198,207,0.08)",
-              border: "1px solid rgba(33,198,207,0.25)",
-              boxShadow: "0 0 20px rgba(33,198,207,0.12)",
+              background: "rgba(40, 231, 197,0.08)",
+              border: "1px solid rgba(40, 231, 197,0.25)",
+              boxShadow: "0 0 20px rgba(40, 231, 197,0.12)",
             }}
           >
             <Eyebrow label="AI & Data Courses" />
           </div>
           <h1
             style={{
-              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(2.4rem,6vw,4.2rem)",
               fontWeight: 800,
               color: "#fff",
@@ -1803,15 +1959,25 @@ export default function CoursesPage() {
               animation: "heroFadeUp 0.8s ease 0.1s both",
             }}
           >
-            Master <span style={{ color: "#28E7C5" }}>AI & Data Skills</span>{" "}
-            that the world is hiring for
+            <span style={{ fontWeight: 700 }}>Master</span>{" "}
+            <span
+              style={{
+                color: "#28E7C5",
+                fontWeight: 700,
+              }}
+            >
+              AI & Data Skills
+              <br />
+            </span>{" "}
+            <span style={{ fontWeight: 700 }}>
+              that the world is hiring for
+            </span>
           </h1>
           <p
             style={{
-              fontFamily: "Inter, sans-serif",
               fontSize: "0.95rem",
               lineHeight: 1.75,
-              color: "rgba(255,255,255,0.38)",
+              color: "rgba(255,255,255,1)",
               maxWidth: "520px",
               margin: "0 0 10px",
               animation: "heroFadeUp 0.8s ease 0.2s both",
@@ -1823,12 +1989,14 @@ export default function CoursesPage() {
           </p>
           <div
             style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "20px",
-              margin: "0 0 28px",
-              animation: "heroFadeUp 0.8s ease 0.25s both",
-            }}
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "20px",
+    margin: "0 0 28px",
+    animation: "heroFadeUp 0.8s ease 0.25s both",
+    justifyContent: "center",
+    alignItems: "center",
+  }}
           >
             {[
               { val: "170M+", label: "Jobs by 2030" },
@@ -1839,7 +2007,6 @@ export default function CoursesPage() {
               <div key={i} style={{ display: "flex", flexDirection: "column" }}>
                 <span
                   style={{
-                    fontFamily: "Inter, sans-serif",
                     fontSize: "1.4rem",
                     fontWeight: 800,
                     color: "#28E7C5",
@@ -1850,11 +2017,10 @@ export default function CoursesPage() {
                 </span>
                 <span
                   style={{
-                    fontFamily: "Inter, sans-serif",
                     fontSize: "0.65rem",
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.3)",
+                    color: "rgba(255,255,255,1)",
                     marginTop: "3px",
                   }}
                 >
@@ -1864,15 +2030,14 @@ export default function CoursesPage() {
             ))}
           </div>
           <div
+          className="hidden xl:flex w-[75%] items-center justify-center"
             style={{
-              display: "flex",
               flexWrap: "wrap",
               gap: "6px",
               animation: "heroFadeUp 0.8s ease 0.3s both",
-              alignItems: "center"
+              alignItems: "center",
             }}
-
-            className="w-[75%] items-center"
+            
           >
             {COURSES.map((c) => (
               <NavPill key={c.id} href={`#course-${c.id}`} label={c.title} />
@@ -1892,7 +2057,7 @@ export default function CoursesPage() {
           <PlacementStrip />
         </div>
 
-        <div style={{ position: "relative", zIndex: 1 }} className="mb-8">
+        <div id="enrollment-form" style={{ position: "relative", zIndex: 1 }} className="mb-8">
           <EnrollmentForm />
         </div>
       </main>

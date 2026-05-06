@@ -130,7 +130,7 @@ export default function AwardsSection() {
       hover:scale-[1.03]
     "
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shadow-[0_0_10px_#21C6CF]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#28e7c5] shadow-[0_0_10px_#28e7c5]" />
 
             <span className="font-['DM_Sans',sans-serif] text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[#28E7C5]">
               Awards & Recognition
@@ -166,11 +166,11 @@ export default function AwardsSection() {
                 onError={() =>
                   setImgErrors((prev) => ({ ...prev, [current]: true }))
                 }
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain rounded-2xl"
               />
             ) : (
               <div className="w-full h-full bg-[#0d0d0d] flex flex-col items-center justify-center gap-4">
-                <span className="text-[4rem] text-[#21C6CF] opacity-20">
+                <span className="text-[4rem] text-[#28e7c5] opacity-20">
                   {award.symbol}
                 </span>
                 <span className="font-['DM_Sans',sans-serif] text-[0.6rem] tracking-[0.2em] uppercase text-[rgba(33,198,207,0.3)]">
@@ -204,7 +204,7 @@ export default function AwardsSection() {
           >
             {/* Tag */}
             <div className="inline-flex items-center gap-1.5 mb-5">
-              <span className="w-1 h-1 rounded-full bg-[#21C6CF] shadow-[0_0_5px_rgba(33,198,207,0.8)] inline-block shrink-0" />
+              <span className="w-1 h-1 rounded-full bg-[#28e7c5] shadow-[0_0_5px_rgba(33,198,207,0.8)] inline-block shrink-0" />
               <span className="text-[0.58rem] sm:text-[0.63rem] font-medium tracking-[0.16em] uppercase text-[rgba(40,231,197,0.65)]">
                 {award.tag}
               </span>
@@ -226,13 +226,13 @@ export default function AwardsSection() {
             {/* Divider */}
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-px bg-[rgba(33,198,207,0.35)]" />
-              <span className="w-1 h-1 rounded-full bg-[#21C6CF] inline-block" />
+              <span className="w-1 h-1 rounded-full bg-[#28e7c5] inline-block" />
               <div className="w-10 h-px bg-[rgba(33,198,207,0.35)]" />
             </div>
 
             {/* Body */}
             <p
-              className="font-['DM_Sans',sans-serif] text-[0.875rem] sm:text-[0.95rem] leading-7 sm:leading-8 text-[rgba(255,255,255,0.45)] mb-7 max-w-125"
+              className="font-['DM_Sans',sans-serif] text-[1rem] sm:text-[0.95rem] leading-7 sm:leading-8 text-[rgba(255,255,255,1)] mb-7 max-w-125"
               style={{ fontStyle: "italic" }}
             >
               {award.body}
@@ -250,7 +250,7 @@ export default function AwardsSection() {
           <div className="flex items-center gap-5 mt-8">
             <button
               onClick={prev}
-              className="w-11 h-11 rounded-none border border-[rgba(33,198,207,0.2)] bg-transparent flex items-center justify-center text-[rgba(33,198,207,0.6)] hover:border-[#21C6CF] hover:text-[#21C6CF] hover:bg-[rgba(33,198,207,0.06)] transition-all duration-200"
+              className="w-11 h-11 rounded-none border border-[rgba(33,198,207,0.2)] bg-transparent flex items-center justify-center text-[rgba(33,198,207,0.6)] hover:border-[#28e7c5] hover:text-[#28e7c5] hover:bg-[rgba(33,198,207,0.06)] transition-all duration-200"
               aria-label="Previous"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -266,7 +266,7 @@ export default function AwardsSection() {
 
             <button
               onClick={next}
-              className="w-11 h-11 rounded-none border border-[rgba(33,198,207,0.2)] bg-transparent flex items-center justify-center text-[rgba(33,198,207,0.6)] hover:border-[#21C6CF] hover:text-[#21C6CF] hover:bg-[rgba(33,198,207,0.06)] transition-all duration-200"
+              className="w-11 h-11 rounded-none border border-[rgba(33,198,207,0.2)] bg-transparent flex items-center justify-center text-[rgba(33,198,207,0.6)] hover:border-[#28e7c5] hover:text-[#28e7c5] hover:bg-[rgba(33,198,207,0.06)] transition-all duration-200"
               aria-label="Next"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -287,7 +287,7 @@ export default function AwardsSection() {
                   onClick={() => goTo(i, i > current ? "next" : "prev")}
                   className={`rounded-full transition-all duration-300 ${
                     i === current
-                      ? "w-5 h-1 bg-[#21C6CF] shadow-[0_0_8px_rgba(33,198,207,0.7)]"
+                      ? "w-5 h-1 bg-[#28e7c5] shadow-[0_0_8px_rgba(33,198,207,0.7)]"
                       : "w-1 h-1 bg-[rgba(33,198,207,0.2)] hover:bg-[rgba(33,198,207,0.45)]"
                   }`}
                   aria-label={`Go to slide ${i + 1}`}

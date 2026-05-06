@@ -20,7 +20,7 @@ const services = [
       "Faster execution, reduced costs, and improved productivity",
     ],
     visual: "consulting",
-    accent: "#21C6CF",
+    accent: "#28e7c5",
   },
   {
     id: "ai-agents",
@@ -53,7 +53,7 @@ const services = [
       "Bulk manufacturing support",
     ],
     visual: "iot",
-    accent: "#21C6CF",
+    accent: "#28e7c5",
   },
   {
     id: "erp-crm",
@@ -85,7 +85,7 @@ const services = [
       "Data-driven strategies and measurable growth",
     ],
     visual: "cloud",
-    accent: "#21C6CF",
+    accent: "#28e7c5",
   },
 ];
 
@@ -131,8 +131,8 @@ function ConsultingVisual() {
     >
       <defs>
         <radialGradient id="cRad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#21C6CF" stopOpacity="0.2" />
-          <stop offset="100%" stopColor="#21C6CF" stopOpacity="0" />
+          <stop offset="0%" stopColor="#28e7c5" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#28e7c5" stopOpacity="0" />
         </radialGradient>
         <filter id="cGlow">
           <feGaussianBlur stdDeviation="3" result="blur" />
@@ -169,7 +169,7 @@ function ConsultingVisual() {
               y1={y1}
               x2={x2}
               y2={y2}
-              stroke="#21C6CF"
+              stroke="#28e7c5"
               strokeWidth="2"
               strokeOpacity="0.7"
               strokeDasharray={`6 ${len}`}
@@ -193,7 +193,7 @@ function ConsultingVisual() {
             cy={y}
             r={r + 8}
             fill="none"
-            stroke="#21C6CF"
+            stroke="#28e7c5"
             strokeOpacity="0"
           >
             <animate
@@ -218,14 +218,14 @@ function ConsultingVisual() {
             cy={y}
             r={r}
             fill={i === 0 ? "rgba(33,198,207,0.22)" : "rgba(33,198,207,0.08)"}
-            stroke={i === 0 ? "#21C6CF" : "rgba(33,198,207,0.55)"}
+            stroke={i === 0 ? "#28e7c5" : "rgba(33,198,207,0.55)"}
             strokeWidth={i === 0 ? 2 : 1}
           />
           <circle
             cx={x}
             cy={y}
             r={i === 0 ? 8 : 3}
-            fill="#21C6CF"
+            fill="#28e7c5"
             opacity={i === 0 ? "1" : "0.9"}
           />
           {label && (
@@ -260,9 +260,9 @@ function AutomationVisual() {
     >
       <defs>
         <radialGradient id="aCore" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#21C6CF" stopOpacity="0.35" />
-          <stop offset="60%" stopColor="#21C6CF" stopOpacity="0.08" />
-          <stop offset="100%" stopColor="#21C6CF" stopOpacity="0" />
+          <stop offset="0%" stopColor="#28e7c5" stopOpacity="0.35" />
+          <stop offset="60%" stopColor="#28e7c5" stopOpacity="0.08" />
+          <stop offset="100%" stopColor="#28e7c5" stopOpacity="0" />
         </radialGradient>
         <filter id="aGlow">
           <feGaussianBlur stdDeviation="4" result="b" />
@@ -352,7 +352,7 @@ function AutomationVisual() {
               cy={ny}
               r="18"
               fill="none"
-              stroke="#21C6CF"
+              stroke="#28e7c5"
               strokeOpacity="0"
             >
               <animate
@@ -377,21 +377,21 @@ function AutomationVisual() {
               cy={ny}
               r="16"
               fill={isActive ? "rgba(33,198,207,0.2)" : "rgba(33,198,207,0.07)"}
-              stroke={isActive ? "#21C6CF" : "rgba(33,198,207,0.4)"}
+              stroke={isActive ? "#28e7c5" : "rgba(33,198,207,0.4)"}
               strokeWidth={isActive ? 1.5 : 1}
             />
             <circle
               cx={nx}
               cy={ny}
               r="4"
-              fill={isActive ? "#21C6CF" : "rgba(33,198,207,0.5)"}
+              fill={isActive ? "#28e7c5" : "rgba(33,198,207,0.5)"}
             />
             <text
               x={nx}
               y={ny + 28}
               textAnchor="middle"
               fontSize="7.5"
-              fill={isActive ? "#21C6CF" : "rgba(33,198,207,0.55)"}
+              fill={isActive ? "#28e7c5" : "rgba(33,198,207,0.55)"}
               letterSpacing="1"
             >
               {step}
@@ -399,7 +399,7 @@ function AutomationVisual() {
           </g>
         );
       })}
-      <circle r="5" fill="#21C6CF" filter="url(#aGlow)">
+      <circle r="5" fill="#28e7c5" filter="url(#aGlow)">
         <animateMotion dur="4s" repeatCount="indefinite">
           <mpath href="#outerPath" />
         </animateMotion>
@@ -415,7 +415,7 @@ function AutomationVisual() {
         cy={cy}
         r="30"
         fill="rgba(33,198,207,0.15)"
-        stroke="#21C6CF"
+        stroke="#28e7c5"
         strokeWidth="2"
         filter="url(#aGlow)"
       />
@@ -424,7 +424,7 @@ function AutomationVisual() {
         cy={cy}
         r="18"
         fill="rgba(33,198,207,0.25)"
-        stroke="#21C6CF"
+        stroke="#28e7c5"
         strokeWidth="1.5"
       />
       <text
@@ -432,12 +432,12 @@ function AutomationVisual() {
         y={cy - 4}
         textAnchor="middle"
         fontSize="8"
-        fill="#21C6CF"
+        fill="#28e7c5"
         letterSpacing="1"
       >
         AGENT
       </text>
-      <text x={cx} y={cy + 8} textAnchor="middle" fontSize="8" fill="#21C6CF">
+      <text x={cx} y={cy + 8} textAnchor="middle" fontSize="8" fill="#28e7c5">
         CORE
       </text>
       <rect
@@ -538,8 +538,8 @@ function IoTVisual() {
     >
       <defs>
         <radialGradient id="radarGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#21C6CF" stopOpacity="0.25" />
-          <stop offset="100%" stopColor="#21C6CF" stopOpacity="0" />
+          <stop offset="0%" stopColor="#28e7c5" stopOpacity="0.25" />
+          <stop offset="100%" stopColor="#28e7c5" stopOpacity="0" />
         </radialGradient>
         <filter id="iGlow">
           <feGaussianBlur stdDeviation="3" result="b" />
@@ -636,7 +636,7 @@ function IoTVisual() {
               cy={y}
               r={isHub ? 28 : 14}
               fill="none"
-              stroke="#21C6CF"
+              stroke="#28e7c5"
               strokeOpacity="0"
             >
               <animate
@@ -661,16 +661,16 @@ function IoTVisual() {
               cy={y}
               r={isHub ? 20 : 12}
               fill={isHub ? "rgba(33,198,207,0.22)" : "rgba(33,198,207,0.08)"}
-              stroke={isHub ? "#21C6CF" : "rgba(33,198,207,0.5)"}
+              stroke={isHub ? "#28e7c5" : "rgba(33,198,207,0.5)"}
               strokeWidth={isHub ? 2 : 1}
             />
-            <circle cx={x} cy={y} r={isHub ? 8 : 4} fill="#21C6CF" />
+            <circle cx={x} cy={y} r={isHub ? 8 : 4} fill="#28e7c5" />
             <text
               x={x}
               y={y + (isHub ? 34 : 24)}
               textAnchor="middle"
               fontSize={isHub ? 8 : 7}
-              fill={isHub ? "#21C6CF" : "rgba(33,198,207,0.7)"}
+              fill={isHub ? "#28e7c5" : "rgba(33,198,207,0.7)"}
               letterSpacing="0.5"
             >
               {label}
@@ -692,8 +692,8 @@ function DataVisual() {
     >
       <defs>
         <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#21C6CF" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#21C6CF" stopOpacity="0.2" />
+          <stop offset="0%" stopColor="#28e7c5" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#28e7c5" stopOpacity="0.2" />
         </linearGradient>
         <filter id="dGlow">
           <feGaussianBlur stdDeviation="2.5" result="b" />
@@ -760,7 +760,7 @@ function DataVisual() {
             {line}
           </text>
         ))}
-        <rect x="28" y="212" width="7" height="11" fill="#21C6CF">
+        <rect x="28" y="212" width="7" height="11" fill="#28e7c5">
           <animate
             attributeName="opacity"
             values="1;0;1"
@@ -834,7 +834,7 @@ function DataVisual() {
             width="11"
             height="3"
             rx="1"
-            fill="#21C6CF"
+            fill="#28e7c5"
             opacity="0.9"
             filter="url(#dGlow)"
           >
@@ -880,7 +880,7 @@ function DataVisual() {
             y="275"
             textAnchor="middle"
             fontSize="16"
-            fill="#21C6CF"
+            fill="#28e7c5"
             fontWeight="bold"
             filter="url(#dGlow)"
           >
@@ -909,9 +909,9 @@ function CloudVisual() {
     >
       <defs>
         <linearGradient id="layerGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#21C6CF" stopOpacity="0.18" />
-          <stop offset="50%" stopColor="#21C6CF" stopOpacity="0.06" />
-          <stop offset="100%" stopColor="#21C6CF" stopOpacity="0.18" />
+          <stop offset="0%" stopColor="#28e7c5" stopOpacity="0.18" />
+          <stop offset="50%" stopColor="#28e7c5" stopOpacity="0.06" />
+          <stop offset="100%" stopColor="#28e7c5" stopOpacity="0.18" />
         </linearGradient>
         <filter id="clGlow">
           <feGaussianBlur stdDeviation="3" result="b" />
@@ -957,7 +957,7 @@ function CloudVisual() {
             cx="265"
             cy={lyr.y + 19}
             r="5"
-            fill={lyr.active ? "#21C6CF" : "rgba(33,198,207,0.3)"}
+            fill={lyr.active ? "#28e7c5" : "rgba(33,198,207,0.3)"}
             filter={lyr.active ? "url(#clGlow)" : undefined}
           >
             {lyr.active && (
@@ -1058,7 +1058,7 @@ function CloudVisual() {
               width={Math.round((48 * util) / 100)}
               height="6"
               rx="2"
-              fill="#21C6CF"
+              fill="#28e7c5"
               opacity="0.8"
             >
               <animate
@@ -1290,7 +1290,7 @@ export default function ServicesPage() {
                 boxShadow: "0 0 20px rgba(33,198,207,0.1)",
                 fontSize: "10px",
                 letterSpacing: "3px",
-                color: "#21C6CF",
+                color: "#28e7c5",
               }}
             >
               <span
@@ -1298,8 +1298,8 @@ export default function ServicesPage() {
                   width: "6px",
                   height: "6px",
                   borderRadius: "50%",
-                  background: "#21C6CF",
-                  boxShadow: "0 0 8px #21C6CF",
+                  background: "#28e7c5",
+                  boxShadow: "0 0 8px #28e7c5",
                 }}
               />
               WHAT WE DO
@@ -1308,23 +1308,15 @@ export default function ServicesPage() {
 
           <Reveal delay={100}>
             <h1
-              className="font-display font-extrabold text-white leading-tight tracking-tight mb-6"
+              className="font-display font-bold text-white leading-tight mb-6"
               style={{
-                fontSize: "clamp(2.2rem,6vw,5rem)",
+                fontSize: "clamp(2rem,5vw,4.2rem)",
                 letterSpacing: "-0.03em",
               }}
             >
-              Intelligence <span className="teal-glow">engineered</span>
-              <br className="hidden sm:block" /> for the{" "}
-              <span className="relative inline-block">
-                <span className="teal-glow">real world.</span>
-                <span
-                  className="absolute -bottom-1 left-0 right-0 h-px"
-                  style={{
-                    background: "linear-gradient(90deg, #21C6CF, transparent)",
-                  }}
-                />
-              </span>
+              Intelligence <span style={{ color: "#28E7C5" }}>engineered</span>
+              <br className="hidden sm:block" />
+              for the <span style={{ color: "#EFFFFB" }}>real world.</span>
             </h1>
           </Reveal>
 
@@ -1333,7 +1325,7 @@ export default function ServicesPage() {
               className="mx-auto mb-10 leading-relaxed"
               style={{
                 fontSize: "clamp(15px,2vw,18px)",
-                color: "rgba(255,255,255,0.5)",
+                color: "rgba(255,255,255,1)",
                 maxWidth: "620px",
                 fontWeight: 300,
               }}
@@ -1352,7 +1344,7 @@ export default function ServicesPage() {
                 Explore Services
               </a>
               <a
-                href="#contact"
+                href="/#contact"
                 className="font-display rounded-xl px-7 py-3.5 text-sm font-semibold tracking-widest uppercase"
                 style={{
                   background: "rgba(255,255,255,0.03)",
@@ -1371,7 +1363,7 @@ export default function ServicesPage() {
             <div className="flex flex-col items-center mt-16 gap-2 opacity-40">
               <span
                 className="font-display text-xs tracking-widest"
-                style={{ color: "#21C6CF" }}
+                style={{ color: "#28e7c5" }}
               >
                 SCROLL
               </span>
@@ -1380,7 +1372,7 @@ export default function ServicesPage() {
                   width: "1px",
                   height: "40px",
                   background:
-                    "linear-gradient(to bottom, #21C6CF, transparent)",
+                    "linear-gradient(to bottom, #28e7c5, transparent)",
                 }}
               />
             </div>
@@ -1520,7 +1512,7 @@ function ServiceCard({ svc, index }) {
               <div className="flex items-center gap-3 mb-5">
                 <div
                   className="number-badge rounded-lg px-3 py-1.5 font-display font-bold text-xs tracking-widest"
-                  style={{ color: "#21C6CF", letterSpacing: "3px" }}
+                  style={{ color: "#28e7c5", letterSpacing: "3px" }}
                 >
                   {svc.number}
                 </div>
@@ -1563,7 +1555,7 @@ function ServiceCard({ svc, index }) {
               <p
                 className="text-sm sm:text-base leading-relaxed mb-6"
                 style={{
-                  color: "rgba(255,255,255,0.45)",
+                  color: "rgba(255,255,255,1)",
                   fontWeight: 300,
                   lineHeight: 1.8,
                 }}
@@ -1587,7 +1579,7 @@ function ServiceCard({ svc, index }) {
                         width: "6px",
                         height: "6px",
                         borderRadius: "50%",
-                        background: "#21C6CF",
+                        background: "#28e7c5",
                         boxShadow: "0 0 8px rgba(33,198,207,0.7)",
                         flexShrink: 0,
                         marginTop: "6px",
@@ -1596,7 +1588,7 @@ function ServiceCard({ svc, index }) {
                     <span
                       className="text-sm leading-relaxed"
                       style={{
-                        color: "rgba(255,255,255,0.65)",
+                        color: "rgba(255,255,255,1)",
                         fontWeight: 300,
                       }}
                     >

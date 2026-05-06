@@ -20,13 +20,13 @@ const CTASection = () => {
       <HexBackgroundLight />
 
       {/* Top blend (merges with previous section) */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#020617]/80 to-transparent pointer-events-none" />
+      {/* <div className="absolute top-0 left-0 w-full h-32 bg-linear-to-b from-[#020617]/80 to-transparent pointer-events-none" /> */}
 
       {/* Ambient glow (main) */}
-      <div className="pointer-events-none absolute left-1/2 top-[-120px] h-[500px] w-[900px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.12)_0%,transparent_70%)]" />
+      <div className="pointer-events-none absolute left-1/2 -top-3000px] w-225 -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.12)_0%,transparent_70%)]" />
 
       {/* Ambient glow (secondary) */}
-      <div className="pointer-events-none absolute bottom-[-100px] right-1/3 h-[400px] w-[500px] bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.08)_0%,transparent_70%)]" />
+      <div className="pointer-events-none absolute -bottom-25t-1/3 h-100000px] bg-[radial-gradient(ellipse_at_center,rgba(33,198,207,0.08)_0%,transparent_70%)]" />
 
       {/* ================= CONTENT ================= */}
 
@@ -49,7 +49,7 @@ const CTASection = () => {
         </h2>
 
         {/* Description */}
-        <p className="font-['DM_Sans',sans-serif] text-[0.9rem] sm:text-[1rem] leading-[1.75] text-[rgba(255,255,255,0.6)] max-w-xl mx-auto mb-10">
+        <p className="font-['DM_Sans',sans-serif] text-[0.9rem] sm:text-[1rem] leading-[1.75] text-white max-w-xl mx-auto mb-10">
           AI is already transforming industries, careers, and opportunities.
           Those who act now will lead. Those who delay will follow.
           Let’s help you take the first step toward smarter growth and innovation.
@@ -86,7 +86,7 @@ const CTASection = () => {
             href="/Courses"
             className="group inline-flex items-center gap-2.5 px-8 py-3.5 text-[#28E7C5] font-['DM_Sans',sans-serif] text-[0.85rem] font-semibold tracking-[0.06em] uppercase rounded-[13px] border border-[rgba(33,198,207,0.35)] transition-all duration-300 hover:border-[#21C6CF] hover:bg-[rgba(33,198,207,0.08)] hover:shadow-[0_0_20px_rgba(33,198,207,0.25)]"
           >
-            <span>• Talk to AI Experts</span>
+            <span>• Explore Our Courses</span>
             <svg
               className="transition-transform duration-300 group-hover:translate-x-1"
               width="14"

@@ -329,9 +329,15 @@ export default function WhatSetsUsApart() {
               <Image
                 src="/Images/phone.png"
                 alt="DatagenixAi Platform"
-                width={220}
-                height={420}
-                className="object-cover drop-shadow-[0_0_40px_rgba(33,198,207,0.2)] rounded-full"
+                width={320}
+                height={620}
+                className="
+                object-cover
+                rounded-full
+                border-[3px]
+                border-[rgba(36,96,120,0.95)]
+                bg-[#123848]
+                "
               />
             </div>
           </div>
