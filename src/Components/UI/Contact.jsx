@@ -42,7 +42,7 @@ export default function ContactSection() {
     emailjs
       .send(
         "service_axxh0ra",
-        "template_1m0k24g",
+        "template_8ndb5nt",
         {
           name: form.name,
           email: form.email,
