@@ -46,6 +46,7 @@ export default function ContactSection() {
         {
           name: form.name,
           email: form.email,
+          phone: form.phone,
           intent: form.intent,
           contactPref: form.contactPref,
           message: form.message,
