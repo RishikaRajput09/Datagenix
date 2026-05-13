@@ -369,7 +369,7 @@ transition-all duration-500 ease-in-out
               ))}
 
               <Link
-                href="#consultation"
+                href="/Courses"
                 onClick={() => setMenuOpen(false)}
                 className="
                   block w-full mt-3 py-3.5 text-center

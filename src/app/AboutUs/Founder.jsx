@@ -68,11 +68,11 @@ export default function FounderSpotlight() {
                   className="w-20 h-20 rounded-full flex items-center justify-center text-[#06201c] text-[1.4rem] font-extrabold"
                   style={{
                     
-                    background: "#28E7C5",
+                    background: "none",
                     boxShadow: "0 0 25px rgba(40,231,197,0.35)",
                   }}
                 >
-                  F
+                  <img src="/Images/Founder.jpeg" className="rounded-full"/>
                 </div>
 
                 <span
