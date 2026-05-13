@@ -1,12 +1,12 @@
 export default function Eyebrow({ children }) {
   return (
     <div
-      className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-4"
+      className="inline-flex items-center gap-2 px-7 py-4 rounded-full mb-4"
       style={{
         background: "rgba(33,198,207,0.08)",
         border: "1px solid rgba(33,198,207,0.25)",
         boxShadow: "0 0 20px rgba(33,198,207,0.12)",
-        fontSize: "0.65rem",
+        fontSize: "0.85rem",
         fontWeight: 600,
         letterSpacing: "0.12em",
         textTransform: "uppercase",

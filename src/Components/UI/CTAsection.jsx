@@ -34,9 +34,9 @@ const CTASection = () => {
 
         {/* Badge */}
         <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(33,198,207,0.35)] bg-[rgba(33,198,207,0.08)] backdrop-blur-md shadow-[0_0_14px_rgba(33,198,207,0.2)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shadow-[0_0_10px_#21C6CF]" />
-            <span className="text-[0.65rem] font-medium tracking-[0.18em] uppercase text-[#28E7C5]">
+          <div className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-[rgba(33,198,207,0.35)] bg-[rgba(33,198,207,0.08)] backdrop-blur-md shadow-[0_0_14px_rgba(33,198,207,0.2)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#28e7c5] shadow-[0_0_10px_#21C6CF]" />
+            <span className="text-[0.85rem] font-medium tracking-[0.18em] uppercase text-[#28E7C5]">
               Let’s Work Together
             </span>
           </div>
@@ -49,7 +49,7 @@ const CTASection = () => {
         </h2>
 
         {/* Description */}
-        <p className="font-['DM_Sans',sans-serif] text-[0.9rem] sm:text-[1rem] leading-[1.75] text-white max-w-xl mx-auto mb-10">
+        <p className=" text-[0.9rem] sm:text-[1rem] leading-[1.75] text-white max-w-xl mx-auto mb-10">
           AI is already transforming industries, careers, and opportunities.
           Those who act now will lead. Those who delay will follow.
           Let’s help you take the first step toward smarter growth and innovation.
@@ -61,7 +61,7 @@ const CTASection = () => {
           {/* Primary */}
           <Link
             href="#contact"
-            className="group inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#28E7C5] text-[#071E26] font-['DM_Sans',sans-serif] text-[0.85rem] font-semibold tracking-[0.06em] uppercase rounded-[13px] transition-all duration-300 hover:bg-[#21C6CF] hover:shadow-[0_6px_25px_rgba(33,198,207,0.4)]"
+            className="group inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#28E7C5] text-[#071E26]  text-[0.85rem] font-semibold tracking-[0.06em] uppercase rounded-[13px] transition-all duration-300 hover:bg-[#21C6CF] hover:shadow-[0_6px_25px_rgba(33,198,207,0.4)]"
           >
             <span>• Get Started Now</span>
             <svg
@@ -84,7 +84,7 @@ const CTASection = () => {
           {/* Secondary */}
           <Link
             href="/Courses"
-            className="group inline-flex items-center gap-2.5 px-8 py-3.5 text-[#28E7C5] font-['DM_Sans',sans-serif] text-[0.85rem] font-semibold tracking-[0.06em] uppercase rounded-[13px] border border-[rgba(33,198,207,0.35)] transition-all duration-300 hover:border-[#21C6CF] hover:bg-[rgba(33,198,207,0.08)] hover:shadow-[0_0_20px_rgba(33,198,207,0.25)]"
+            className="group inline-flex items-center gap-2.5 px-8 py-3.5 text-[#28E7C5]  text-[0.85rem] font-semibold tracking-[0.06em] uppercase rounded-[13px] border border-[rgba(33,198,207,0.35)] transition-all duration-300 hover:border-[#21C6CF] hover:bg-[rgba(33,198,207,0.08)] hover:shadow-[0_0_20px_rgba(33,198,207,0.25)]"
           >
             <span>• Explore Our Courses</span>
             <svg

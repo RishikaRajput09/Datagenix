@@ -1278,17 +1278,17 @@ export default function ServicesPage() {
       </div>
 
       {/* ── HERO ── */}
-      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 lg:px-12 ">
+      <section className="mt-24 relative z-10 h-full flex flex-col items-center justify-center px-5 sm:px-8 lg:px-12 ">
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           <Reveal>
             {/* Pill badge */}
             <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 font-display"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full mb-8 font-display"
               style={{
                 background: "rgba(33,198,207,0.08)",
                 border: "1px solid rgba(33,198,207,0.2)",
                 boxShadow: "0 0 20px rgba(33,198,207,0.1)",
-                fontSize: "10px",
+                fontSize: "15px",
                 letterSpacing: "3px",
                 color: "#28e7c5",
               }}
@@ -1343,45 +1343,76 @@ export default function ServicesPage() {
               >
                 Explore Services
               </a>
-              <a
-                href="/#contact"
-                className="font-display rounded-xl px-7 py-3.5 text-sm font-semibold tracking-widest uppercase"
+              <Link href="/#contact">
+              <button
+                className="
+      group relative overflow-hidden whitespace-nowrap cursor-pointer
+      rounded-[13px] px-6.5 py-3.25
+      text-[0.8rem] font-medium tracking-[0.06em]
+      inline-flex items-center gap-1.5
+      transition-all duration-300 ease-out
+      hover:-translate-y-[2px]
+      active:translate-y-[1px]
+      hover:shadow-[0_0_22px_rgba(40,231,197,0.18)]
+    "
                 style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  color: "rgba(255,255,255,0.6)",
-                  transition: "all 0.3s ease",
+                  fontFamily: "'Google Sans', sans-serif",
+                  color: "#28e7c5",
+                  background: "rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(40,231,197,0.9)",
+                  backdropFilter: "blur(10px)",
                 }}
               >
-                Contact Us
-              </a>
-            </div>
-          </Reveal>
+                {/* Glow Hover Layer */}
+                <span
+                  className="
+        absolute inset-0 opacity-0 group-hover:opacity-100
+        transition-opacity duration-300
+      "
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(40,231,197,0.14), rgba(40,231,197,0.03))",
+                  }}
+                />
 
-          {/* Scroll indicator */}
-          <Reveal delay={600}>
-            <div className="flex flex-col items-center mt-16 gap-2 opacity-40">
-              <span
-                className="font-display text-xs tracking-widest"
-                style={{ color: "#28e7c5" }}
-              >
-                SCROLL
-              </span>
-              <div
-                style={{
-                  width: "1px",
-                  height: "40px",
-                  background:
-                    "linear-gradient(to bottom, #28e7c5, transparent)",
-                }}
-              />
+                {/* Shine Effect */}
+                <span
+                  className="
+        absolute top-0 left-[-120%] h-full w-[120%]
+        rotate-12 bg-white/10
+        transition-all duration-700
+        group-hover:left-[120%]
+      "
+                />
+
+                {/* Text */}
+                <span className="relative z-10">Contact Us</span>
+
+                {/* Arrow */}
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="
+        relative z-10 w-3 h-3
+        transition-transform duration-300
+        group-hover:translate-x-1
+      "
+                >
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </button>
+            </Link>
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="relative z-10 py-8">
+      <section id="services" className="relative z-10 py-4">
         {services.map((svc, i) => (
           <ServiceCard key={svc.id} svc={svc} index={i} />
         ))}
@@ -1400,7 +1431,7 @@ function ServiceCard({ svc, index }) {
   return (
     <div
       ref={ref}
-      className="relative py-12 sm:py-20 lg:py-28 px-4 sm:px-8 lg:px-12"
+      className="relative py-12 sm:py-20 lg:py-20 px-4 sm:px-8 lg:px-12"
       style={{ borderBottom: "1px solid rgba(33,198,207,0.05)" }}
     >
       {/* Ambient glow per section */}
@@ -1600,20 +1631,68 @@ function ServiceCard({ svc, index }) {
 
               {/* CTA */}
               <div>
-                <Link
-                  href="/#contact"
-                  className="btn-primary inline-flex items-center gap-2 font-display rounded-xl px-6 py-3 text-sm font-semibold tracking-wider uppercase"
-                >
-                  Get Started
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path
-                      d="M1 7h12M8 2l5 5-5 5"
+                <Link href="/#contact">
+                  <button
+                    className="
+      group relative overflow-hidden whitespace-nowrap cursor-pointer
+      rounded-[13px] px-6.5 py-3.25
+      text-[0.8rem] font-medium tracking-[0.06em]
+      inline-flex items-center gap-1.5
+      transition-all duration-300 ease-out
+      hover:-translate-y-[2px]
+      active:translate-y-[1px]
+      hover:shadow-[0_0_22px_rgba(40,231,197,0.18)]
+    "
+                    style={{
+                      fontFamily: "'Google Sans', sans-serif",
+                      color: "#28e7c5",
+                      background: "rgba(255,255,255,0.02)",
+                      border: "1px solid rgba(40,231,197,0.9)",
+                      backdropFilter: "blur(10px)",
+                    }}
+                  >
+                    {/* Glow Hover Layer */}
+                    <span
+                      className="
+        absolute inset-0 opacity-0 group-hover:opacity-100
+        transition-opacity duration-300
+      "
+                      style={{
+                        background:
+                          "linear-gradient(135deg, rgba(40,231,197,0.14), rgba(40,231,197,0.03))",
+                      }}
+                    />
+
+                    {/* Shine Effect */}
+                    <span
+                      className="
+        absolute top-0 left-[-120%] h-full w-[120%]
+        rotate-12 bg-white/10
+        transition-all duration-700
+        group-hover:left-[120%]
+      "
+                    />
+
+                    {/* Text */}
+                    <span className="relative z-10">Get Started</span>
+
+                    {/* Arrow */}
+                    <svg
+                      viewBox="0 0 16 16"
+                      fill="none"
                       stroke="currentColor"
-                      strokeWidth="1.5"
+                      strokeWidth="1.7"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                    />
-                  </svg>
+                      className="
+        relative z-10 w-3 h-3
+        transition-transform duration-300
+        group-hover:translate-x-1
+      "
+                    >
+                      <path d="M3 8h10M9 4l4 4-4 4" />
+                    </svg>
+                  </button>
                 </Link>
               </div>
             </div>

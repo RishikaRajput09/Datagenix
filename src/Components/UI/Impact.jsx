@@ -110,7 +110,7 @@ export default function ImpactSection() {
             <div
               className="
       inline-flex items-center gap-2
-      px-3 py-1.5
+      px-7 py-4
       rounded-full
       border border-[rgba(33,198,207,0.35)]
       bg-[rgba(33,198,207,0.08)]
@@ -120,9 +120,9 @@ export default function ImpactSection() {
       hover:shadow-[0_0_20px_rgba(33,198,207,0.35)]
     "
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#28e7c5] shadow-[0_0_8px_#21C6CF]" />
 
-              <span className="font-['DM_Sans',sans-serif] text-[0.62rem] font-medium tracking-[0.18em] uppercase text-[#28E7C5]">
+              <span className=" text-[0.82rem] font-medium tracking-[0.18em] uppercase text-[#28E7C5]">
                 Sustainable Impact
               </span>
             </div>
@@ -171,7 +171,7 @@ export default function ImpactSection() {
               </h3>
 
               {/* Subheading */}
-              <p className="relative mb-5 font-['DM_Sans',sans-serif] text-[0.78rem] tracking-wide text-[rgba(33,207,149,0.55)]">
+              <p className="relative mb-5  text-[0.78rem] tracking-wide text-[rgba(33,207,149,0.55)]">
                 {card.subheading}
               </p>
 
@@ -185,7 +185,7 @@ export default function ImpactSection() {
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-[rgba(33,198,207,0.13)] bg-[rgba(33,198,207,0.07)] font-['Syne',sans-serif] text-[0.6rem] font-bold text-[#21C6CF] transition-colors duration-300 group-hover:border-[rgba(33,198,207,0.25)] group-hover:bg-[rgba(33,198,207,0.12)]">
                       {String(j + 1).padStart(2, "0")}
                     </span>
-                    <span className="pt-0.5 font-['DM_Sans',sans-serif] text-[0.875rem] leading-[1.65] text-[rgba(255,255,255,0.6)]">
+                    <span className="pt-0.5  text-[0.875rem] leading-[1.65] text-[rgba(255,255,255,0.6)]">
                       {pt}
                     </span>
                   </li>

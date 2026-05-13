@@ -253,7 +253,7 @@ export default function WhatSetsUsApart() {
               <div
                 className="
       inline-flex items-center gap-2
-      px-3.5 py-1.5
+      px-7 py-4
       rounded-full
       border border-[rgba(33,198,207,0.4)]
       bg-[rgba(33,198,207,0.09)]
@@ -266,7 +266,7 @@ export default function WhatSetsUsApart() {
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#28E7C5] shadow-[0_0_10px_#21C6CF]" />
 
-                <span className="text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[#28E7C5]">
+                <span className="text-[0.75rem] font-semibold tracking-[0.18em] uppercase text-[#28E7C5]">
                   What Sets Us Apart
                 </span>
               </div>
@@ -327,7 +327,7 @@ export default function WhatSetsUsApart() {
             />
             <div className="relative z-1">
               <Image
-                src="/Images/phone.png"
+                src="/Images/phone1.png"
                 alt="DatagenixAi Platform"
                 width={320}
                 height={620}

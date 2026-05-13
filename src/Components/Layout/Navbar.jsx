@@ -223,11 +223,11 @@ transition-all duration-500 ease-in-out
   transition-all duration-300 ease-out
 
   before:absolute before:inset-0 before:rounded-[11px]
-  before:bg-linear-to-r before:from-[#00e5ff22] before:to-[#a855f722]
+ 
   before:opacity-0 before:transition-opacity before:duration-300
 
   hover:before:opacity-100
-  hover:scale-[1.04]
+  hover:scale-[1.2]
   hover:-translate-y-px
 
   ${
@@ -273,7 +273,7 @@ transition-all duration-500 ease-in-out
                       bg-clip-text text-transparent
                     "
                   >
-                    Enquire for Courses
+                    Explore Courses
                   </span>
                   <svg
                     width="12"
@@ -354,7 +354,7 @@ transition-all duration-500 ease-in-out
                   className="
                     mob-link flex items-center justify-between
                     px-3 py-3.25 rounded-[10px]
-                    text-[15px] font-normal text-[rgba(255,255,255,0.45)]
+                    text-[15px] font-normal text-[rgba(255,255,255,1)]
                     no-underline
                     transition-all duration-180
                     hover:text-[rgba(255,255,255,0.9)] hover:bg-[rgba(255,255,255,0.04)]
@@ -362,7 +362,7 @@ transition-all duration-500 ease-in-out
                   "
                 >
                   <span>{link.label}</span>
-                  <span className="text-[13px] text-[rgba(0,229,255,0.3)] transition-all duration-180 group-hover:translate-x-1 group-hover:text-[rgba(0,229,255,0.7)]">
+                  <span className="text-[13px] text-[#28e7c5] transition-all duration-180 group-hover:translate-x-1 group-hover:text-[rgba(0,229,255,0.7)]">
                     →
                   </span>
                 </Link>
@@ -373,15 +373,15 @@ transition-all duration-500 ease-in-out
                 onClick={() => setMenuOpen(false)}
                 className="
                   block w-full mt-3 py-3.5 text-center
-                  bg-linear-to-r from-[#00c8e0] to-[#7c3aed]
+                  bg-[#28E7C5]
                   rounded-[14px] no-underline
-                  text-[14px] font-semibold text-white tracking-[-0.01em]
+                  text-[14px] font-semibold text-black tracking-[-0.01em]
                   transition-all duration-200
                   hover:shadow-[0_12px_40px_rgba(0,229,255,0.3)] hover:-translate-y-px
                   active:translate-y-0
                 "
               >
-                ⚡ Book Free Strategy Call
+                Explore Courses
               </Link>
             </div>
           </div>

@@ -191,7 +191,6 @@ const PRODUCTS = [
     images: [
       "/Images/HeroSec/Training/1.jpg",
       "/Images/HeroSec/Training/2.jpg",
-      "/Images/HeroSec/Training/3.jpg",
     ],
     imageLeft: false,
   },
@@ -718,7 +717,7 @@ function Eyebrow({ label }) {
         alignItems: "center",
         gap: "8px",
 
-        fontSize: "0.62rem",
+        fontSize: "0.82rem",
         fontWeight: 500,
         letterSpacing: "0.18em",
         textTransform: "uppercase",
@@ -923,13 +922,13 @@ function ProductSection({ product, index }) {
                 <Eyebrow label={product.eyebrow} />
                 <span
                   style={{
-                    fontSize: "0.6rem",
+                    fontSize: "0.8rem",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     padding: "4px 10px",
                     borderRadius: "999px",
                     border: "1px solid rgba(33,198,207,0.2)",
-                    color: "rgba(33,198,207,1)",
+                    color: "#28e7c5",
                     background: "rgba(33,198,207,0.05)",
                   }}
                 >
@@ -1127,7 +1126,7 @@ export default function ProductsPage() {
               animation: "heroFadeUp 0.7s ease forwards",
 
               display: "inline-block",
-              padding: "6px 14px",
+              padding: "15px 25px",
               borderRadius: "999px",
               background: "rgba(33,198,207,0.08)",
               border: "1px solid rgba(33,198,207,0.25)",

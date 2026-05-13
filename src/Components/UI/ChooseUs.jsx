@@ -76,7 +76,7 @@ hover:-translate-y-1.5 transition-all duration-350"
       <div className="font-['Syne',sans-serif] text-[0.82rem] font-bold text-[#111111] mb-1 leading-snug">
         {stat.label}
       </div>
-      <p className="font-['DM_Sans',sans-serif] text-[0.75rem] leading-[1.55] text-[rgba(0,0,0,0.45)]">
+      <p className=" text-[0.75rem] leading-[1.55] text-[rgba(0,0,0,0.45)]">
         {stat.desc}
       </p>
     </div>
@@ -130,9 +130,9 @@ export default function WhyChooseUs() {
       hover:shadow-[0_0_20px_rgba(13,155,163,0.35)]
     "
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0d9ba3] shadow-[0_0_8px_rgba(13,155,163,0.6)]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#28e7c5] shadow-[0_0_8px_rgba(13,155,163,0.6)]" />
 
-                <span className="font-['DM_Sans',sans-serif] text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#0d9ba3]">
+                <span className=" text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#28e7c5]">
                   Why Choose Us
                 </span>
               </div>
@@ -187,7 +187,7 @@ hover:-translate-y-1.5"
                 <span className="font-['Syne',sans-serif] text-[0.78rem] font-bold text-[#111]">
                   AI Adoption
                 </span>
-                <span className="font-['DM_Sans',sans-serif] text-[0.58rem] tracking-widest uppercase text-[#0d9ba3]">
+                <span className=" text-[0.58rem] tracking-widest uppercase text-[#0d9ba3]">
                   Live
                 </span>
               </div>
@@ -209,7 +209,7 @@ hover:-translate-y-1.5"
                 {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
                   <span
                     key={i}
-                    className="font-['DM_Sans',sans-serif] text-[0.52rem] text-[rgba(0,0,0,0.3)]"
+                    className=" text-[0.52rem] text-[rgba(0,0,0,0.3)]"
                   >
                     {d}
                   </span>

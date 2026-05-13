@@ -12,7 +12,7 @@ const CARDS = [
   },
   {
     href: "/Courses",
-    image: "/Images/HeroSec/Training/3.jpg",
+    image: "/Images/HeroSec/Training/1.jpg",
     heading: "AI Training & Courses",
     body: "Build in-demand skills with hands-on, industry-focused training.From beginners to professionals, we help you become job-ready with real-world AI and data science expertise.",
   },
@@ -105,9 +105,9 @@ export default function SolutionsSection() {
                 data-delay="1"
                 className="flex justify-center mb-3"
               >
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(33,198,207,0.35)] bg-[rgba(33,198,207,0.08)] backdrop-blur-md shadow-[0_0_12px_rgba(33,198,207,0.15)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(33,198,207,0.35)]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#21C6CF] shadow-[0_0_8px_#21C6CF]" />
-                  <span className="text-[0.62rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#28E7C5]">
+                <div className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-[rgba(33,198,207,0.35)] bg-[rgba(33,198,207,0.08)] backdrop-blur-md shadow-[0_0_12px_rgba(33,198,207,0.15)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(33,198,207,0.35)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#28e7c5] shadow-[0_0_8px_#21C6CF]" />
+                  <span className="text-[0.82rem] sm:text-[0.68rem] font-medium tracking-[0.18em] uppercase text-[#28E7C5]">
                     What We Do
                   </span>
                 </div>

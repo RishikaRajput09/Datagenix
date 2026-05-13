@@ -131,7 +131,7 @@ export default function ContactSection() {
     },
     {
       label: "Phone",
-      value: "+91 91750 56569",
+      value: "+91 73852 56569",
       icon: (
         <svg
           viewBox="0 0 20 20"
@@ -380,7 +380,7 @@ export default function ContactSection() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              padding: "6px 14px",
+              padding: "12px 20px",
               borderRadius: "999px",
               border: "1px solid rgba(33,198,207,0.35)",
               background: "rgba(33,198,207,0.08)",
@@ -403,7 +403,7 @@ export default function ContactSection() {
             <span
               style={{
                 color: "#28E7C5",
-                fontSize: "0.67rem",
+                fontSize: "0.87rem",
                 fontWeight: 500,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",

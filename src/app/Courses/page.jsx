@@ -84,7 +84,6 @@ const COURSES = [
     images: [
       "/Images/HeroSec/Training/1.jpg",
       "/Images/HeroSec/Training/2.jpg",
-      "/Images/HeroSec/Training/3.jpg",
     ],
 
     imageLeft: true,
@@ -406,7 +405,7 @@ const COURSES = [
     ],
 
     cta: "Explore Course",
-    tag: "BI",
+    tag: "Business Intelligence",
     duration: "",
     mode: "",
 
@@ -465,7 +464,7 @@ const COURSES = [
     ],
 
     cta: "Explore Course",
-    tag: "School",
+    tag: "Students",
     duration: "",
     mode: "",
 
@@ -523,14 +522,13 @@ const COURSES = [
     ],
 
     cta: "Explore Course",
-    tag: "Career",
+    tag: "Placement Oriented",
     duration: "",
     mode: "",
 
     images: [
       "/Images/HeroSec/Training/1.jpg",
       "/Images/HeroSec/Training/2.jpg",
-      "/Images/HeroSec/Training/3.jpg",
       "/Images/HeroSec/Business/1.jpg",
     ],
 
@@ -917,7 +915,7 @@ function Eyebrow({ label }) {
         alignItems: "center",
         gap: "8px",
 
-        fontSize: "0.62rem",
+        fontSize: "0.72rem",
         fontWeight: 500,
         letterSpacing: "0.18em",
         textTransform: "uppercase",
@@ -1117,7 +1115,7 @@ function ExpandableContent({ course, visible }) {
               marginBottom: "10px",
             }}
           >
-            Who Should Join
+            Curriculum
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
             {course.whoCanJoin.map((w, i) => (
@@ -1404,7 +1402,7 @@ function CourseSection({ course, index }) {
                 <Eyebrow label={course.eyebrow} />
                 <span
                   style={{
-                    fontSize: "0.6rem",
+                    fontSize: "0.7rem",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     padding: "4px 10px",
@@ -1541,7 +1539,7 @@ function CourseSection({ course, index }) {
                     e.target.style.color = "rgba(40, 231, 197,0.7)";
                   }}
                 >
-                  {expanded ? "↑ Less" : "↓ Who Should Join"}
+                  {expanded ? "↑ Less" : "↓ Curriculum"}
                 </button>
                 {expanded && (
                   <button
@@ -1588,7 +1586,7 @@ function NavPill({ href, label }) {
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
-        fontSize: "0.72rem",
+        fontSize: "0.82rem",
         letterSpacing: "0.08em",
         textTransform: "uppercase",
         padding: "6px 14px",

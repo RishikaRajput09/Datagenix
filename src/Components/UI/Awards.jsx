@@ -119,7 +119,7 @@ export default function AwardsSection() {
           <div
             className="
       inline-flex items-center gap-2
-      px-3.5 py-1.5
+      px-7 py-4
       rounded-full
       border border-[rgba(33,198,207,0.4)]
       bg-[rgba(33,198,207,0.09)]
@@ -166,7 +166,7 @@ export default function AwardsSection() {
                 onError={() =>
                   setImgErrors((prev) => ({ ...prev, [current]: true }))
                 }
-                className="w-full h-full object-contain rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl"
               />
             ) : (
               <div className="w-full h-full bg-[#0d0d0d] flex flex-col items-center justify-center gap-4">
